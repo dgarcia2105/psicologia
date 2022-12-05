@@ -1,17 +1,33 @@
-﻿@{
+﻿@model MM.CAAM.Admin.DTOs.HomeDto
+@{
+    ViewBag.MetaDescripcion = Model.MetaHtml.Description;
+    ViewBag.MetaAuthor = Model.MetaHtml.Author;
+    ViewBag.MetaKeywords = Model.MetaHtml.Keywords;
+    ViewBag.Descripcion = Model.Descripcion;
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
     ViewBag.Title = "Contacto";
 }
 <h2>@ViewBag.Title.</h2>
 @*<h3>@ViewBag.Message</h3>*@
 
 <address>
-    Mexicali, Baja California.<br />
-    Magisterio #400, Av. Sta Gertrudis.<br />
+    @Model.Contacto.Ciudad, @Model.Contacto.Estado.<br />
+    @Model.Contacto.Direccion<br />
     <abbr title="Phone">Tel:</abbr>
-    686.589.5638
+    @Model.Contacto.Tel 
+    @if (!string.IsNullOrEmpty(@Model.Contacto.Tel)) { <br /> } 
+    @Model.Contacto.Cel
 </address>
 
 <address>
-    <strong>Contacto CAAM:</strong>   <a href="https://www.facebook.com/psicologia.caam">Facebook/Psicologia.Caam</a><br />
-    <strong>Marketing:</strong> <a href="mailto:daniel2105oficial@gmail.com">Daniel2105Oficial@gmail.com</a>
+    <strong>Contacto:</strong>
+    @if (Model.ListRedSocial.Count > 0)
+    {
+        foreach (var redSocial in @Model.ListRedSocial)
+        {
+            @*<br />*@
+            <a href="@redSocial.Url"> @redSocial.Texto </a><br />
+        }
+    }
+    <strong>Marketing:</strong> <a href="mailto:@Model.Contacto.CorreoMarketing">@Model.Contacto.CorreoMarketing</a>
 </address>

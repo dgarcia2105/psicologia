@@ -10,11 +10,10 @@ namespace MM.CAAM.Admin.DTOs
         public string Title { get; set; }
         public string Eslogan { get; set; }
 
-
         public string UrlRedSocialPrincipal { get; set; }
         public string TextRedSocialPrincipal { get; set; }
 
-
+        public MetaHtmlDto MetaHtml { get; set; }
         public List<InfoHomeDto> ListInfoHome { get; set; } = new List<InfoHomeDto>();
         public ContactoDto Contacto { get; set; }
         public List<RedSocialDto> ListRedSocial { get; set; } = new List<RedSocialDto>();

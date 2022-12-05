@@ -18,8 +18,16 @@ namespace MM.CAAM.Web.Controllers
                 Eslogan = "Por una buena educación.",
                 UrlRedSocialPrincipal = "https://www.facebook.com/psicologia.caam",
                 TextRedSocialPrincipal = "facebook."
-
             };
+
+            #region Meta Html
+            homeDto.MetaHtml = new MetaHtmlDto()
+            {
+                Description = "La mejor atención psicológica profesional a un menor precio de lo que gastarias regularmente.",
+                Keywords = "Profesional, Psicología, Niños, Adolecentes, Adultos, Pareja, Mejor Psicóloga, A tu alcance, A un menor precio, Xochicalco, UABC, Certificado",
+                Author = "Psicología CAAM, Psicologia-CAAM.com, DGarcia2105.com.mx"
+            };
+            #endregion
 
             #region Redes Sociales
             homeDto.ListRedSocial = new List<RedSocialDto>()
@@ -102,6 +110,15 @@ namespace MM.CAAM.Web.Controllers
                 Descripcion = "Psicología Profesional CAAM."
             };
 
+            #region Meta Html
+            homeDto.MetaHtml = new MetaHtmlDto()
+            {
+                Description = "La mejor atención psicológica profesional a un menor precio de lo que gastarias regularmente.",
+                Keywords = "Profesional, Psicología, Niños, Adolecentes, Adultos, Pareja, Mejor Psicóloga, A tu alcance, A un menor precio, Xochicalco, UABC, Certificado",
+                Author = "Psicología CAAM, Psicologia-CAAM.com, DGarcia2105.com.mx"
+            };
+            #endregion
+
             #region Redes Sociales
             homeDto.ListRedSocial = new List<RedSocialDto>()
             {
@@ -128,6 +145,15 @@ namespace MM.CAAM.Web.Controllers
                 TextRedSocialPrincipal = "facebook."
 
             };
+
+            #region Meta Html
+            homeDto.MetaHtml = new MetaHtmlDto()
+            {
+                Description = "La mejor atención psicológica profesional a un menor precio de lo que gastarias regularmente.",
+                Keywords = "Profesional, Psicología, Niños, Adolecentes, Adultos, Pareja, Mejor Psicóloga, A tu alcance, A un menor precio, Xochicalco, UABC, Certificado",
+                Author = "Psicología CAAM, Psicologia-CAAM.com, DGarcia2105.com.mx"
+            };
+            #endregion
 
             #region Redes Sociales
             homeDto.ListRedSocial = new List<RedSocialDto>()

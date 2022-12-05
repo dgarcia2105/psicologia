@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MetaHtmlDto.cs" />
     <Compile Include="RedSocialDto.cs" />
     <Compile Include="ContactoDto.cs" />
     <Compile Include="InfoHomeDto.cs" />

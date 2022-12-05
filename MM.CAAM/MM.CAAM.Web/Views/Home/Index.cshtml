@@ -1,6 +1,9 @@
 ﻿@model MM.CAAM.Admin.DTOs.HomeDto
 @{
     ViewBag.Title = Model.Title;
+    ViewBag.MetaDescripcion = Model.MetaHtml.Description;
+    ViewBag.MetaAuthor = Model.MetaHtml.Author;
+    ViewBag.MetaKeywords = Model.MetaHtml.Keywords;
     ViewBag.Descripcion = Model.Descripcion;
     Layout = "~/Views/Shared/_LayoutPublic.cshtml";
 }

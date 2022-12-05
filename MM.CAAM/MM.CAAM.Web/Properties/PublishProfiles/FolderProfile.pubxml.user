@@ -5,6 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Proyectos\psicologia\publish</_PublishTargetUrl>
+    <History>True|2022-12-05T21:18:36.0862177Z;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -40,11 +41,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 12:48:56</publishTime>
     </File>
+    <File Include="bin/MM.CAAM.Admin.DTOs.dll">
+      <publishTime>12/05/2022 13:18:35</publishTime>
+    </File>
+    <File Include="bin/MM.CAAM.Admin.DTOs.pdb">
+      <publishTime>12/05/2022 13:18:35</publishTime>
+    </File>
     <File Include="bin/MM.CAAM.Web.dll">
-      <publishTime>11/23/2022 21:15:34</publishTime>
+      <publishTime>12/05/2022 13:18:35</publishTime>
     </File>
     <File Include="bin/MM.CAAM.Web.pdb">
-      <publishTime>11/23/2022 21:15:34</publishTime>
+      <publishTime>12/05/2022 13:18:35</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/22/2019 02:06:16</publishTime>
@@ -308,13 +315,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/23/2022 17:40:22</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>11/23/2022 20:46:18</publishTime>
+      <publishTime>12/05/2022 13:16:09</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>11/30/2022 16:30:59</publishTime>
+      <publishTime>12/05/2022 13:16:09</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/30/2022 16:47:27</publishTime>
+      <publishTime>12/05/2022 13:09:51</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>11/23/2022 17:40:16</publishTime>
@@ -326,7 +333,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/30/2022 16:41:54</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutPublic.cshtml">
-      <publishTime>11/30/2022 16:47:38</publishTime>
+      <publishTime>12/05/2022 13:14:20</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>11/23/2022 17:40:16</publishTime>
