@@ -1,7 +1,18 @@
-﻿@{
+﻿@model MM.CAAM.Admin.DTOs.HomeDto
+@{
     ViewBag.Title = "Sobre Nosotros";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h3>@Model.Descripcion</h3>
 
-<p>Siguenos también en nuestra página de <a href="https://www.facebook.com/psicologia.caam">facebook.</a></p>
+<p>
+    Siguenos también en: 
+    @if (Model.ListRedSocial.Count > 0)
+    {
+        foreach (var redSocial in @Model.ListRedSocial)
+        {
+            <br />
+            <a href="@redSocial.Url">@redSocial.Texto</a><br />
+        }
+    }
+</p>

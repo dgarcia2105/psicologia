@@ -16,10 +16,36 @@ namespace MM.CAAM.Web.Controllers
                 Marca = "CAAM",
                 Descripcion = "Psicología Profesional CAAM.",
                 Eslogan = "Por una buena educación.",
-                UrlFacebook = "https://www.facebook.com/psicologia.caam",
-                TextFacebook = "Learn more"
+                UrlRedSocialPrincipal = "https://www.facebook.com/psicologia.caam",
+                TextRedSocialPrincipal = "facebook."
+
             };
 
+            #region Redes Sociales
+            homeDto.ListRedSocial = new List<RedSocialDto>()
+            {
+                new RedSocialDto()
+                {
+                    Url = "https://www.facebook.com/psicologia.caam",
+                    Texto = "facebook."
+                } 
+            };
+            #endregion
+
+            #region Direccion
+            homeDto.Contacto = new ContactoDto()
+            {
+                Ciudad = "Mexicali",
+                Estado = "Baja California",
+                Direccion = "Magisterio, Av. Sta Gertrudis. San Vizcaino",
+                Tel = "",
+                Cel = "686.589.5638",
+                Correo = "",
+                CorreoMarketing = "Daniel2105Oficial@gmail.com"
+            };
+            #endregion
+
+            #region InfoHome
             homeDto.ListInfoHome = new List<InfoHomeDto>()
             {
                 new InfoHomeDto()
@@ -64,25 +90,70 @@ namespace MM.CAAM.Web.Controllers
                     }
                 }
             };
-            
-
-            
+            #endregion
 
             return View(homeDto);
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Psicología profesional.";
+            var homeDto = new HomeDto
+            {
+                Descripcion = "Psicología Profesional CAAM."
+            };
 
-            return View();
+            #region Redes Sociales
+            homeDto.ListRedSocial = new List<RedSocialDto>()
+            {
+                new RedSocialDto()
+                {
+                    Url = "https://www.facebook.com/psicologia.caam",
+                    Texto = "facebook."
+                }
+            };
+            #endregion
+
+            return View(homeDto);
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            var homeDto = new HomeDto
+            {
+                Title = "Caam: Atención Profesional en Psicología",
+                Marca = "CAAM",
+                Descripcion = "Psicología Profesional CAAM.",
+                Eslogan = "Por una buena educación.",
+                UrlRedSocialPrincipal = "https://www.facebook.com/psicologia.caam",
+                TextRedSocialPrincipal = "facebook."
 
-            return View();
+            };
+
+            #region Redes Sociales
+            homeDto.ListRedSocial = new List<RedSocialDto>()
+            {
+                new RedSocialDto()
+                {
+                    Url = "https://www.facebook.com/psicologia.caam",
+                    Texto = "facebook."
+                }
+            };
+            #endregion
+
+            #region Direccion
+            homeDto.Contacto = new ContactoDto()
+            {
+                Ciudad = "Mexicali",
+                Estado = "Baja California",
+                Direccion = "Magisterio, Av. Sta Gertrudis. San Vizcaino",
+                Tel = "",
+                Cel = "686.589.5638",
+                Correo = "",
+                CorreoMarketing = "Daniel2105Oficial@gmail.com"
+            };
+            #endregion
+
+            return View(homeDto);
         }
     }
 }
