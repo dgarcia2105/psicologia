@@ -311,16 +311,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/23/2022 20:46:18</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>11/23/2022 20:59:34</publishTime>
+      <publishTime>11/30/2022 16:30:59</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/23/2022 21:02:25</publishTime>
+      <publishTime>11/30/2022 16:47:27</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>11/23/2022 17:40:16</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/23/2022 20:40:19</publishTime>
+      <publishTime>11/30/2022 16:29:23</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutLoggin.cshtml">
+      <publishTime>11/30/2022 16:41:54</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutPublic.cshtml">
+      <publishTime>11/30/2022 16:47:38</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>11/23/2022 17:40:16</publishTime>
@@ -329,7 +335,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/23/2022 17:40:16</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/23/2022 21:45:10</publishTime>
+      <publishTime>12/04/2022 12:56:12</publishTime>
     </File>
   </ItemGroup>
 </Project>
