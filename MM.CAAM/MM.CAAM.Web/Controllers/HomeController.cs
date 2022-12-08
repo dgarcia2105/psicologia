@@ -58,18 +58,6 @@ namespace MM.CAAM.Web.Controllers
             {
                 new InfoHomeDto()
                 {
-                    Titulo = "Pantalón",
-                    Contenidos = new List<string>()
-                    {
-                        "Bastillas",
-                        "Cintura",
-                        "Angostados (entubados)",
-                        "Cierres",
-                        "Cipper"
-                    }
-                },
-                new InfoHomeDto()
-                {
                     Titulo = "Camisa",
                     Contenidos = new List<string>()
                     {
@@ -99,6 +87,18 @@ namespace MM.CAAM.Web.Controllers
                         "Talle",
                         "Reducir",
                         "Tirantes"
+                    }
+                },
+                new InfoHomeDto()
+                {
+                    Titulo = "Pantalón",
+                    Contenidos = new List<string>()
+                    {
+                        "Bastillas",
+                        "Cintura",
+                        "Angostados (entubados)",
+                        "Cierres",
+                        "Cipper"
                     }
                 },
                 new InfoHomeDto()
