@@ -12,20 +12,20 @@ namespace MM.CAAM.Web.Controllers
         {
             var homeDto = new HomeDto
             {
-                Title = "Caam: Atención Profesional en Psicología",
-                Marca = "CAAM",
-                Descripcion = "Psicología Profesional CAAM.",
-                Eslogan = "Por una buena educación.",
-                UrlRedSocialPrincipal = "https://www.facebook.com/psicologia.caam",
+                Title = "Sastre Campanario: Sastre Profesional",
+                Marca = "Sastre Campanario",
+                Descripcion = "Sastre Profesional Campanario.",
+                Eslogan = "ARREGLO DE ROPA PARA TODA LA FAMILIA.",
+                UrlRedSocialPrincipal = "https://www.facebook.com/sastrecampanario",
                 TextRedSocialPrincipal = "facebook."
             };
 
             #region Meta Html
             homeDto.MetaHtml = new MetaHtmlDto()
             {
-                Description = "La mejor atención psicológica profesional a un menor precio de lo que gastarias regularmente.",
-                Keywords = "Profesional, Psicología, Niños, Adolecentes, Adultos, Pareja, Mejor Psicóloga, A tu alcance, A un menor precio, Xochicalco, UABC, Certificado",
-                Author = "Psicología CAAM, Psicologia-CAAM.com, DGarcia2105.com.mx"
+                Description = "Sastre profesional a un menor costo de lo que gastarias regularmente",
+                Keywords = "Prefiera la sastreria",
+                Author = "Sastre Campanario"
             };
             #endregion
 
@@ -34,7 +34,7 @@ namespace MM.CAAM.Web.Controllers
             {
                 new RedSocialDto()
                 {
-                    Url = "https://www.facebook.com/psicologia.caam",
+                    Url = "https://www.facebook.com/sastrecampanario",
                     Texto = "facebook."
                 } 
             };
@@ -45,9 +45,9 @@ namespace MM.CAAM.Web.Controllers
             {
                 Ciudad = "Mexicali",
                 Estado = "Baja California",
-                Direccion = "Magisterio, Av. Sta Gertrudis. San Vizcaino",
+                Direccion = "Avenida concepción número 20, Frac. El campanario",
                 Tel = "",
-                Cel = "686.589.5638",
+                Cel = "686.161.7979",
                 Correo = "",
                 CorreoMarketing = "Daniel2105Oficial@gmail.com"
             };
@@ -58,43 +58,58 @@ namespace MM.CAAM.Web.Controllers
             {
                 new InfoHomeDto()
                 {
-                    Titulo = "Infantil",
+                    Titulo = "Pantalón",
                     Contenidos = new List<string>()
                     {
-                        "El psicólogo infantil se encarga del proceso de evaluación y diagnóstico de niños y adolescentes. Es el profesional capacitado para diagnosticar los trastornos del desarrollo de índole psicológica que pueden aparecer en este periodo evolutivo, desde el autismo hasta las dificultades de aprendizaje."
+                        "Bastillas",
+                        "Cintura",
+                        "Angostados (entubados)",
+                        "Cierres",
+                        "Cipper"
                     }
                 },
                 new InfoHomeDto()
                 {
-                    Titulo = "Familiar",
+                    Titulo = "Camisa",
                     Contenidos = new List<string>()
                     {
-                        "¿Cómo se aplica la psicologia familiar?"
-                        ,"Resultado de imagen para psicologia familiar La psicología familiar analiza y trata de resolver esos conflictos que se plantean en el grupo familiar. En la psicología familiar se estudian las familias como sistemas y se analizan comportamientos, patrones de comunicación y respuestas emocionales entre los miembros del grupo familiar."
-                        ,"¿Por qué es importante la psicología en la familia?"
-                        ,"Función de apoyo y protección psicosocial: Ejerce un efecto protector y estabilizador frente a los trastornos mentales, la familia facilita la adaptación de sus miembros a las nuevas circunstancias en consonancia con el entorno social. Según Nathan W."
+                        "Mangas",
+                        "Largo",
+                        "Hombros",
+                        "Costados"
                     }
                 },
                 new InfoHomeDto()
                 {
-                    Titulo = "Pareja",
+                    Titulo = "Saco",
                     Contenidos = new List<string>()
                     {
-                        "¿Cómo saber si tengo que ir a terapia de pareja?",
-                        "Los principales motivos por los que se recurre a una Terapia de Pareja son: ",
-                        "1. Dificultades en la sexualidad, disfunciones sexuales o desacuerdos en la frecuencia de las relaciones.",
-                        "2. Monotonía y aburrimiento en la relación de pareja.",
-                        "3. Problemas en la comunicación.",
-                        "4. Infidelidades.",
-                        "5. Celos y desconfianza en la pareja."
+                        "Mangas",
+                        "Largo",
+                        "Hombros",
+                        "Costados"
                     }
                 },
                 new InfoHomeDto()
                 {
-                    Titulo = "Individual",
+                    Titulo = "Vestidos",
                     Contenidos = new List<string>()
                     {
-                        "La terapia individual se suele emplear para trabajar los problemas de ansiedad, la depresión, la inseguridad personal, la baja autoestima, la toma de decisiones, el autocontrol de las emociones, la sensación de estancamiento en la vida (en el área sentimental, la vida laboral, las relaciones con otras personas del entorno, etc.), y los problemas sexuales, en aquellos casos en los que no se tiene una pareja o ésta no quiere participar en la terapia."
+                        "Bastillas",
+                        "Talle",
+                        "Reducir",
+                        "Tirantes"
+                    }
+                },
+                new InfoHomeDto()
+                {
+                    Titulo = "Chamarras",
+                    Contenidos = new List<string>()
+                    {
+                        "Mangas",
+                        "Cierres",
+                        "Costados",
+                        "Hombros"
                     }
                 }
             };
@@ -107,15 +122,20 @@ namespace MM.CAAM.Web.Controllers
         {
             var homeDto = new HomeDto
             {
-                Descripcion = "Psicología Profesional CAAM."
+                Title = "Sastre Campanario: Sastre Profesional",
+                Marca = "Sastre Campanario",
+                Descripcion = "Sastre Profesional Campanario.",
+                Eslogan = "ARREGLO DE ROPA PARA TODA LA FAMILIA.",
+                UrlRedSocialPrincipal = "https://www.facebook.com/sastrecampanario",
+                TextRedSocialPrincipal = "facebook."
             };
 
             #region Meta Html
             homeDto.MetaHtml = new MetaHtmlDto()
             {
-                Description = "La mejor atención psicológica profesional a un menor precio de lo que gastarias regularmente.",
-                Keywords = "Profesional, Psicología, Niños, Adolecentes, Adultos, Pareja, Mejor Psicóloga, A tu alcance, A un menor precio, Xochicalco, UABC, Certificado",
-                Author = "Psicología CAAM, Psicologia-CAAM.com, DGarcia2105.com.mx"
+                Description = "Sastre profesional a un menor costo de lo que gastarias regularmente",
+                Keywords = "Prefiera la sastreria",
+                Author = "Sastre Campanario"
             };
             #endregion
 
@@ -124,7 +144,7 @@ namespace MM.CAAM.Web.Controllers
             {
                 new RedSocialDto()
                 {
-                    Url = "https://www.facebook.com/psicologia.caam",
+                    Url = "https://www.facebook.com/sastrecampanario",
                     Texto = "facebook."
                 }
             };
@@ -137,21 +157,20 @@ namespace MM.CAAM.Web.Controllers
         {
             var homeDto = new HomeDto
             {
-                Title = "Caam: Atención Profesional en Psicología",
-                Marca = "CAAM",
-                Descripcion = "Psicología Profesional CAAM.",
-                Eslogan = "Por una buena educación.",
-                UrlRedSocialPrincipal = "https://www.facebook.com/psicologia.caam",
+                Title = "Sastre Campanario: Sastre Profesional",
+                Marca = "Sastre Campanario",
+                Descripcion = "Sastre Profesional Campanario.",
+                Eslogan = "ARREGLO DE ROPA PARA TODA LA FAMILIA.",
+                UrlRedSocialPrincipal = "https://www.facebook.com/sastrecampanario",
                 TextRedSocialPrincipal = "facebook."
-
             };
 
             #region Meta Html
             homeDto.MetaHtml = new MetaHtmlDto()
             {
-                Description = "La mejor atención psicológica profesional a un menor precio de lo que gastarias regularmente.",
-                Keywords = "Profesional, Psicología, Niños, Adolecentes, Adultos, Pareja, Mejor Psicóloga, A tu alcance, A un menor precio, Xochicalco, UABC, Certificado",
-                Author = "Psicología CAAM, Psicologia-CAAM.com, DGarcia2105.com.mx"
+                Description = "Sastre profesional a un menor costo de lo que gastarias regularmente",
+                Keywords = "Prefiera la sastreria",
+                Author = "Sastre Campanario"
             };
             #endregion
 
@@ -160,7 +179,7 @@ namespace MM.CAAM.Web.Controllers
             {
                 new RedSocialDto()
                 {
-                    Url = "https://www.facebook.com/psicologia.caam",
+                    Url = "https://www.facebook.com/sastrecampanario",
                     Texto = "facebook."
                 }
             };
@@ -171,9 +190,9 @@ namespace MM.CAAM.Web.Controllers
             {
                 Ciudad = "Mexicali",
                 Estado = "Baja California",
-                Direccion = "Magisterio, Av. Sta Gertrudis. San Vizcaino",
+                Direccion = "Avenida concepción número 20, Frac. El campanario",
                 Tel = "",
-                Cel = "686.589.5638",
+                Cel = "686.161.7979",
                 Correo = "",
                 CorreoMarketing = "Daniel2105Oficial@gmail.com"
             };
