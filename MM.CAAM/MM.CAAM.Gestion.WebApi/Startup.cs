@@ -2,17 +2,19 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MM.CAAM.Gestion.WebApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebAPIAutores
+namespace MM.CAAM.Gestion.WebApi
 {
     public class Startup
     {
@@ -27,6 +29,14 @@ namespace WebAPIAutores
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
+            /*d
+             * dotnet ef database update
+             * dotnet ef migrations add inicial
+             */
+
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(c =>
             {

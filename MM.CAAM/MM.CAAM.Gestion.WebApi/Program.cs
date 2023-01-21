@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using WebAPIAutores;
+using MM.CAAM.Gestion.WebApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,3 +12,4 @@ var app = builder.Build();
 startup.Configure(app, app.Environment);
 
 app.Run();
+
