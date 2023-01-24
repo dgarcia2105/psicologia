@@ -11,5 +11,6 @@ namespace MM.CAAM.Gestion.WebApi
         }
 
         public DbSet<Autor> Autores { get; set; }
+        public DbSet<Libro> Libros { get; set; }
     }
 }

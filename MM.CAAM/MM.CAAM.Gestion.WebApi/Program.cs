@@ -9,7 +9,10 @@ startup.ConfigureServices(builder.Services);
 
 var app = builder.Build();
 
-startup.Configure(app, app.Environment);
+//Configuracion para guardar todas las respuestas del WebApi
+var servicioLogger = (ILogger<Startup>)app.Services.GetService(typeof(ILogger<Startup>));
+
+startup.Configure(app, app.Environment, servicioLogger);
 
 app.Run();
 
