@@ -16,7 +16,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Nombre = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -24,39 +24,27 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Libro",
+                name: "Libros",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AutorId = table.Column<int>(type: "int", nullable: false)
+                    Titulo = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Libro", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Libro_Autores_AutorId",
-                        column: x => x.AutorId,
-                        principalTable: "Autores",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                    table.PrimaryKey("PK_Libros", x => x.Id);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Libro_AutorId",
-                table: "Libro",
-                column: "AutorId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Libro");
+                name: "Autores");
 
             migrationBuilder.DropTable(
-                name: "Autores");
+                name: "Libros");
         }
     }
 }

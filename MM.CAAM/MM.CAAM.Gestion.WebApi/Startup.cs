@@ -13,7 +13,6 @@ using Microsoft.OpenApi.Models;
 using MM.CAAM.Gestion.WebApi;
 using MM.CAAM.Gestion.WebApi.Filtros;
 using MM.CAAM.Gestion.WebApi.Middlewares;
-using MM.CAAM.Gestion.WebApi.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,16 +52,6 @@ namespace MM.CAAM.Gestion.WebApi
              * dotnet ef database update
              */
 
-            services.AddTransient<IServicio, ServicioA>();
-
-            services.AddTransient<ServicioTransient>();
-            services.AddScoped<ServicioScoped>();
-            services.AddSingleton<ServicioSingleton>();
-            services.AddTransient<MiFiltroDeAccion>();
-            services.AddHostedService<EscribirEnArchivo>();
-
-            services.AddResponseCaching();
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
 
             //services.AddEndpointsApiExplorer();
@@ -70,6 +59,8 @@ namespace MM.CAAM.Gestion.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIAutores", Version = "v1" });
             });
+
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

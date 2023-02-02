@@ -15,6 +15,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.13" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,12 +24,26 @@
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
     <None Remove="Middlewares\" />
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Validaciones\" />
+    <None Remove="Servicios\" />
+    <None Remove="DTOs\" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Utilidades\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Middlewares\" />
     <Folder Include="wwwroot\" />
+    <Folder Include="Validaciones\" />
+    <Folder Include="Servicios\" />
+    <Folder Include="DTOs\" />
+    <Folder Include="Utilidades\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

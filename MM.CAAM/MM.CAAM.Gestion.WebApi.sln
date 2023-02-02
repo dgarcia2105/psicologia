@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1704.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Gestion.WebApi", "MM.CAAM.Gestion.WebApi\MM.CAAM.Gestion.WebApi.csproj", "{8D13E67D-D3C2-4CF1-8636-0C1D68071D62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Gestion.DTO", "MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj", "{2E2C3DAE-2A6C-4513-B4F6-539F891A9FFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8D13E67D-D3C2-4CF1-8636-0C1D68071D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D13E67D-D3C2-4CF1-8636-0C1D68071D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D13E67D-D3C2-4CF1-8636-0C1D68071D62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E2C3DAE-2A6C-4513-B4F6-539F891A9FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E2C3DAE-2A6C-4513-B4F6-539F891A9FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E2C3DAE-2A6C-4513-B4F6-539F891A9FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E2C3DAE-2A6C-4513-B4F6-539F891A9FFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
