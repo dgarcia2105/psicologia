@@ -10,6 +10,14 @@ namespace MM.CAAM.Gestion.WebApi
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<AutorLibro>()
+                .HasKey(al => new { al.AutorId, al.LibroId });
+        }
+
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Libro> Libros { get; set; }
     }

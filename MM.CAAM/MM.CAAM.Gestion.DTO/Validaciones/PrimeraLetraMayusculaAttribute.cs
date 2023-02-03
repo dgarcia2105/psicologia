@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MM.CAAM.Gestion.DTO.Validaciones
+namespace MM.CAAM.Gestion.DTO.ValidacionesOld
 {
 	public class PrimeraLetraMayusculaAttribute: ValidationAttribute
 	{

@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MM.CAAM.Gestion.WebApi.Entidades;
 using MM.CAAM.Gestion.WebApi.Filtros;
-using MM.CAAM.Gestion.DTO;
-
+using MM.CAAM.Gestion.WebApi.DTOs;
+using System.Linq;
 
 namespace MM.CAAM.Gestion.WebApi.Controllers
 {
@@ -25,35 +25,33 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
         }
         
         [HttpGet] // api/autores
-        public async Task<List<Autor>> Get()
+        public async Task<List<AutorDTO>> Get()
         { 
-            return await context.Autores.ToListAsync();
+            var autores = await context.Autores.ToListAsync();
+            return mapper.Map<List<AutorDTO>>(autores);
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Autor>> Get(int id)
+        public async Task<ActionResult<AutorDTO>> Get(int id)
         {
-            var autor = await context.Autores.FirstOrDefaultAsync(x => x.Id == id);
+            var autor = await context.Autores.FirstOrDefaultAsync(AutorBD => AutorBD.Id == id);
 
             if (autor == null)
             {
                 return NotFound();
             }
 
-            return autor;
+            return mapper.Map<AutorDTO>(autor);
         }
 
         [HttpGet("{nombre}")]
-        public async Task<ActionResult<Autor>> Get([FromRoute] string nombre)
+        public async Task<ActionResult<List<AutorDTO>>> Get([FromRoute] string nombre)
         {
-            var autor = await context.Autores.FirstOrDefaultAsync(x => x.Nombre.Contains(nombre));
+            var autores = await context.Autores.Where(AutorBd => AutorBd.Nombre.Contains(nombre)).ToListAsync();
 
-            if (autor == null)
-            {
-                return NotFound();
-            }
+            
 
-            return autor;
+            return mapper.Map<List<AutorDTO>>(autores);
         }
 
         [HttpPost]
@@ -66,20 +64,20 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
                 return BadRequest($"Ya existe un autor con el nombre {autorCreacionDto.Nombre}");
             }
 
-            var auto = mapper.Map<Autor>(autorCreacionDto);
+            var autor = mapper.Map<Autor>(autorCreacionDto);
 
-            context.Add(autorCreacionDto);
+            context.Add(autor);
             await context.SaveChangesAsync();
             return Ok();
         }
 
         [HttpPut("{id:int}")] // api/autores/1 
-        public async Task<ActionResult> Put(Autor autor, int id)
+        public async Task<ActionResult> Put(AutorCreacionDTO autorCreacionDTO, int id)
         {
-            if (autor.Id != id)
-            {
-                return BadRequest("El id del autor no coincide con el id de la URL");
-            }
+            //if (autor.Id != id)
+            //{
+                //return BadRequest("El id del autor no coincide con el id de la URL");
+            //}
 
             var existe = await context.Autores.AnyAsync(x => x.Id == id);
 
@@ -88,9 +86,12 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
                 return NotFound();
             }
 
+            var autor = mapper.Map<Autor>(autorCreacionDTO);
+            autor.Id = id;
+
             context.Update(autor);
             await context.SaveChangesAsync();
-            return Ok();
+            return NoContent();
         }
 
         [HttpDelete("{id:int}")] // api/autores/2
