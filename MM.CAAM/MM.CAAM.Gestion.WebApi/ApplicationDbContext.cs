@@ -21,6 +21,7 @@ namespace MM.CAAM.Gestion.WebApi
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Libro> Libros { get; set; }
         public DbSet<Comentario> Comentarios { get; set; }
+        public DbSet<AutorLibro> AutoresLibros { get; set; }
 
         /*
         * dotnet ef migrations add Comentarios
