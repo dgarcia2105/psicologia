@@ -22,11 +22,16 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
 
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<LibroDTO>> Get(int id)
+        public async Task<ActionResult<LibroDTOConAutores>> Get(int id)
         {
             var libro = await context.Libros
-                .Include(LibroDb => LibroDb.Comentarios).FirstOrDefaultAsync(x => x.Id == id);
-            return mapper.Map<LibroDTO>(libro);
+                .Include(LibroDb => LibroDb.AutoresLibros)
+                .ThenInclude(autorLibroDB => autorLibroDB.Autor)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            libro.AutoresLibros = libro.AutoresLibros.OrderBy(x => x.Orden).ToList();
+
+            return mapper.Map<LibroDTOConAutores>(libro);
         }
 
         [HttpPost]

@@ -32,16 +32,19 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<AutorDTO>> Get(int id)
+        public async Task<ActionResult<AutorDTOConLibros>> Get(int id)
         {
-            var autor = await context.Autores.FirstOrDefaultAsync(AutorBD => AutorBD.Id == id);
+            var autor = await context.Autores
+                .Include(autorDB => autorDB.AutoresLibros)
+                .ThenInclude(autorLibroDB => autorLibroDB.Libro)
+                .FirstOrDefaultAsync(AutorBD => AutorBD.Id == id);
 
             if (autor == null)
             {
                 return NotFound();
             }
 
-            return mapper.Map<AutorDTO>(autor);
+            return mapper.Map<AutorDTOConLibros>(autor);
         }
 
         [HttpGet("{nombre}")]
