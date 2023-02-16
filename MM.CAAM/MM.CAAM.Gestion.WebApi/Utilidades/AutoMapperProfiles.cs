@@ -19,6 +19,7 @@ namespace MM.CAAM.Gestion.WebApi.Utilidades
             CreateMap<Libro, LibroDTO>();
             CreateMap<Libro, LibroDTOConAutores>()
                 .ForMember(libroDTO => libroDTO.Autores, opciones => opciones.MapFrom(MapLibroDTOAutores));
+            CreateMap<LibroPatchDTO, Libro>().ReverseMap();
 
             CreateMap<ComentarioCreacionDTO, Comentario>();
             CreateMap<Comentario, ComentarioDTO>();

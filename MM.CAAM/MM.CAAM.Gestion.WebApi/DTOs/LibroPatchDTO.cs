@@ -4,12 +4,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MM.CAAM.Gestion.WebApi.DTOs
 {
-	public class LibroDTO
+	public class LibroPatchDTO
 	{
-        public int Id { get; set; }
+        [PrimeraLetraMayuscula]
+        [StringLength(maximumLength: 250)]
+        [Required]
         public string Titulo { get; set; }
         public DateTime FechaPublicacion { get; set; }
-        //public List<ComentarioDTO> Comentarios { get; set; }
     }
 }
 
