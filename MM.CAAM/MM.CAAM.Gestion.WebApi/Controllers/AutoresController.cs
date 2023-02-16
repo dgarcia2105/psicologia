@@ -8,7 +8,7 @@ using MM.CAAM.Gestion.WebApi.Filtros;
 using MM.CAAM.Gestion.WebApi.DTOs;
 using System.Linq;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers
+namespace MM.CAAM.Gestion.WebApi.Controllers    
 {
     [ApiController]                                                             //si algo sale mal retorna un bad request
     [Route("api/autores")]
@@ -31,7 +31,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             return mapper.Map<List<AutorDTO>>(autores);
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:int}", Name = "ObtenerAutor")]
         public async Task<ActionResult<AutorDTOConLibros>> Get(int id)
         {
             var autor = await context.Autores
@@ -71,17 +71,15 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
 
             context.Add(autor);
             await context.SaveChangesAsync();
-            return Ok();
+
+            var autorDto = mapper.Map<AutorDTO>(autor);
+
+            return CreatedAtRoute("ObtenerAutor", new {id = autor.Id}, autorDto);
         }
 
         [HttpPut("{id:int}")] // api/autores/1 
         public async Task<ActionResult> Put(AutorCreacionDTO autorCreacionDTO, int id)
         {
-            //if (autor.Id != id)
-            //{
-                //return BadRequest("El id del autor no coincide con el id de la URL");
-            //}
-
             var existe = await context.Autores.AnyAsync(x => x.Id == id);
 
             if (!existe)

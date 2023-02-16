@@ -69,8 +69,8 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             await context.SaveChangesAsync();
 
             var comentarioDTO = mapper.Map<ComentarioDTO>(comentario);
-            return Ok();
-            //return CreatedAtRoute("ObtenerComentario", new { id = comentario.Id, libroId = libroId }, comentarioDTO);
+            
+            return CreatedAtRoute("ObtenerComentario", new { id = comentario.Id, libroId = libroId }, comentarioDTO);
         }
 
         [HttpPut("{id:int}")]
