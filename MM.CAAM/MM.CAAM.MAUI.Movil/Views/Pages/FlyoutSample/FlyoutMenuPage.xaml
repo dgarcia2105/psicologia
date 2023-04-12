@@ -27,7 +27,7 @@
                     <Image Source="{Binding IconSource}" />
                     <Label Margin="20,0"
                            Text="{Binding Title}"
-                           FontSize="20"
+                           FontSize="Body"
                            VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </DataTemplate>

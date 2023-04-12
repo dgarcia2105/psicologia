@@ -9,6 +9,7 @@ public partial class App : Application
 		InitializeComponent();
 
         //MainPage = new AppShell();  //Pagina de inicio
-        MainPage = new Views.Pages.FlyoutSample.FlyoutSamplePage();	//Pagina de inicio
+        //MainPage = new Views.Pages.FlyoutSample.FlyoutSamplePage();	//Pagina de inicio
+        MainPage = new Views.Pages.TabbedPageSample.TabbedPageSample();
     }
 }

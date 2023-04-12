@@ -11,5 +11,17 @@
     <MauiXaml Update="Views\Pages\FlyoutSample\FlyoutSamplePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\Pages\TabbedPageSample\TabbedPage1.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Pages\TabbedPageSample\TabbedPage2.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Pages\TabbedPageSample\TabbedPage3.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Pages\TabbedPageSample\TabbedPageSample.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
   </ItemGroup>
 </Project>
