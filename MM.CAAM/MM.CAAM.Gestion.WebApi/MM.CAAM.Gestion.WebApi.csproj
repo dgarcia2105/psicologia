@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -40,10 +40,5 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
   </ItemGroup>
 </Project>
