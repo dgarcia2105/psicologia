@@ -1,12 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- RECURSOS -->
+    <!-- https://www.campusmvp.es/recursos/post/estilos-css-para-imprimir-pautas-basicas-y-ejemplos.aspx -->
+    <!-- http://desarrolloweb.dlsi.ua.es/libros/html-css/como-crear-una-hoja-de-estilo-para-impresion -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PJBC**</title>
+
+    <!-- <link rel="stylesheet" type="text/css" href="/estilos.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/estilos-impresion.css" media="print" /> -->
+ 
+    <!--<link rel="stylesheet" type="text/css" href="estilos.css" /> -->
+
+    <style>
+        /*Arial, Helvetica,*/
+        /*https://www.w3schools.com/css/css_font.asp*/
+        /* *
+        {
+            font-family:  sans-serif;          
+        } */
+        /* Contenido del fichero home.css */
+        @media screen {
+        
+        }
+        /* Contenido del fichero print.css */
+        @media print {
+        
+        }
+
+        /*SALTOS DE PAGINA*/
+        /* h3 + h3 {
+            page-break-before: always;                              
+        } */
+        /*EVITAR SALTO DE PAGINA*/
+        /* ul, img, table {
+            page-break-inside: avoid;                               
+        } */
+
+        /**************************************/
+
+        * {
+            font-size: 12px;
+            font-family: 'Times New Roman';
+        }
+
+        td,
+        th,
+        tr,
+        table {
+            border-top: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td.description,
+        th.description {
+            width: 75px;
+            max-width: 75px;
+        }
+
+        td.quantity,
+        th.quantity {
+            width: 40px;
+            max-width: 40px;
+            word-break: break-all;
+        }
+
+        td.price,
+        th.price {
+            width: 40px;
+            max-width: 40px;
+            word-break: break-all;
+        }
+
+        .centered {
+            text-align: center;
+            align-content: center;
+        }
+
+        .ticket {
+            width: 155px;
+            max-width: 155px;
+        }
+
+        img {
+            max-width: inherit;
+            width: inherit;
+        }
+
+        @media print {
+            .hidden-print,
+            .hidden-print * {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <!-- <h3>1</h3>
+    <h3>2</h3>
+    <h3>3</h3> -->
+    <div class="ticket">
+        <img src="https://www.poder-judicial-bc.gob.mx/imagenes/logos/LogoPortal.png" alt="Logo">
+        <p class="centered">EJEMPLO DE ELAINE
+            <br>Misión Sta. Gertrudis, San Vizcaíno, 21379 Mexicali, B.C.
+            <br>C. Conalep S/N, 21620 Puebla, B.C.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="quantity">Q.</th>
+                    <th class="description">Description</th>
+                    <th class="price">$$</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="quantity">1.00</td>
+                    <td class="description">ELAINE PREPA</td>
+                    <td class="price">$25.00</td>
+                </tr>
+                <tr>
+                    <td class="quantity">2.00</td>
+                    <td class="description">DANIEL GARCÍA</td>
+                    <td class="price">$10.00</td>
+                </tr>
+                <tr>
+                    <td class="quantity">1.00</td>
+                    <td class="description">FERRETERIA SISTER</td>
+                    <td class="price">$10.00</td>
+                </tr>
+                <tr>
+                    <td class="quantity"></td>
+                    <td class="description">TOTAL</td>
+                    <td class="price">$55.00</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="centered">¡Gracias por su compra!
+            <br>Powered By: Daniel García</p>
+    </div>
+    <button id="btnPrint" class="hidden-print">Print</button>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        const $btnPrint = document.querySelector("#btnPrint");
+        $btnPrint.addEventListener("click", () => {
+            window.print();
+        });
+    </script>
 </body>
 </html>
