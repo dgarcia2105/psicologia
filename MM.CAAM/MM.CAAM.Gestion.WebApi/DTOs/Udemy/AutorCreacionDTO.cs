@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using MM.CAAM.Gestion.WebApi.Validaciones;
 
-namespace MM.CAAM.Gestion.WebApi.DTOs
+namespace MM.CAAM.Gestion.WebApi.DTOs.Udemy
 {
     public class AutorCreacionDTO
     {

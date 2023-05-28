@@ -3,12 +3,12 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MM.CAAM.Gestion.WebApi.Entidades;
 using MM.CAAM.Gestion.WebApi.Filtros;
-using MM.CAAM.Gestion.WebApi.DTOs;
 using System.Linq;
+using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
+using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers    
+namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
 {
     [ApiController]                                                             //si algo sale mal retorna un bad request
     [Route("api/autores")]
@@ -23,10 +23,10 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             this.context = context;
             this.mapper = mapper;
         }
-        
+
         [HttpGet] // api/autores
         public async Task<List<AutorDTO>> Get()
-        { 
+        {
             var autores = await context.Autores.ToListAsync();
             return mapper.Map<List<AutorDTO>>(autores);
         }
@@ -52,7 +52,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
         {
             var autores = await context.Autores.Where(AutorBd => AutorBd.Nombre.Contains(nombre)).ToListAsync();
 
-            
+
 
             return mapper.Map<List<AutorDTO>>(autores);
         }
@@ -74,7 +74,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
 
             var autorDto = mapper.Map<AutorDTO>(autor);
 
-            return CreatedAtRoute("ObtenerAutor", new {id = autor.Id}, autorDto);
+            return CreatedAtRoute("ObtenerAutor", new { id = autor.Id }, autorDto);
         }
 
         [HttpPut("{id:int}")] // api/autores/1 

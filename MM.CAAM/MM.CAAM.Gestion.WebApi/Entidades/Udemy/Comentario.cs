@@ -1,8 +1,9 @@
 ﻿using System;
-namespace MM.CAAM.Gestion.WebApi.Entidades
+
+namespace MM.CAAM.Gestion.WebApi.Entidades.Udemy
 {
-	public class Comentario
-	{
+    public class Comentario
+    {
         public int Id { get; set; }
         public string Contenido { get; set; }
         public int LibroId { get; set; }

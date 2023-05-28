@@ -1,14 +1,15 @@
 ﻿using System;
 using AutoMapper;
-using MM.CAAM.Gestion.WebApi.DTOs;
-using MM.CAAM.Gestion.WebApi.Entidades;
+using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
+using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 
 namespace MM.CAAM.Gestion.WebApi.Utilidades
 {
-	public class AutoMapperProfiles: Profile
+    public class AutoMapperProfiles: Profile
 	{
 		public AutoMapperProfiles()
         {
+            #region UDEMY
             CreateMap<AutorCreacionDTO, Autor>();
 
             CreateMap<Autor, AutorDTO>();
@@ -23,6 +24,10 @@ namespace MM.CAAM.Gestion.WebApi.Utilidades
 
             CreateMap<ComentarioCreacionDTO, Comentario>();
             CreateMap<Comentario, ComentarioDTO>();
+            #endregion
+
+            //Fuente y el destino
+            CreateMap<AutorCreacionDTO, Autor>();
         }
 
         private List<LibroDTO> MapAutorDTOLibros(Autor autor, AutorDTO autorDTO)

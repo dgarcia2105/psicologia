@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.WebApi;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.WebApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230528174927_Usuarios")]
+    partial class Usuarios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,27 +24,6 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Negocio", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("Negocios");
-                });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Autor", b =>
                 {
@@ -138,17 +120,6 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Negocio", b =>
-                {
-                    b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Usuario", "Usuario")
-                        .WithMany("Negocio")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
-                });
-
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.AutorLibro", b =>
                 {
                     b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Autor", "Autor")
@@ -189,11 +160,6 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.Navigation("AutoresLibros");
 
                     b.Navigation("Comentarios");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Usuario", b =>
-                {
-                    b.Navigation("Negocio");
                 });
 #pragma warning restore 612, 618
         }

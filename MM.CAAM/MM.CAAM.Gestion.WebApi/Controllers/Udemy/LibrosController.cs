@@ -3,10 +3,10 @@ using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MM.CAAM.Gestion.WebApi.DTOs;
-using MM.CAAM.Gestion.WebApi.Entidades;
+using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
+using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers
+namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
 {
     [ApiController]
     [Route("api/libros")]
@@ -30,7 +30,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
                 .ThenInclude(autorLibroDB => autorLibroDB.Autor)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
-            if(libro == null)
+            if (libro == null)
             {
                 return NotFound();
             }
@@ -43,7 +43,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult> Post(LibroCreacionDTO libroCreacionDTO)
         {
-            if(libroCreacionDTO.AutoresIds == null)
+            if (libroCreacionDTO.AutoresIds == null)
             {
                 return BadRequest("No se puede crear un libro sin autores");
             }
@@ -58,7 +58,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
 
             var libro = mapper.Map<Libro>(libroCreacionDTO);
 
-            if(libro.AutoresLibros != null)
+            if (libro.AutoresLibros != null)
             {
                 for (int i = 0; i < libro.AutoresLibros.Count; i++)
                 {
@@ -71,7 +71,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
 
             var libroDTO = mapper.Map<LibroDTO>(libro);
 
-            return CreatedAtRoute("ObtenerLibro", new {id=libro.Id}, libroDTO);
+            return CreatedAtRoute("ObtenerLibro", new { id = libro.Id }, libroDTO);
         }
 
         [HttpPut("{id:int}")]

@@ -5,14 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MM.CAAM.Gestion.WebApi.DTOs;
-using MM.CAAM.Gestion.WebApi.Entidades;
+using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
+using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers
+namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
 {
     [ApiController]
     [Route("api/libros/{libroId:int}/comentarios")]
-    public class ComentariosController: ControllerBase
+    public class ComentariosController : ControllerBase
     {
         private readonly ApplicationDbContext context;
         private readonly IMapper mapper;
@@ -69,8 +69,8 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             await context.SaveChangesAsync();
 
             var comentarioDTO = mapper.Map<ComentarioDTO>(comentario);
-            
-            return CreatedAtRoute("ObtenerComentario", new { id = comentario.Id, libroId = libroId }, comentarioDTO);
+
+            return CreatedAtRoute("ObtenerComentario", new { id = comentario.Id, libroId }, comentarioDTO);
         }
 
         [HttpPut("{id:int}")]
