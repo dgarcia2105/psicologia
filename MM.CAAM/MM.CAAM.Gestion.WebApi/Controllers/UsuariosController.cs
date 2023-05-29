@@ -27,9 +27,32 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Usuario>>> Get()
+        public async Task<ActionResult<List<UsuarioDTO>>> Get()
         {
-            return await context.Usuarios.Include(x => x.Negocios).ToListAsync();
+            var usuarios = await context.Usuarios.Include(x => x.Negocios).ToListAsync();
+
+            return mapper.Map<List<UsuarioDTO>>(usuarios);
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<UsuarioDTO>> Get(int id)
+        {
+            var usuario = await context.Usuarios.FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id);
+
+            if(usuario == null)
+            {
+                return NotFound();
+            }
+
+            return mapper.Map<UsuarioDTO>(usuario);
+        }
+
+        [HttpGet("{nombre}")]
+        public async Task<ActionResult<List<UsuarioDTO>>> Get([FromRoute] string nombre)
+        {
+            var usuarios = await context.Usuarios.Where(UsuarioBd => UsuarioBd.Nombre.Contains(nombre)).ToListAsync();
+
+            return mapper.Map<List<UsuarioDTO>>(usuarios);
         }
 
         [HttpPost]
@@ -41,12 +64,6 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             {
                 return BadRequest($"Ya existe un usuario con el nombre {usuarioCreacionDTO.Nombre}");
             }
-
-            //Esto funciona pero es mejor el automapper
-            //var usuario = new Usuario()
-            //{
-            //    Nombre = usuarioCreacionDTO.Nombre
-            //};
 
             var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);
 
@@ -74,22 +91,6 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             context.Update(usuario);
             await context.SaveChangesAsync();
             return Ok();
-
-            //-----------------------------------------------------------------
-
-            //var existe = await context.Autores.AnyAsync(x => x.Id == id);
-
-            //if (!existe)
-            //{
-            //    return NotFound();
-            //}
-
-            //var autor = mapper.Map<Autor>(autorCreacionDTO);
-            //autor.Id = id;
-
-            //context.Update(autor);
-            //await context.SaveChangesAsync();
-            //return NoContent();
         }
 
         [HttpDelete("{id:int}")]    //api/autores/2

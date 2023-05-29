@@ -46,58 +46,6 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             await context.SaveChangesAsync();
             return Ok();
         }
-
-        //[HttpPut("{id:int}")]   //api/usuarios/1
-        //public async Task<ActionResult> Put(Usuario usuario, int id)
-        //{
-        //    //-- Validación sin DTO
-        //    if(usuario.Id != id) 
-        //    {
-        //        return BadRequest("El id del usuario no coincide con el id de la URL");
-        //    }
-
-        //    var existe = await context.Usuarios.AnyAsync(us => us.Id == id);
-
-        //    if (!existe)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    context.Update(usuario);
-        //    await context.SaveChangesAsync();
-        //    return Ok();
-
-        //    //-----------------------------------------------------------------
-
-        //    //var existe = await context.Autores.AnyAsync(x => x.Id == id);
-
-        //    //if (!existe)
-        //    //{
-        //    //    return NotFound();
-        //    //}
-
-        //    //var autor = mapper.Map<Autor>(autorCreacionDTO);
-        //    //autor.Id = id;
-
-        //    //context.Update(autor);
-        //    //await context.SaveChangesAsync();
-        //    //return NoContent();
-        //}
-
-        //[HttpDelete("{id:int}")]    //api/autores/2
-        //public async Task<ActionResult> Delete(int id)
-        //{
-        //    var existe = await context.Usuarios.AnyAsync(us => us.Id == id);
-
-        //    if (!existe)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    context.Remove(new Usuario { Id = id });
-        //    await context.SaveChangesAsync();
-        //    return Ok();
-        //}
     }
 }
 

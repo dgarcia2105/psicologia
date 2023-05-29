@@ -1,6 +1,8 @@
 ﻿using System;
 using AutoMapper;
+using MM.CAAM.Gestion.WebApi.DTOs;
 using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
+using MM.CAAM.Gestion.WebApi.Entidades;
 using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 
 namespace MM.CAAM.Gestion.WebApi.Utilidades
@@ -27,7 +29,8 @@ namespace MM.CAAM.Gestion.WebApi.Utilidades
             #endregion
 
             //Fuente y el destino
-            CreateMap<AutorCreacionDTO, Autor>();
+            CreateMap<UsuarioCreacionDTO, Usuario>();
+            CreateMap<Usuario, UsuarioDTO>();
         }
 
         private List<LibroDTO> MapAutorDTOLibros(Autor autor, AutorDTO autorDTO)
