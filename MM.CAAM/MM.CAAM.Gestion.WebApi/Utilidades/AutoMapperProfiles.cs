@@ -1,8 +1,10 @@
 ﻿using System;
 using AutoMapper;
 using MM.CAAM.Gestion.WebApi.DTOs;
+using MM.CAAM.Gestion.WebApi.DTOs.Catalogos;
 using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
 using MM.CAAM.Gestion.WebApi.Entidades;
+using MM.CAAM.Gestion.WebApi.Entidades.Catalogos;
 using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 
 namespace MM.CAAM.Gestion.WebApi.Utilidades
@@ -35,6 +37,14 @@ namespace MM.CAAM.Gestion.WebApi.Utilidades
             CreateMap<Negocio, NegocioDTO>();
             CreateMap<ConsultaCreacionDTO,  Consulta>();
             CreateMap<Consulta, ConsultaDTO>();
+
+            #region CATALOGOS - TIPOS
+            CreateMap<CatalogoCreacionDTO, GrupoAlimenticio>();
+            CreateMap<CatalogoCreacionDTO, Proveedor>();
+            CreateMap<CatalogoCreacionDTO, SeccionSupermercado>();
+            CreateMap<CatalogoCreacionDTO, TipoGrupo>();
+            CreateMap<CatalogoCreacionDTO, UnidadMedida>();
+            #endregion
         }
 
         private List<LibroDTO> MapAutorDTOLibros(Autor autor, AutorDTO autorDTO)

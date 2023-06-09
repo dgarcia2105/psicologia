@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.WebApi;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.WebApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230609052014_Inicial_Catalogos_Tipo1")]
+    partial class InicialCatalogosTipo1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,17 +39,17 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GrupoAlimenticioId")
-                        .HasColumnType("int");
+                    b.Property<string>("GrupoAlimenticioId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Orden")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProveedorId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProveedorId")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SeccionSupermercado")
-                        .HasColumnType("int");
+                    b.Property<string>("SeccionSupermercado")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TipoGrupoId")
                         .HasColumnType("int");
@@ -56,7 +59,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tipos");
+                    b.ToTable("Tipo");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Catalogos.TipoGrupo", b =>
@@ -72,7 +75,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TiposGrupo");
+                    b.ToTable("TipoGrupo");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Consulta", b =>
@@ -109,7 +112,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GrupoAlimenticios");
+                    b.ToTable("GrupoAlimenticio");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Negocio", b =>
@@ -146,7 +149,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Proveedores");
+                    b.ToTable("Proveedor");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.SeccionSupermercado", b =>
@@ -162,7 +165,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SeccionesSupermercado");
+                    b.ToTable("SeccionSupermercado");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Autor", b =>
@@ -256,7 +259,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UnidadesMedida");
+                    b.ToTable("UnidadMedida");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Usuario", b =>

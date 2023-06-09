@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.WebApi;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.WebApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230609050907_Catalogos")]
+    partial class Catalogos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,59 +24,6 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Catalogos.Tipo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<float>("Costo")
-                        .HasColumnType("real");
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GrupoAlimenticioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Orden")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProveedorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SeccionSupermercado")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TipoGrupoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UnidadMedidaId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tipos");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Catalogos.TipoGrupo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TiposGrupo");
-                });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Consulta", b =>
                 {
@@ -96,22 +46,6 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.ToTable("Consultas");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.GrupoAlimenticio", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("GrupoAlimenticios");
-                });
-
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Negocio", b =>
                 {
                     b.Property<int>("Id")
@@ -131,38 +65,6 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("Negocios");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Proveedor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Proveedores");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.SeccionSupermercado", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SeccionesSupermercado");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Autor", b =>
@@ -241,22 +143,6 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Libros");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.UnidadMedida", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UnidadesMedida");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Usuario", b =>

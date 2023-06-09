@@ -77,6 +77,40 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
             return CreatedAtRoute("ObtenerAutor", new { id = autor.Id }, autorDto);
         }
 
+        //EJEMPLO POST LIST
+        [HttpPost("post_list")]
+        public async Task<ActionResult> Post([FromBody] List<AutorCreacionDTO> listAautorCreacionDto)
+        {
+            //var existeAutorConElMismoNombre = await context.Autores.AnyAsync(x => x.Nombre == autorCreacionDto.Nombre);
+
+            //if (existeAutorConElMismoNombre)
+            //{
+            //    return BadRequest($"Ya existe un autor con el nombre {autorCreacionDto.Nombre}");
+            //}
+
+            //var autor = mapper.Map<Autor>(autorCreacionDto);
+
+            //context.Add(autor);
+            //await context.SaveChangesAsync();
+
+            //var autorDto = mapper.Map<AutorDTO>(autor);
+
+            //return CreatedAtRoute("ObtenerAutor", new { id = autor.Id }, autorDto);
+
+            return null;
+        }
+
+        /*
+           [
+                {
+                  "nombre": "test list 1"
+                },
+                {
+                  "nombre": "test list 2"
+                }
+           ]
+        */
+
         [HttpPut("{id:int}")] // api/autores/1 
         public async Task<ActionResult> Put(AutorCreacionDTO autorCreacionDTO, int id)
         {

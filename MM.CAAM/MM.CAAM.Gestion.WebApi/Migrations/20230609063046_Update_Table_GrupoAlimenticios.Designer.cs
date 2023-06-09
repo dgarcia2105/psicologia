@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.WebApi;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.WebApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230609063046_Update_Table_GrupoAlimenticios")]
+    partial class UpdateTableGrupoAlimenticios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,17 +39,17 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GrupoAlimenticioId")
-                        .HasColumnType("int");
+                    b.Property<string>("GrupoAlimenticioId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Orden")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProveedorId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProveedorId")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SeccionSupermercado")
-                        .HasColumnType("int");
+                    b.Property<string>("SeccionSupermercado")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TipoGrupoId")
                         .HasColumnType("int");
