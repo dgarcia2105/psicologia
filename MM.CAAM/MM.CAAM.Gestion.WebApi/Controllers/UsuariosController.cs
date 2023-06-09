@@ -9,6 +9,7 @@ using MM.CAAM.Gestion.WebApi.DTOs;
 using System.Linq;
 using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
+using MM.CAAM.Gestion.WebApi.Migrations;
 
 namespace MM.CAAM.Gestion.WebApi.Controllers    
 {
@@ -31,15 +32,17 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
         {
             var usuarios = await context.Usuarios.Include(x => x.Negocios).ToListAsync();
 
-            return mapper.Map<List<UsuarioDTO>>(usuarios);
+            return mapper.Map<List<UsuarioDTO>>(usuarios);                                  //LEYENDO REGISTROS con EF Core
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<UsuarioDTO>> Get(int id)
         {
-            var usuario = await context.Usuarios.FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id);
+            //var usuario = await context.Usuarios.FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id);        //BAK
+            var usuario = await context.Usuarios
+                .Include(usuarioBD => usuarioBD.Negocios).FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id); //usuarioBD.Negocios || Consultas
 
-            if(usuario == null)
+            if (usuario == null)
             {
                 return NotFound();
             }
@@ -56,7 +59,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UsuarioCreacionDTO usuarioCreacionDTO)
+        public async Task<ActionResult> Post([FromBody] UsuarioCreacionDTO usuarioCreacionDTO)  //DTOs y AUTOMAPPER
         {
             var existeUsuarioConElMismoNombre = await context.Usuarios.AnyAsync(x =>  x.Nombre.Equals(usuarioCreacionDTO.Nombre));
 
@@ -65,10 +68,10 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
                 return BadRequest($"Ya existe un usuario con el nombre {usuarioCreacionDTO.Nombre}");
             }
 
-            var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);
+            var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);                              //DTOs y AUTOMAPPER     //Libreria automapper: AutoMapper.Extensions.Microsoft.DependencyInjection
 
-            context.Add(usuario);
-            await context.SaveChangesAsync();
+            context.Add(usuario);                                                               //INSERTAR REGISTRO
+            await context.SaveChangesAsync();                                                   //INSERTAR REGISTRO
             return Ok();
         }
 

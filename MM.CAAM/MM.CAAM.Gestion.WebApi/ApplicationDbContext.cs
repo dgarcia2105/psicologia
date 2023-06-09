@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using MM.CAAM.Gestion.WebApi.Entidades;
 using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 
@@ -21,6 +22,7 @@ namespace MM.CAAM.Gestion.WebApi
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Negocio> Negocios { get; set; }
+        public DbSet<Consulta> Consultas { get; set; }                      //UNO A MUCHOS [Usuario muchas Consultas][Libro muchos Comentarios]
 
         #region UDEMY
         public DbSet<Autor> Autores { get; set; }
@@ -33,5 +35,8 @@ namespace MM.CAAM.Gestion.WebApi
         * dotnet ef migrations add Comentarios
         * dotnet ef database update
         */
+
+        //Add-Migration Inicial                                             //UNO A MUCHOS [Usuario muchas Consultas][Libro muchos Comentarios]
+        //    Update-Database
     }
 }

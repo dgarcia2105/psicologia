@@ -67,7 +67,7 @@ namespace MM.CAAM.Gestion.WebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIAutores", Version = "v1" });
             });
 
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(Startup));    //DTOs y AUTOMAPPER
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

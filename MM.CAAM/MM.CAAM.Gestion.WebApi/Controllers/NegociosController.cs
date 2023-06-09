@@ -26,21 +26,23 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Negocio>> Get(int id)
+        public async Task<ActionResult<NegocioDTO>> Get(int id)
         {
             var negocio = await context.Negocios.Include(x => x.Usuario).FirstOrDefaultAsync(x => x.Id == id);
-            return negocio;
+            return mapper.Map<NegocioDTO>(negocio);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(Negocio negocio)
+        public async Task<ActionResult> Post(NegocioCreacionDTO negocioCreacionDTO)                                 
         {
-            var existeNegocio = await context.Usuarios.AnyAsync(x => x.Id == negocio.UsuarioId);
+            //var existeNegocio = await context.Usuarios.AnyAsync(x => x.Id == negocio.UsuarioId);
 
-            if(!existeNegocio)
-            {
-                return BadRequest($"No existe el usuario de Id: {negocio.UsuarioId}");
-            }
+            //if(!existeNegocio)
+            //{
+            //    return BadRequest($"No existe el usuario de Id: {negocio.UsuarioId}");
+            //}
+
+            var negocio = mapper.Map<Negocio>(negocioCreacionDTO);
 
             context.Add(negocio);
             await context.SaveChangesAsync();

@@ -7,8 +7,8 @@ using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 
 namespace MM.CAAM.Gestion.WebApi.Utilidades
 {
-    public class AutoMapperProfiles: Profile
-	{
+    public class AutoMapperProfiles: Profile                                                    //DTOs y AUTOMAPPER
+    {
 		public AutoMapperProfiles()
         {
             #region UDEMY
@@ -29,8 +29,12 @@ namespace MM.CAAM.Gestion.WebApi.Utilidades
             #endregion
 
             //Fuente y el destino
-            CreateMap<UsuarioCreacionDTO, Usuario>();
-            CreateMap<Usuario, UsuarioDTO>();
+            CreateMap<UsuarioCreacionDTO, Usuario>();                                           //FUENTE y DESTINO
+            CreateMap<Usuario, UsuarioDTO>();                                                   //FUENTE y DESTINO
+            CreateMap<NegocioCreacionDTO, Negocio>();
+            CreateMap<Negocio, NegocioDTO>();
+            CreateMap<ConsultaCreacionDTO,  Consulta>();
+            CreateMap<Consulta, ConsultaDTO>();
         }
 
         private List<LibroDTO> MapAutorDTOLibros(Autor autor, AutorDTO autorDTO)
