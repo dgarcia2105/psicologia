@@ -19,6 +19,9 @@ namespace MM.CAAM.Web.Controllers
         {
             string FirstName = usuarioCreacionDTO.Nombre;
 
+            //README:
+            //Enviar E-Mail: https://www.udemy.com/course/aprende-aspnet-core-mvc-haciendo-proyectos-desde-cero/learn/lecture/29473652#overview
+            //RESTService   https://www.youtube.com/watch?v=Q12rpPdPcD8
             return RedirectToAction("Index");
         }
     }

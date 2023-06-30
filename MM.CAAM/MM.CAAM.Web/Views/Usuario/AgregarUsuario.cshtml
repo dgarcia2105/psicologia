@@ -36,7 +36,8 @@
                     @*<h5 class="text-center mb-4">Usuario nuevo</h5>*@
                     @*<form id="Form1" action="usuario/crear_usuario" method="post" >*@
                     @using (Html.BeginForm("CrearUsuario", "Usuario", FormMethod.Post, new { id = "Form1" }))
-                    {
+                        {
+                        @*<form asp-controller="Home" asp-action="Contacto" ></form>*@
                         <div class="row  text-left">
                             <div class="col-sm-6 flex-column d-flex">
                                 <div class="form-group">
