@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,7 +36,6 @@
     <Folder Include="wwwroot\" />
     <Folder Include="Validaciones\" />
     <Folder Include="Servicios\" />
-    <Folder Include="DTOs\" />
     <Folder Include="Utilidades\" />
   </ItemGroup>
   <ItemGroup>

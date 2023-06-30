@@ -22,7 +22,162 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Autor", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Catalogos.Tipo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("Costo")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GrupoAlimenticioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProveedorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeccionSupermercado")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoGrupoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UnidadMedidaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tipos");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Catalogos.TipoGrupo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Orden")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TiposGrupo");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Consulta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("MotivoConsulta")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Consultas");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.GrupoAlimenticio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Orden")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GrupoAlimenticios");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Negocio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Negocios");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Proveedor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Orden")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Proveedores");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.SeccionSupermercado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Orden")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SeccionesSupermercado");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Autor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -40,7 +195,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.ToTable("Autores");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.AutorLibro", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.AutorLibro", b =>
                 {
                     b.Property<int>("AutorId")
                         .HasColumnType("int");
@@ -58,7 +213,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.ToTable("AutoresLibros");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Comentario", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Comentario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,7 +234,7 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.ToTable("Comentarios");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Libro", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Libro", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -100,15 +255,74 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.ToTable("Libros");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.AutorLibro", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.UnidadMedida", b =>
                 {
-                    b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Autor", "Autor")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Orden")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UnidadesMedida");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Consulta", b =>
+                {
+                    b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Usuario", "Usuario")
+                        .WithMany("Consultas")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Negocio", b =>
+                {
+                    b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Usuario", "Usuario")
+                        .WithMany("Negocios")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.AutorLibro", b =>
+                {
+                    b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Autor", "Autor")
                         .WithMany("AutoresLibros")
                         .HasForeignKey("AutorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Libro", "Libro")
+                    b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Libro", "Libro")
                         .WithMany("AutoresLibros")
                         .HasForeignKey("LibroId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -119,9 +333,9 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.Navigation("Libro");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Comentario", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Comentario", b =>
                 {
-                    b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Libro", "libro")
+                    b.HasOne("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Libro", "libro")
                         .WithMany("Comentarios")
                         .HasForeignKey("LibroId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -130,16 +344,23 @@ namespace MM.CAAM.Gestion.WebApi.Migrations
                     b.Navigation("libro");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Autor", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Autor", b =>
                 {
                     b.Navigation("AutoresLibros");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Libro", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Udemy.Libro", b =>
                 {
                     b.Navigation("AutoresLibros");
 
                     b.Navigation("Comentarios");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.WebApi.Entidades.Usuario", b =>
+                {
+                    b.Navigation("Consultas");
+
+                    b.Navigation("Negocios");
                 });
 #pragma warning restore 612, 618
         }

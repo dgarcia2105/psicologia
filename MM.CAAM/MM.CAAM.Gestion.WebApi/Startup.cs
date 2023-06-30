@@ -33,13 +33,20 @@ namespace MM.CAAM.Gestion.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             //Aqui tambien se pueden ignorar cycles
-            //services.AddControllers();
-            services.AddControllers(opciones =>
-            {
-                opciones.Filters.Add(typeof(FiltroDeExcepcion));
-            }).AddJsonOptions(x =>
-                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles).AddNewtonsoftJson();
+            //services.AddControllers();                    //Se le agrega AddJsonOptions
+
+            //24 - Data Relacionada - segundo controlador
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+            //services.AddControllers(opciones =>
+            //{
+            //    opciones.Filters.Add(typeof(FiltroDeExcepcion));
+            //}).AddJsonOptions(x =>
+            //    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles).AddNewtonsoftJson();
+
 
             ////Ignora cycles
             //services.AddMvc().AddNewtonsoftJson(options =>
@@ -60,7 +67,7 @@ namespace MM.CAAM.Gestion.WebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIAutores", Version = "v1" });
             });
 
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(Startup));    //DTOs y AUTOMAPPER
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
