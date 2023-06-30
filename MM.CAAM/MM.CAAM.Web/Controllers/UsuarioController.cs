@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using MM.CAAM.Gestion.WebApi.DTOs;
+using System.Web.Mvc;
 
 namespace MM.CAAM.Web.Controllers
 {
@@ -11,6 +12,14 @@ namespace MM.CAAM.Web.Controllers
         public ActionResult AgregarUsuario()
         {
             return View();
+        }
+
+        [HttpPost] //attribute to get posted values from HTML Form
+        public ActionResult CrearUsuario(UsuarioCreacionDTO usuarioCreacionDTO)
+        {
+            string FirstName = usuarioCreacionDTO.Nombre;
+
+            return RedirectToAction("Index");
         }
     }
 }

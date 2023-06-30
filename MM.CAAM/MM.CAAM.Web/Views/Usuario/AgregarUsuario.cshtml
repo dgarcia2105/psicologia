@@ -10,73 +10,108 @@
     ViewBag.Title = "Usuarios";
 }
 <br />
-<h1>Agregar usuario</h1>
+@*<h1>Agregar usuario</h1>*@
 <br />
 
-<div class="container-fluid px-1 py-5 mx-auto">
+<div class="container-fluid px-1 py-2 mx-auto">
     <div class="row d-flex justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            @*<h3>Agregar Usuario</h3>*@
-            @*<p class="blue-text">Formulario</p>*@
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11">
+            @*<h3>Agregar Usuario</h3>
+              <p class="blue-text">Formulario</p>*@
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <img src="~/assets/imgages/medico/esculapio.png" width="50px" alt="Alternate Text" style="opacity:0.8" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h3 class="blue-text">Crea un Nuevo Usuario</h3>
+                </div>
+            </div>
+            <br />
             <div class="card">
-                @*<h5 class="text-center mb-4">Powering world-class companies</h5>*@
-                <form class="form-card">
-                    <div class="row  text-left">
-                        <div class="form-group col-sm-3 flex-column d-flex"> <label class="form-control-label px-6">Nombre(s)<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" class="form-control" placeholder="" > </div>
-                        <div class="form-group col-sm-3 flex-column d-flex"> <label class="form-control-label px-6">Apellido Paterno<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" class="form-control" placeholder="" > </div>
-                        <div class="form-group col-sm-3 flex-column d-flex"> <label class="form-control-label px-6">Apellido Materno<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" class="form-control" placeholder="" > </div>
-                        <div class="form-group col-sm-3 flex-column d-flex"> <label class="form-control-label px-6">Fecha de Nacimiento<span class="text-danger"> *</span></label> <input type="date" id="lname" name="lname" class="form-control" placeholder="" > </div>
-                    </div>
-                    <br />
-                    <div class="">
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">Hombre
-                            </label>
+                <div class="card-body">
+                    @*<h5 class="text-center mb-4">Usuario nuevo</h5>*@
+                    @*<form id="Form1" action="usuario/crear_usuario" method="post" >*@
+                    @using (Html.BeginForm("CrearUsuario", "Usuario", FormMethod.Post, new { id = "Form1" }))
+                    {
+                        <div class="row  text-left">
+                            <div class="col-sm-6 flex-column d-flex">
+                                <div class="form-group">
+                                    <label class="form-control-label px-6">Nombre(s)<span class="text-danger"> *</span></label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-6">Apellido Paterno<span class="text-danger"> *</span></label>
+                                <input type="text" id="apellido_paterno" name="apellido_paterno" class="form-control" placeholder="Apellido Paterno">
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-6">Apellido Materno<span class="text-danger"> *</span></label>
+                                <input type="text" id="apellido_materno" name="apellido_materno" class="form-control" placeholder="Apellido Materno">
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-6"><i class="fa-solid fa-calendar-days form-control-label"></i> Fecha de Nacimiento<span class="text-danger"> *</span></label>
+                                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" placeholder="Fecha de Nacimiento">
+                            </div>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">Mujer
-                            </label>
+                        <br />
+                        <label class="form-control-label px-6"><i class="fa-solid fa-venus-mars form-control-label"></i> Genero<span class="text-danger"> *</span></label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="genero_radio">Hombre
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="genero_radio">Mujer
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="genero_radio">Otro
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" checked name="genero_radio">Prefiero no decirlo
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">Otro
-                            </label>
+                        <br />
+                        <div class="row text-left">
+                            <div class="form-group col-6 flex-column d-flex">
+                                <label class="form-control-label px-6"><i class="fa-solid fa-address-book form-control-label"></i> Dirección<span class="text-danger"> *</span></label>
+                                <input type="text" id="direccion" name="direccion" class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group col-6 flex-column d-flex">
+                                <label class="form-control-label px-6"><i class="fa-solid fa-phone form-control-label"></i> Teléfono<span class="text-danger"> *</span></label>
+                                <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group col-6 flex-column d-flex">
+                                <label class="form-control-label px-6"><i class="fa-solid fa-envelope form-control-label"></i> Correo<span class="text-danger"> *</span></label>
+                                <input type="text" id="correo" name="correo" class="form-control" placeholder="">
+                            </div>
+                            @*<div class="form-group col-6 flex-column d-flex">
+                    <label class="form-control-label px-6">Nacionalidad<span class="text-danger"> *</span></label>
+                    <input type="text" id="job" name="job" class="form-control" placeholder="">
+                </div>*@
+                            <div class="form-group col-6 flex-column d-flex">
+                                <label class="form-control-label px-6"><i class="fa-solid fa-briefcase form-control-label"></i> Ocupación@*<span class="text-danger"> *</span>*@</label>
+                                <input type="text" id="ocupacion" name="ocupacion" class="form-control" placeholder="">
+                            </div>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" checked name="optradio">Prefiero no decirlo
-                            </label>
+                        <div class="row ">
+                            <div class="col-12 ">
+                                <button type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">Agregar</button>  @*ml-auto*@
+                            </div>
                         </div>
-                    </div>
-                    <br />
-                    <div class="row text-left">
-                        <div class="form-group col-3 flex-column d-flex">
-                            <label class="form-control-label px-6">Dirección<span class="text-danger"> *</span></label>
-                            <input type="text" id="job" name="job" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group col-3 flex-column d-flex">
-                            <label class="form-control-label px-6">Correo<span class="text-danger"> *</span></label>
-                            <input type="text" id="job" name="job" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group col-3 flex-column d-flex">
-                            <label class="form-control-label px-6">Teléfono<span class="text-danger"> *</span></label>
-                            <input type="text" id="job" name="job" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group col-3 flex-column d-flex">
-                            <label class="form-control-label px-6">Nacionalidad<span class="text-danger"> *</span></label>
-                            <input type="text" id="job" name="job" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group col-3 flex-column d-flex">
-                            <label class="form-control-label px-6">Ocupación<span class="text-danger"> *</span></label>
-                            <input type="text" id="job" name="job" class="form-control" placeholder="">
-                        </div>
-                    </div>
-                    <div class="row justify-content-end"> 
-                            <button type="submit" class="btn btn-primary ">Agregar</button>  @*ml-auto*@
-                    </div>
-                </form>
+                    }
+                </div>
             </div>
         </div>
     </div>
