@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -102,9 +105,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.11.10\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -135,8 +135,6 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DTOs\Test\Post.cs" />
-    <Compile Include="DTOs\UsuarioCreacionDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -284,6 +282,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\imgages\medico\" />
+    <Folder Include="DTOs\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +294,10 @@
     <ProjectReference Include="..\MM.CAAM.Admin.DTOs\MM.CAAM.Admin.DTOs.csproj">
       <Project>{81218131-FB40-4FD4-A3A7-BB7BB2ADD3C5}</Project>
       <Name>MM.CAAM.Admin.DTOs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MM.CAAM.Admin.Services\MM.CAAM.Admin.Services.csproj">
+      <Project>{865FF9EB-D390-4C1C-8BAF-5716E61A57B4}</Project>
+      <Name>MM.CAAM.Admin.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

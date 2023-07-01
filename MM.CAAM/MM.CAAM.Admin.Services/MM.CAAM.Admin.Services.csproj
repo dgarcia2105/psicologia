@@ -87,8 +87,10 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Exceptions\ExceptionHandling.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\RESTService.cs" />
+    <Compile Include="Servicios\Test\TestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

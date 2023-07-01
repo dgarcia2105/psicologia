@@ -49,6 +49,8 @@
     <Compile Include="InfoHomeDto.cs" />
     <Compile Include="HomeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\Post.cs" />
+    <Compile Include="UsuarioCreacionDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

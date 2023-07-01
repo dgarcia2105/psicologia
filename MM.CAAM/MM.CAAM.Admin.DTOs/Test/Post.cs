@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace MM.CAAM.Gestion.WebApi.DTOs.Test
+namespace MM.CAAM.Admin.DTOs.Test
 {
     public class Post
     {

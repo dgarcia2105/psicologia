@@ -1,6 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace MM.CAAM.Gestion.WebApi.DTOs
+﻿
+namespace MM.CAAM.Admin.DTOs
 {
     public class UsuarioCreacionDTO
     {
