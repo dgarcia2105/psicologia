@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MetaHtmlDto.cs" />
+    <Compile Include="Objects\Result.cs" />
+    <Compile Include="Objects\ResultT.cs" />
     <Compile Include="RedSocialDto.cs" />
     <Compile Include="ContactoDto.cs" />
     <Compile Include="InfoHomeDto.cs" />

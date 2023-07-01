@@ -1,7 +1,10 @@
 ﻿using MM.CAAM.Admin.DTOs;
+using MM.CAAM.Gestion.WebApi.DTOs.Test;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web.Mvc;
 
 namespace MM.CAAM.Web.Controllers
@@ -10,6 +13,19 @@ namespace MM.CAAM.Web.Controllers
     {
         public ActionResult Index()
         {
+            //string url = "https://jsonplaceholder.typicode.com/posts";
+            //var client = new HttpClient();
+
+            //Post post = new Post()
+            //{
+            //    userId = 50,
+            //    body = "Hola como estas",
+            //    title = "Titulo de saludo"
+            //};
+
+            //var data = JsonSerializer.Serialize<Post>(post);
+
+
             var homeDto = new HomeDto
             {
                 Title = "Caam: Atención Profesional en Psicología",

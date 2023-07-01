@@ -135,6 +135,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DTOs\Test\Post.cs" />
     <Compile Include="DTOs\UsuarioCreacionDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -294,6 +295,10 @@
     <ProjectReference Include="..\MM.CAAM.Admin.DTOs\MM.CAAM.Admin.DTOs.csproj">
       <Project>{81218131-FB40-4FD4-A3A7-BB7BB2ADD3C5}</Project>
       <Name>MM.CAAM.Admin.DTOs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MM.CAAM.Admin.Services\MM.CAAM.Admin.Services.csproj">
+      <Project>{5f9813b2-7f7d-433a-800e-342e5c0fc263}</Project>
+      <Name>MM.CAAM.Admin.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
