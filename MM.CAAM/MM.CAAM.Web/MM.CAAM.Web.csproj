@@ -296,10 +296,6 @@
       <Project>{81218131-FB40-4FD4-A3A7-BB7BB2ADD3C5}</Project>
       <Name>MM.CAAM.Admin.DTOs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MM.CAAM.Admin.Services\MM.CAAM.Admin.Servicess.csproj">
-      <Project>{5f9813b2-7f7d-433a-800e-342e5c0fc263}</Project>
-      <Name>MM.CAAM.Admin.Servicess</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
