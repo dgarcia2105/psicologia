@@ -33,15 +33,13 @@ namespace MM.CAAM.Web.Controllers
                 body = "Hola como estas",
                 title = "Titulo de saludo"
             };
-            var Diligencias = await TestService.PostTest(post);
+            var postResponse = await TestService.PostTest(post);
+            var postResponse2 = await TestService.PutTest(post);
+            var postResponse3 = await TestService.DeleteTest(post);
 
 
             string FirstName = usuarioCreacionDTO.Nombre;
 
-            //README:
-            //Enviar E-Mail: https://www.udemy.com/course/aprende-aspnet-core-mvc-haciendo-proyectos-desde-cero/learn/lecture/29473652#overview
-            //RESTService   https://www.youtube.com/watch?v=Q12rpPdPcD8
-                            //https://jsonplaceholder.typicode.com/
             return RedirectToAction("Index");
         }
     }
