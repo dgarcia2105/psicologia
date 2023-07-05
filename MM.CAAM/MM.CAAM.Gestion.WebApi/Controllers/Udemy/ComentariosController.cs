@@ -7,6 +7,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 
 namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
 {
@@ -16,12 +19,15 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
     {
         private readonly ApplicationDbContext context;
         private readonly IMapper mapper;
+        private readonly UserManager<IdentityUser> userManager;
 
         public ComentariosController(ApplicationDbContext context,
-            IMapper mapper)
+            IMapper mapper,
+            UserManager<IdentityUser> userManager)
         {
             this.context = context;
             this.mapper = mapper;
+            this.userManager = userManager;
         }
 
         [HttpGet]
@@ -54,8 +60,11 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> Post(int libroId, ComentarioCreacionDTO comentarioCreacionDTO)
         {
+            var email = HttpContext.User.Claims.Where(claim => claim.Type == "email").FirstOrDefault();
+
             var existeLibro = await context.Libros.AnyAsync(libroDB => libroDB.Id == libroId);
 
             if (!existeLibro)

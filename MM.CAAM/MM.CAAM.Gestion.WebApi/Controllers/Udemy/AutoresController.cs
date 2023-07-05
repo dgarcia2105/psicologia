@@ -14,7 +14,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
 {
     [ApiController]                                                             //si algo sale mal retorna un bad request
     [Route("api/autores")]
-    //[Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AutoresController : ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -27,9 +27,9 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
         }
 
         [HttpGet] // api/autores
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        //[Authorize]
-        //Header: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbmllbDIxMDVvZmljaWFsQGdtYWlsLmNvbSIsImV4cCI6MTY4ODYxNzMwOH0.Zr50sqK-VVeyni-aBFaj3VPV1tPvA8yI77rCplcpxpg
+        [AllowAnonymous]
+        //Header: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbmllbDIxMDVvZmljaWFsQGdtYWlsLmNvbSIsImV4cCI6MTY4ODY1OTA1Mn0.JhwOeHOR29NziK8P4f9g1bwftRIKV5qCZ3rIJe20Qj8
+        //               
         public async Task<List<AutorDTO>> Get()
         {
             var autores = await context.Autores.ToListAsync();

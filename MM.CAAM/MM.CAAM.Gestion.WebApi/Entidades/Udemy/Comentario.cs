@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace MM.CAAM.Gestion.WebApi.Entidades.Udemy
 {
@@ -8,6 +9,8 @@ namespace MM.CAAM.Gestion.WebApi.Entidades.Udemy
         public string Contenido { get; set; }
         public int LibroId { get; set; }
         public Libro libro { get; set; }
+        public string UsuarioId { get; set;}
+        public IdentityUser Usuario { get; set; }
 
     }
 }

@@ -75,11 +75,6 @@ namespace MM.CAAM.Gestion.WebApi
                 ClockSkew = TimeSpan.Zero
             });
 
-            //USAR IDENTITY
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
-
             //services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(c =>
             {
@@ -108,6 +103,12 @@ namespace MM.CAAM.Gestion.WebApi
                     }
                 });
             });
+
+            //USAR IDENTITY
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
 
             services.AddAutoMapper(typeof(Startup));    //DTOs y AUTOMAPPER
 

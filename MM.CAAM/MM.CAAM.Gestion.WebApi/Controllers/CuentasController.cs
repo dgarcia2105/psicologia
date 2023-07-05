@@ -60,18 +60,20 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             }
         }
 
+        //VER JWB BEARER https://jwt.io/
         #region HELPERS
         private RespuestaAutenticacion ConstruirToken(CredencialesUsuario credencialesUsuario)
         {
             var claims = new List<Claim>()
             {
-                new Claim("email", credencialesUsuario.Email)
+                new Claim("email", credencialesUsuario.Email),
+                new Claim("lo que yo quiera", "cualquier otro valor")
             };
 
             var llave = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["llavejwt"]));
             var creds = new SigningCredentials(llave, SecurityAlgorithms.HmacSha256);
 
-            var expiracion = DateTime.UtcNow.AddDays(1);
+            var expiracion = DateTime.UtcNow.AddYears(1);
 
             var securityToken = new JwtSecurityToken(issuer: null, audience: null, claims: claims, expires:expiracion, signingCredentials:creds);
 
