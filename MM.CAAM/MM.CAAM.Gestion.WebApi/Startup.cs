@@ -17,6 +17,7 @@ using MM.CAAM.Gestion.WebApi.Filtros;
 using MM.CAAM.Gestion.WebApi.Middlewares;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -29,6 +30,7 @@ namespace MM.CAAM.Gestion.WebApi
         public IConfiguration configuration { get; }
         public Startup(IConfiguration configuration)
         {
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             this.configuration = configuration;
         }
 
