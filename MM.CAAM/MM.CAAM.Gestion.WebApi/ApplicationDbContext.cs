@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using MM.CAAM.Gestion.WebApi.Entidades;
@@ -7,7 +8,7 @@ using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 
 namespace MM.CAAM.Gestion.WebApi
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {

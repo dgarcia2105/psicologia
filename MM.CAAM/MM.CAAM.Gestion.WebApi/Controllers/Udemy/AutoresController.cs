@@ -7,6 +7,8 @@ using MM.CAAM.Gestion.WebApi.Filtros;
 using System.Linq;
 using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
 
 namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
 {
@@ -25,6 +27,8 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
         }
 
         [HttpGet] // api/autores
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize]
         public async Task<List<AutorDTO>> Get()
         {
             var autores = await context.Autores.ToListAsync();

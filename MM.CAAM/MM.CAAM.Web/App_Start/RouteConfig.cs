@@ -13,10 +13,11 @@ namespace MM.CAAM.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //PAGINA DE INICIO
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Loggin", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
