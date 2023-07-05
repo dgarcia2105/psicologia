@@ -27,8 +27,9 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
         }
 
         [HttpGet] // api/autores
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [Authorize]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[Authorize]
+        //Header: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbmllbDIxMDVvZmljaWFsQGdtYWlsLmNvbSIsImV4cCI6MTY4ODYxNzMwOH0.Zr50sqK-VVeyni-aBFaj3VPV1tPvA8yI77rCplcpxpg
         public async Task<List<AutorDTO>> Get()
         {
             var autores = await context.Autores.ToListAsync();
