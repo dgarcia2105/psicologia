@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace MM.CAAM.Admin.DTOs
 {
-    public class UsuarioDTO
+    public class RolDTO
     {
 
         [HiddenInput(DisplayValue = false)]
@@ -73,7 +73,7 @@ namespace MM.CAAM.Admin.DTOs
         [Display(Name = "¿Esta Activo?")]
         public bool Activo { get; set; }
         public string BearerToken { get; set; }
-        public RolDTO Rol { get; set; }
+        public RolDto Rol { get; set; }
 
         public string NombreCompleto
         {
