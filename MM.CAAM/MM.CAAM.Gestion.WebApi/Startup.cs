@@ -117,6 +117,15 @@ namespace MM.CAAM.Gestion.WebApi
             {
                 opciones.AddPolicy("EsAdmin", politica => politica.RequireClaim("esAdmin"));
             });
+
+            //CORS PERMITE SOLICITUDES DESDE OTRA PAGINA WEB
+            //services.AddCors(opciones =>
+            //{
+            //    opciones.AddDefaultPolicy(builder =>
+            //    {
+            //        builder.WithOrigins("https://www.apirequest.io").AllowAnyMethod().AllowAnyHeader();
+            //    });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -142,6 +151,9 @@ namespace MM.CAAM.Gestion.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            //CORS
+            //app.UseCors();
 
             app.UseAuthorization();
 
