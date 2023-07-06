@@ -15,6 +15,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
     [ApiController]                                                             //si algo sale mal retorna un bad request
     [Route("api/autores")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
     public class AutoresController : ControllerBase
     {
         private readonly ApplicationDbContext context;

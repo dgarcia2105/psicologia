@@ -106,14 +106,17 @@ namespace MM.CAAM.Gestion.WebApi
                 });
             });
 
+            services.AddAutoMapper(typeof(Startup));    //DTOs y AUTOMAPPER
+
             //USAR IDENTITY
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-
-            services.AddAutoMapper(typeof(Startup));    //DTOs y AUTOMAPPER
-
+            services.AddAuthorization(opciones =>
+            {
+                opciones.AddPolicy("EsAdmin", politica => politica.RequireClaim("esAdmin"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
