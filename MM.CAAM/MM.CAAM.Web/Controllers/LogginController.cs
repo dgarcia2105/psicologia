@@ -1,17 +1,27 @@
 ﻿using MM.CAAM.Admin.DTOs;
+using MM.CAAM.Admin.DTOs.Objects;
 using MM.CAAM.Admin.DTOs.Test;
 using MM.CAAM.Admin.Services.Servicios.Test;
+using Newtonsoft.Json;
+using System.Net;
+using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.Security;
+using System.Web;
+using MM.CAAM.Admin.Services.Exceptions;
 
 namespace MM.CAAM.Web.Controllers
 {
-    public class LogginController : Controller
+    public class LogginController : BaseController
     {
+        private readonly IUsuarioService usuarioService;
+
         //private readonly ITestService TestService;
 
-        public LogginController(ITestService testService)
+        public LogginController(IUsuarioService usuarioService)
         {
+            this.usuarioService = usuarioService;
             //TestService = testService;
         }
 
@@ -37,6 +47,41 @@ namespace MM.CAAM.Web.Controllers
             //string FirstName = usuarioCreacionDTO.Nombre;
 
             //return RedirectToAction("Index");
+
+            try
+            {
+                // Generar Cookie con los datos de autentificacion
+                var resultDto = await usuarioService.LoginApi(usuarioDTO);
+
+                UsuarioProfile usuarioDTOLogeado = new UsuarioProfile()
+                {
+                    UsuarioDto = resultDto
+                };
+
+                // Encrypt the ticket.
+                string encTicket = JsonConvert.SerializeObject(usuarioDTOLogeado);
+                string encriptado = Com.Encryptor(encTicket);
+                var HttpCookie = new HttpCookie(".AUTHCENTRAL", encriptado)
+                {
+                    Expires = DateTime.Now.AddSeconds(FormsAuthentication.Timeout.TotalSeconds),
+                    Secure = true
+                };
+                // Create the cookie.
+                HttpContext.Response.Cookies.Add(HttpCookie);
+
+                // Exito
+                JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                JResult.Data = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
+            }
 
             return null;
         }
