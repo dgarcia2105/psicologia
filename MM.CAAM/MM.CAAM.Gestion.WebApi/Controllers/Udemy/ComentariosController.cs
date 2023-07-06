@@ -63,7 +63,11 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
         [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> Post(int libroId, ComentarioCreacionDTO comentarioCreacionDTO)
         {
-            var email = HttpContext.User.Claims.Where(claim => claim.Type == "email").FirstOrDefault();
+            var emailClaim = HttpContext.User.Claims.Where(claim => claim.Type == "email").FirstOrDefault();
+            var email = emailClaim.Value;
+
+            var usuario = await userManager.FindByEmailAsync(email);
+            var usuarioId = usuario.Id;
 
             var existeLibro = await context.Libros.AnyAsync(libroDB => libroDB.Id == libroId);
 
@@ -74,6 +78,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
 
             var comentario = mapper.Map<Comentario>(comentarioCreacionDTO);
             comentario.LibroId = libroId;
+            comentario.UsuarioId = usuarioId;
             context.Add(comentario);
             await context.SaveChangesAsync();
 
