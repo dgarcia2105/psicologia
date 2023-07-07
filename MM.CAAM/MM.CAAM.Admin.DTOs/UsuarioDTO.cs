@@ -28,14 +28,35 @@ namespace MM.CAAM.Admin.DTOs
         public string CorreoElectronico { get; set; }
 
         [Required(ErrorMessage = "* Obligatorio")]
+        [DataType(DataType.DateTime)]
+        [StringLength(60, ErrorMessage = "Máximo {1} caracteres.")]
+        [Display(Name = "Correo Electrónico")]
+        public string FechaNacimiento { get; set; }
+
+        [Required(ErrorMessage = "* Obligatorio")]
         [StringLength(100, ErrorMessage = "Máximo {1} caracteres.")]
         [Display(Name = "Nombres")]
         public string Nombres { get; set; }
 
+        //[Required(ErrorMessage = "* Obligatorio")]
+        [StringLength(100, ErrorMessage = "Máximo {1} caracteres.")]
+        [Display(Name = "Ocupación")]
+        public string Ocupacion { get; set; }
+
+        [Required(ErrorMessage = "* Obligatorio")]
+        [StringLength(200, ErrorMessage = "Máximo {1} caracteres.")]
+        [Display(Name = "Dirección")]
+        public string Direccion { get; set; }
+
         [Required(ErrorMessage = "* Obligatorio")]
         [StringLength(100, ErrorMessage = "Máximo {1} caracteres.")]
-        [Display(Name = "Apellidos")]
-        public string Apellidos { get; set; }
+        [Display(Name = "Apellido Paterno")]
+        public string ApellidoPaterno { get; set; }
+
+        [Required(ErrorMessage = "* Obligatorio")]
+        [StringLength(100, ErrorMessage = "Máximo {1} caracteres.")]
+        [Display(Name = "Apellido Materno")]
+        public string ApellidoMaterno { get; set; }
 
         [Required(ErrorMessage = "* Obligatorio")]
         [StringLength(7, ErrorMessage = "Máximo {1} caracteres.")]
@@ -48,6 +69,7 @@ namespace MM.CAAM.Admin.DTOs
         public string Genero { get; set; }
 
         [StringLength(25, ErrorMessage = "Máximo {1} caracteres.")]
+        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Teléfono")]
         public string Telefono { get; set; }
 
@@ -79,7 +101,7 @@ namespace MM.CAAM.Admin.DTOs
         {
             get
             {
-                return $"{Nombres}{(string.IsNullOrWhiteSpace(Apellidos) ? "" : $" {Apellidos}")}";
+                return $"{Nombres}{(string.IsNullOrWhiteSpace(ApellidoPaterno) ? "" : $" {ApellidoPaterno}")}{(string.IsNullOrWhiteSpace(ApellidoMaterno) ? "" : $" {ApellidoMaterno}")}";
             }
         }
         public string EstaActivo

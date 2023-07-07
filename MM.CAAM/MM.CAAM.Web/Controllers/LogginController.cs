@@ -1,6 +1,5 @@
 ﻿using MM.CAAM.Admin.DTOs;
 using MM.CAAM.Admin.DTOs.Objects;
-using MM.CAAM.Admin.DTOs.Test;
 using MM.CAAM.Admin.Services.Servicios.Test;
 using Newtonsoft.Json;
 using System.Net;
