@@ -4,6 +4,8 @@ using MM.CAAM.Admin.DTOs.Request;
 using MM.CAAM.Admin.DTOs.Response;
 using MM.CAAM.Admin.DTOs.Test;
 using MM.CAAM.Admin.Services.Exceptions;
+using System.Collections.Generic;
+using System;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -11,7 +13,8 @@ namespace MM.CAAM.Admin.Services.Servicios.Test
 {
     public interface IUsuarioService
     {
-        Task<UsuarioDTO> LoginApi(UsuarioDTO dto);
+        Task<UsuarioDto> LoginApi(UsuarioDto dto);
+        void InsertUsuario(UsuarioDto dto);
     }
 
     public class UsuarioService : IUsuarioService
@@ -22,7 +25,7 @@ namespace MM.CAAM.Admin.Services.Servicios.Test
             RESTService = restService;
         }
 
-        public async Task<UsuarioDTO> LoginApi(UsuarioDTO dto)
+        public async Task<UsuarioDto> LoginApi(UsuarioDto dto)
         {
             var endPoint = $"/api/usuario/login/";
 
@@ -48,6 +51,57 @@ namespace MM.CAAM.Admin.Services.Servicios.Test
             //return usuario;
 
             return null;
+        }
+
+        public void InsertUsuario(UsuarioDto dto)
+        {
+            //var pParametros = new Dictionary<string, object>
+            //{
+            //    { nameof(usuarios.usuario), dto.Usuario },
+            //    { nameof(usuarios.empno), dto.Empno }
+            //};
+
+            //var pParametrosNoEmpleado = new Dictionary<string, object>
+            //{
+            //    { nameof(usuarios.empno), dto.Empno }
+            //};
+
+            //var entityRepeat = ManagerService.ManagerI.obtenerRegistro<usuarios>(pParametros, pSoloActivos: false);
+            //var entityRepeatNoEmpleado = ManagerService.ManagerI.obtenerRegistro<usuarios>(pParametrosNoEmpleado, pSoloActivos: false);
+
+            //if (entityRepeat.usuario_id > 0 && entityRepeat.usuario.ToLower().Equals(dto.Usuario.ToLower()))
+            //    throw new ValidationException("El usuario ya existe en nuestra app.");
+
+            //Int32.TryParse(dto.Empno, out int empnoDto);
+            //Int32.TryParse(entityRepeatNoEmpleado.empno, out int empnoEntity);
+
+
+            //if (empnoDto <= 0)
+            //    throw new ValidationException("No. de empleado no valido");
+
+            //if (empnoDto == empnoEntity)
+            //    throw new ValidationException("El no. de empleado ya existe en nuestra app.");
+
+            //var saltNew = Com.GenerateSalt();
+            //var entity = new usuarios
+            //{
+            //    rol_id = dto.RolId,
+            //    central_id = dto.CentralId,
+            //    usuario = dto.Usuario,
+            //    nombres = dto.Nombres,
+            //    apellidos = dto.Apellidos,
+            //    correo = dto.CorreoElectronico,
+            //    salt = saltNew,
+            //    password = Com.HashPassword(dto.Password, saltNew),
+            //    activo = dto.Activo,
+            //    empno = dto.Empno,
+            //    genero = dto.Genero,
+            //    curp = dto.CURP,
+            //};
+            //if (!string.IsNullOrWhiteSpace(dto.PerfilNombreArchivo))
+            //    entity.perfil_nombre_archivo = dto.PerfilNombreArchivo;
+
+            //entity.usuario_id = ManagerService.ManagerI.agregarRegistro(entity);
         }
     }
 

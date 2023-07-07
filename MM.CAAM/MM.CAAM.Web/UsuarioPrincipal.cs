@@ -50,6 +50,6 @@ namespace MM.CAAM.Web
 
     public class UsuarioProfile
     {
-        public UsuarioDTO UsuarioDto { get; set; }
+        public UsuarioDto UsuarioDto { get; set; }
     }
 }

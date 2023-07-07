@@ -1,0 +1,203 @@
+﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MM.CAAM.Gestion.Services
+{
+    public static class Com
+    {
+        public static readonly string KeyEncript = "d/pThAB45Fp#:S:3";
+        private static readonly byte[] IV = { 10, 20, 30, 40, 50, 60, 70, 80 };
+
+        public enum Ciudades
+        {
+            MEXICALI = 1,
+            TIJUANA = 2,
+            ENSENADA = 3,
+            GPE_VICTORIA = 4,
+            SAN_FELIPE = 5,
+            TECATE = 6,
+            SAN_QUINTIN = 7,
+            CD_MORELOS = 8,
+            PLAYAS_ROSARITO = 9,
+            DESARROLLO = 9999
+        }
+
+        public static string Decryptor(string stringToDecrypt)
+        {
+            try
+            {
+                var key = Encoding.UTF8.GetBytes(KeyEncript.Substring(0, 8));
+                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                var inputByteArray = Base64UrlDecode(stringToDecrypt);
+
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(key, IV), CryptoStreamMode.Write);
+                cs.Write(inputByteArray, 0, inputByteArray.Length);
+                cs.FlushFinalBlock();
+
+                Encoding encoding = Encoding.UTF8;
+                return encoding.GetString(ms.ToArray());
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string Decryptor(this string stringToDecrypt, string keyEncript)
+        {
+            try
+            {
+                var key = Encoding.UTF8.GetBytes(keyEncript.Substring(0, 8));
+                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                var inputByteArray = Base64UrlDecode(stringToDecrypt);
+
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(key, IV), CryptoStreamMode.Write);
+                cs.Write(inputByteArray, 0, inputByteArray.Length);
+                cs.FlushFinalBlock();
+
+                Encoding encoding = Encoding.UTF8;
+                return encoding.GetString(ms.ToArray());
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string Encryptor(string stringToEncrypt)
+        {
+            try
+            {
+                var key = Encoding.UTF8.GetBytes(KeyEncript.Substring(0, 8));
+                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                var inputByteArray = Encoding.UTF8.GetBytes(stringToEncrypt);
+
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(key, IV), CryptoStreamMode.Write);
+                cs.Write(inputByteArray, 0, inputByteArray.Length);
+                cs.FlushFinalBlock();
+
+                return Base64UrlEncode(ms.ToArray());
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string Encryptor(this string stringToEncrypt, string keyEncript)
+        {
+            try
+            {
+                var key = Encoding.UTF8.GetBytes(keyEncript.Substring(0, 8));
+                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                var inputByteArray = Encoding.UTF8.GetBytes(stringToEncrypt);
+
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(key, IV), CryptoStreamMode.Write);
+                cs.Write(inputByteArray, 0, inputByteArray.Length);
+                cs.FlushFinalBlock();
+
+                return Base64UrlEncode(ms.ToArray());
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string Base64UrlEncode(byte[] arg)
+        {
+            string s = Convert.ToBase64String(arg); // Regular base64 encoder
+            s = s.Split('=')[0]; // Remove any trailing '='s
+            s = s.Replace('+', '-'); // 62nd char of encoding
+            s = s.Replace('/', '_'); // 63rd char of encoding
+            return s;
+        }
+
+        public static byte[] Base64UrlDecode(string arg)
+        {
+            string s = arg;
+            s = s.Replace('-', '+'); // 62nd char of encoding
+            s = s.Replace('_', '/'); // 63rd char of encoding
+            switch (s.Length % 4) // Pad with trailing '='s
+            {
+                case 0: break; // No pad chars in this case
+                case 2: s += "=="; break; // Two pad chars
+                case 3: s += "="; break; // One pad char
+                default:
+                    throw new System.Exception("Illegal base64url string!");
+            }
+            return Convert.FromBase64String(s); // Standard base64 decoder
+        }
+
+        /// <summary>
+        /// Compara si es igual la contraseña encriptada contra enviado por el usuario
+        /// </summary>
+        /// <param name="hashedPassword">La hashedPassword que está almacenada en la base de datos (password + salt)</param>
+        /// <param name="password">El password que tecleó el usuario</param>
+        /// /// <param name="password">El salt que se guardo en la base datos</param>
+        public static bool VerifyHashedPassword(string hashedPassword, string password, string salt)
+        {
+            var hash = HashPassword(password, salt);
+
+            return hashedPassword == hash;
+        }
+
+        public static string HashPassword(string password, string salt)
+        {
+            // derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
+            var hash = KeyDerivation.Pbkdf2(
+                            password: password,
+                            salt: Convert.FromBase64String(salt),
+                            prf: KeyDerivationPrf.HMACSHA256,
+                            iterationCount: 100000,
+                            numBytesRequested: 256 / 8);
+
+            var hashedPassword = Convert.ToBase64String(hash);
+
+            return hashedPassword;
+        }
+
+        public static string GenerateSalt()
+        {
+            // generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
+            byte[] byteSalt = new byte[256 / 8];
+            using (var rngCsp = new RNGCryptoServiceProvider())
+            {
+                rngCsp.GetNonZeroBytes(byteSalt);
+            }
+
+            var salt = Convert.ToBase64String(byteSalt);
+
+            return salt;
+        }
+
+        public static DateTime GetUtcNowByZone()
+        {
+            DateTime timeUtc = DateTime.UtcNow;
+            DateTime cstTime = default;
+            try
+            {
+                //TimeZoneInfo cstZone = TimeZoneInfo.FindSystemTimeZoneById("America/Los_Angeles");
+                TimeZoneInfo cstZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time (Mexico)");
+                cstTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, cstZone);
+                //Console.WriteLine("The date and time are {0} {1}.", cstTime, cstZone.IsDaylightSavingTime(cstTime) ? cstZone.DaylightName : cstZone.StandardName);
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine($"Error [Ahorita] {exc}");
+            }
+
+            return cstTime;
+        }
+    }
+}

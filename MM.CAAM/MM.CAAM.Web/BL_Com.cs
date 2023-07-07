@@ -11,6 +11,28 @@ namespace MM.CAAM.Web
         public static readonly string KeyEncript = "d/pThAB45Fp#:S:3";
         private static readonly byte[] IV = { 10, 20, 30, 40, 50, 60, 70, 80 };
 
+        public static string RenombrarSiExisteArchivo(string full_path)
+        {
+            string fileName = Path.GetFileName(full_path);
+            string fileExtension = Path.GetExtension(full_path);
+            string fileDirectoryName = Path.GetDirectoryName(full_path);
+            string tmp_filename = fileName;
+            int contador = 1;
+
+            if (!Directory.Exists(fileDirectoryName))
+            {
+                Directory.CreateDirectory(fileDirectoryName);
+            }
+
+            while (File.Exists(Path.Combine(fileDirectoryName, tmp_filename)))
+            {
+                tmp_filename = fileName.Split('.')[0] + "_Copy_" + contador + fileExtension;
+                contador++;
+            }
+
+            return tmp_filename.Replace(" ", "_");
+        }
+
         public static string Encryptor(string stringToEncrypt)
         {
             try

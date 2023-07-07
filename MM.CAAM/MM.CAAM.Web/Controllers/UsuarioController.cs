@@ -16,10 +16,13 @@ namespace MM.CAAM.Web.Controllers
 {
     public class UsuarioController : Controller
     {
+        private readonly IUsuarioService UsuarioService;
+
         //private readonly ITestService TestService;
 
-        public UsuarioController(ITestService testService)
+        public UsuarioController(ITestService testService, IUsuarioService usuarioService)
         {
+            this.UsuarioService = usuarioService;
             //TestService = testService;
         }
 
@@ -55,7 +58,7 @@ namespace MM.CAAM.Web.Controllers
         }
 
         [HttpPost] //attribute to get posted values from HTML Form
-        public async Task<ActionResult> CrearUsuario(UsuarioDTO usuarioDTO, HttpPostedFileBase PerfilNombreArchivo)
+        public async Task<ActionResult> CrearUsuario(UsuarioDto usuarioDto, HttpPostedFileBase PerfilNombreArchivo)
         {
             //Post post = new Post()
             //{
@@ -73,39 +76,38 @@ namespace MM.CAAM.Web.Controllers
             //return RedirectToAction("Index");
 
             ///////////////////////////////////////////////////////////////////////////
-            //try
-            //{
-            //    if (usuarioDto.RolId < 0)
-            //        throw new ValidationException("El id rol es requerido.");
-            //    if (usuarioDto.CentralId < 0)
-            //        throw new ValidationException("La central es requerida.");
+            try
+            {
+                //if (usuarioDto.RolId < 0)
+                //    throw new ValidationException("El id rol es requerido.");
+                //if (usuarioDto.CentralId < 0)
+                //    throw new ValidationException("La central es requerida.");
 
-            //    if (PerfilNombreArchivo != null && PerfilNombreArchivo.ContentLength > 0)
-            //    {
-            //        var fullPath = Path.Combine(usuarioDto.PathFotosActuarios, PerfilNombreArchivo.FileName);
-            //        var fileName = Com.RenombrarSiExisteArchivo(fullPath);
-            //        PerfilNombreArchivo.SaveAs(Path.Combine(usuarioDto.PathFotosActuarios, fileName));
+                if (PerfilNombreArchivo != null && PerfilNombreArchivo.ContentLength > 0)
+                {
+                    var fullPath = Path.Combine(usuarioDto.PathFotosActuarios, PerfilNombreArchivo.FileName);
+                    var fileName = Com.RenombrarSiExisteArchivo(fullPath);
+                    PerfilNombreArchivo.SaveAs(Path.Combine(usuarioDto.PathFotosActuarios, fileName));
 
-            //        usuarioDto.PerfilNombreArchivo = fileName;
-            //    }
-            //    else
-            //        usuarioDto.PerfilNombreArchivo = null;
+                    usuarioDto.PerfilNombreArchivo = fileName;
+                }
+                else
+                    usuarioDto.PerfilNombreArchivo = null;
 
-            //    UsuarioService.InsertUsuario(usuarioDto);
+                UsuarioService.InsertUsuario(usuarioDto);
 
-            //    // Exito
-            //    JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
-            //}
-            //catch (ValidationException ex)
-            //{
-            //    var error = new ExceptionMessage(ex);
-            //    JResult.Data = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
-            //}
-            //catch (Exception ex)
-            //{
-            //    var error = new ExceptionMessage(ex);
-            //    return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
-            //}
+                //JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                //JResult.Data = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
+            }
 
             //return JResult;
 

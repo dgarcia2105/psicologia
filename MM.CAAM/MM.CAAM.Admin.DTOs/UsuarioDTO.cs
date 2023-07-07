@@ -1,12 +1,15 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
+using System.IO;
 using System.Web.Mvc;
 using System.Xml.Linq;
 
 namespace MM.CAAM.Admin.DTOs
 {
-    public class UsuarioDTO
+    public class UsuarioDto
     {
+        private readonly string PathDocsFotosPerfil = ConfigurationManager.AppSettings["PathDocsFotosPerfil"];
 
         [HiddenInput(DisplayValue = false)]
         public long Id { get; set; }
@@ -109,6 +112,14 @@ namespace MM.CAAM.Admin.DTOs
             get
             {
                 return Activo ? "Si" : "No";
+            }
+        }
+
+        public string PathFotosActuarios
+        {
+            get
+            {
+                return Path.Combine(PathDocsFotosPerfil);
             }
         }
 

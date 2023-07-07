@@ -30,7 +30,7 @@ namespace MM.CAAM.Web.Controllers
         }
 
         [HttpPost] //attribute to get posted values from HTML Form
-        public async Task<ActionResult> IniciarSesion(UsuarioDTO usuarioDTO)
+        public async Task<ActionResult> IniciarSesion(UsuarioDto usuarioDTO)
         {
             //Post post = new Post()
             //{
