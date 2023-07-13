@@ -27,6 +27,7 @@ namespace MM.CAAM.Web
 
             container.RegisterType<IRESTService, RESTService>(new InjectionConstructor(ApiKeyCentralActuarios, BaseUrlApiCentralActuarios));
             container.RegisterType<ITestService, TestService>();
+            container.RegisterType<IUsuarioService, UsuarioService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
