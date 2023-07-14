@@ -10,6 +10,8 @@ using System.Linq;
 using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
 using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
 using MM.CAAM.Gestion.WebApi.Migrations;
+using Microsoft.AspNetCore.DataProtection;
+using MM.CAAM.Gestion.Services;
 
 namespace MM.CAAM.Gestion.WebApi.Controllers    
 {
@@ -20,11 +22,15 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
     {
         private readonly ApplicationDbContext context;
         private readonly IMapper mapper;
+        private readonly IDataProtector dataProtector;
 
-        public UsuariosController(ApplicationDbContext context, IMapper mapper)
+        public UsuariosController(ApplicationDbContext context, 
+            IMapper mapper,
+            IDataProtectionProvider dataProtectionProvider)
         {
             this.context = context;
             this.mapper = mapper;
+            dataProtector = dataProtectionProvider.CreateProtector(Com.KeyEncript);
         }
 
         [HttpGet]
@@ -61,12 +67,22 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] UsuarioCreacionDTO usuarioCreacionDTO)  //DTOs y AUTOMAPPER
         {
-            var existeUsuarioConElMismoNombre = await context.Usuarios.AnyAsync(x =>  x.Nombre.Equals(usuarioCreacionDTO.Nombre));
+            var userRepetido = await context.Usuarios.Where(x =>    x.Correo.Equals(usuarioCreacionDTO.Correo)
+                                                                                 ||  x.NombrePerfil.Equals(usuarioCreacionDTO.NombrePerfil)).FirstOrDefaultAsync();
 
-            if(existeUsuarioConElMismoNombre) 
+            if(userRepetido != null) 
             {
-                return BadRequest($"Ya existe un usuario con el nombre {usuarioCreacionDTO.Nombre}");
+                var valorRepetido = userRepetido.Correo.Equals(usuarioCreacionDTO.Correo) ? $"Ya existe el correo: {usuarioCreacionDTO.Correo}" :
+                                                                                            $"Ya existe el usuario: {usuarioCreacionDTO.NombrePerfil}";
+                return BadRequest(valorRepetido);
             }
+
+            #region SET VALORES
+
+            usuarioCreacionDTO.Password = Encryptor(usuarioCreacionDTO.Password);
+            usuarioCreacionDTO.FechaCreacion = Com.GetUtcNowByZone();
+
+            #endregion
 
             var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);                              //DTOs y AUTOMAPPER     //Libreria automapper: AutoMapper.Extensions.Microsoft.DependencyInjection
 
@@ -109,6 +125,23 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             context.Remove(new Usuario { Id = id });
             await context.SaveChangesAsync();
             return Ok();
+        }
+
+        [HttpGet("desencriptar")]
+        public string Decryptor(string stringToDecrypt)
+        {
+            //var textoCifrado = dataProtector.Protect(textoPlano);
+            var textoDesencriptado = dataProtector.Unprotect(stringToDecrypt);
+
+            return textoDesencriptado;
+        }
+
+        [HttpGet("encriptar")]
+        public string Encryptor(string stringToEncrypt)
+        {
+            var textoCifrado = dataProtector.Protect(stringToEncrypt);
+
+            return textoCifrado;
         }
     }
 }

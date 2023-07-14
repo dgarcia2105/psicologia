@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.AspNetCore.DataProtection;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,13 +8,13 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MM.CAAM.Gestion.Services
+namespace MM.CAAM.Gestion.Services 
 {
     public static class Com
     {
         public static readonly string KeyEncript = "d/pThAB45Fp#:S:3";
         private static readonly byte[] IV = { 10, 20, 30, 40, 50, 60, 70, 80 };
-
+        
         public enum Ciudades
         {
             MEXICALI = 1,
@@ -27,93 +28,7 @@ namespace MM.CAAM.Gestion.Services
             PLAYAS_ROSARITO = 9,
             DESARROLLO = 9999
         }
-
-        public static string Decryptor(string stringToDecrypt)
-        {
-            try
-            {
-                var key = Encoding.UTF8.GetBytes(KeyEncript.Substring(0, 8));
-                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
-                var inputByteArray = Base64UrlDecode(stringToDecrypt);
-
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(key, IV), CryptoStreamMode.Write);
-                cs.Write(inputByteArray, 0, inputByteArray.Length);
-                cs.FlushFinalBlock();
-
-                Encoding encoding = Encoding.UTF8;
-                return encoding.GetString(ms.ToArray());
-            }
-            catch (System.Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public static string Decryptor(this string stringToDecrypt, string keyEncript)
-        {
-            try
-            {
-                var key = Encoding.UTF8.GetBytes(keyEncript.Substring(0, 8));
-                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
-                var inputByteArray = Base64UrlDecode(stringToDecrypt);
-
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(key, IV), CryptoStreamMode.Write);
-                cs.Write(inputByteArray, 0, inputByteArray.Length);
-                cs.FlushFinalBlock();
-
-                Encoding encoding = Encoding.UTF8;
-                return encoding.GetString(ms.ToArray());
-            }
-            catch (System.Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public static string Encryptor(string stringToEncrypt)
-        {
-            try
-            {
-                var key = Encoding.UTF8.GetBytes(KeyEncript.Substring(0, 8));
-                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
-                var inputByteArray = Encoding.UTF8.GetBytes(stringToEncrypt);
-
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(key, IV), CryptoStreamMode.Write);
-                cs.Write(inputByteArray, 0, inputByteArray.Length);
-                cs.FlushFinalBlock();
-
-                return Base64UrlEncode(ms.ToArray());
-            }
-            catch (System.Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public static string Encryptor(this string stringToEncrypt, string keyEncript)
-        {
-            try
-            {
-                var key = Encoding.UTF8.GetBytes(keyEncript.Substring(0, 8));
-                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
-                var inputByteArray = Encoding.UTF8.GetBytes(stringToEncrypt);
-
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(key, IV), CryptoStreamMode.Write);
-                cs.Write(inputByteArray, 0, inputByteArray.Length);
-                cs.FlushFinalBlock();
-
-                return Base64UrlEncode(ms.ToArray());
-            }
-            catch (System.Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+        
         public static string Base64UrlEncode(byte[] arg)
         {
             string s = Convert.ToBase64String(arg); // Regular base64 encoder
@@ -199,5 +114,95 @@ namespace MM.CAAM.Gestion.Services
 
             return cstTime;
         }
+
+        
+
+        #region OLD
+        public static string DecryptorOld(string stringToDecrypt)
+        {
+            try
+            {
+                var key = Encoding.UTF8.GetBytes(KeyEncript.Substring(0, 8));
+                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                var inputByteArray = Base64UrlDecode(stringToDecrypt);
+
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(key, IV), CryptoStreamMode.Write);
+                cs.Write(inputByteArray, 0, inputByteArray.Length);
+                cs.FlushFinalBlock();
+
+                Encoding encoding = Encoding.UTF8;
+                return encoding.GetString(ms.ToArray());
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string DecryptorOld(this string stringToDecrypt, string keyEncript)
+        {
+            try
+            {
+                var key = Encoding.UTF8.GetBytes(keyEncript.Substring(0, 8));
+                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                var inputByteArray = Base64UrlDecode(stringToDecrypt);
+
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(key, IV), CryptoStreamMode.Write);
+                cs.Write(inputByteArray, 0, inputByteArray.Length);
+                cs.FlushFinalBlock();
+
+                Encoding encoding = Encoding.UTF8;
+                return encoding.GetString(ms.ToArray());
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string EncryptorOld(string stringToEncrypt)
+        {
+            try
+            {
+                var key = Encoding.UTF8.GetBytes(KeyEncript.Substring(0, 8));
+                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                var inputByteArray = Encoding.UTF8.GetBytes(stringToEncrypt);
+
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(key, IV), CryptoStreamMode.Write);
+                cs.Write(inputByteArray, 0, inputByteArray.Length);
+                cs.FlushFinalBlock();
+
+                return Base64UrlEncode(ms.ToArray());
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string EncryptorOld(this string stringToEncrypt, string keyEncript)
+        {
+            try
+            {
+                var key = Encoding.UTF8.GetBytes(keyEncript.Substring(0, 8));
+                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                var inputByteArray = Encoding.UTF8.GetBytes(stringToEncrypt);
+
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(key, IV), CryptoStreamMode.Write);
+                cs.Write(inputByteArray, 0, inputByteArray.Length);
+                cs.FlushFinalBlock();
+
+                return Base64UrlEncode(ms.ToArray());
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
     }
 }

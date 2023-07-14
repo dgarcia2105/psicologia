@@ -42,12 +42,12 @@
                                 </div>
                             </div>
                             <div class="form-group col-sm-6 col-xs-6">
-                                <label><span class="text-danger">*</span> Apellidos</label>
+                                <label><span class="text-danger">*</span> Apellido Paterno</label>
                                 @Html.EditorFor(model => model.ApellidoPaterno, new { htmlAttributes = new { @class = "form-control" } }) @*, @required = "required"*@
                                 @Html.ValidationMessageFor(model => model.ApellidoPaterno, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group col-sm-6 col-xs-6">
-                                <label><span class="text-danger">*</span> Apellidos</label>
+                                <label><span class="text-danger">*</span> Apellido Materno</label>
                                 @Html.EditorFor(model => model.ApellidoMaterno, new { htmlAttributes = new { @class = "form-control" } }) @*, @required = "required"*@
                                 @Html.ValidationMessageFor(model => model.ApellidoMaterno, "", new { @class = "text-danger" })
                             </div>

@@ -42,4 +42,7 @@
   <ItemGroup>
     <Content Remove="wwwroot\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MM.CAAM.Gestion.Services\MM.CAAM.Gestion.Services.csproj" />
+  </ItemGroup>
 </Project>
