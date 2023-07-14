@@ -18,12 +18,12 @@ namespace MM.CAAM.Web.Controllers
     {
         private readonly IUsuarioService UsuarioService;
 
-        //private readonly ITestService TestService;
+        private readonly ITestService TestService;
 
         public UsuarioController(ITestService testService, IUsuarioService usuarioService)
         {
             this.UsuarioService = usuarioService;
-            //TestService = testService;
+            TestService = testService;
         }
 
         public ActionResult Index()
