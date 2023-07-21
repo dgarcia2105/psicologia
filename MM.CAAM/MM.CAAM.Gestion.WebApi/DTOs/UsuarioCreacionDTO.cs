@@ -18,8 +18,9 @@ namespace MM.CAAM.Gestion.WebApi.DTOs
 
             public int RolId { get; set; }
 
-            [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
             [DataType(DataType.EmailAddress)]
+            [StringLength(60, ErrorMessage = "Máximo {1} caracteres.")]
+            [Display(Name = "Correo Electrónico")]
             public string Correo { get; set; }
 
             [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
@@ -28,7 +29,8 @@ namespace MM.CAAM.Gestion.WebApi.DTOs
             [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
             public string Password { get; set; }
 
-            [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
+            [StringLength(25, ErrorMessage = "Máximo {1} caracteres.")]
+            [Display(Name = "Usuario")]
             public string NombrePerfil { get; set; }
 
             [DataType(DataType.DateTime)]

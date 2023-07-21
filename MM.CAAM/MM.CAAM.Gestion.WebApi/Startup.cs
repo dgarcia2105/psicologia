@@ -119,13 +119,13 @@ namespace MM.CAAM.Gestion.WebApi
             });
 
             //CORS PERMITE SOLICITUDES DESDE OTRA PAGINA WEB
-            //services.AddCors(opciones =>
-            //{
-            //    opciones.AddDefaultPolicy(builder =>
-            //    {
-            //        builder.WithOrigins("https://www.apirequest.io").AllowAnyMethod().AllowAnyHeader();
-            //    });
-            //});
+            services.AddCors(opciones =>
+            {
+                opciones.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("https://localhost:44332/").AllowAnyMethod().AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

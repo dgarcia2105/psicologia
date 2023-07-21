@@ -12,6 +12,8 @@ using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
 using MM.CAAM.Gestion.WebApi.Migrations;
 using Microsoft.AspNetCore.DataProtection;
 using MM.CAAM.Gestion.Services;
+using System.ComponentModel.DataAnnotations;
+using MM.CAAM.Gestion.Services.Exceptions;
 
 namespace MM.CAAM.Gestion.WebApi.Controllers    
 {
@@ -64,31 +66,60 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
             return mapper.Map<List<UsuarioDTO>>(usuarios);
         }
 
+
+        //[HttpPost("lista")]
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] UsuarioCreacionDTO usuarioCreacionDTO)  //DTOs y AUTOMAPPER
         {
-            var userRepetido = await context.Usuarios.Where(x =>    x.Correo.Equals(usuarioCreacionDTO.Correo)
-                                                                                 ||  x.NombrePerfil.Equals(usuarioCreacionDTO.NombrePerfil)).FirstOrDefaultAsync();
-
-            if(userRepetido != null) 
+            try
             {
-                var valorRepetido = userRepetido.Correo.Equals(usuarioCreacionDTO.Correo) ? $"Ya existe el correo: {usuarioCreacionDTO.Correo}" :
-                                                                                            $"Ya existe el usuario: {usuarioCreacionDTO.NombrePerfil}";
-                return BadRequest(valorRepetido);
+
+                var userRepetido = await context.Usuarios.Where(x => x.Nombre.ToUpper().Equals(usuarioCreacionDTO.Nombre.ToUpper())
+                                                                                 && x.ApellidoPaterno.ToUpper().Equals(usuarioCreacionDTO.ApellidoPaterno.ToUpper())
+                                                                                 && x.ApellidoMaterno.ToUpper().Equals(usuarioCreacionDTO.ApellidoMaterno.ToUpper())).FirstOrDefaultAsync();
+
+                if (userRepetido != null)
+                {
+                    //var valorRepetido = userRepetido.Correo.Equals(usuarioCreacionDTO.Correo) ? $"Ya existe el correo: {usuarioCreacionDTO.Correo}" :
+                    //                                                                            $"Ya existe el usuario: {usuarioCreacionDTO.NombrePerfil}";
+
+                    var valorRepetido = "Ya existe";
+
+                    throw new ArgumentException(valorRepetido); ;
+                }
+
+                #region SET VALORES
+                if (!string.IsNullOrEmpty(usuarioCreacionDTO.Password))
+                {
+                    usuarioCreacionDTO.Password = Encryptor(usuarioCreacionDTO.Password);
+                }
+                usuarioCreacionDTO.FechaCreacion = Com.GetUtcNowByZone();
+
+                #endregion
+
+                var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);                              //DTOs y AUTOMAPPER     //Libreria automapper: AutoMapper.Extensions.Microsoft.DependencyInjection
+
+                context.Add(usuario);                                                               //INSERTAR REGISTRO
+                await context.SaveChangesAsync();                                                   //INSERTAR REGISTRO
+                //return Ok();
+
+            
+                //var data = await DiligenciaService.ObtenerLista(obtenerDiligenciaRequest);
+                //data = data.Where(x => x.AutorizaProgramacion).ToList();
+                //return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
+                return Ok(new Result { Code = StatusCodes.Status200OK});
+                //return Ok();
             }
-
-            #region SET VALORES
-
-            usuarioCreacionDTO.Password = Encryptor(usuarioCreacionDTO.Password);
-            usuarioCreacionDTO.FechaCreacion = Com.GetUtcNowByZone();
-
-            #endregion
-
-            var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);                              //DTOs y AUTOMAPPER     //Libreria automapper: AutoMapper.Extensions.Microsoft.DependencyInjection
-
-            context.Add(usuario);                                                               //INSERTAR REGISTRO
-            await context.SaveChangesAsync();                                                   //INSERTAR REGISTRO
-            return Ok();
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            }
         }
 
         [HttpPut("{id:int}")]   //api/usuarios/1

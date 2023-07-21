@@ -17,7 +17,7 @@ namespace MM.CAAM.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Loggin", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Usuario", action = "agregarusuario", id = UrlParameter.Optional } //loggin, usuario
             );
         }
     }

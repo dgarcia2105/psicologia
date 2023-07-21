@@ -48,17 +48,20 @@ namespace MM.CAAM.Web.Controllers
                 new RolDTO() { Id = 1, Rol = "1" },
                 new RolDTO() { Id = 2, Rol = "2" }
             };
+
             var RolesSelect = new SelectList(
                                         items: Roles,
                                         dataValueField: nameof(RolDTO.Rol),
                                         dataTextField: nameof(RolDTO.Rol));
+
+
             ViewBag.Roles = RolesSelect;
 
             return View();
         }
 
         [HttpPost] //attribute to get posted values from HTML Form
-        public async Task<ActionResult> CrearUsuario(UsuarioDto usuarioDto, HttpPostedFileBase PerfilNombreArchivo)
+        public async Task<ActionResult> CrearUsuario(UsuarioCreacionDTO usuarioCreacionDto, HttpPostedFileBase PerfilNombreArchivo)
         {
             //Post post = new Post()
             //{
@@ -78,23 +81,20 @@ namespace MM.CAAM.Web.Controllers
             ///////////////////////////////////////////////////////////////////////////
             try
             {
-                //if (usuarioDto.RolId < 0)
-                //    throw new ValidationException("El id rol es requerido.");
-                //if (usuarioDto.CentralId < 0)
-                //    throw new ValidationException("La central es requerida.");
 
-                if (PerfilNombreArchivo != null && PerfilNombreArchivo.ContentLength > 0)
-                {
-                    var fullPath = Path.Combine(usuarioDto.PathFotosActuarios, PerfilNombreArchivo.FileName);
-                    var fileName = Com.RenombrarSiExisteArchivo(fullPath);
-                    PerfilNombreArchivo.SaveAs(Path.Combine(usuarioDto.PathFotosActuarios, fileName));
+                //TMP
+                //if (PerfilNombreArchivo != null && PerfilNombreArchivo.ContentLength > 0)
+                //{
+                //    var fullPath = Path.Combine(usuarioDto.PathFotosActuarios, PerfilNombreArchivo.FileName);
+                //    var fileName = Com.RenombrarSiExisteArchivo(fullPath);
+                //    PerfilNombreArchivo.SaveAs(Path.Combine(usuarioDto.PathFotosActuarios, fileName));
 
-                    usuarioDto.PerfilNombreArchivo = fileName;
-                }
-                else
-                    usuarioDto.PerfilNombreArchivo = null;
+                //    usuarioDto.PerfilNombreArchivo = fileName;
+                //}
+                //else
+                //    usuarioDto.PerfilNombreArchivo = null;
 
-                UsuarioService.InsertUsuario(usuarioDto);
+                var a = await UsuarioService.InsertUsuario(usuarioCreacionDto);
 
                 //JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
             }

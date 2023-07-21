@@ -8,13 +8,14 @@ using System.Collections.Generic;
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace MM.CAAM.Admin.Services.Servicios.Test
 {
     public interface IUsuarioService
     {
         Task<UsuarioDto> LoginApi(UsuarioDto dto);
-        void InsertUsuario(UsuarioDto dto);
+        Task<List<string>> InsertUsuario(UsuarioCreacionDTO dto);
     }
 
     public class UsuarioService : IUsuarioService
@@ -53,8 +54,20 @@ namespace MM.CAAM.Admin.Services.Servicios.Test
             return null;
         }
 
-        public void InsertUsuario(UsuarioDto dto)
+        public async Task<List<string>> InsertUsuario(UsuarioCreacionDTO payload)
         {
+
+            var endPoint = $"/api/usuarios";
+
+            var result = await RESTService.Post<List<string>>(endPoint, payload, "");
+
+            if (result.Code != (int)HttpStatusCode.OK)
+                throw new ValidationException(result.Message);
+
+            return result.Data;
+
+            //return result;
+
             //var pParametros = new Dictionary<string, object>
             //{
             //    { nameof(usuarios.usuario), dto.Usuario },
