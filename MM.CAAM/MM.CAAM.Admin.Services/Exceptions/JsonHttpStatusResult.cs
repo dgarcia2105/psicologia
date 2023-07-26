@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Web.Mvc;
+//using System.Web.Mvc;
 
 namespace MM.CAAM.Admin.Services.Exceptions
 {
@@ -14,10 +15,13 @@ namespace MM.CAAM.Admin.Services.Exceptions
             JsonRequestBehavior = JsonRequestBehavior.AllowGet;
         }
 
-        public override void ExecuteResult(ControllerContext context)
-        {
-            context.RequestContext.HttpContext.Response.StatusCode = (int)HttpStatusCode;
-            base.ExecuteResult(context);
-        }
+        //TODO:
+        //public override void ExecuteResult(ControllerContext context)
+        //{
+        //    context.RequestContext.HttpContext.Response.StatusCode = (int)HttpStatusCode;
+        //    //context.HttpContext.Response.StatusCode = this.StatusCode;
+        //    //context.RequestContext = null;
+        //    base.ExecuteResult(context);
+        //}
     }
 }

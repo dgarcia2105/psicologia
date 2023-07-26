@@ -1,6 +1,5 @@
-﻿using MM.CAAM.Admin.DTOs.Objects;
-using MM.CAAM.Admin.DTOs.Test;
-using MM.CAAM.Admin.Services.Exceptions;
+﻿using MM.CAAM.Gestion.DTO.Objects;
+using MM.CAAM.Gestion.DTO.Test;
 using System.Net;
 using System.Threading.Tasks;
 

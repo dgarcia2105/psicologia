@@ -1,20 +1,17 @@
-﻿using MM.CAAM.Admin.DTOs;
-using MM.CAAM.Admin.DTOs.Objects;
-using MM.CAAM.Admin.DTOs.Request;
-using MM.CAAM.Admin.DTOs.Response;
-using MM.CAAM.Admin.DTOs.Test;
-using MM.CAAM.Admin.Services.Exceptions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web.Mvc;
+using MM.CAAM.Gestion.DTO.DTOs;
+using MM.CAAM.Gestion.DTO.DTOs.Request;
+using MM.CAAM.Gestion.DTO.DTOs.Response;
+using MM.CAAM.Admin.Services.Exceptions;
 
 namespace MM.CAAM.Admin.Services.Servicios.Test
 {
     public interface IUsuarioService
     {
-        Task<UsuarioDto> LoginApi(UsuarioDto dto);
+        Task<UsuarioDTO> LoginApi(UsuarioDTO dto);
         Task<List<string>> InsertUsuario(UsuarioCreacionDTO dto);
     }
 
@@ -26,7 +23,7 @@ namespace MM.CAAM.Admin.Services.Servicios.Test
             RESTService = restService;
         }
 
-        public async Task<UsuarioDto> LoginApi(UsuarioDto dto)
+        public async Task<UsuarioDTO> LoginApi(UsuarioDTO dto)
         {
             var endPoint = $"/api/usuario/login/";
 

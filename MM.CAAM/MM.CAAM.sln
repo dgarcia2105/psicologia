@@ -1,17 +1,18 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Web", "MM.CAAM.Web\MM.CAAM.Web.csproj", "{894F4A7C-2DED-430D-B4CB-8282B73B75C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Web", "MM.CAAM.Web\MM.CAAM.Web.csproj", "{894F4A7C-2DED-430D-B4CB-8282B73B75C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Admin.DTOs", "MM.CAAM.Admin.DTOs\MM.CAAM.Admin.DTOs.csproj", "{81218131-FB40-4FD4-A3A7-BB7BB2ADD3C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Admin.DTOs", "MM.CAAM.Admin.DTOs\MM.CAAM.Admin.DTOs.csproj", "{81218131-FB40-4FD4-A3A7-BB7BB2ADD3C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Admin.Services", "MM.CAAM.Admin.Services\MM.CAAM.Admin.Services.csproj", "{865FF9EB-D390-4C1C-8BAF-5716E61A57B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Admin.Services", "MM.CAAM.Admin.Services\MM.CAAM.Admin.Services.csproj", "{865FF9EB-D390-4C1C-8BAF-5716E61A57B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Admin.Models", "MM.CAAM.Admin.Models\MM.CAAM.Admin.Models.csproj", "{7AD7234E-7503-49A0-8763-635D4635F893}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Admin.Models", "MM.CAAM.Admin.Models\MM.CAAM.Admin.Models.csproj", "{7AD7234E-7503-49A0-8763-635D4635F893}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Gestion.DTO", "MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj", "{A712194C-E1F2-4035-9F81-769F69756A2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Admin.Web", "MM.CAAM.Admin.Web\MM.CAAM.Admin.Web.csproj", "{BB8FD904-4306-40AA-9C14-FC5C3BD81136}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +40,10 @@ Global
 		{A712194C-E1F2-4035-9F81-769F69756A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A712194C-E1F2-4035-9F81-769F69756A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A712194C-E1F2-4035-9F81-769F69756A2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB8FD904-4306-40AA-9C14-FC5C3BD81136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB8FD904-4306-40AA-9C14-FC5C3BD81136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB8FD904-4306-40AA-9C14-FC5C3BD81136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB8FD904-4306-40AA-9C14-FC5C3BD81136}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,14 +1,7 @@
-﻿using MM.CAAM.Admin.DTOs;
-using MM.CAAM.Admin.DTOs.Objects;
-using MM.CAAM.Admin.Services.Servicios.Test;
-using Newtonsoft.Json;
-using System.Net;
-using System;
+﻿using MM.CAAM.Admin.Services.Servicios.Test;
 using System.Threading.Tasks;
-using System.Web.Mvc;
-using System.Web.Security;
-using System.Web;
-using MM.CAAM.Admin.Services.Exceptions;
+using Microsoft.AspNetCore.Mvc;
+using MM.CAAM.Gestion.DTO.DTOs;
 
 namespace MM.CAAM.Web.Controllers
 {
@@ -24,13 +17,13 @@ namespace MM.CAAM.Web.Controllers
             //TestService = testService;
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost] //attribute to get posted values from HTML Form
-        public async Task<ActionResult> IniciarSesion(UsuarioDto usuarioDTO)
+        public async Task<ActionResult> IniciarSesion(UsuarioDTO usuarioDTO)
         {
             //Post post = new Post()
             //{
@@ -47,40 +40,42 @@ namespace MM.CAAM.Web.Controllers
 
             //return RedirectToAction("Index");
 
-            try
-            {
-                // Generar Cookie con los datos de autentificacion
-                var resultDto = await usuarioService.LoginApi(usuarioDTO);
+            ////TODO:
+            //try
+            //{
+            //    // Generar Cookie con los datos de autentificacion
+            //    var resultDto = await usuarioService.LoginApi(usuarioDTO);
 
-                UsuarioProfile usuarioDTOLogeado = new UsuarioProfile()
-                {
-                    UsuarioDto = resultDto
-                };
+            //    UsuarioProfile usuarioDTOLogeado = new UsuarioProfile()
+            //    {
+            //        UsuarioDto = resultDto
+            //    };
 
-                // Encrypt the ticket.
-                string encTicket = JsonConvert.SerializeObject(usuarioDTOLogeado);
-                string encriptado = Com.Encryptor(encTicket);
-                var HttpCookie = new HttpCookie(".AUTHCENTRAL", encriptado)
-                {
-                    Expires = DateTime.Now.AddSeconds(FormsAuthentication.Timeout.TotalSeconds),
-                    Secure = true
-                };
-                // Create the cookie.
-                HttpContext.Response.Cookies.Add(HttpCookie);
+            //    // Encrypt the ticket.
+            //    string encTicket = JsonConvert.SerializeObject(usuarioDTOLogeado);
+            //    string encriptado = Com.Encryptor(encTicket);
+            //    // TODO ASP.NET membership should be replaced with ASP.NET Core identity. For more details see https://docs.microsoft.com/aspnet/core/migration/proper-to-2x/membership-to-core-identity.
+            //    var HttpCookie = new HttpCookie(".AUTHCENTRAL", encriptado)
+            //    {
+            //        Expires = DateTime.Now.AddSeconds(FormsAuthentication.Timeout.TotalSeconds),
+            //        Secure = true
+            //    };
+            //    // Create the cookie.
+            //    HttpContext.Response.Cookies.Add(HttpCookie);
 
-                // Exito
-                JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
-            }
-            catch (ValidationException ex)
-            {
-                var error = new ExceptionMessage(ex);
-                JResult.Data = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
-            }
-            catch (Exception ex)
-            {
-                var error = new ExceptionMessage(ex);
-                return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
-            }
+            //    // Exito
+            //    JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
+            //}
+            //catch (ValidationException ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    JResult.Data = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
+            //}
+            //catch (Exception ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
+            //}
 
             return null;
         }

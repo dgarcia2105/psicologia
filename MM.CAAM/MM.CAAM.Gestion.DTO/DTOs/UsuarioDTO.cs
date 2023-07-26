@@ -69,6 +69,7 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         public string BearerToken { get; set; }
         public List<NegocioDTO> Negocios { get; set; } //= new List<Negocio>();
         public List<ConsultaDTO> Consultas { get; set; }
+        public string Usuario { get; set; }
 
         /*
          * Comentando propiedades, y quitando includes se puede manejar algo llamado lazy-loading

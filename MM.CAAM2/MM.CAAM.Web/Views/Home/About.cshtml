@@ -1,0 +1,23 @@
+﻿@model MM.CAAM.Admin.DTOs.HomeDto
+@{
+    ViewBag.MetaDescripcion = Model.MetaHtml.Description;
+    ViewBag.MetaAuthor = Model.MetaHtml.Author;
+    ViewBag.MetaKeywords = Model.MetaHtml.Keywords;
+    ViewBag.Descripcion = Model.Descripcion;
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+    ViewBag.Title = "Sobre Nosotros";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@Model.Descripcion</h3>
+
+<p>
+    Siguenos también en: 
+    @if (Model.ListRedSocial.Count > 0)
+    {
+        foreach (var redSocial in @Model.ListRedSocial)
+        {
+            <br />
+            <a href="@redSocial.Url">@redSocial.Texto</a><br />
+        }
+    }
+</p>

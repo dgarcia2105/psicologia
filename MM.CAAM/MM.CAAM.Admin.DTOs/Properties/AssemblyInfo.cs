@@ -1,16 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
-// La información general de un ensamblado se controla mediante el siguiente 
-// conjunto de atributos. Cambie estos valores de atributo para modificar la información
-// asociada con un ensamblado.
-[assembly: AssemblyTitle("MM.CAAM.Admin.DTOs")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("MM.CAAM.Admin.DTOs")]
-[assembly: AssemblyCopyright("Copyright © HP Inc. 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,16 +11,3 @@ using System.Runtime.InteropServices;
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
 [assembly: Guid("81218131-fb40-4fd4-a3a7-bb7bb2add3c5")]
-
-// La información de versión de un ensamblado consta de los cuatro valores siguientes:
-//
-//      Versión principal
-//      Versión secundaria
-//      Número de compilación
-//      Revisión
-//
-// Puede especificar todos los valores o usar los valores predeterminados de número de compilación y de revisión
-// utilizando el carácter "*", como se muestra a continuación:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]

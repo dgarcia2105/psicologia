@@ -3,9 +3,8 @@
 //RESTService   https://www.youtube.com/watch?v=Q12rpPdPcD8
                 //https://jsonplaceholder.typicode.com/
 
-using MM.CAAM.Admin.DTOs.Objects;
-using MM.CAAM.Admin.DTOs.Test;
 using MM.CAAM.Admin.Services.Exceptions;
+using MM.CAAM.Gestion.DTO.Objects;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Net.Http;

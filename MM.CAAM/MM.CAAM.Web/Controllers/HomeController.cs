@@ -1,6 +1,6 @@
-﻿using MM.CAAM.Admin.DTOs;
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using MM.CAAM.Gestion.DTO.DTOs;
 
 namespace MM.CAAM.Web.Controllers
 {

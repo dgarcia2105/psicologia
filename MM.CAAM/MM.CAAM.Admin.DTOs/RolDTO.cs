@@ -1,7 +1,4 @@
 ﻿
-using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
-using System.Xml.Linq;
 
 namespace MM.CAAM.Admin.DTOs
 {
