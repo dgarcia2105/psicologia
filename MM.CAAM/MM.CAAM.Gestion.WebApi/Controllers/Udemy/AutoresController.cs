@@ -3,14 +3,14 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MM.CAAM.Gestion.WebApi.Filtros;
+using MM.CAAM.Gestion.Models.Filtros;
 using System.Linq;
-using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
-using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
+using MM.CAAM.Gestion.Models.Entidades.Udemy;
+using MM.CAAM.Gestion.DTO.DTOs.Udemy;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
+namespace MM.CAAM.Gestion.Models.Controllers.Udemy
 {
     [ApiController]                                                             //si algo sale mal retorna un bad request
     [Route("api/autores")]

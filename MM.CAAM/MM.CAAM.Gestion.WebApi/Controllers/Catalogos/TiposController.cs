@@ -1,16 +1,17 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MM.CAAM.Gestion.WebApi.DTOs;
-using MM.CAAM.Gestion.WebApi.DTOs.Catalogos;
-using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
-using MM.CAAM.Gestion.WebApi.Entidades;
-using MM.CAAM.Gestion.WebApi.Entidades.Catalogos;
-using MM.CAAM.Gestion.WebApi.Migrations;
+using MM.CAAM.Gestion.DTO.DTOs;
+using MM.CAAM.Gestion.DTO.DTOs.Catalogos;
+using MM.CAAM.Gestion.DTO.DTOs.Udemy;
+using MM.CAAM.Gestion.Models.Entidades;
+using MM.CAAM.Gestion.Models.Entidades.Catalogos;
+using MM.CAAM.Gestion.Models.Migrations;
 using static Azure.Core.HttpHeader;
-using GrupoAlimenticio = MM.CAAM.Gestion.WebApi.Entidades.GrupoAlimenticio;
+//using GrupoAlimenticio = MM.CAAM.Gestion.Models.Entidades.GrupoAlimenticio;
+using GrupoAlimenticio = MM.CAAM.Gestion.Models.Entidades.Catalogos.GrupoAlimenticio;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers.Catalogos
+namespace MM.CAAM.Gestion.Models.Controllers.Catalogos
 {
     [ApiController]
     [Route("api/tipos")]             

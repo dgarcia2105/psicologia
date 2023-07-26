@@ -12,9 +12,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MM.CAAM.Gestion.WebApi;
-using MM.CAAM.Gestion.WebApi.Filtros;
-using MM.CAAM.Gestion.WebApi.Middlewares;
+using MM.CAAM.Gestion.Models;
+using MM.CAAM.Gestion.Models.Filtros;
+using MM.CAAM.Gestion.Models.Middlewares;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -23,7 +23,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace MM.CAAM.Gestion.WebApi
+namespace MM.CAAM.Gestion.Models
 {
     public class Startup
     {

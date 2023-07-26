@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Gestion.WebApi", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Gestion.Services", "MM.CAAM.Gestion.Services\MM.CAAM.Gestion.Services.csproj", "{6DFB26B3-63DB-4AA2-B252-C9F547EF3F2F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Gestion.DTO", "MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj", "{F6D1E69A-ED44-4863-AF26-93451D4C5651}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Gestion.Models", "MM.CAAM.Gestion.Models\MM.CAAM.Gestion.Models.csproj", "{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{6DFB26B3-63DB-4AA2-B252-C9F547EF3F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DFB26B3-63DB-4AA2-B252-C9F547EF3F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DFB26B3-63DB-4AA2-B252-C9F547EF3F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6D1E69A-ED44-4863-AF26-93451D4C5651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D1E69A-ED44-4863-AF26-93451D4C5651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D1E69A-ED44-4863-AF26-93451D4C5651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D1E69A-ED44-4863-AF26-93451D4C5651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

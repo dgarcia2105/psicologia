@@ -1,13 +1,13 @@
 ﻿using System;
 using AutoMapper;
-using MM.CAAM.Gestion.WebApi.DTOs;
-using MM.CAAM.Gestion.WebApi.DTOs.Catalogos;
-using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
-using MM.CAAM.Gestion.WebApi.Entidades;
-using MM.CAAM.Gestion.WebApi.Entidades.Catalogos;
-using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
+using MM.CAAM.Gestion.DTO.DTOs;
+using MM.CAAM.Gestion.DTO.DTOs.Catalogos;
+using MM.CAAM.Gestion.DTO.DTOs.Udemy;
+using MM.CAAM.Gestion.Models.Entidades;
+using MM.CAAM.Gestion.Models.Entidades.Catalogos;
+using MM.CAAM.Gestion.Models.Entidades.Udemy;
 
-namespace MM.CAAM.Gestion.WebApi.Utilidades
+namespace MM.CAAM.Gestion.Models.Utilidades
 {
     public class AutoMapperProfiles: Profile                                                    //DTOs y AUTOMAPPER
     {

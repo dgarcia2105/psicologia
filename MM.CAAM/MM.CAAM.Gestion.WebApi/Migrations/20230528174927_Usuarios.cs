@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MM.CAAM.Gestion.WebApi.Migrations
+namespace MM.CAAM.Gestion.Models.Migrations
 {
     /// <inheritdoc />
     public partial class Usuarios : Migration

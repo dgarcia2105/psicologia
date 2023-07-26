@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MM.CAAM.Gestion.WebApi.Filtros
+namespace MM.CAAM.Gestion.Models.Filtros
 {
     public class FiltroDeExcepcion: ExceptionFilterAttribute
     {

@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using MM.CAAM.Gestion.WebApi.DTOs;
+using MM.CAAM.Gestion.DTO.DTOs;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers
+namespace MM.CAAM.Gestion.Models.Controllers
 {
     [ApiController]
     [Route("api/cuentas")]

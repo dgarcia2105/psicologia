@@ -12,4 +12,7 @@
   <ItemGroup>
     <Folder Include="Validaciones\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MM.CAAM.Gestion.Models\MM.CAAM.Gestion.Models.csproj" />
+  </ItemGroup>
 </Project>

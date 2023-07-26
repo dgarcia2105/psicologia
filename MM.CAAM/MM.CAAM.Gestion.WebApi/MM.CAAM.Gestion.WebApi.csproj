@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DTOs\**" />
+    <Compile Remove="Entidades\**" />
+    <Content Remove="DTOs\**" />
+    <Content Remove="Entidades\**" />
+    <EmbeddedResource Remove="DTOs\**" />
+    <EmbeddedResource Remove="Entidades\**" />
+    <None Remove="DTOs\**" />
+    <None Remove="Entidades\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.19" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
@@ -43,6 +54,7 @@
     <Content Remove="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj" />
     <ProjectReference Include="..\MM.CAAM.Gestion.Services\MM.CAAM.Gestion.Services.csproj" />
   </ItemGroup>
 </Project>

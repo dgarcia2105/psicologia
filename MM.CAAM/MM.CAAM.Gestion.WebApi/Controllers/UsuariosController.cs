@@ -3,19 +3,20 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MM.CAAM.Gestion.WebApi.Entidades;
-using MM.CAAM.Gestion.WebApi.Filtros;
-using MM.CAAM.Gestion.WebApi.DTOs;
+using MM.CAAM.Gestion.Models.Entidades;
+using MM.CAAM.Gestion.Models.Filtros;
+using MM.CAAM.Gestion.DTO.DTOs;
 using System.Linq;
-using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
-using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
-using MM.CAAM.Gestion.WebApi.Migrations;
+using MM.CAAM.Gestion.Models.Entidades.Udemy;
+using MM.CAAM.Gestion.DTO.DTOs.Udemy;
+using MM.CAAM.Gestion.Models.Migrations;
 using Microsoft.AspNetCore.DataProtection;
 using MM.CAAM.Gestion.Services;
 using System.ComponentModel.DataAnnotations;
 using MM.CAAM.Gestion.Services.Exceptions;
+using MM.CAAM.Gestion.DTO.Objects;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers    
+namespace MM.CAAM.Gestion.Models.Controllers    
 {
     [ApiController]                                                             //si algo sale mal retorna un bad request
     [Route("api/usuarios")]
@@ -85,7 +86,7 @@ namespace MM.CAAM.Gestion.WebApi.Controllers
 
                     var valorRepetido = "Ya existe";
 
-                    throw new ArgumentException(valorRepetido); ;
+                    throw new ArgumentException(valorRepetido);
                 }
 
                 #region SET VALORES

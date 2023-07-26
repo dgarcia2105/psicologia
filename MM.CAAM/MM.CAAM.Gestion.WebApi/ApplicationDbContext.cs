@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
-using MM.CAAM.Gestion.WebApi.Entidades;
-using MM.CAAM.Gestion.WebApi.Entidades.Catalogos;
-using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
+using MM.CAAM.Gestion.Models.Entidades;
+using MM.CAAM.Gestion.Models.Entidades.Catalogos;
+using MM.CAAM.Gestion.Models.Entidades.Udemy;
 
-namespace MM.CAAM.Gestion.WebApi
+namespace MM.CAAM.Gestion.Models
 {
     public class ApplicationDbContext : IdentityDbContext
     {

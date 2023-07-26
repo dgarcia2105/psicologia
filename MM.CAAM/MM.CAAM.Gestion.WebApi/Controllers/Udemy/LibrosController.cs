@@ -3,10 +3,10 @@ using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
-using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
+using MM.CAAM.Gestion.DTO.DTOs.Udemy;
+using MM.CAAM.Gestion.Models.Entidades.Udemy;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
+namespace MM.CAAM.Gestion.Models.Controllers.Udemy
 {
     [ApiController]
     [Route("api/libros")]

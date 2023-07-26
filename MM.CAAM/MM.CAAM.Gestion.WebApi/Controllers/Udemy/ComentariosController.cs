@@ -5,13 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MM.CAAM.Gestion.WebApi.Entidades.Udemy;
-using MM.CAAM.Gestion.WebApi.DTOs.Udemy;
+using MM.CAAM.Gestion.Models.Entidades.Udemy;
+using MM.CAAM.Gestion.DTO.DTOs.Udemy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers.Udemy
+namespace MM.CAAM.Gestion.Models.Controllers.Udemy
 {
     [ApiController]
     [Route("api/libros/{libroId:int}/comentarios")]

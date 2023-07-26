@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace MM.CAAM.Admin.DTOs.Objects
+namespace MM.CAAM.Gestion.DTO.Objects
 {
     public class Result<TObject>
     {

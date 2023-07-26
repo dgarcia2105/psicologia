@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MM.CAAM.Gestion.WebApi.DTOs;
-using MM.CAAM.Gestion.WebApi.Entidades;
+using MM.CAAM.Gestion.DTO.DTOs;
+using MM.CAAM.Gestion.Models.Entidades;
 
-namespace MM.CAAM.Gestion.WebApi.Controllers
+namespace MM.CAAM.Gestion.Models.Controllers
 {
     [ApiController]
     [Route("api/usuarios/{usuarioId:int}/consultas")]             //CONTROLADOR DE UN RECURSO DEPENDIENTE

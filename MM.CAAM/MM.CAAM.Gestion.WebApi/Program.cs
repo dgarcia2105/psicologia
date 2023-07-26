@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using MM.CAAM.Gestion.WebApi;
+using MM.CAAM.Gestion.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
