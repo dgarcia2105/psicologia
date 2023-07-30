@@ -1,4 +1,4 @@
-﻿@model MM.CAAM.Admin.DTOs.UsuarioDto
+﻿@model MM.CAAM.Gestion.DTO.DTOs.UsuarioDTO
 @*
     README
     https://www.bootdey.com/snippets/tagged/contacts*@
@@ -66,7 +66,7 @@
                             </div>
                             <div class="form-group col-6">
                                 <label>Genero</label>
-                                @Html.DropDownListFor(model => model.Genero, (SelectList)ViewBag.Generos, "[SELECCIONE.. ]", new { @class = "form-control" })
+                                @*@Html.DropDownListFor(model => model.Genero, (SelectList)ViewBag.Generos, "[SELECCIONE.. ]", new { @class = "form-control" })*@
                             </div>
                             <div class="form-group col-6">
                                 <label>Rol</label>
@@ -74,7 +74,7 @@
                             </div>
                             <div class="form-group col-6 flex-column d-flex">
                                 <label class="form-control-label px-6"><i class="fa-solid fa-address-book form-control-label"></i> Dirección</label>
-                                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
+                                @*@Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })*@
                             </div>
                             <div class="form-group col-6 flex-column d-flex">
                                 <label class="form-control-label px-6"><i class="fa-solid fa-phone form-control-label"></i> Teléfono</label>
@@ -84,12 +84,12 @@
                             <div class="form-group col-6 flex-column d-flex">
                                 <label class="form-control-label px-6"><i class="fa-solid fa-envelope form-control-label"></i> Correo</label>
 
-                                @Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control" } })
+                                @*@Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control" } })*@
                             </div>
                             <div class="form-group col-6 flex-column d-flex">
                                 <label class="form-control-label px-6"><i class="fa-solid fa-briefcase form-control-label"></i> Ocupación</label>
 
-                                @Html.EditorFor(model => model.Ocupacion, new { htmlAttributes = new { @class = "form-control" } })
+                                @*@Html.EditorFor(model => model.Ocupacion, new { htmlAttributes = new { @class = "form-control" } })*@
                             </div>
 
                             <div class="form-group col-sm-6">
@@ -98,7 +98,7 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label> Comfirmar Contraseña</label>
-                                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+@*                                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })*@
                             </div>
                             <div class="form-group col-sm-12">
                                 @Html.LabelFor(model => model.PerfilNombreArchivo)

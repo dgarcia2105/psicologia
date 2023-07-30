@@ -19,7 +19,8 @@ namespace MM.CAAM.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //return View();
+            return null;
         }
 
         [HttpPost] //attribute to get posted values from HTML Form

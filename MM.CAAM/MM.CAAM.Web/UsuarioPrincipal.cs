@@ -1,5 +1,5 @@
 ﻿
-using MM.CAAM.Admin.DTOs;
+using MM.CAAM.Gestion.DTO.DTOs;
 using System.Security.Principal;
 
 namespace MM.CAAM.Web
@@ -49,6 +49,6 @@ namespace MM.CAAM.Web
 
     public class UsuarioProfile
     {
-        public UsuarioDto UsuarioDto { get; set; }
+        public UsuarioDTO UsuarioDto { get; set; }
     }
 }

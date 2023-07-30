@@ -1,8 +1,4 @@
-﻿using MM.CAAM.Admin.DTOs;
-using MM.CAAM.Admin.DTOs.Objects;
-using MM.CAAM.Admin.DTOs.Request;
-using MM.CAAM.Admin.DTOs.Test;
-using MM.CAAM.Admin.Services.Exceptions;
+﻿using MM.CAAM.Admin.Services.Exceptions;
 using MM.CAAM.Admin.Services.Servicios.Test;
 using System;
 using System.Collections.Generic;
@@ -10,6 +6,9 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MM.CAAM.Gestion.DTO.DTOs.Request;
+using MM.CAAM.Gestion.DTO.DTOs;
+using MM.CAAM.Web.Services.Exceptions;
 
 namespace MM.CAAM.Web.Controllers
 {
@@ -31,36 +30,36 @@ namespace MM.CAAM.Web.Controllers
         }
         public ActionResult AgregarUsuario()
         {
-            List<GeneroRequest> Generos = new List<GeneroRequest>()
-            {
-                new GeneroRequest() { Id = 1, Genero = "M" },
-                new GeneroRequest() { Id = 2, Genero = "F" }
-            };
-            var GenerosSelect = new SelectList(
-                                        items: Generos,
-                                        dataValueField: nameof(GeneroRequest.Genero),
-                                        dataTextField: nameof(GeneroRequest.Genero));
-            ViewBag.Generos = GenerosSelect;
+            //List<GeneroRequest> Generos = new List<GeneroRequest>()
+            //{
+            //    new GeneroRequest() { Id = 1, Genero = "M" },
+            //    new GeneroRequest() { Id = 2, Genero = "F" }
+            //};
+            //var GenerosSelect = new SelectList(
+            //                            items: Generos,
+            //                            dataValueField: nameof(GeneroRequest.Genero),
+            //                            dataTextField: nameof(GeneroRequest.Genero));
+            //ViewBag.Generos = GenerosSelect;
 
-            List<RolDTO> Roles = new List<RolDTO>()
-            {
-                new RolDTO() { Id = 1, Rol = "1" },
-                new RolDTO() { Id = 2, Rol = "2" }
-            };
+            //List<RolDTO> Roles = new List<RolDTO>()
+            //{
+            //    new RolDTO() { Id = 1, Rol = "1" },
+            //    new RolDTO() { Id = 2, Rol = "2" }
+            //};
 
-            var RolesSelect = new SelectList(
-                                        items: Roles,
-                                        dataValueField: nameof(RolDTO.Rol),
-                                        dataTextField: nameof(RolDTO.Rol));
+            //var RolesSelect = new SelectList(
+            //                            items: Roles,
+            //                            dataValueField: nameof(RolDTO.Rol),
+            //                            dataTextField: nameof(RolDTO.Rol));
 
 
-            ViewBag.Roles = RolesSelect;
+            //ViewBag.Roles = RolesSelect;
 
             return View();
         }
 
         [HttpPost] //attribute to get posted values from HTML Form
-        public async Task<ActionResult> CrearUsuario(UsuarioCreacionDTO usuarioCreacionDto, HttpPostedFileBase PerfilNombreArchivo)
+        public async Task<ActionResult> CrearUsuario(UsuarioCreacionDTO usuarioCreacionDto) //, HttpPostedFileBase PerfilNombreArchivo
         {
             //Post post = new Post()
             //{
@@ -104,8 +103,8 @@ namespace MM.CAAM.Web.Controllers
             }
             catch (Exception ex)
             {
-                var error = new ExceptionMessage(ex);
-                return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
+                //var error = new ExceptionMessage(ex);
+                //return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
             }
 
             //return JResult;

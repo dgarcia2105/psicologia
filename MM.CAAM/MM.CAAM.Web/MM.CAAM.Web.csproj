@@ -178,6 +178,7 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="Unity" Version="5.11.10" />
+    <PackageReference Include="Unity.Mvc" Version="5.11.1" />
     <PackageReference Include="WebGrease" Version="1.6.0" />
     <PackageReference Include="Antlr4" Version="4.6.6" />
     <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="4.1.0" />
