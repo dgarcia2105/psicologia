@@ -145,7 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\imgages\medico\" />
+    <Folder Include="assets\" />
     <Folder Include="docs\fotos-perfil\" />
     <Folder Include="DTOs\" />
     <Folder Include="Models\" />

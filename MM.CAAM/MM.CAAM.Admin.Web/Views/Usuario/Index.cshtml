@@ -10,36 +10,33 @@
     ViewBag.Title = "Usuarios";
 }
 
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow ">
-    @*mb-3*@
-    <div class="container-fluid">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-            Usuarios
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<br />
+<nav class="navbar navbar-expand-sm bg-transparent justify-content-right">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <h3>Usuarios</h3>
+        </li>
+    </ul>
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="btn btn-primary" href="~/Usuario/AgregarUsuario"><i class="fa-solid fa-plus"></i> Agregar paciente</a>
+        </li>
+    </ul>
 </nav>
+<hr />  
+<br />
 
-<div class="">
-    <a href="~/Usuario/AgregarUsuario" class="btn btn-primary ml-auto">Agregar</a>
+@*https://www.w3schools.com/bootstrap/bootstrap_filters.asp*@
+@*<input class="form-control" id="myInput" type="text" placeholder="Search..">*@
+<div class="input-group mb-3">
+    <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+    <input type="text" class="form-control" placeholder="First Name">
 </div>
+<br>
 
 <div class="row">
     <div class="col-2"><b>NOMBRE Y APELLIDOS</b></div>
-    <div class="col-2"><b>TELËFONO</b></div>
+    <div class="col-2"><b>TELÉFONO</b></div>
     <div class="col-1"><b>ULTIMA VISITA</b></div>
     <div class="col-1"><b>SIGUIENTE VISITA</b></div>
     <div class="col-2"><b>DOCUMENTO DE IDENTIDAD</b></div>
@@ -82,80 +79,5 @@
     <div class="col-2">INE</div>
     <div class="col-1">daniel2105oficial@gmail.com</div>
 </div>
-<br />
-<div class="row">
-    <div class="col-2">Daniel García Armenta</div>
-    <div class="col-2">6865895638</div>
-    <div class="col-1">06-06-2023 16:30</div>
-    <div class="col-1">17-08-2023 17:00</div>
-    <div class="col-2">INE</div>
-    <div class="col-1">daniel2105oficial@gmail.com</div>
-</div>
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<h1>aaaaaaaa</h1>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /> <h1>aaaaaaaa</h1>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 

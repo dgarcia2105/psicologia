@@ -2,35 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@ViewBag.MetaDescripcion">
+    <meta name="keywords" content="@ViewBag.MetaAuthor">
+    <meta name="author" content="@ViewBag.MetaKeywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - MM.CAAM.Admin.Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MM.CAAM.Admin.Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/sidebars.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
 </head>
 <body>
-    @*<header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow ">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MM.CAAM.Admin.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>*@
     @*SIDEBAR: https://dev.to/codeply/bootstrap-5-sidebar-examples-38pb*@
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -60,42 +43,26 @@
             <div class="col-sm-auto bg-light sticky-top">
                 <div class="d-flex flex-column flex-shrink-0 bg-body-tertiary" style="width: 4.5rem;">
                     <a href="/" class="d-block p-3 link-body-emphasis text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
-                        <svg class="bi pe-none" width="40" height="32"><use xlink:href="#bootstrap" /></svg>
-                        <span class="visually-hidden">Icon-only</span>
+                        <img src="~/images/medico/esculapio.png" width="45" alt="Esculapio" style="opacity:0.8" />
+                        <span class="visually-hidden">Home</span>
                     </a>
                     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                         <li class="nav-item">
-                            @*<a href="#" class="nav-link active py-3 border-bottom rounded-0" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
-                                <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home" /></svg>
-                            </a>*@
-                            <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
-                              <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home"></use></svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
-                                <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Dashboard"><use xlink:href="#speedometer2" /></svg>
+                            <a href="~/Usuario/Index" class="nav-link active py-3 border-bottom" aria-current="page" title="Usuarios" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                                <i class="fa-solid fa-users"></i>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Orders" data-bs-toggle="tooltip" data-bs-placement="right">
-                                <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Orders"><use xlink:href="#table" /></svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
-                                <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Products"><use xlink:href="#grid" /></svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Customers" data-bs-toggle="tooltip" data-bs-placement="right">
-                                <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle" /></svg>
+                                @*<svg class="bi pe-none" width="24" height="24" role="img" aria-label="Orders"><use xlink:href="#table" /></svg>*@
+                                <i class="fa-solid fa-table"></i>
                             </a>
                         </li>
                     </ul>
-                    <div class="dropdown pb-4 "> @*border-top*@
+                    <div class="dropdown pb-4 ">
                         <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+                            @*<img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">*@
+                            <img src="https://w7.pngwing.com/pngs/177/551/png-transparent-user-interface-design-computer-icons-default-stephen-salazar-graphy-user-interface-design-computer-wallpaper-sphere-thumbnail.png" alt="mdo" width="24" height="24" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small shadow">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -107,12 +74,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm p-3 ">
-                <div class="row">
-                    <main role="main" class="pb-3">
+            <div class="col" style=""> @*p-3*@
+                @*<div class="row">*@
+                    @*<main role="main" class="">*@
                         @RenderBody()
-                    </main>
-                </div>
+                    @*</main>*@
+                @*</div>*@
             </div>
         </div>
     </div>
@@ -126,6 +93,17 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/sidebars.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
+    
+    <script>
+        $(document).ready(function () {
+            $('ul.nav.nav-pills li a').click(function () {
+                //$(this).parent().addClass('active').siblings().removeClass('active');
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
 </body>
 </html>

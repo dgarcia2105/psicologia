@@ -39,7 +39,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
         public async Task<ActionResult> Post(int usuarioId, ConsultaCreacionDTO consultaCreacionDTO)
         {
             var existeUsuario = await context.Usuarios.AnyAsync(usuarioDB => usuarioDB.Id == usuarioId);
-            
+
             if (!existeUsuario)
             {
                 return NotFound();

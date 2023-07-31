@@ -1,20 +1,13 @@
-﻿using System;
-using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MM.CAAM.Gestion.Models.Entidades;
-using MM.CAAM.Gestion.Models.Filtros;
 using MM.CAAM.Gestion.DTO.DTOs;
-using System.Linq;
-using MM.CAAM.Gestion.Models.Entidades.Udemy;
-using MM.CAAM.Gestion.DTO.DTOs.Udemy;
-using MM.CAAM.Gestion.Models.Migrations;
 using Microsoft.AspNetCore.DataProtection;
 using MM.CAAM.Gestion.Services;
 using System.ComponentModel.DataAnnotations;
 using MM.CAAM.Gestion.Services.Exceptions;
 using MM.CAAM.Gestion.DTO.Objects;
+using MM.CAAM.Gestion.Models.Entidades;
 
 namespace MM.CAAM.Gestion.Models.Controllers    
 {
@@ -84,32 +77,26 @@ namespace MM.CAAM.Gestion.Models.Controllers
                     //var valorRepetido = userRepetido.Correo.Equals(usuarioCreacionDTO.Correo) ? $"Ya existe el correo: {usuarioCreacionDTO.Correo}" :
                     //                                                                            $"Ya existe el usuario: {usuarioCreacionDTO.NombrePerfil}";
 
-                    var valorRepetido = "Ya existe";
+                    var valorRepetido = $"Ya existe el usuario: {userRepetido.Nombre} {userRepetido.ApellidoPaterno} {userRepetido.ApellidoMaterno}";
 
                     throw new ArgumentException(valorRepetido);
                 }
 
                 #region SET VALORES
-                if (!string.IsNullOrEmpty(usuarioCreacionDTO.Password))
-                {
-                    usuarioCreacionDTO.Password = Encryptor(usuarioCreacionDTO.Password);
-                }
-                usuarioCreacionDTO.FechaCreacion = Com.GetUtcNowByZone();
+                //if (!string.IsNullOrEmpty(usuarioCreacionDTO.Password))
+                //{
+                //    usuarioCreacionDTO.Password = Encryptor(usuarioCreacionDTO.Password);
+                //}
+                //usuarioCreacionDTO.FechaCreacion = Com.GetUtcNowByZone();
 
                 #endregion
 
-                var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);                              //DTOs y AUTOMAPPER     //Libreria automapper: AutoMapper.Extensions.Microsoft.DependencyInjection
+                var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);                              
 
-                context.Add(usuario);                                                               //INSERTAR REGISTRO
-                await context.SaveChangesAsync();                                                   //INSERTAR REGISTRO
-                //return Ok();
-
-            
-                //var data = await DiligenciaService.ObtenerLista(obtenerDiligenciaRequest);
-                //data = data.Where(x => x.AutorizaProgramacion).ToList();
-                //return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
-                return Ok(new Result { Code = StatusCodes.Status200OK});
-                //return Ok();
+                context.Add(usuario);                                                               
+                await context.SaveChangesAsync();                                             
+                
+                return Ok(new Result { Code = StatusCodes.Status200OK });
             }
             catch (ValidationException ex)
             {
@@ -127,7 +114,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
         public async Task<ActionResult> Put(Usuario usuario, int id)
         {
             //-- Validación sin DTO
-            if(usuario.Id != id) 
+            if (usuario.Id != id)
             {
                 return BadRequest("El id del usuario no coincide con el id de la URL");
             }
@@ -153,7 +140,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
             {
                 return NotFound();
             }
-            
+
             context.Remove(new Usuario { Id = id });
             await context.SaveChangesAsync();
             return Ok();

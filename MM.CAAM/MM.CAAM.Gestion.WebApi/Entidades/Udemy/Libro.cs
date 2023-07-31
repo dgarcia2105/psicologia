@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using MM.CAAM.Gestion.WebApi.Validaciones;
+using MM.CAAM.Gestion.Models.Validaciones;
 
 namespace MM.CAAM.Gestion.WebApi.Entidades.Udemy
 {

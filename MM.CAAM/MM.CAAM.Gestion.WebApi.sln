@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Gestion.Services", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Gestion.DTO", "MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj", "{F6D1E69A-ED44-4863-AF26-93451D4C5651}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Gestion.Models", "MM.CAAM.Gestion.Models\MM.CAAM.Gestion.Models.csproj", "{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Gestion.Models", "MM.CAAM.Gestion.Models\MM.CAAM.Gestion.Models.csproj", "{EEDF1B01-2737-4AF8-8770-FC6861ADABA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{F6D1E69A-ED44-4863-AF26-93451D4C5651}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6D1E69A-ED44-4863-AF26-93451D4C5651}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6D1E69A-ED44-4863-AF26-93451D4C5651}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A45BC21-5034-4DD3-8A28-25EE4AF5B9E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEDF1B01-2737-4AF8-8770-FC6861ADABA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEDF1B01-2737-4AF8-8770-FC6861ADABA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEDF1B01-2737-4AF8-8770-FC6861ADABA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEDF1B01-2737-4AF8-8770-FC6861ADABA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

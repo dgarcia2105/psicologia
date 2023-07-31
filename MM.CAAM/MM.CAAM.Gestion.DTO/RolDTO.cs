@@ -1,6 +1,6 @@
 ﻿
 
-namespace MM.CAAM.Admin.DTOs
+namespace MM.CAAM.Gestion.DTO.DTOs
 {
     public class RolDTO
     {

@@ -1,4 +1,4 @@
-﻿namespace MM.CAAM.Gestion.WebApi.Entidades
+﻿namespace MM.CAAM.Gestion.WebApi.Entidades.Catalogos
 {
     public class Proveedor
     {

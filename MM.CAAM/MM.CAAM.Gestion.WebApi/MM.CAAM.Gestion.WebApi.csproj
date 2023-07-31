@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj" />
+    <ProjectReference Include="..\MM.CAAM.Gestion.Models\MM.CAAM.Gestion.Models.csproj" />
     <ProjectReference Include="..\MM.CAAM.Gestion.Services\MM.CAAM.Gestion.Services.csproj" />
   </ItemGroup>
 </Project>

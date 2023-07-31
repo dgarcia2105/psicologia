@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230731052240_Solo_Nombre_Usuario_Required")]
+    partial class SoloNombreUsuarioRequired
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -302,7 +305,7 @@ namespace MM.CAAM.Gestion.Models.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool?>("Activo")
+                    b.Property<bool>("Activo")
                         .HasColumnType("bit");
 
                     b.Property<string>("ApellidoMaterno")
@@ -316,46 +319,54 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .HasColumnType("nvarchar(120)");
 
                     b.Property<string>("BearerToken")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CP")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Calle")
+                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
                     b.Property<string>("Colonia")
+                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
                     b.Property<string>("Correo")
+                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<DateTime?>("FechaAcceso")
+                    b.Property<DateTime>("FechaAcceso")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("FechaActualizacion")
+                    b.Property<DateTime>("FechaActualizacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("FechaCreacion")
+                    b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("FechaNacimiento")
+                    b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GeneroId")
+                    b.Property<int>("GeneroId")
                         .HasColumnType("int");
 
                     b.Property<string>("Latitud")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Longitud")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Municipio")
+                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
@@ -365,28 +376,34 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .HasColumnType("nvarchar(120)");
 
                     b.Property<string>("NombrePerfil")
+                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
                     b.Property<string>("Numero")
+                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PerfilNombreArchivo")
+                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
                     b.Property<string>("Profesion")
+                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<int?>("RolId")
+                    b.Property<int>("RolId")
                         .HasColumnType("int");
 
                     b.Property<string>("Telefono")
+                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 

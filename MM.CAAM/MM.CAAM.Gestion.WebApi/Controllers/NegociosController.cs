@@ -33,7 +33,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(NegocioCreacionDTO negocioCreacionDTO)                                 
+        public async Task<ActionResult> Post(NegocioCreacionDTO negocioCreacionDTO)
         {
             //var existeNegocio = await context.Usuarios.AnyAsync(x => x.Id == negocio.UsuarioId);
 

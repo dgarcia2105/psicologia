@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\images\medico\esculapio.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj" />
   </ItemGroup>
 
