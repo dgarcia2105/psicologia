@@ -67,27 +67,25 @@ namespace MM.CAAM.Gestion.Models.Controllers
         {
             try
             {
+                if(!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) || !string.IsNullOrEmpty(usuarioCreacionDTO.Correo)) { 
+                var userRepetido = await context.Usuarios.Where(x => (!string.IsNullOrEmpty(usuarioCreacionDTO.Correo) && x.Correo.Equals(usuarioCreacionDTO.Correo))
+                                                                                 || (!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) && x.NombrePerfil.Equals(usuarioCreacionDTO.NombrePerfil))).FirstOrDefaultAsync();
 
-                var userRepetido = await context.Usuarios.Where(x => x.Nombre.ToUpper().Equals(usuarioCreacionDTO.Nombre.ToUpper())
-                                                                                 && x.ApellidoPaterno.ToUpper().Equals(usuarioCreacionDTO.ApellidoPaterno.ToUpper())
-                                                                                 && x.ApellidoMaterno.ToUpper().Equals(usuarioCreacionDTO.ApellidoMaterno.ToUpper())).FirstOrDefaultAsync();
+                    if (userRepetido != null && (!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) || !string.IsNullOrEmpty(usuarioCreacionDTO.Correo)))
+                    {
+                        var valorRepetido = !string.IsNullOrEmpty(userRepetido.Correo) && userRepetido.Correo.ToUpper().Equals(usuarioCreacionDTO.Correo.ToUpper()) ? $"Ya existe el correo: {usuarioCreacionDTO.Correo}" :
+                                                                                                    $"Ya existe el usuario: {usuarioCreacionDTO.NombrePerfil}";
 
-                if (userRepetido != null)
-                {
-                    //var valorRepetido = userRepetido.Correo.Equals(usuarioCreacionDTO.Correo) ? $"Ya existe el correo: {usuarioCreacionDTO.Correo}" :
-                    //                                                                            $"Ya existe el usuario: {usuarioCreacionDTO.NombrePerfil}";
-
-                    var valorRepetido = $"Ya existe el usuario: {userRepetido.Nombre} {userRepetido.ApellidoPaterno} {userRepetido.ApellidoMaterno}";
-
-                    throw new ArgumentException(valorRepetido);
+                        throw new ArgumentException(valorRepetido);
+                    }
                 }
 
                 #region SET VALORES
-                //if (!string.IsNullOrEmpty(usuarioCreacionDTO.Password))
-                //{
-                //    usuarioCreacionDTO.Password = Encryptor(usuarioCreacionDTO.Password);
-                //}
-                //usuarioCreacionDTO.FechaCreacion = Com.GetUtcNowByZone();
+                if (!string.IsNullOrEmpty(usuarioCreacionDTO.Password))
+                {
+                    usuarioCreacionDTO.Password = Encryptor(usuarioCreacionDTO.Password);
+                }
+                usuarioCreacionDTO.FechaCreacion = Com.GetUtcNowByZone();
 
                 #endregion
 
