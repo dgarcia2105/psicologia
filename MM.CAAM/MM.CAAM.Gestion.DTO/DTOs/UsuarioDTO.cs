@@ -1,13 +1,12 @@
-﻿//using Microsoft.AspNetCore.DataProtection;
-using MM.CAAM.Gestion.Models.Entidades;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MM.CAAM.Gestion.DTO.DTOs
 {
     public class UsuarioDTO
     {
         public int Id { get; set; }
+
+        public int Position { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
@@ -70,6 +69,15 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         public List<NegocioDTO> Negocios { get; set; } //= new List<Negocio>();
         public List<ConsultaDTO> Consultas { get; set; }
         public string Usuario { get; set; }
+        public string NombreCompleto
+        {
+            get
+            {
+                return $"{Nombre}" +
+                    $"{(string.IsNullOrWhiteSpace(ApellidoPaterno) ? "" : $" {ApellidoPaterno}")}"+
+                    $"{(string.IsNullOrWhiteSpace(ApellidoMaterno) ? "" : $" {ApellidoMaterno}")}";
+            }
+        }
 
         /*
          * Comentando propiedades, y quitando includes se puede manejar algo llamado lazy-loading

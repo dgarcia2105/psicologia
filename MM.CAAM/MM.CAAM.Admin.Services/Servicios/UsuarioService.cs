@@ -7,11 +7,12 @@ using MM.CAAM.Gestion.DTO.DTOs.Request;
 using MM.CAAM.Gestion.DTO.DTOs.Response;
 using MM.CAAM.Admin.Services.Exceptions;
 
-namespace MM.CAAM.Admin.Services.Servicios.Test
+namespace MM.CAAM.Admin.Services.Servicios
 {
     public interface IUsuarioService
     {
         Task<UsuarioDTO> LoginApi(UsuarioDTO dto);
+        Task<List<UsuarioDTO>> ObtenerListaUsuarios();
         Task<List<string>> InsertUsuario(UsuarioCreacionDTO dto);
     }
 
@@ -112,6 +113,18 @@ namespace MM.CAAM.Admin.Services.Servicios.Test
             //    entity.perfil_nombre_archivo = dto.PerfilNombreArchivo;
 
             //entity.usuario_id = ManagerService.ManagerI.agregarRegistro(entity);
+        }
+
+        public async Task<List<UsuarioDTO>> ObtenerListaUsuarios()
+        {
+            var endPoint = $"/api/usuarios";
+
+            var result = await RESTService.Get<List<UsuarioDTO>>(endPoint, "");
+
+            if (result.Code != (int)HttpStatusCode.OK)
+                throw new ValidationException(result.Message);
+
+            return result.Data;
         }
     }
 

@@ -32,9 +32,28 @@ namespace MM.CAAM.Gestion.Models.Controllers
         [HttpGet]
         public async Task<ActionResult<List<UsuarioDTO>>> Get()
         {
-            var usuarios = await context.Usuarios.Include(x => x.Negocios).ToListAsync();
+            try
+            {
+                var usuarios = await context.Usuarios.Include(x => x.Negocios).ToListAsync();
 
-            return mapper.Map<List<UsuarioDTO>>(usuarios);                                  //LEYENDO REGISTROS con EF Core
+                var data = mapper.Map<List<UsuarioDTO>>(usuarios);                                  //LEYENDO REGISTROS con EF Core
+
+                
+
+                //    var data = await DiligenciaService.ObtenerLista(obtenerDiligenciaRequest);
+                //data = data.Where(x => x.AutorizaProgramacion).ToList();
+                return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            }
         }
 
         [HttpGet("{id:int}")]

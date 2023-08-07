@@ -1,7 +1,24 @@
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.DependencyInjection;
+using MM.CAAM.Admin.Services;
+using MM.CAAM.Admin.Services.Servicios;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel;
+using Unity.Injection;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//// Using the GetValue<type>(string key) method
+//var configValue = builder.Configuration.GetValue<string>("Authentication:CookieAuthentication:LoginPath");
+
+// or using the index property (which always returns a string)
+var BaseUrlApiCentralActuarios = builder.Configuration["BaseUrlWebApiCaam"];
+var ApiKeyCentralActuarios = builder.Configuration["ApiKeyCaam"];
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IRESTService, RESTService>(); /*new InjectionConstructor(ApiKeyCentralActuarios, BaseUrlApiCentralActuarios)*/
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 var app = builder.Build();
 

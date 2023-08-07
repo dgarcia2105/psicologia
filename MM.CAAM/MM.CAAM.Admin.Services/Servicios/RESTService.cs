@@ -2,7 +2,7 @@
 //Enviar E-Mail: https://www.udemy.com/course/aprende-aspnet-core-mvc-haciendo-proyectos-desde-cero/learn/lecture/29473652#overview
 //RESTService   https://www.youtube.com/watch?v=Q12rpPdPcD8
                 //https://jsonplaceholder.typicode.com/
-
+                //https://www.youtube.com/watch?v=Tj3qsKSNvMk       Add restservice to .net 6
 using MM.CAAM.Admin.Services.Exceptions;
 using MM.CAAM.Gestion.DTO.Objects;
 using Newtonsoft.Json;
@@ -28,11 +28,19 @@ namespace MM.CAAM.Admin.Services
         private string baseUrlAPI;
         public string BaseUrlAPI { get => baseUrlAPI; private set => baseUrlAPI = value; }
 
+
         public RESTService(string _apiKey, string _baseUrlAPI)
         {
             ApiKey = _apiKey;
             BaseUrlAPI = _baseUrlAPI;
         }
+        public RESTService()
+        {
+            ApiKey = "ApiKeyCaam";
+            BaseUrlAPI = "https://localhost:7056";
+        }
+
+
 
         public async Task<Result<TObject>> Post<TObject>(string endpoint, object payload, string BearerToken = "")
         {

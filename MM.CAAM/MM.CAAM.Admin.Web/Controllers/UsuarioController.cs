@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MM.CAAM.Admin.Services.Exceptions;
+using MM.CAAM.Admin.Services.Servicios;
+using MM.CAAM.Admin.Services.Servicios.Test;
 using MM.CAAM.Admin.Web.Models;
 using MM.CAAM.Gestion.DTO.DTOs;
 using MM.CAAM.Gestion.DTO.DTOs.Request;
@@ -10,16 +13,21 @@ namespace MM.CAAM.Admin.Web.Controllers
     public class UsuarioController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUsuarioService usuarioService;
 
-        public UsuarioController(ILogger<HomeController> logger)
+        public UsuarioController(ILogger<HomeController> logger, IUsuarioService usuarioService)
         {
-            _logger = logger; 
+            _logger = logger;
+            this.usuarioService = usuarioService;
         }
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            // OBTIENE DEL SERVICIO
+            var Usuarios = await usuarioService.ObtenerListaUsuarios();
+
+            return View(Usuarios);
         }
 
         public IActionResult AgregarUsuario()
@@ -54,7 +62,41 @@ namespace MM.CAAM.Admin.Web.Controllers
         [HttpPost] //attribute to get posted values from HTML Form
         public async Task<ActionResult> CrearUsuario(UsuarioCreacionDTO usuarioCreacionDto) //, HttpPostedFileBase PerfilNombreArchivo
         {
-            return null;
+            try
+            {
+
+                //if (PerfilNombreArchivo != null && PerfilNombreArchivo.ContentLength > 0)
+                //{
+                //    var fullPath = Path.Combine(usuarioDto.PathFotosActuarios, PerfilNombreArchivo.FileName);
+                //    var fileName = Com.RenombrarSiExisteArchivo(fullPath);
+                //    PerfilNombreArchivo.SaveAs(Path.Combine(usuarioDto.PathFotosActuarios, fileName));
+
+                //    usuarioDto.PerfilNombreArchivo = fileName;
+                //}
+                //else
+                //    usuarioDto.PerfilNombreArchivo = null;
+
+                var a = await usuarioService.InsertUsuario(usuarioCreacionDto);
+
+                //JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                //JResult.Data = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
+            }
+            catch (Exception ex)
+            {
+                //var error = new ExceptionMessage(ex);
+                //return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
+            }
+
+            //return JResult;
+
+            //return null;
+
+            return RedirectToAction("Index");
+            // View("Index");
         }
     }
 }
