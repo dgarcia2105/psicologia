@@ -8,6 +8,17 @@ using System.ComponentModel.DataAnnotations;
 using MM.CAAM.Gestion.Services.Exceptions;
 using MM.CAAM.Gestion.DTO.Objects;
 using MM.CAAM.Gestion.Models.Entidades;
+using Microsoft.AspNetCore.Authorization;
+using MM.CAAM.Gestion.DTO.DTOs.Request;
+using MM.CAAM.Gestion.DTO.DTOs.Response;
+using MM.CAAM.Gestion.Models.Migrations;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static MM.CAAM.Gestion.Services.Com;
 
 namespace MM.CAAM.Gestion.Models.Controllers    
 {
@@ -17,15 +28,24 @@ namespace MM.CAAM.Gestion.Models.Controllers
     public class UsuariosController : ControllerBase
     {
         private readonly ApplicationDbContext context;
+        private readonly IConfiguration configuration;
         private readonly IMapper mapper;
         private readonly IDataProtector dataProtector;
+        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly UserManager<IdentityUser> userManager;
 
-        public UsuariosController(ApplicationDbContext context, 
+        public UsuariosController(UserManager<IdentityUser> userManager,
+            IConfiguration configuration,
+            ApplicationDbContext context, 
             IMapper mapper,
-            IDataProtectionProvider dataProtectionProvider)
+            IDataProtectionProvider dataProtectionProvider,
+            SignInManager<IdentityUser> signInManager)
         {
+            this.userManager = userManager;
+            this.configuration = configuration;
             this.context = context;
             this.mapper = mapper;
+            this.signInManager = signInManager;
             dataProtector = dataProtectionProvider.CreateProtector(Com.KeyEncript);
         }
 
@@ -179,6 +199,104 @@ namespace MM.CAAM.Gestion.Models.Controllers
 
             return textoCifrado;
         }
+
+
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public async Task<ActionResult> Login([FromBody] UserLoginRequest userLoginRequest)
+        {
+            try
+            {
+                #region (1) UsuarioService.Login
+                if (userLoginRequest == null) throw new ArgumentNullException(nameof(userLoginRequest));
+                if (string.IsNullOrWhiteSpace(userLoginRequest.Email)) throw new ArgumentNullException(nameof(userLoginRequest.Email));
+                if (string.IsNullOrWhiteSpace(userLoginRequest.Password)) throw new ArgumentNullException(nameof(userLoginRequest.Password));
+
+                var usuario = await context.Usuarios.FirstOrDefaultAsync(usuarioBD => usuarioBD.Correo.ToUpper() == userLoginRequest.Email.ToUpper() );
+
+                if (usuario == null)
+                {
+                    throw new ValidationException("El usuario no existe en nuestra app");
+                }
+
+                if (string.IsNullOrWhiteSpace(usuario.Password))
+                {
+                    throw new ValidationException("Configure su contraseña");
+                }
+
+                var contrasenaDesencriptada = Decryptor(usuario.Password);
+                if (!contrasenaDesencriptada.Equals(userLoginRequest.Password))
+                {
+                    throw new ValidationException("Error de contraseña");
+                }
+                #endregion
+
+                #region (2) JwtService.SaveNewRefreshToken
+
+                #endregion
+
+                #region JwtService.GenerateToken
+
+                #endregion
+
+                var data = await ConstruirToken(usuario);
+                return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            }
+        }
+
+        private async Task<AuthResponse> ConstruirToken(Usuario usuario)
+        {
+            #region GenerateToken
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, usuario.Id.ToString()),
+                    new Claim("Id", usuario.Id.ToString()),
+                    new Claim("Correo", usuario.Correo.ToString()),
+                    new Claim("NombrePerfil", usuario.NombrePerfil.ToString()),
+                    new Claim("Nombre", usuario.Nombre.ToString()),
+                    new Claim("ApellidoPaterno", usuario.ApellidoPaterno.ToString()),
+                    new Claim("ApellidoMaterno", usuario.ApellidoMaterno.ToString())
+                }),
+                NotBefore = DateTime.UtcNow,
+                Expires = DateTime.UtcNow.AddDays(1)
+                //,SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
+            var newJwtToken = tokenString;
+
+            #endregion
+
+
+
+
+            var authResponse = new AuthResponse()
+            {
+                UsuarioId = 1,                  //TODO:
+                BearerToken = newJwtToken
+                //,RefreshToken = newRefreshToken,
+                //FCMToken = entity.fcm_token
+            };
+
+            return authResponse;
+        }
+
+        
     }
 }
 

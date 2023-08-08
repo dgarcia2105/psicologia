@@ -70,8 +70,8 @@ namespace MM.CAAM.Gestion.Models.Controllers
         {
             var usuario = new IdentityUser
             {
-                UserName = credencialesUsuario.Email,
-                Email = credencialesUsuario.Email
+                UserName = credencialesUsuario.Correo,
+                Email = credencialesUsuario.Correo
             };
 
             var resultado = await userManager.CreateAsync(usuario, credencialesUsuario.Password);
@@ -89,7 +89,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
         [HttpPost]
         public async Task<ActionResult<RespuestaAutenticacion>> Login(CredencialesUsuario credencialesUsuario)
         {
-            var resultado = await signInManager.PasswordSignInAsync(credencialesUsuario.Email, credencialesUsuario.Password, isPersistent:false, lockoutOnFailure: false);
+            var resultado = await signInManager.PasswordSignInAsync(credencialesUsuario.Correo, credencialesUsuario.Password, isPersistent:false, lockoutOnFailure: false);
  
             if (resultado.Succeeded)
             {
@@ -113,7 +113,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
 
             var credencialesUsuario = new CredencialesUsuario()
             {
-                Email = email,
+                Correo = email,
             };
 
             return await ConstruirToken(credencialesUsuario);
@@ -123,11 +123,11 @@ namespace MM.CAAM.Gestion.Models.Controllers
         {
             var claims = new List<Claim>()
             {
-                new Claim("email", credencialesUsuario.Email),
+                new Claim("email", credencialesUsuario.Correo),
                 new Claim("lo que yo quiera", "cualquier otro valor")
             };
 
-            var usuario = await userManager.FindByEmailAsync(credencialesUsuario.Email);
+            var usuario = await userManager.FindByEmailAsync(credencialesUsuario.Correo);
             var claimsDB = await userManager.GetClaimsAsync(usuario);
 
             claims.AddRange(claimsDB);
