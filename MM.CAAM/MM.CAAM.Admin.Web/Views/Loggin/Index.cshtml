@@ -78,7 +78,7 @@
     <script>
         function sendAjax(){
             event.preventDefault();
-
+                //swal('Error', 'Falló al enviar la solicitud: ' , 'error');
             //if (!event.result){
             //    console.log("if");
             //    return false;
@@ -98,7 +98,7 @@
                 //processData: false,
                 dataType: 'json',
                 beforeSend: function () {
-                    showProgress();
+                    //showProgress();
                     $('#btnEnviar').prop('disabled', true);
                 },
                 success: function (data) {
@@ -117,13 +117,14 @@
                     //    $('#btnEnviar').prop('disabled', false);
                     //}
                     
-                    hideProgress();
+                    //hideProgress();
                 },
                 error: function (data) {
                     //console.log(data);
                     //swal('Error', data.responseText, 'error');
                     $('#btnEnviar').prop('disabled', false);
-                    hideProgress();
+                    //hideProgress();
+                    Swal.fire({ icon: 'error', title: 'Oops...', text: data });
                 }
             });
             
