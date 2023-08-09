@@ -287,7 +287,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
 
             var authResponse = new AuthResponse()
             {
-                UsuarioId = 1,                  //TODO:
+                UsuarioId = usuario.Id,                  //TODO:
                 BearerToken = newJwtToken
                 //,RefreshToken = newRefreshToken,
                 //FCMToken = entity.fcm_token

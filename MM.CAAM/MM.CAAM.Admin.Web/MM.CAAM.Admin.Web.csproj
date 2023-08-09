@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\loader.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\loader.gif" />
     <None Include="wwwroot\images\medico\esculapio.png" />
   </ItemGroup>
 
@@ -18,6 +23,10 @@
   <ItemGroup>
     <ProjectReference Include="..\MM.CAAM.Admin.Services\MM.CAAM.Admin.Services.csproj" />
     <ProjectReference Include="..\MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
 
 </Project>
