@@ -13,10 +13,12 @@ namespace MM.CAAM.Admin.Web.Controllers
     public class LogginController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUsuarioService UsuarioService;
 
-        public LogginController(ILogger<HomeController> logger)
+        public LogginController(ILogger<HomeController> logger, IUsuarioService usuarioService)
         {
-            _logger = logger; 
+            _logger = logger;
+            UsuarioService = usuarioService;
         }
 
         public IActionResult Index()
@@ -27,46 +29,44 @@ namespace MM.CAAM.Admin.Web.Controllers
         [HttpPost]
         public async Task<JsonResult> IniciarSesion(UsuarioDTO usuarioDto)
         {
-            Thread.Sleep(5000);
+            try
+            {
+                //// Generar Cookie con los datos de autentificacion
+                //var resultDto = await UsuarioService.LoginApi(usuarioDto);
 
-            return null;
+                //UsuarioProfile usuarioLogeado = new UsuarioProfile()
+                //{
+                //    Usuario = resultDto
+                //};
 
-            //try
-            //{
-            //    // Generar Cookie con los datos de autentificacion
-            //    var resultDto = await UsuarioService.LoginApi(usuarioDto);
+                //// Encrypt the ticket.
+                //string encTicket = JsonConvert.SerializeObject(usuarioLogeado);
+                //string encriptado = Com.Encryptor(encTicket);
+                //var HttpCookie = new HttpCookie(".AUTHCENTRAL", encriptado)
+                //{
+                //    Expires = DateTime.Now.AddSeconds(FormsAuthentication.Timeout.TotalSeconds),
+                //    Secure = true
+                //};
+                //// Create the cookie.
+                //HttpContext.Response.Cookies.Add(HttpCookie);
 
-            //    UsuarioProfile usuarioLogeado = new UsuarioProfile()
-            //    {
-            //        Usuario = resultDto
-            //    };
-
-            //    // Encrypt the ticket.
-            //    string encTicket = JsonConvert.SerializeObject(usuarioLogeado);
-            //    string encriptado = Com.Encryptor(encTicket);
-            //    var HttpCookie = new HttpCookie(".AUTHCENTRAL", encriptado)
-            //    {
-            //        Expires = DateTime.Now.AddSeconds(FormsAuthentication.Timeout.TotalSeconds),
-            //        Secure = true
-            //    };
-            //    // Create the cookie.
-            //    HttpContext.Response.Cookies.Add(HttpCookie);
-
-            //    // Exito
-            //    JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
-            //}
-            //catch (ValidationException ex)
-            //{
-            //    var error = new ExceptionMessage(ex);
-            //    JResult.Data = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
-            //}
-            //catch (Exception ex)
-            //{
-            //    var error = new ExceptionMessage(ex);
-            //    return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
-            //}
+                //// Exito
+                //JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
+            }
+            catch (ValidationException ex)
+            {
+                //var error = new ExceptionMessage(ex);
+                //JResult.Data = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
+            }
+            catch (Exception ex)
+            {
+                //var error = new ExceptionMessage(ex);
+                //return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
+            }
 
             //return JResult;
+
+            return null;
         }
     }
 }
