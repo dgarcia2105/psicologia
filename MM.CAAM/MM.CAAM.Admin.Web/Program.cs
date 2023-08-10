@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using MM.CAAM.Admin.Services;
@@ -15,12 +16,30 @@ var builder = WebApplication.CreateBuilder(args);
 var BaseUrlApiCentralActuarios = builder.Configuration["BaseUrlWebApiCaam"];
 var ApiKeyCentralActuarios = builder.Configuration["ApiKeyCaam"];
 
+#region SERVICES
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IRESTService, RESTService>(); /*new InjectionConstructor(ApiKeyCentralActuarios, BaseUrlApiCentralActuarios)*/
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 var app = builder.Build();
+#endregion
+
+#region COOKIES
+//builder.Services.AddAuthentication(options =>
+//{
+//    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+//    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+//    options.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
+//}).AddCookie(IdentityConstants.ApplicationScheme);
+//builder.Services.AddSession(options =>
+//{
+//    options.Cookie.Name = ".AdventureWorks.Session";
+//    options.IdleTimeout = TimeSpan.FromSeconds(10);
+//    options.Cookie.IsEssential = true;
+//});
+#endregion
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -34,6 +53,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+////part cookies
+//app.UseAuthentication();
+//app.UseSession();
 
 app.UseAuthorization();
 

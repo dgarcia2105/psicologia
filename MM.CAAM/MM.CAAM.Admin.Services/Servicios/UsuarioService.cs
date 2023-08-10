@@ -26,12 +26,13 @@ namespace MM.CAAM.Admin.Services.Servicios
 
         public async Task<UsuarioDTO> LoginApi(UsuarioDTO dto)
         {
-            var endPoint = $"/api/usuario/login/";
+            var endPoint = $"/api/usuarios/login/";
 
             var payload = new UserLoginRequest
             {
-                Username = dto.Usuario,
-                Password = dto.Password
+                Username    = dto.Correo,
+                Email       = dto.Correo,
+                Password    = dto.Password
             };
 
             var result = await RESTService.Post<AuthResponse>(endPoint, payload);
@@ -41,15 +42,30 @@ namespace MM.CAAM.Admin.Services.Servicios
 
             var authResponse = result.Data;
 
+            var usuarioId = authResponse.UsuarioId;
+
+            //-------------------------------------
+
+            var endPointGetUsuario = $"/api/usuarios/{usuarioId}";
+
+            var resultUsuarioDto = await RESTService.Get<UsuarioDTO>(endPointGetUsuario, "");
+
+            if (result.Code != (int)HttpStatusCode.OK)
+                throw new ValidationException(result.Message);
+
+            //return result.Data;
+
+            var usuarioDto = resultUsuarioDto.Data;
+
             ////Query para obtener usuario
             //var dataTable = ManagerService.ManagerI.queryObtenerDT(Querys.QueryUsuario.UsuarioCompleto(pUsuarioId: authResponse.UsuarioId));
             //var usuario = UsuarioMap.ToDto(dataTable.Rows[0]);
 
-            //usuario.BearerToken = authResponse.BearerToken;
+            usuarioDto.BearerToken = authResponse.BearerToken;  //TODO: agregar al usuario
 
             //return usuario;
 
-            return null;
+            return usuarioDto;
         }
 
         public async Task<List<string>> InsertUsuario(UsuarioCreacionDTO payload)
