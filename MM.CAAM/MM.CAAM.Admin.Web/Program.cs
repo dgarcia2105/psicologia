@@ -7,12 +7,16 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using Unity.Injection;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
-//// Using the GetValue<type>(string key) method
-//var configValue = builder.Configuration.GetValue<string>("Authentication:CookieAuthentication:LoginPath");
+#region COOKIES
 
-// or using the index property (which always returns a string)
+//README: https://www.codeguru.com/dotnet/asp-net-cookies/
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+#endregion 
 var BaseUrlApiCentralActuarios = builder.Configuration["BaseUrlWebApiCaam"];
 var ApiKeyCentralActuarios = builder.Configuration["ApiKeyCaam"];
 
@@ -23,22 +27,7 @@ builder.Services.AddScoped<IRESTService, RESTService>(); /*new InjectionConstruc
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 var app = builder.Build();
-#endregion
-
-#region COOKIES
-//builder.Services.AddAuthentication(options =>
-//{
-//    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
-//    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
-//    options.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
-//}).AddCookie(IdentityConstants.ApplicationScheme);
-//builder.Services.AddSession(options =>
-//{
-//    options.Cookie.Name = ".AdventureWorks.Session";
-//    options.IdleTimeout = TimeSpan.FromSeconds(10);
-//    options.Cookie.IsEssential = true;
-//});
-#endregion
+#endregion 
 
 
 // Configure the HTTP request pipeline.
