@@ -11,14 +11,31 @@ using Unity.Injection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+var BaseUrlApiCentralActuarios = builder.Configuration["BaseUrlWebApiCaam"];
+var ApiKeyCentralActuarios = builder.Configuration["ApiKeyCaam"];
+
+
 #region COOKIES
 
 //README: https://www.codeguru.com/dotnet/asp-net-cookies/
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-#endregion 
-var BaseUrlApiCentralActuarios = builder.Configuration["BaseUrlWebApiCaam"];
-var ApiKeyCentralActuarios = builder.Configuration["ApiKeyCaam"];
+//README: https://www.youtube.com/watch?v=Y-JMOHKCkCk
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(120);
+});
+
+//README: Asignando una session cookie al registrar un usuario. https://www.udemy.com/course/aprende-aspnet-core-mvc-haciendo-proyectos-desde-cero/learn/lecture/29610340#questions
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
+}).AddCookie(IdentityConstants.ApplicationScheme);
+#endregion
 
 #region SERVICES
 // Add services to the container.
@@ -41,11 +58,15 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+#region cookies/session
+app.UseSession();
+#endregion
+
 app.UseRouting();
 
-////part cookies
-//app.UseAuthentication();
-//app.UseSession();
+#region cookies
+app.UseAuthentication();
+#endregion
 
 app.UseAuthorization();
 

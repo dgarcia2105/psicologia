@@ -1,5 +1,6 @@
 ﻿@*README
     https://www.bootdey.com/snippets/tagged/contacts*@
+@inject IHttpContextAccessor contxt
 @model MM.CAAM.Gestion.DTO.DTOs.UsuarioDTO
 @{
     //ViewBag.MetaDescripcion = Model.MetaHtml.Description;
@@ -10,6 +11,10 @@
     ViewBag.Title = "Login";
 }
 <br />
+<ul>
+    <li>Student Id: @contxt.HttpContext.Session.GetInt32("StudentId")</li>
+    <li>Student Name: @contxt.HttpContext.Session.GetString("StudentName")</li>
+</ul>
 @*<h1>Agregar usuario</h1>*@
 <br />
 

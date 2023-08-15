@@ -24,6 +24,7 @@ namespace MM.CAAM.Admin.Web.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
+        [CheckSessionOut]
         public IActionResult Index()
         {
             UsuarioProfile usuarioLogeado = new UsuarioProfile()
@@ -51,6 +52,9 @@ namespace MM.CAAM.Admin.Web.Controllers
             _httpContextAccessor.HttpContext.Response.Cookies.Append(".AUTHCENTRAL", encriptado, options);
 
             Response.Cookies.Append("2", "1");
+
+            _httpContextAccessor.HttpContext.Session.SetString("StudentName", "John");
+            _httpContextAccessor.HttpContext.Session.SetInt32("StudentId", 50);
 
             var cookie1 = _httpContextAccessor.HttpContext.Request.Cookies["1"];
             var cookie2 = _httpContextAccessor.HttpContext.Request.Cookies["2"];
