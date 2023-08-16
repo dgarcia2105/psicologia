@@ -62,14 +62,13 @@ namespace MM.CAAM.Admin.Web.Controllers
 
             _httpContextAccessor.HttpContext.Session.SetString("StudentName", "John");
             _httpContextAccessor.HttpContext.Session.SetInt32("StudentId", 50);
-
             var cookie1 = _httpContextAccessor.HttpContext.Request.Cookies["1"];
             var cookie2 = _httpContextAccessor.HttpContext.Request.Cookies["2"];
-            
-            var cookie3 = Com.Decryptor(_httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"]);
-            var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
-            var cookieDesencriptada = Com.Decryptor(authCookie);
-            var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
+
+            //var cookie3 = Com.Decryptor(_httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"]);
+            //var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
+            //var cookieDesencriptada = Com.Decryptor(authCookie);
+            //var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
 
             //CustomIdentity userIdentity = new CustomIdentity(usuarioCokie.Usuario.Id.ToString());
 

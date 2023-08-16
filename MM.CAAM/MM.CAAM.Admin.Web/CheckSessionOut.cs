@@ -1,24 +1,67 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Newtonsoft.Json;
+using System;
+using System.Globalization;
+using System.Web;
 
 namespace MM.CAAM.Admin.Web
 {
     //[AttributeUsage(AttributeTargets.Method, Inherited = true, AllowMultiple = false)]
     public class CheckSessionOut : IActionFilter //ActionFilterAttribute
     {
-        private readonly ILogger<CheckSessionOut> logger;   
-        public CheckSessionOut(ILogger<CheckSessionOut> logger)
+        private readonly ILogger<CheckSessionOut> logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public CheckSessionOut(ILogger<CheckSessionOut> logger, IHttpContextAccessor httpContextAccessor)
         {
             this.logger = logger;
+            this._httpContextAccessor = httpContextAccessor;
         }
 
-        public void OnActionExecuting(ActionExecutingContext context)
+        public void OnActionExecuting(ActionExecutingContext filterContext)
         {
+
+            var cookie2 = _httpContextAccessor.HttpContext.Request.Cookies["2"];
+            //var cookie3 = Com.Decryptor(_httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"]);
+            var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
+            //var cookieDesencriptada = Com.Decryptor(authCookie);
+            //var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
+
+            //--------------------
+
+            //filterContext.HttpContext.Response.AddHeader("Access-Control-Allow-Origin", "*");
+
+            var context = filterContext.HttpContext;
+
+            bool cerrarSesion = true;
+            if(context.User.GetType() == typeof(UsuarioPrincipal))
+            {
+                if (context.User.GetMyIdentity().UsuarioProfile?.Usuario == null)
+                    cerrarSesion = true;
+                else
+                    cerrarSesion = false;
+            }
+
+            if (context.User.GetType() != typeof(UsuarioPrincipal) || cerrarSesion)
+            {
+                _httpContextAccessor.HttpContext.Response.Cookies.Delete(".AUTHCENTRAL");
+
+                //filterContext.Result = new RedirectToRouteResult(
+                //    new RouteValueDictionary
+                //    {
+                //                        {"controller", "Home"},
+                //                        {"action", "Index"}
+                //    }
+                //);
+            }
+
             logger.LogInformation("Antes de ejecutar la ");
         }
         public void OnActionExecuted(ActionExecutedContext context)
         {
             //logger.LogInformation("Despúes de ejecutar la ");
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         //public override void OnActionExecuting(ActionExecutingContext filterContext)
