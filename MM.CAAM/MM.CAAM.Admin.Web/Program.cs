@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using MM.CAAM.Admin.Services;
 using MM.CAAM.Admin.Services.Servicios;
+using MM.CAAM.Admin.Web;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using Unity.Injection;
@@ -15,11 +16,18 @@ var builder = WebApplication.CreateBuilder(args);
 var BaseUrlApiCentralActuarios = builder.Configuration["BaseUrlWebApiCaam"];
 var ApiKeyCentralActuarios = builder.Configuration["ApiKeyCaam"];
 
+#region CACHE
+builder.Services.AddResponseCaching();
+#endregion 
 
 #region COOKIES
 
 //README: https://www.codeguru.com/dotnet/asp-net-cookies/
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+#region FILTROS PERSONALIZADOS
+builder.Services.AddTransient<CheckSessionOut>();
+#endregion
 
 //README: https://www.youtube.com/watch?v=Y-JMOHKCkCk
 builder.Services.AddDistributedMemoryCache();
@@ -63,6 +71,10 @@ app.UseSession();
 #endregion
 
 app.UseRouting();
+
+#region CACHE
+app.UseResponseCaching();
+#endregion 
 
 #region cookies
 app.UseAuthentication();

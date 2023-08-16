@@ -24,9 +24,16 @@ namespace MM.CAAM.Admin.Web.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        [CheckSessionOut]
+        //[CheckSessionOut]
+        //[ResponseCache(Duration = 10)] //DEVUELVE LO MISMO EN N PETICIONES, LO MISMO EN UN INTERVALO DE 10 SEGUNDOS
+        [ServiceFilter(typeof(CheckSessionOut))]
         public IActionResult Index()
         {
+            #region
+            //EJEMPLO DE CACHE AGREGANDO: [ResponseCache(Duration = 10)]
+            
+            #endregion 
+
             UsuarioProfile usuarioLogeado = new UsuarioProfile()
             {
                 Usuario = new UsuarioDTO() { Id = 1 }
@@ -58,8 +65,8 @@ namespace MM.CAAM.Admin.Web.Controllers
 
             var cookie1 = _httpContextAccessor.HttpContext.Request.Cookies["1"];
             var cookie2 = _httpContextAccessor.HttpContext.Request.Cookies["2"];
+            
             var cookie3 = Com.Decryptor(_httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"]);
-
             var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
             var cookieDesencriptada = Com.Decryptor(authCookie);
             var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);

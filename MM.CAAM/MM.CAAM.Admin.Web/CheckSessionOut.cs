@@ -1,12 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Web;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace MM.CAAM.Admin.Web
 {
-    [AttributeUsage(AttributeTargets.Method, Inherited = true, AllowMultiple = false)]
-    public class CheckSessionOut: ActionFilterAttribute
+    //[AttributeUsage(AttributeTargets.Method, Inherited = true, AllowMultiple = false)]
+    public class CheckSessionOut : IActionFilter //ActionFilterAttribute
     {
+        private readonly ILogger<CheckSessionOut> logger;   
+        public CheckSessionOut(ILogger<CheckSessionOut> logger)
+        {
+            this.logger = logger;
+        }
+
+        public void OnActionExecuting(ActionExecutingContext context)
+        {
+            logger.LogInformation("Antes de ejecutar la ");
+        }
+        public void OnActionExecuted(ActionExecutedContext context)
+        {
+            //logger.LogInformation("Despúes de ejecutar la ");
+            throw new NotImplementedException();
+        }
+
         //public override void OnActionExecuting(ActionExecutingContext filterContext)
         //{
         //    var context = filterContext.HttpContext;
