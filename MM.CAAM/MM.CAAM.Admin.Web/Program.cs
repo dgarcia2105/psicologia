@@ -50,6 +50,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(o =>
     {
         o.LoginPath= "/Home/Login";
+        //o.Events = new CookieAuthenticationEvents
+        //{
+        //    OnSignedIn = async ctx =>
+        //    {
+        //        ctx.HttpContext.User = ctx.Principal;
+        //    }
+        //};
     });
 
 #endregion
@@ -87,7 +94,7 @@ app.UseResponseCaching();
 #endregion 
 
 #region cookies
-app.UseAuthentication();
+app.UseAuthentication(); 
 #endregion
 
 app.UseAuthorization();

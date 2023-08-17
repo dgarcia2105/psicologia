@@ -37,16 +37,20 @@ namespace MM.CAAM.Admin.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password, string ReturnUrl)
         {
-            if (username == "a" || password == "1")
+            if (username == "b" || password == "2")
             {
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, username),
+                    new Claim("correo", "correo"),
+                    new Claim("Id", "Id"),
+                    new Claim("BearerToken", "BearerToken: 123456789"),
                 };
 
-                var claimsIdentity = new ClaimsIdentity(claims, "Login");
+                //var claimsIdentity = new ClaimsIdentity(claims, "Login");
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity)); //, isPersistent:false, lockoutOnFailure: false
 
                 return Redirect(ReturnUrl == null ? "/Students" : ReturnUrl);
             }
