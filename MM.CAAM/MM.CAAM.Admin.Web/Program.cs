@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using MM.CAAM.Admin.Services;
 using MM.CAAM.Admin.Services.Servicios;
 using MM.CAAM.Admin.Web;
@@ -46,17 +47,14 @@ builder.Services.AddSession(options =>
 //}).AddCookie(IdentityConstants.ApplicationScheme);
 
 // vipp - https://www.google.com/search?sca_esv=557804163&rlz=1C1CHBF_esMX992MX992&sxsrf=AB5stBhOGTVth9rpmSxiO9nxWYw40mDbVw:1692296443701&q=login+web+cookies+.net+core+6+example&tbm=vid&source=lnms&sa=X&ved=2ahUKEwiOoIbDp-SAAxXkJkQIHVusDdcQ0pQJegQIChAB&biw=1920&bih=937&dpr=1#fpstate=ive&vld=cid:77432373,vid:rODKID5XiP8
+// vipp - page oficial: https://learn.microsoft.com/en-us/aspnet/core/security/authentication/cookie?view=aspnetcore-7.0
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(o =>
     {
         o.LoginPath= "/Home/Login";
-        //o.Events = new CookieAuthenticationEvents
-        //{
-        //    OnSignedIn = async ctx =>
-        //    {
-        //        ctx.HttpContext.User = ctx.Principal;
-        //    }
-        //};
+        //o.ExpireTimeSpan = TimeSpan.FromDays(1);
+        //o.SlidingExpiration = false;
+        //o.AccessDeniedPath = "/Forbidden/";
     });
 
 #endregion
