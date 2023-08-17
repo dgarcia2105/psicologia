@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Globalization;
+using System.Security.Claims;
 using System.Web;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
 using MM.CAAM.Admin.Services.Exceptions;
@@ -26,50 +30,53 @@ namespace MM.CAAM.Admin.Web.Controllers
 
         //[CheckSessionOut]
         //[ResponseCache(Duration = 10)] //DEVUELVE LO MISMO EN N PETICIONES, LO MISMO EN UN INTERVALO DE 10 SEGUNDOS
-        [ServiceFilter(typeof(CheckSessionOut))]
-        public IActionResult Index()
+        //[ServiceFilter(typeof(CheckSessionOut))]
+        public async Task<IActionResult> Index()
         {
-            #region
+            #region BAK
             //EJEMPLO DE CACHE AGREGANDO: [ResponseCache(Duration = 10)]
-            
-            #endregion 
+            //Response.Cookies.Append("1", "1");
+            //Response.Cookies.Append("2", "1"); 
+            //_httpContextAccessor.HttpContext.Session.SetString("StudentName", "John");
+            //_httpContextAccessor.HttpContext.Session.SetInt32("StudentId", 50);
+            //var cookie1 = _httpContextAccessor.HttpContext.Request.Cookies["1"];
+            //var cookie2 = _httpContextAccessor.HttpContext.Request.Cookies["2"];
+            #endregion
 
-            UsuarioProfile usuarioLogeado = new UsuarioProfile()
+
+            #region INIT
+            //UsuarioProfile usuarioLogeado = new UsuarioProfile()
+            //{
+            //    Usuario = new UsuarioDTO() { Id = 1 }
+            //};
+
+            //// Encrypt the ticket.
+            //string encTicket = JsonConvert.SerializeObject(usuarioLogeado);
+            //CookieOptions options = new CookieOptions();
+            //options.Expires = DateTime.Now.AddDays(1);
+            //_httpContextAccessor.HttpContext.Response.Cookies.Append(".AUTHCENTRAL", encTicket, options);
+            #endregion
+
+            #region CLAIMS https://www.youtube.com/watch?v=rODKID5XiP8&ab_channel=ThumbIKR-ProgrammingExamples
+
+            var claims = new List<Claim>
             {
-                Usuario = new UsuarioDTO() { Id = 1 }
+                new Claim(ClaimTypes.Name, "Daniel")
             };
 
+            var claimsIdentity = new ClaimsIdentity(claims, "Login");
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+            return Redirect("/Home/Index");
+
+            #endregion
 
 
-            // Encrypt the ticket.
-            string encTicket = JsonConvert.SerializeObject(usuarioLogeado);
-            string encriptado = Com.Encryptor(encTicket);
-            
-            //var HttpCookie2 = new HttpCookie(".AUTHCENTRAL", encriptado)
-            //{
-            //    Expires = DateTime.Now.AddSeconds(86400),
-            //    Secure = true
-            //};
-            //// Create the cookie.
-            //HttpContext.Response.Cookies.Add(HttpCookie);
-            //------------------------------------
-            
-            CookieOptions options = new CookieOptions();
-            options.Expires = DateTime.Now.AddDays(1);
-            _httpContextAccessor.HttpContext.Response.Cookies.Append(".AUTHCENTRAL", encriptado, options);
 
-            Response.Cookies.Append("2", "1");
-
-            _httpContextAccessor.HttpContext.Session.SetString("StudentName", "John");
-            _httpContextAccessor.HttpContext.Session.SetInt32("StudentId", 50);
-            var cookie1 = _httpContextAccessor.HttpContext.Request.Cookies["1"];
-            var cookie2 = _httpContextAccessor.HttpContext.Request.Cookies["2"];
-
-            //var cookie3 = Com.Decryptor(_httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"]);
             //var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
             //var cookieDesencriptada = Com.Decryptor(authCookie);
             //var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
-
             //CustomIdentity userIdentity = new CustomIdentity(usuarioCokie.Usuario.Id.ToString());
 
             //UsuarioPrincipal userPrincipal = new UsuarioPrincipal(userIdentity);
