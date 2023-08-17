@@ -57,23 +57,7 @@ namespace MM.CAAM.Admin.Web.Controllers
             //_httpContextAccessor.HttpContext.Response.Cookies.Append(".AUTHCENTRAL", encTicket, options);
             #endregion
 
-            #region CLAIMS https://www.youtube.com/watch?v=rODKID5XiP8&ab_channel=ThumbIKR-ProgrammingExamples
-
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, "Daniel")
-            };
-
-            var claimsIdentity = new ClaimsIdentity(claims, "Login");
-
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-
-            return Redirect("/Home/Index");
-
-            #endregion
-
-
-
+            
             //var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
             //var cookieDesencriptada = Com.Decryptor(authCookie);
             //var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
