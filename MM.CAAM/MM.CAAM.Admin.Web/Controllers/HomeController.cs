@@ -1,19 +1,27 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using MM.CAAM.Admin.Services.Exceptions;
+using MM.CAAM.Admin.Services.Servicios;
 using MM.CAAM.Admin.Web.Models;
+using MM.CAAM.Gestion.DTO.DTOs;
+using MM.CAAM.Gestion.DTO.Objects;
+using MM.CAAM.Admin.Web.Controllers;
 using System.Diagnostics;
+using System.Net;
 using System.Security.Claims;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     { 
         private readonly ILogger<HomeController> _logger;
+        private readonly IUsuarioService usuarioService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService)
         {
             _logger = logger;
+            this.usuarioService = usuarioService;
         }
 
         public IActionResult Index()
@@ -35,41 +43,73 @@ namespace MM.CAAM.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string username, string password, string ReturnUrl)
+        public async Task<IActionResult> Login(UsuarioDTO usuarioDto)
         {
-            if (username == "b" || password == "2")
+            try
             {
-                var claims = new List<Claim>
+                
+            var resultDto = await usuarioService.LoginApi(usuarioDto);
+
+                if (resultDto != null)
                 {
-                    new Claim(ClaimTypes.Name, username),
-                    new Claim("correo", "correo"),
-                    new Claim("Id", "Id"),
-                    new Claim("BearerToken", "BearerToken: 123456789"),
-                };
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, resultDto.Id.ToString()),
+                        new Claim("correo", !string.IsNullOrEmpty(resultDto.Correo) ? resultDto.Correo : ""),
+                        new Claim("Id", resultDto.Id.ToString()),
+                        new Claim("BearerToken", resultDto.BearerToken.ToString()),
+                    };
 
-                //var claimsIdentity = new ClaimsIdentity(claims, "Login");
-                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    //var claimsIdentity = new ClaimsIdentity(claims, "Login");
+                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity)); //, isPersistent:false, lockoutOnFailure: false
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity)); //, isPersistent:false, lockoutOnFailure: false
 
-                return Redirect(ReturnUrl == null ? "/Students" : ReturnUrl);
+                    //return Redirect("/Usuario/Index");
+                    //return Redirect(ReturnUrl == null ? "/Usuario/Index" : ReturnUrl);
+                }
+                else
+                {
+                    //return View();
+                }
+
+                return Ok(new Result { Code = StatusCodes.Status200OK, Data = resultDto });
+
             }
-            else
+            catch (ValidationException ex)
             {
-                return View();
+                //var error = new ExceptionMessage(ex);
+                //var a = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException});
+
+                //JResult.Value = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
+                //new JsonResult() { Value = null };
             }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+
+                //var error = new ExceptionMessage(ex);
+                //return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
+            }
+
+            return JResult;
+
+            //return View();
         }
 
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
+        public IActionResult Privacy()
+        {
+            return View();
+        }
 
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
 
 
     }

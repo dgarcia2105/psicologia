@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MM.CAAM.Admin.Services.Exceptions;
 using MM.CAAM.Admin.Services.Servicios;
-using MM.CAAM.Admin.Services.Servicios.Test;
-using MM.CAAM.Admin.Web.Models;
 using MM.CAAM.Gestion.DTO.DTOs;
 using MM.CAAM.Gestion.DTO.DTOs.Request;
-using System.Diagnostics;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
+    [Authorize]
     public class UsuarioController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -20,7 +19,6 @@ namespace MM.CAAM.Admin.Web.Controllers
             _logger = logger;
             this.usuarioService = usuarioService;
         }
-
 
         public async Task<IActionResult> Index()
         {

@@ -54,7 +54,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
         {
             try
             {
-                var usuarios = await context.Usuarios.Include(x => x.Negocios).ToListAsync();
+                var usuarios = await context.Usuarios.OrderByDescending(u => u.Id).Include(x => x.Negocios).ToListAsync();
 
                 var data = mapper.Map<List<UsuarioDTO>>(usuarios);                                  //LEYENDO REGISTROS con EF Core
 
@@ -284,8 +284,8 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 {
                     new Claim(ClaimTypes.Name, usuario.Id.ToString()),
                     new Claim("Id", usuario.Id.ToString()),
-                    new Claim("Correo", usuario.Correo.ToString()),
-                    new Claim("NombrePerfil", usuario.NombrePerfil.ToString()),
+                    new Claim("Correo", !string.IsNullOrEmpty(usuario.Correo) ? usuario.Correo : ""),
+                    new Claim("NombrePerfil", !string.IsNullOrEmpty(usuario.NombrePerfil) ? usuario.NombrePerfil : ""),
                     new Claim("Nombre", usuario.Nombre.ToString()),
                     new Claim("ApellidoPaterno", usuario.ApellidoPaterno.ToString()),
                     new Claim("ApellidoMaterno", usuario.ApellidoMaterno.ToString())

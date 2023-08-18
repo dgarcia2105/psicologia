@@ -1,8 +1,4 @@
-﻿//using Microsoft.AspNetCore.DataProtection;
-using MM.CAAM.Gestion.Models.Entidades;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Net;
+﻿using System.Net;
 
 namespace MM.CAAM.Gestion.DTO.Objects
 {

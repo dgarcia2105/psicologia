@@ -37,6 +37,8 @@ namespace MM.CAAM.Admin.Services.Servicios
 
             var result = await RESTService.Post<AuthResponse>(endPoint, payload);
 
+
+
             if (result.Code != (int)HttpStatusCode.OK)
                 throw new ValidationException(result.Message);
 

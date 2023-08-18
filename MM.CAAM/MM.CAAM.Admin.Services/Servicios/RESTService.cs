@@ -68,8 +68,8 @@ namespace MM.CAAM.Admin.Services
             }
             finally
             {
-                /// Checking response, if ok go ahead, if not raise exception
-                ExceptionHandling.EnsureResponseWasSuccessful(client, request, response);
+                //// Checking response, if ok go ahead, if not raise exception
+                //ExceptionHandling.EnsureResponseWasSuccessful(client, request, response);
             }
 
             return result;
