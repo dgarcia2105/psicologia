@@ -5,6 +5,7 @@ using MM.CAAM.Admin.Services.Exceptions;
 using MM.CAAM.Admin.Services.Servicios;
 using MM.CAAM.Gestion.DTO.DTOs;
 using MM.CAAM.Gestion.DTO.DTOs.Request;
+using MM.CAAM.Gestion.DTO.Objects;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
@@ -74,27 +75,19 @@ namespace MM.CAAM.Admin.Web.Controllers
                 //else
                 //    usuarioDto.PerfilNombreArchivo = null;
 
-                var a = await usuarioService.InsertUsuario(usuarioCreacionDto);
-
-                //JResult.Data = new Result { Code = (int)HttpStatusCode.OK };
+                await usuarioService.InsertUsuario(usuarioCreacionDto);
+                return Ok(new Result { Code = StatusCodes.Status200OK});
             }
             catch (ValidationException ex)
             {
                 var error = new ExceptionMessage(ex);
-                //JResult.Data = new Result { Code = (int)HttpStatusCode.BadRequest, Message = ex.Message };
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
             }
             catch (Exception ex)
             {
-                //var error = new ExceptionMessage(ex);
-                //return new JsonHttpStatusResult(error.MessageException, HttpStatusCode.InternalServerError);
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
             }
-
-            //return JResult;
-
-            //return null;
-
-            return RedirectToAction("Index");
-            // View("Index");
         }
     }
 }

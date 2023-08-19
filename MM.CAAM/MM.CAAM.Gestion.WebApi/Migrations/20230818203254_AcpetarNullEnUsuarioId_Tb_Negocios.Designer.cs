@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230818203254_AcpetarNullEnUsuarioId_Tb_Negocios")]
+    partial class AcpetarNullEnUsuarioIdTbNegocios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -199,7 +202,12 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UsuarioId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Negocios");
                 });
@@ -388,24 +396,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.UsuarioNegocio", b =>
-                {
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NegocioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
-
-                    b.HasKey("UsuarioId", "NegocioId");
-
-                    b.HasIndex("NegocioId");
-
-                    b.ToTable("UsuariosNegocios");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -617,6 +607,15 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Negocio", b =>
+                {
+                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.Usuario", "Usuario")
+                        .WithMany("Negocios")
+                        .HasForeignKey("UsuarioId");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Udemy.AutorLibro", b =>
                 {
                     b.HasOne("MM.CAAM.Gestion.Models.Entidades.Udemy.Autor", "Autor")
@@ -653,25 +652,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Navigation("Usuario");
 
                     b.Navigation("libro");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.UsuarioNegocio", b =>
-                {
-                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.Negocio", "Negocio")
-                        .WithMany("UsuariosNegocios")
-                        .HasForeignKey("NegocioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.Usuario", "Usuario")
-                        .WithMany("UsuariosNegocios")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Negocio");
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -725,11 +705,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Negocio", b =>
-                {
-                    b.Navigation("UsuariosNegocios");
-                });
-
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Udemy.Autor", b =>
                 {
                     b.Navigation("AutoresLibros");
@@ -746,7 +721,7 @@ namespace MM.CAAM.Gestion.Models.Migrations
                 {
                     b.Navigation("Consultas");
 
-                    b.Navigation("UsuariosNegocios");
+                    b.Navigation("Negocios");
                 });
 #pragma warning restore 612, 618
         }

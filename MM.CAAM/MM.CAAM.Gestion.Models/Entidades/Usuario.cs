@@ -69,7 +69,8 @@ namespace MM.CAAM.Gestion.Models.Entidades
         public DateTime? FechaAcceso { get; set; }
         public string? BearerToken { get; set; }
         //public List<AutorLibro> AutoresLibros { get; set; }
-        public List<Negocio> Negocios { get; set; } //= new List<Negocio>();
+        //public List<Negocio> Negocios { get; set; } //= new List<Negocio>();
+        public List<UsuarioNegocio> UsuariosNegocios { get; set; }
         public List<Consulta> Consultas { get; set; }                                   //UNO A MUCHOS [Usuario muchas Consultas][Libro muchos Comentarios]
     
         

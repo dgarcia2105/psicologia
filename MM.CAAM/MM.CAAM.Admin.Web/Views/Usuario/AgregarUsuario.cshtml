@@ -30,8 +30,12 @@
             <div class="card">
                 <div class="card-body">
                     @*https://qawithexperts.com/article/asp-net/form-submit-in-aspnet-mvc-c-htmlbeginform-example/314*@
-                    @using (Html.BeginForm("CrearUsuario", "Usuario", FormMethod.Post, new { id = "Form1", enctype = "multipart/form-data" }))
-                    {
+
+@*                    method="post" onsubmit="return sendAjax();*@
+
+                    @*@using (Html.BeginForm("CrearUsuario", "Usuario", FormMethod.Post, new { id = "Form1", enctype = "multipart/form-data" }))
+                    {*@
+                    <form method="post" onsubmit="return sendAjax();">
                         <div class="row  text-left">
                             <div class="col-sm-6 flex-column d-flex">
                                 <div class="form-group">
@@ -123,10 +127,12 @@
                         </div>
                         <div class="row ">
                             <div class="col-12 ">
-                                <button type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">Agregar</button>  @*ml-auto*@
+                                <button id="btnEnviar" type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">Agregar</button>  @*ml-auto*@
+                                 
                             </div>
                         </div>
-                    }
+                    </form>
+                    @*}*@
                 </div>
             </div>
         </div>
@@ -147,5 +153,49 @@
 
             });
         });
+        function sendAjax() {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("CrearUsuario", "Usuario", null)',
+                data: $("form").serialize(),
+                dataType: 'json',
+                beforeSend: function () {
+                    showProgress();
+                    $('#btnEnviar').prop('disabled', true);
+                },
+                success: function (data) {
+                    console.log("1");
+                    console.log(data);
+                    if (code => 200 && code < 299) {
+
+                        window.location.replace("/Usuario/Index/");
+                    }
+                    else {
+                        Swal.fire({ icon: 'error', title: 'Oops...', text: data.responseJSON.message });
+                        $('#btnEnviar').prop('disabled', false);
+                    }
+                    hideProgress();
+                },
+                error: function (data) { 
+                    console.log(data);
+                    console.log();
+                    var code = data.responseJSON.code;
+
+                    if (code => 400 && code < 499) {
+                        Swal.fire('AVISO', data.responseJSON.message, 'question');
+                    }
+                    else if (code => 500 && code < 599) {
+                        Swal.fire({ icon: 'error', title: 'Oops...', text: data.responseJSON.message });
+                    }
+
+
+                    $('#btnEnviar').prop('disabled', false);
+
+                    hideProgress();
+                }
+            });
+
+        };
     </script>
 }

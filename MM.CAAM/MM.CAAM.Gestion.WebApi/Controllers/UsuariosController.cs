@@ -54,14 +54,13 @@ namespace MM.CAAM.Gestion.Models.Controllers
         {
             try
             {
-                var usuarios = await context.Usuarios.OrderByDescending(u => u.Id).Include(x => x.Negocios).ToListAsync();
+                //.Include(usuarioDB => usuarioDB.UsuariosNegocios)
+                //.ThenInclude(usuariosNegociosDB => usuariosNegociosDB.Negocio)
+                var usuarios = await context.Usuarios
+                    .OrderByDescending(u => u.Id).ToListAsync();
 
-                var data = mapper.Map<List<UsuarioDTO>>(usuarios);                                  //LEYENDO REGISTROS con EF Core
+                var data = mapper.Map<List<UsuarioDTO>>(usuarios);
 
-                
-
-                //    var data = await DiligenciaService.ObtenerLista(obtenerDiligenciaRequest);
-                //data = data.Where(x => x.AutorizaProgramacion).ToList();
                 return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
             }
             catch (ValidationException ex)
@@ -76,27 +75,24 @@ namespace MM.CAAM.Gestion.Models.Controllers
             }
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:int}", Name = "ObtenerUsuario")]
         public async Task<ActionResult<UsuarioDTO>> Get(int id)
         {
             try
             {
-                //var usuario = await context.Usuarios.FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id);        //BAK
-                //var usuario = await context.Usuarios.Include(usuarioBD => usuarioBD.Negocios).FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id); //BAK usuarioBD.Negocios || Consultas 
-                var usuario = await context.Usuarios.FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id); //usuarioBD.Negocios || Consultas
+                
+                var usuario = await context.Usuarios
+                    .Include(usuarioDB => usuarioDB.UsuariosNegocios)
+                    .ThenInclude(usuariosNegociosDB => usuariosNegociosDB.Negocio)
+                    .FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id); //usuarioBD.Negocios || Consultas
 
                 if (usuario == null)
                 {
-                    //return NotFound();
                     throw new ArgumentNullException(nameof(usuario));
                 }
 
-                var data = mapper.Map<UsuarioDTO>(usuario);                                  //LEYENDO REGISTROS con EF Core
+                var data = mapper.Map<UsuarioDTO>(usuario);
 
-
-
-                //    var data = await DiligenciaService.ObtenerLista(obtenerDiligenciaRequest);
-                //data = data.Where(x => x.AutorizaProgramacion).ToList();
                 return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
             }
             catch (ValidationException ex)
@@ -119,14 +115,12 @@ namespace MM.CAAM.Gestion.Models.Controllers
             return mapper.Map<List<UsuarioDTO>>(usuarios);
         }
 
-
-        //[HttpPost("lista")]
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] UsuarioCreacionDTO usuarioCreacionDTO)  //DTOs y AUTOMAPPER
         {
             try
             {
-                if(!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) || !string.IsNullOrEmpty(usuarioCreacionDTO.Correo)) { 
+                if (!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) || !string.IsNullOrEmpty(usuarioCreacionDTO.Correo)) { 
                 var userRepetido = await context.Usuarios.Where(x => (!string.IsNullOrEmpty(usuarioCreacionDTO.Correo) && x.Correo.Equals(usuarioCreacionDTO.Correo))
                                                                                  || (!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) && x.NombrePerfil.Equals(usuarioCreacionDTO.NombrePerfil))).FirstOrDefaultAsync();
 
@@ -151,7 +145,11 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);                              
 
                 context.Add(usuario);                                                               
-                await context.SaveChangesAsync();                                             
+                await context.SaveChangesAsync();
+
+                var usuarioDTO = mapper.Map<UsuarioDTO>(usuario);
+
+                //return CreatedAtRoute("ObtenerUsuario", new { id = usuario.Id }, usuarioDTO);
                 
                 return Ok(new Result { Code = StatusCodes.Status200OK });
             }
@@ -167,7 +165,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
             }
         }
 
-        [HttpPut("{id:int}")]   //api/usuarios/1
+        [HttpPut("{id:int}")]
         public async Task<ActionResult> Put(Usuario usuario, int id)
         {
             //-- Validación sin DTO
@@ -188,7 +186,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id:int}")]    //api/autores/2
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
             var existe = await context.Usuarios.AnyAsync(us => us.Id == id);
@@ -219,7 +217,6 @@ namespace MM.CAAM.Gestion.Models.Controllers
 
             return textoCifrado;
         }
-
 
         [AllowAnonymous]
         [HttpPost("login")]
