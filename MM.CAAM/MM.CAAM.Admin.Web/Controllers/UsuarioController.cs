@@ -23,13 +23,12 @@ namespace MM.CAAM.Admin.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            // OBTIENE DEL SERVICIO
             var Usuarios = await usuarioService.ObtenerListaUsuarios();
 
             return View(Usuarios);
         }
 
-        public IActionResult AgregarUsuario()
+        public IActionResult NuevoUsuario()
         {
             List<GeneroRequest> Generos = new List<GeneroRequest>()
             {

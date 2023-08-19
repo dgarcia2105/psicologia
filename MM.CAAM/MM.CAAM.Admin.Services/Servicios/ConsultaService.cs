@@ -10,60 +10,25 @@ using MM.CAAM.Gestion.DTO.Objects;
 
 namespace MM.CAAM.Admin.Services.Servicios
 {
-    public interface IUsuarioService
-    {
-        Task<UsuarioDTO> LoginApi(UsuarioDTO dto);
+    public interface IConsultaService
+    { 
         Task<List<UsuarioDTO>> ObtenerListaUsuarios();
         Task<UsuarioDTO> ObtenerUsuario(int usuarioId);
-        Task<UsuarioDTO> InsertUsuario(UsuarioCreacionDTO dto);
+        Task<UsuarioDTO> CrearConsulta(int UsuarioId, ConsultaCreacionDTO payload);
     }
 
-    public class UsuarioService : IUsuarioService
+    public class ConsultaService : IConsultaService
     {
         private readonly IRESTService RESTService;
-        public UsuarioService(IRESTService restService) 
+        public ConsultaService(IRESTService restService) 
         {
             RESTService = restService;
         }
-
-        public async Task<UsuarioDTO> LoginApi(UsuarioDTO dto)
-        {
-            var endPoint = $"/api/usuarios/login/";
-
-            var payload = new UserLoginRequest
-            {
-                Username    = dto.Correo,
-                Email       = dto.Correo,
-                Password    = dto.Password
-            };
-
-            var result = await RESTService.Post<AuthResponse>(endPoint, payload);
-
-            if (result.Code != (int)HttpStatusCode.OK)
-                throw new ValidationException(result.Message);
-
-            var authResponse = result.Data;
-
-            var usuarioId = authResponse.UsuarioId;
-
-            var endPointGetUsuario = $"/api/usuarios/{usuarioId}";
-
-            var resultUsuarioDto = await RESTService.Get<UsuarioDTO>(endPointGetUsuario, "");
-
-            if (result.Code != (int)HttpStatusCode.OK)
-                throw new ValidationException(result.Message);
-
-            var usuarioDto = resultUsuarioDto.Data;
-
-            usuarioDto.BearerToken = authResponse.BearerToken;
-
-            return usuarioDto;
-        }
-
-        public async Task<UsuarioDTO> InsertUsuario(UsuarioCreacionDTO payload)
+          
+        public async Task<UsuarioDTO> CrearConsulta(int UsuarioId, ConsultaCreacionDTO payload)
         {
 
-            var endPoint = $"/api/usuarios";
+            var endPoint = $"/api/usuarios/{UsuarioId}/consultas";
 
             var result = await RESTService.Post<UsuarioDTO>(endPoint, payload, "");
 

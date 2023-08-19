@@ -1,0 +1,105 @@
+﻿@model MM.CAAM.Gestion.DTO.DTOs.ConsultaCreacionDTO
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Nueva consulta";
+}
+<br />  
+
+<div class="container-fluid px-1 py-2 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11">  
+            <br />
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h3 class="blue-text">Nueva Consulta</h3>
+                </div>
+            </div>
+            <br />
+            <div class="card">
+                <div class="card-body"> 
+                    <form method="post" onsubmit="return sendAjax();">
+                        <div class="row  text-left">
+                            <div class="col-sm-6 flex-column d-flex">
+                                <div class="form-group">
+                                    <label class="form-control-label px-6"><span class="text-danger">* </span></label>
+                                    @Html.LabelFor(model => model.MotivoConsulta)
+                                    @Html.EditorFor(model => model.MotivoConsulta, new { htmlAttributes = new { @class = "form-control", @required = "required" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.MotivoConsulta, "", new { @class = "text-danger" })
+                                </div>
+                            </div> 
+                        </div>
+
+                        <br />
+
+                        <div class="row ">
+                            <div class="col-12 ">
+                                <button id="btnEnviar" type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">Agregar</button>  @*ml-auto*@
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#Form1').submit(function (event) {
+                if (!event.result) {
+                    //alert("false");
+                    //return false;
+                }
+                else {
+                    event.preventDefault();
+                }
+
+            });
+        });
+        function sendAjax() {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("CrearConsulta", "Consulta", new{ usuarioId = @Html.Raw(ViewBag.Usuario.Id) })',
+                data: $("form").serialize(),
+                dataType: 'json',
+                beforeSend: function () {
+                    showProgress();
+                    $('#btnEnviar').prop('disabled', true);
+                },
+                success: function (data) {
+                    console.log("1");
+                    console.log(data);
+                    if (code => 200 && code < 299) {
+
+                        window.location.replace("/Consulta/Index/");
+                    }
+                    else {
+                        Swal.fire({ icon: 'error', title: 'Oops...', text: data.responseJSON.message });
+                        $('#btnEnviar').prop('disabled', false);
+                    }
+                    hideProgress();
+                },
+                error: function (data) { 
+                    console.log(data);
+                    console.log();
+                    var code = data.responseJSON.code;
+
+                    if (code => 400 && code < 499) {
+                        Swal.fire('AVISO', data.responseJSON.message, 'question');
+                    }
+                    else if (code => 500 && code < 599) {
+                        Swal.fire({ icon: 'error', title: 'Oops...', text: data.responseJSON.message });
+                    } 
+                    $('#btnEnviar').prop('disabled', false);
+
+                    hideProgress();
+                }
+            });
+
+        };
+    </script>
+}
