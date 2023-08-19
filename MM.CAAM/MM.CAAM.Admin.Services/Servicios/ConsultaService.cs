@@ -12,8 +12,8 @@ namespace MM.CAAM.Admin.Services.Servicios
 {
     public interface IConsultaService
     { 
-        Task<List<UsuarioDTO>> ObtenerListaUsuarios();
-        Task<UsuarioDTO> ObtenerUsuario(int usuarioId);
+        Task<List<ConsultaDTO>> ObtenerLista();
+        Task<List<ConsultaDTO>> ObtenerConsultasPorUsuario(int usuarioId);
         Task<UsuarioDTO> CrearConsulta(int UsuarioId, ConsultaCreacionDTO payload);
     }
 
@@ -38,11 +38,11 @@ namespace MM.CAAM.Admin.Services.Servicios
             return result.Data;
         }
 
-        public async Task<List<UsuarioDTO>> ObtenerListaUsuarios()
+        public async Task<List<ConsultaDTO>> ObtenerLista()
         {
-            var endPoint = $"/api/usuarios";
+            var endPoint = $"/api/consulta";
 
-            var result = await RESTService.Get<List<UsuarioDTO>>(endPoint, "");
+            var result = await RESTService.Get<List<ConsultaDTO>>(endPoint, "");
 
             if (result.Code != (int)HttpStatusCode.OK)
                 throw new ValidationException(result.Message);
@@ -50,11 +50,11 @@ namespace MM.CAAM.Admin.Services.Servicios
             return result.Data;
         }
 
-        public async Task<UsuarioDTO> ObtenerUsuario(int usuarioId)
+        public async Task<List<ConsultaDTO>> ObtenerConsultasPorUsuario(int usuarioId)
         {
-            var endPoint = $"/api/usuarios/{usuarioId}";
+            var endPoint = $"/api/usuarios/{usuarioId}/consultas";
 
-            var result = await RESTService.Get<UsuarioDTO>(endPoint, "");
+            var result = await RESTService.Get<List<ConsultaDTO>>(endPoint, "");
 
             if (result.Code != (int)HttpStatusCode.OK)
                 throw new ValidationException(result.Message);

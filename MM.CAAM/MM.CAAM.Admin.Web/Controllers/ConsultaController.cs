@@ -26,9 +26,11 @@ namespace MM.CAAM.Admin.Web.Controllers
             this.consultaService = consultaService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int usuarioId)
         {
-            return View();
+            var Consultas = await consultaService.ObtenerConsultasPorUsuario(usuarioId);
+
+            return View(Consultas);
         } 
 
         public async Task<IActionResult> NuevaConsulta(int usuarioId)

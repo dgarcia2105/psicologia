@@ -37,7 +37,9 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 }
 
                 var consultas = await context.Consultas
-                    .Where(consultasDB => consultasDB.UsuarioId == usuarioId).ToListAsync();
+                    .Where(consultasDB => consultasDB.UsuarioId == usuarioId)
+                    .OrderByDescending(x => x.Id)
+                    .ToListAsync();
                 var data = mapper.Map<List<ConsultaDTO>>(consultas);
                 #endregion
 

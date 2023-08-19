@@ -11,14 +11,10 @@ using MM.CAAM.Gestion.Models.Entidades;
 using Microsoft.AspNetCore.Authorization;
 using MM.CAAM.Gestion.DTO.DTOs.Request;
 using MM.CAAM.Gestion.DTO.DTOs.Response;
-using MM.CAAM.Gestion.Models.Migrations;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using static MM.CAAM.Gestion.Services.Com;
 
 namespace MM.CAAM.Gestion.Models.Controllers    
 {
