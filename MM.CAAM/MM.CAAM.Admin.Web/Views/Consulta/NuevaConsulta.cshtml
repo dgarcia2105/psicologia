@@ -79,7 +79,7 @@
                     console.log(data);
                     if (code => 200 && code < 299) {
 
-                        window.location.replace("/Consulta/Index/?UsuarioId=@Html.Raw(ViewBag.Usuario.Id)");
+                        window.location.replace("/Consulta/ConsultaDeUsuario/?UsuarioId=@Html.Raw(ViewBag.Usuario.Id)");
                     }
                     else {
                         Swal.fire({ icon: 'error', title: 'Oops...', text: data.responseJSON.message });

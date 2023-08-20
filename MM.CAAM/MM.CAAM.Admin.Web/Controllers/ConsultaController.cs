@@ -26,12 +26,18 @@ namespace MM.CAAM.Admin.Web.Controllers
             this.consultaService = consultaService;
         }
 
-        public async Task<IActionResult> Index(int usuarioId)
+        public async Task<IActionResult> Index()
+        {
+            var Consultas = await consultaService.ObtenerConsultas();
+
+            return View(Consultas);
+        }
+        public async Task<IActionResult> ConsultaDeUsuario(int usuarioId)
         {
             var Consultas = await consultaService.ObtenerConsultasPorUsuario(usuarioId);
 
             return View(Consultas);
-        } 
+        }
 
         public async Task<IActionResult> NuevaConsulta(int usuarioId)
         {
@@ -40,6 +46,16 @@ namespace MM.CAAM.Admin.Web.Controllers
             ViewBag.Usuario = usuario;
 
             return View();
+        }
+
+        public async Task<IActionResult> VerConsulta(int usuarioId, int consultaId)
+        {
+            var Consulta = await consultaService.ObtenerConsultasPorUsuarioYConsultaId(usuarioId, consultaId);
+            //var usuario = await usuarioService.ObtenerUsuario(usuarioId);
+
+            //ViewBag.Usuario = usuario;
+
+            return View(Consulta);
         }
 
         [HttpPost] //attribute to get posted values from HTML Form

@@ -6,7 +6,10 @@
 <div class="row">
     <div class="col-2"><span>@Model.Position </span>@Model.NombreCompleto</div>
     <a  href="~/Consulta/NuevaConsulta/?UsuarioId=@Model.Id">
-        @Model.Id
+        <span>Agregar consulta</span> @*@Model.Id*@
+    </a>
+    <a href="~/Consulta/ConsultaDeUsuario/?UsuarioId=@Model.Id">
+        <span>Ver historial</span> @*@Model.Id*@
     </a>
 </div>
 

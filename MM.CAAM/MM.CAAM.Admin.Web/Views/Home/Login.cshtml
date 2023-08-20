@@ -39,7 +39,7 @@
             <br />
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    @*<h3 class="blue-text">Crea un Nuevo Usuario</h3>*@
+                    <h3 class="blue-text">Iniciar sesión</h3>
                 </div>
             </div>
             <br />
@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="input-group mb-4">
                                     <span class="input-group-text"><i data-feather="lock"></i></span>
-                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Contraseña", @class = "form-control lock-input", @required = "required" } })
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Contraseña", @class = "form-control lock-input", @required = "required", @Type = "password" } })
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12 text-right">
