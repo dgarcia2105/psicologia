@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -18,6 +19,7 @@ using MM.CAAM.Gestion.Models.Middlewares;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -38,6 +40,24 @@ namespace MM.CAAM.Gestion.Models
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //var serviceCollection = new ServiceCollection();
+            //services.AddDataProtection()
+            //.SetApplicationName("MT5API")
+            //    .PersistKeysToFileSystem(new System.IO.DirectoryInfo(@"DATAPROTECTED"))
+            //    .SetDefaultKeyLifetime(TimeSpan.FromDays(36500));
+            ////var services2 = serviceCollection.BuildServiceProvider();
+            //services.AddDataProtection()
+            //    .SetApplicationName("MT5API")
+            //    .PersistKeysToFileSystem(new DirectoryInfo(@"DATAPROTECTED2"))
+            //    .SetDefaultKeyLifetime(TimeSpan.FromDays(36500));
+
+            //services.AddDataProtection()
+            //    .SetApplicationName("MT5API")
+            //    .PersistKeysToFileSystem(new DirectoryInfo(@"DATAPROTECTED2"))
+            //    .SetDefaultKeyLifetime(TimeSpan.FromDays(36500));
+
+            //services.AddOrchardCore()
+            //    .AddMvc();
 
             //Aqui tambien se pueden ignorar cycles
             //services.AddControllers();                    //Se le agrega AddJsonOptions

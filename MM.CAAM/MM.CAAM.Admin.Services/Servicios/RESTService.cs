@@ -38,8 +38,8 @@ namespace MM.CAAM.Admin.Services
         {
             ApiKey = "ApiKeyCaam";
 #if DEBUG
-            //BaseUrlAPI = "https://localhost:7056";
-            BaseUrlAPI = "https://webapi.psicologia-caam.com";
+            BaseUrlAPI = "https://localhost:7056";
+            //BaseUrlAPI = "https://webapi.psicologia-caam.com";
 #else
             BaseUrlAPI = "https://webapi.psicologia-caam.com";
             

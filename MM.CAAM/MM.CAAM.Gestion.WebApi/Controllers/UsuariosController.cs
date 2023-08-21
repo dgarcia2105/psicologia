@@ -132,7 +132,8 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 #region SET VALORES
                 if (!string.IsNullOrEmpty(usuarioCreacionDTO.Password))
                 {
-                    usuarioCreacionDTO.Password = Encryptor(usuarioCreacionDTO.Password);
+                    //usuarioCreacionDTO.Password = Encryptor(usuarioCreacionDTO.Password);
+                    usuarioCreacionDTO.Password = usuarioCreacionDTO.Password;
                 }
                 usuarioCreacionDTO.FechaCreacion = Com.GetUtcNowByZone();
 
@@ -237,7 +238,8 @@ namespace MM.CAAM.Gestion.Models.Controllers
                     throw new ValidationException("Configure su contraseña");
                 }
 
-                var contrasenaDesencriptada = Decryptor(usuario.Password);
+                //var contrasenaDesencriptada = Decryptor(usuario.Password);
+                var contrasenaDesencriptada = usuario.Password;
                 if (!contrasenaDesencriptada.Equals(userLoginRequest.Password))
                 {
                     throw new ValidationException("Error de contraseña");
