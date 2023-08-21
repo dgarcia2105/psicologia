@@ -37,7 +37,13 @@ namespace MM.CAAM.Admin.Services
         public RESTService()
         {
             ApiKey = "ApiKeyCaam";
-            BaseUrlAPI = "https://localhost:7056";
+#if DEBUG
+            //BaseUrlAPI = "https://localhost:7056";
+            BaseUrlAPI = "https://webapi.psicologia-caam.com";
+#else
+            BaseUrlAPI = "https://webapi.psicologia-caam.com";
+            
+#endif
         }
 
 

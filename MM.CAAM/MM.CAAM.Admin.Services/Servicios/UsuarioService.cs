@@ -39,7 +39,9 @@ namespace MM.CAAM.Admin.Services.Servicios
 
             var result = await RESTService.Post<AuthResponse>(endPoint, payload);
 
-            if (result.Code != (int)HttpStatusCode.OK)
+            if (result == null)
+                throw new ValidationException("Error de conexión");
+            else if (result.Code != (int)HttpStatusCode.OK)
                 throw new ValidationException(result.Message);
 
             var authResponse = result.Data;
