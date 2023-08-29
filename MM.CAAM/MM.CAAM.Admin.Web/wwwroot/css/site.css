@@ -1,3 +1,25 @@
+/*COLORS*/
+:root {
+    --caam_body_public: #f3f8fb;
+    --caam_red: #D9073F;
+    --caam_blue_strong: #273D59;
+    --caam_aqua: #03A696;
+    --caam_green: #8CBF3F;
+    --caam_yellow: #F2A922;
+    /*key quotes page*/
+    --caam_orange: #d06503;
+    --caam_orange_light: #273D59;
+    --caam_blue_light: #0c6e95;
+    --caam_blue: #166ba2;
+    --caam_blue_medium: #1b3647;
+    --caam_blue_strong: #152836;
+    /*Platzi*/
+    --platzi_green_public: 0BF491;
+    --platzi_body_public: #13161c;
+}
+/*--COLORS*/
+
+
 html {
   font-size: 14px;
 }
@@ -14,8 +36,20 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: var(--platzi_body_public);
 }
+
+/*PAGINA PRINCIPAL PUBLIC*/
+.navbar {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border-bottom: none !important;
+}
+.nav-link {
+    color: white !important;
+}
+/*--PAGINA PRINCIPAL PUBLIC*/
 
 #transparencia {
     position: fixed;
