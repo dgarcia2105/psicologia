@@ -1,0 +1,105 @@
+﻿@*README
+    https://www.bootdey.com/snippets/tagged/contacts*@
+@model List<MM.CAAM.Gestion.DTO.DTOs.ConsultaDTO>
+@{
+    //ViewBag.MetaDescripcion = Model.MetaHtml.Description;
+    //ViewBag.MetaAuthor = Model.MetaHtml.Author;
+    //ViewBag.MetaKeywords = Model.MetaHtml.Keywords;
+    //ViewBag.Descripcion = Model.Descripcion;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Consultas";
+}
+
+<br />
+<nav class="navbar navbar-expand-sm bg-transparent justify-content-right">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <h3>Consultas</h3>
+        </li>
+    </ul> 
+</nav>
+<hr />   
+
+@*https://www.w3schools.com/bootstrap/bootstrap_filters.asp*@
+@*<input class="form-control" id="myInput" type="text" placeholder="Search..">*@
+@*<div class="input-group mb-3 w-25">
+    <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+    <input type="text" class="form-control " placeholder="Filtro">
+</div>*@
+<br>
+
+<div class="row">
+    <div class="col-2"><b>MOTIVO</b></div>
+    @*<div class="col-2"><b>TELÉFONO</b></div>
+    <div class="col-1"><b>ULTIMA VISITA</b></div>
+    <div class="col-1"><b>SIGUIENTE VISITA</b></div>
+    <div class="col-2"><b>DOCUMENTO DE IDENTIDAD</b></div>
+    <div class="col-4"><b>EMAIL</b></div>*@
+
+    @*BAK*@
+    @*<div class="col-2"><b>Nombre</b></div>
+    <div class="col-2"><b>Email</b></div>
+    <div class="col-1"><b>Sexo</b></div>
+    <div class="col-1"><b>Edad</b></div>
+    <div class="col-1"><b>Nacionalidad</b></div>
+    <div class="col-1"><b>Teléfono</b></div>
+    <div class="col-2"><b>Ocupación</b></div>
+    <div class="col-1"><b>Fecha de registro</b></div>*@
+</div>
+
+<hr />
+
+
+
+    @if (Model != null && Model.Count() > 0)
+    {
+        int i = Model.Count();
+        foreach (var item in Model)
+        {
+            {
+                item.Position = i;
+            }
+            @Html.Partial("_LayoutRowConsultaDeUsuario", item)
+            i--;
+            if(i > 0)
+            {
+                <hr />
+            }
+        }
+    }
+    else
+    {
+        <div class="alert alert-info alert-dismissable text-center mt-15">
+            <i class="fa fa-info-circle"></i>&nbsp;<span class="ng-binding ng-scope">No hay registros, seleccione otro parametro de busqueda.</span>
+        </div>
+    }
+
+
+@*<div class="row">
+    <div class="col-2">Daniel García Armenta</div>
+    <div class="col-2">6865895638</div>
+    <div class="col-1">06-06-2023 16:30</div>
+    <div class="col-1">17-08-2023 17:00</div>
+    <div class="col-2">INE</div>
+    <div class="col-1">daniel2105oficial@gmail.com</div>
+*@
+    @*<div class="col-2">Daniel García</div>
+    <div class="col-2">daniel2105oficial@gmail.com</div>
+    <div class="col-1">Masculino</div>
+    <div class="col-1">31</div>
+    <div class="col-1">Mexicano</div>
+    <div class="col-1">(686) 589 56-38</div>
+    <div class="col-2">Ing. Sistemas computacionales</div>
+    <div class="col-1">6/29/2023</div>*@
+@*</div>*@
+@*<br />
+<div class="row">
+    <div class="col-2">Daniel García Armenta</div>
+    <div class="col-2">6865895638</div>
+    <div class="col-1">06-06-2023 16:30</div>
+    <div class="col-1">17-08-2023 17:00</div>
+    <div class="col-2">INE</div>
+    <div class="col-1">daniel2105oficial@gmail.com</div>
+</div>*@
+
+

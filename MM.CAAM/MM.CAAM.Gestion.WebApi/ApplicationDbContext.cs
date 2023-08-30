@@ -18,13 +18,19 @@ namespace MM.CAAM.Gestion.Models
         {
             base.OnModelCreating(modelBuilder);
 
+            #region LLaves_Primarias_Compuestas
             modelBuilder.Entity<AutorLibro>()
                 .HasKey(al => new { al.AutorId, al.LibroId });
+
+            modelBuilder.Entity<UsuarioNegocio>()
+                .HasKey(al => new { al.UsuarioId, al.NegocioId });
+            #endregion
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Negocio> Negocios { get; set; }
         public DbSet<Consulta> Consultas { get; set; }                      //UNO A MUCHOS [Usuario muchas Consultas][Libro muchos Comentarios]
+        public DbSet<UsuarioNegocio> UsuariosNegocios { get; set; }
 
         #region TIPOS-CATALOGOS
 

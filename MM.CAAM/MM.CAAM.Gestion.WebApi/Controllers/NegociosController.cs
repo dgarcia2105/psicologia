@@ -8,6 +8,10 @@ using MM.CAAM.Gestion.Models.Filtros;
 using MM.CAAM.Gestion.DTO.DTOs;
 using System.Linq;
 using MM.CAAM.Gestion.Models.Entidades.Udemy;
+using MM.CAAM.Gestion.DTO.Objects;
+using MM.CAAM.Gestion.Services.Exceptions;
+using System.ComponentModel.DataAnnotations;
+using MM.CAAM.Gestion.Models.Migrations;
 
 namespace MM.CAAM.Gestion.Models.Controllers    
 {
@@ -25,28 +29,117 @@ namespace MM.CAAM.Gestion.Models.Controllers
             this.mapper = mapper;
         }
 
+
+        [HttpGet]
+        public async Task<ActionResult<List<NegocioDTO>>> Get()
+        {
+            try
+            {
+                var negocios = await context.Negocios
+                    //.Include(negocioDB => negocioDB.UsuariosNegocios)
+                    //.ThenInclude(usuarioLibroDB => usuarioLibroDB.Usuario)
+                    .OrderByDescending(n => n.Id).ToListAsync();
+                foreach (var negocio in negocios)
+                {
+                    negocio.UsuariosNegocios = negocio.UsuariosNegocios.OrderBy(x => x.Order).ToList();
+                }
+
+                var data = mapper.Map<List<NegocioDTO>>(negocios);
+                
+                return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            }
+        }
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<NegocioDTO>> Get(int id)
         {
-            var negocio = await context.Negocios.Include(x => x.Usuario).FirstOrDefaultAsync(x => x.Id == id);
-            return mapper.Map<NegocioDTO>(negocio);
+            try { 
+                var negocio = await context.Negocios
+                    .Include(negocioDB => negocioDB.UsuariosNegocios)
+                    .ThenInclude(usuarioLibroDB => usuarioLibroDB.Usuario)
+                    .FirstOrDefaultAsync(x => x.Id == id); 
+                
+                negocio.UsuariosNegocios = negocio.UsuariosNegocios.OrderBy(x => x.Order).ToList();
+
+                var data = mapper.Map<NegocioDTO>(negocio);
+                return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            }
         }
 
         [HttpPost]
         public async Task<ActionResult> Post(NegocioCreacionDTO negocioCreacionDTO)
         {
-            //var existeNegocio = await context.Usuarios.AnyAsync(x => x.Id == negocio.UsuarioId);
+            try {
+                #region 
 
-            //if(!existeNegocio)
-            //{
-            //    return BadRequest($"No existe el usuario de Id: {negocio.UsuarioId}");
-            //}
+                var usuariosIds = await context.Usuarios
+                    .Where(usuarioBD => negocioCreacionDTO.UsuariosIds.Contains(usuarioBD.Id)).Select(x => x.Id).ToListAsync();
 
-            var negocio = mapper.Map<Negocio>(negocioCreacionDTO);
+                if(negocioCreacionDTO.UsuariosIds.Count != usuariosIds.Count)
+                {
+                    throw new ArgumentException($"No existe alguno de los usuarios enviados");
+                }
 
-            context.Add(negocio);
-            await context.SaveChangesAsync();
-            return Ok();
+                var nombreNegocio = negocioCreacionDTO.Nombre;
+
+                if (string.IsNullOrEmpty(nombreNegocio))
+                {
+                    throw new ArgumentException($"Nombre del negocio no puede estar vacío");
+                }
+
+                var existeNegocio = await context.Negocios.AnyAsync(x => x.Nombre.Equals(nombreNegocio));
+
+                if (existeNegocio)
+                {
+                    throw new ArgumentException($"El nombre del negocio {nombreNegocio} ya esta en uso");
+                }
+
+                var negocio = mapper.Map<Negocio>(negocioCreacionDTO);
+
+                if (negocio != null)
+                {
+                    for(int i=0; i < negocio.UsuariosNegocios.Count; i++)
+                    {
+                        negocio.UsuariosNegocios[i].Order = i;
+                    }
+                }
+
+                context.Add(negocio);
+                await context.SaveChangesAsync();
+                #endregion
+
+                return Ok(new Result { Code = StatusCodes.Status200OK });
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            }
         }
     }
 }

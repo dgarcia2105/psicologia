@@ -66,8 +66,8 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         public DateTime FechaActualizacion { get; set; }
         public DateTime FechaAcceso { get; set; }
         public string BearerToken { get; set; }
-        public List<NegocioDTO> Negocios { get; set; } //= new List<Negocio>();
-        public List<ConsultaDTO> Consultas { get; set; }
+        public List<NegocioDTO> Negocios { get; set; } 
+        //public List<ConsultaDTO> Consultas { get; set; }
         public string Usuario { get; set; }
         public string NombreCompleto
         {

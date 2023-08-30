@@ -37,7 +37,13 @@ namespace MM.CAAM.Admin.Services
         public RESTService()
         {
             ApiKey = "ApiKeyCaam";
+#if DEBUG
             BaseUrlAPI = "https://localhost:7056";
+            //BaseUrlAPI = "https://webapi.psicologia-caam.com";
+#else
+            BaseUrlAPI = "https://webapi.psicologia-caam.com";
+            
+#endif
         }
 
 
@@ -68,8 +74,8 @@ namespace MM.CAAM.Admin.Services
             }
             finally
             {
-                /// Checking response, if ok go ahead, if not raise exception
-                ExceptionHandling.EnsureResponseWasSuccessful(client, request, response);
+                //// Checking response, if ok go ahead, if not raise exception
+                //ExceptionHandling.EnsureResponseWasSuccessful(client, request, response);
             }
 
             return result;

@@ -31,10 +31,16 @@ namespace MM.CAAM.Gestion.Models.Utilidades
             #endregion
 
             //Fuente y el destino
-            CreateMap<UsuarioCreacionDTO, Usuario>();                                           //FUENTE y DESTINO
-            CreateMap<Usuario, UsuarioDTO>();                                                   //FUENTE y DESTINO
-            CreateMap<NegocioCreacionDTO, Negocio>();
-            CreateMap<Negocio, NegocioDTO>();
+            CreateMap<UsuarioCreacionDTO, Usuario>();
+            CreateMap<Usuario, UsuarioDTO>()
+                .ForMember(usuarioDTO => usuarioDTO.Negocios, opciones => opciones.MapFrom(MapUsuarioDTONegocios));
+            
+            CreateMap<NegocioCreacionDTO, Negocio>()
+                //CREAMOS UNA RECLA ESPECIFICA
+                .ForMember(negocio => negocio.UsuariosNegocios, opciones => opciones.MapFrom(MapUsuariosNegocios));
+            CreateMap<Negocio, NegocioDTO>()
+                .ForMember(negocioDTO => negocioDTO.Usuarios, opciones => opciones.MapFrom(MapNegocioDTOUsuarios));
+           
             CreateMap<ConsultaCreacionDTO,  Consulta>();
             CreateMap<Consulta, ConsultaDTO>();
 
@@ -47,6 +53,67 @@ namespace MM.CAAM.Gestion.Models.Utilidades
             #endregion
         }
 
+        #region CAAM
+
+        private List<NegocioDTO> MapUsuarioDTONegocios(Usuario usuario, UsuarioDTO usuarioDTO)
+        {
+            var resultado = new List<NegocioDTO>();
+
+            if(usuario.UsuariosNegocios == null) { return resultado; }
+
+            foreach(var usuarioNegocio in usuario.UsuariosNegocios)
+            {
+                resultado.Add(new NegocioDTO()
+                {
+                    Id = usuarioNegocio.NegocioId,
+                    Nombre = usuarioNegocio.Negocio.Nombre
+                });
+            }
+
+            return resultado;
+        }
+
+        private List<UsuarioDTO> MapNegocioDTOUsuarios(Negocio negocio, NegocioDTO negocioDto)
+        {
+            var resultado = new List<UsuarioDTO>();
+
+            if(negocio.UsuariosNegocios == null)
+            {
+                return resultado;
+            }
+
+            foreach(var usuarioNegocio in negocio.UsuariosNegocios)
+            {
+                resultado.Add(new UsuarioDTO()
+                {
+                    Id = usuarioNegocio.UsuarioId,
+                    Nombre = usuarioNegocio.Usuario.Nombre
+                });
+            }
+
+            return resultado;
+        }
+        
+        private List<UsuarioNegocio> MapUsuariosNegocios(NegocioCreacionDTO negocioCreacionDTO, Negocio negocio)
+        {
+            var resultado = new List<UsuarioNegocio>();
+
+            if(negocioCreacionDTO.UsuariosIds == null)
+            {
+                return resultado;
+            }
+
+            foreach(var usuarioId in negocioCreacionDTO.UsuariosIds)
+            {
+                resultado.Add(new UsuarioNegocio() { UsuarioId = usuarioId });
+            }
+
+            return resultado;
+        }
+
+        #endregion
+
+        #region UDEMY
         private List<LibroDTO> MapAutorDTOLibros(Autor autor, AutorDTO autorDTO)
         {
             var resultado = new List<LibroDTO>();
@@ -96,6 +163,7 @@ namespace MM.CAAM.Gestion.Models.Utilidades
 
             return resultado;
         }
-	}
+        #endregion
+    }
 }
 

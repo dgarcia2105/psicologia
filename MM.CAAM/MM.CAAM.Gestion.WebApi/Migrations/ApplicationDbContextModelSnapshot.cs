@@ -199,12 +199,7 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Negocios");
                 });
@@ -393,6 +388,24 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.UsuarioNegocio", b =>
+                {
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NegocioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.HasKey("UsuarioId", "NegocioId");
+
+                    b.HasIndex("NegocioId");
+
+                    b.ToTable("UsuariosNegocios");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -604,17 +617,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Negocio", b =>
-                {
-                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.Usuario", "Usuario")
-                        .WithMany("Negocios")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
-                });
-
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Udemy.AutorLibro", b =>
                 {
                     b.HasOne("MM.CAAM.Gestion.Models.Entidades.Udemy.Autor", "Autor")
@@ -651,6 +653,25 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Navigation("Usuario");
 
                     b.Navigation("libro");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.UsuarioNegocio", b =>
+                {
+                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.Negocio", "Negocio")
+                        .WithMany("UsuariosNegocios")
+                        .HasForeignKey("NegocioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.Usuario", "Usuario")
+                        .WithMany("UsuariosNegocios")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Negocio");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -704,6 +725,11 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Negocio", b =>
+                {
+                    b.Navigation("UsuariosNegocios");
+                });
+
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Udemy.Autor", b =>
                 {
                     b.Navigation("AutoresLibros");
@@ -720,7 +746,7 @@ namespace MM.CAAM.Gestion.Models.Migrations
                 {
                     b.Navigation("Consultas");
 
-                    b.Navigation("Negocios");
+                    b.Navigation("UsuariosNegocios");
                 });
 #pragma warning restore 612, 618
         }

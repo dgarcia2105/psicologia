@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">*@
     <title>@ViewData["Title"] - MM.CAAM.Admin.Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MM.CAAM.Admin.Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/sidebars.css" />
     <link rel="stylesheet" href="~/sweetalert2/sweetalert2.css" />                          @*https://sweetalert2.github.io/#examples*@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     <div id="transparencia">capa transparente</div>
@@ -26,31 +26,35 @@
         </div>
     </div>
     <header>
-        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-white border-bottom box-shadow mb-3 navbar-dark">
+            @*navbar-light*@
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MM.CAAM.Admin.Web_Public</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/medico/logo_caam_navbar@300x.png" alt="Avatar Logo" style="width:71px;"> @*class="rounded-pill"*@
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        @*<li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuarios</a>
-                        </li>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li> *@
                     </ul>
                     <div class="d-flex">
-                        <a class="nav-link text-dark" href="~/Loggin/Index">Login</a>
+                        @*<button type="button" class="btn ">Primary</button>*@
+                        <button class=" btn btn-default bg-white text-dark" href="~/Home/Login">Crear cuenta</button>
+                    </div>
+                    <div class="d-flex">
+                        <a class="nav-link " href="~/Home/Login">Iniciar sesión</a>
                     </div>
                 </div>
             </div>
-        </nav>*@
+        </nav>
     </header>
     <div class="container-fluid">
         <main role="main" class="pb-3">

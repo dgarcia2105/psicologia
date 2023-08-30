@@ -3,7 +3,236 @@
     Layout = "~/Views/Shared/_Layout_Public.cshtml";
 }
 
-<div class="text-center">
+@*<div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</div>*@
+
+<section class="Hero Bg-animation" style="--scrollY: 0px;">
+    <div class="Hero-content u-wrapper">
+        <h1 class="Hero-content-title">
+            <span>Para todos tus retos,</span> <!-- -->prepárate en CAAM
+        </h1>
+        <p class="Hero-content-subtitle">La comunidad de aprendizaje en línea y presencial donde desarrollas tus habilidades y potencias tu crecimiento.</p>
+        <p class="Hero-content-message">¿Qué quieres lograr?</p>
+        <form class="Hero-content-input">
+            <input value="" placeholder="Cuéntanos aquí">
+            <button type="submit" data-testid="search">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paper-plane-top" class="svg-inline--fa fa-paper-plane-top " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="currentColor" d="M81.9 27.8C47.1 12.7 12.8 50.1 30.8 83.5l69.3 128.8c4.4 8.3 12.6 13.8 21.9 15c0 0 0 0 0 0l176 22c3.4 .4 6 3.3 6 6.7s-2.6 6.3-6 6.7l-176 22s0 0 0 0c-9.3 1.2-17.5 6.8-21.9 15L30.8 428.5c-18 33.4 16.3 70.8 51.1 55.7L523.8 292.7c32.1-13.9 32.1-59.5 0-73.4L81.9 27.8z"></path>
+                </svg>
+                @*<i class="fa-solid fa-paper-plane-top"></i>*@
+            </button>
+        </form>
+    </div>
+</section>
+
+<section class="MarqueesCarousel">
+    <h6 class="MarqueesCarousel-title">Inspírate en preguntas de la comunidad:</h6>
+    <div class="MarqueesCarousel-container">
+        <section class="MarqueesCarousel-container-marquee MarqueesCarousel-container-marquee--left">
+            <div>
+                <a href="/buscar/?search=Quiero%20aprender%20a%20programar%20con%20Python">
+                    "<!-- -->Quiero aprender a programar con Python<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20cambiar%20de%20empleo">
+                    "<!-- -->como cambiar de empleo<!-- -->"
+                </a>
+                <a href="/buscar/?search=Crear%20una%20página%20web">
+                    "<!-- -->Crear una página web<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20perder%20el%20miedo%20a%20hablar%20en%20público">
+                    "<!-- -->quiero perder el miedo a hablar en público<!-- -->"
+                </a>
+                <a href="/buscar/?search=Crear%20un%20juego%20para%20teléfonos">
+                    "<!-- -->Crear un juego para teléfonos<!-- -->"
+                </a>
+                <a href="/buscar/?search=Quiero%20aprender%20a%20programar">
+                    "<!-- -->Quiero aprender a programar<!-- -->"
+                </a>
+                <a href="/buscar/?search=Como%20hacer%20análisis%20de%20datos">
+                    "<!-- -->Como hacer análisis de datos<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20abordar%20una%20negociación">
+                    "<!-- -->como abordar una negociación<!-- -->"
+                </a>
+                <a href="/buscar/?search=Quiero%20crear%20un%20proyecto%20en%20blockchain">
+                    "<!-- -->Quiero crear un proyecto en blockchain<!-- -->"
+                </a>
+                <a href="/buscar/?search=Como%20usar%20git%20y%20github">
+                    "<!-- -->Como usar git y github<!-- -->"
+                </a>
+                <a href="/buscar/?search=Quiero%20aprender%20a%20usar%20servidores">
+                    "<!-- -->Quiero aprender a usar servidores<!-- -->"
+                </a>
+            </div>
+            <div>
+                <a href="/buscar/?search=Quiero%20aprender%20a%20programar%20con%20Python">
+                    "<!-- -->Quiero aprender a programar con Python<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20cambiar%20de%20empleo">
+                    "<!-- -->como cambiar de empleo<!-- -->"
+                </a>
+                <a href="/buscar/?search=Crear%20una%20página%20web">
+                    "<!-- -->Crear una página web<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20perder%20el%20miedo%20a%20hablar%20en%20público">
+                    "<!-- -->quiero perder el miedo a hablar en público<!-- -->"
+                </a>
+                <a href="/buscar/?search=Crear%20un%20juego%20para%20teléfonos">
+                    "<!-- -->Crear un juego para teléfonos<!-- -->"
+                </a>
+                <a href="/buscar/?search=Quiero%20aprender%20a%20programar">
+                    "<!-- -->Quiero aprender a programar<!-- -->"
+                </a>
+                <a href="/buscar/?search=Como%20hacer%20análisis%20de%20datos">
+                    "<!-- -->Como hacer análisis de datos<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20abordar%20una%20negociación">
+                    "<!-- -->como abordar una negociación<!-- -->"
+                </a>
+                <a href="/buscar/?search=Quiero%20crear%20un%20proyecto%20en%20blockchain">
+                    "<!-- -->Quiero crear un proyecto en blockchain<!-- -->"
+                </a>
+                <a href="/buscar/?search=Como%20usar%20git%20y%20github">
+                    "<!-- -->Como usar git y github<!-- -->"
+                </a>
+                <a href="/buscar/?search=Quiero%20aprender%20a%20usar%20servidores">
+                    "<!-- -->Quiero aprender a usar servidores<!-- -->"
+                </a>
+            </div>
+        </section>
+        <section class="MarqueesCarousel-container-marquee MarqueesCarousel-container-marquee--right">
+            <div>
+                <a href="/buscar/?search=Quiero%20ser%20creativa">
+                    "<!-- -->Quiero ser creativa<!-- -->"
+                </a>
+                <a href="/buscar/?search=Quiero%20aprender%20inglés">
+                    "<!-- -->Quiero aprender inglés<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20puedo%20emprender%20y%20tener%20mi%20empresa">
+                    "<!-- -->como puedo emprender y tener mi empresa<!-- -->"
+                </a>
+                <a href="/buscar/?search=crear%20una%20comunidad">
+                    "<!-- -->crear una comunidad<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20crear%20aplicaciones%20sin%20código">
+                    "<!-- -->quiero crear aplicaciones sin código<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20aprender%20a%20diseñar">
+                    "<!-- -->quiero aprender a diseñar<!-- -->"
+                </a>
+                <a href="/buscar/?search=aprender%20a%20hacer%20seo">
+                    "<!-- -->aprender a hacer seo<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20crear%20un%20documental">
+                    "<!-- -->quiero crear un documental<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20crear%20un%20podcast">
+                    "<!-- -->quiero crear un podcast<!-- -->"
+                </a>
+                <a href="/buscar/?search=crear%20contenido%20y%20ser%20influencer">
+                    "<!-- -->crear contenido y ser influencer<!-- -->"
+                </a>
+            </div>
+            <div>
+                <a href="/buscar/?search=Quiero%20ser%20creativa">
+                    "<!-- -->Quiero ser creativa<!-- -->"
+                </a>
+                <a href="/buscar/?search=Quiero%20aprender%20inglés">
+                    "<!-- -->Quiero aprender inglés<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20puedo%20emprender%20y%20tener%20mi%20empresa">
+                    "<!-- -->como puedo emprender y tener mi empresa<!-- -->"
+                </a>
+                <a href="/buscar/?search=crear%20una%20comunidad">
+                    "<!-- -->crear una comunidad<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20crear%20aplicaciones%20sin%20código">
+                    "<!-- -->quiero crear aplicaciones sin código<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20aprender%20a%20diseñar">
+                    "<!-- -->quiero aprender a diseñar<!-- -->"
+                </a>
+                <a href="/buscar/?search=aprender%20a%20hacer%20seo">
+                    "<!-- -->aprender a hacer seo<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20crear%20un%20documental">
+                    "<!-- -->quiero crear un documental<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20crear%20un%20podcast">
+                    "<!-- -->quiero crear un podcast<!-- -->"
+                </a>
+                <a href="/buscar/?search=crear%20contenido%20y%20ser%20influencer">
+                    "<!-- -->crear contenido y ser influencer<!-- -->"
+                </a>
+            </div>
+        </section>
+        <section class="MarqueesCarousel-container-marquee MarqueesCarousel-container-marquee--left">
+            <div>
+                <a href="/buscar/?search=como%20liderar%20equipos">
+                    "<!-- -->como liderar equipos<!-- -->"
+                </a>
+                <a href="/buscar/?search=aprender%20de%20marketing">
+                    "<!-- -->aprender de marketing<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20ser%20periodista">
+                    "<!-- -->como ser periodista<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20mejorar%20mis%20ventas">
+                    "<!-- -->como mejorar mis ventas<!-- -->"
+                </a>
+                <a href="/buscar/?search=manejar%20mi%20dinero%20y%20deudas">
+                    "<!-- -->manejar mi dinero y deudas<!-- -->"
+                </a>
+                <a href="/buscar/?search=Como%20doy%20mejor%20el%20feedback">
+                    "<!-- -->Como doy mejor el feedback<!-- -->"
+                </a>
+                <a href="/buscar/?search=Como%20crear%20mi%20modelo%20de%20negocio">
+                    "<!-- -->Como crear mi modelo de negocio<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20aprender%20a%20usar%20excel">
+                    "<!-- -->quiero aprender a usar excel<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20mejorar%20mis%20redes%20sociales">
+                    "<!-- -->quiero mejorar mis redes sociales<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20aprender%20de%20fotografía">
+                    "<!-- -->quiero aprender de fotografía<!-- -->"
+                </a>
+            </div>
+            <div>
+                <a href="/buscar/?search=como%20liderar%20equipos">
+                    "<!-- -->como liderar equipos<!-- -->"
+                </a>
+                <a href="/buscar/?search=aprender%20de%20marketing">
+                    "<!-- -->aprender de marketing<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20ser%20periodista">
+                    "<!-- -->como ser periodista<!-- -->"
+                </a>
+                <a href="/buscar/?search=como%20mejorar%20mis%20ventas">
+                    "<!-- -->como mejorar mis ventas<!-- -->"
+                </a>
+                <a href="/buscar/?search=manejar%20mi%20dinero%20y%20deudas">
+                    "<!-- -->manejar mi dinero y deudas<!-- -->"
+                </a>
+                <a href="/buscar/?search=Como%20doy%20mejor%20el%20feedback">
+                    "<!-- -->Como doy mejor el feedback<!-- -->"
+                </a>
+                <a href="/buscar/?search=Como%20crear%20mi%20modelo%20de%20negocio">
+                    "<!-- -->Como crear mi modelo de negocio<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20aprender%20a%20usar%20excel">
+                    "<!-- -->quiero aprender a usar excel<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20mejorar%20mis%20redes%20sociales">
+                    "<!-- -->quiero mejorar mis redes sociales<!-- -->"
+                </a>
+                <a href="/buscar/?search=quiero%20aprender%20de%20fotografía">
+                    "<!-- -->quiero aprender de fotografía<!-- -->"
+                </a>
+            </div>
+        </section>
+    </div>
+</section>

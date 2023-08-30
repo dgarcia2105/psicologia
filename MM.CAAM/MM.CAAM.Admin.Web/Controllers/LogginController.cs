@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Globalization;
+using System.Security.Claims;
 using System.Web;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
 using MM.CAAM.Admin.Services.Exceptions;
@@ -24,45 +28,38 @@ namespace MM.CAAM.Admin.Web.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        [CheckSessionOut]
-        public IActionResult Index()
+        //[CheckSessionOut]
+        //[ResponseCache(Duration = 10)] //DEVUELVE LO MISMO EN N PETICIONES, LO MISMO EN UN INTERVALO DE 10 SEGUNDOS
+        //[ServiceFilter(typeof(CheckSessionOut))]
+        public async Task<IActionResult> Index()
         {
-            UsuarioProfile usuarioLogeado = new UsuarioProfile()
-            {
-                Usuario = new UsuarioDTO() { Id = 1 }
-            };
+            #region BAK
+            //EJEMPLO DE CACHE AGREGANDO: [ResponseCache(Duration = 10)]
+            //Response.Cookies.Append("1", "1");
+            //Response.Cookies.Append("2", "1"); 
+            //_httpContextAccessor.HttpContext.Session.SetString("StudentName", "John");
+            //_httpContextAccessor.HttpContext.Session.SetInt32("StudentId", 50);
+            //var cookie1 = _httpContextAccessor.HttpContext.Request.Cookies["1"];
+            //var cookie2 = _httpContextAccessor.HttpContext.Request.Cookies["2"];
+            #endregion
 
 
-
-            // Encrypt the ticket.
-            string encTicket = JsonConvert.SerializeObject(usuarioLogeado);
-            string encriptado = Com.Encryptor(encTicket);
-            
-            //var HttpCookie2 = new HttpCookie(".AUTHCENTRAL", encriptado)
+            #region INIT
+            //UsuarioProfile usuarioLogeado = new UsuarioProfile()
             //{
-            //    Expires = DateTime.Now.AddSeconds(86400),
-            //    Secure = true
+            //    Usuario = new UsuarioDTO() { Id = 1 }
             //};
-            //// Create the cookie.
-            //HttpContext.Response.Cookies.Add(HttpCookie);
-            //------------------------------------
-            
-            CookieOptions options = new CookieOptions();
-            options.Expires = DateTime.Now.AddDays(1);
-            _httpContextAccessor.HttpContext.Response.Cookies.Append(".AUTHCENTRAL", encriptado, options);
 
-            Response.Cookies.Append("2", "1");
+            //// Encrypt the ticket.
+            //string encTicket = JsonConvert.SerializeObject(usuarioLogeado);
+            //CookieOptions options = new CookieOptions();
+            //options.Expires = DateTime.Now.AddDays(1);
+            //_httpContextAccessor.HttpContext.Response.Cookies.Append(".AUTHCENTRAL", encTicket, options);
+            #endregion
 
-            _httpContextAccessor.HttpContext.Session.SetString("StudentName", "John");
-            _httpContextAccessor.HttpContext.Session.SetInt32("StudentId", 50);
-
-            var cookie1 = _httpContextAccessor.HttpContext.Request.Cookies["1"];
-            var cookie2 = _httpContextAccessor.HttpContext.Request.Cookies["2"];
-            //var cookie3 = Com.Decryptor(_httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"]);
-
-            //var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
-            //var cookieDesencriptada = Com.Decryptor(authCookie);
-            //var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
+            var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
+            var cookieDesencriptada = Com.Decryptor(authCookie);
+            var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
 
             //CustomIdentity userIdentity = new CustomIdentity(usuarioCokie.Usuario.Id.ToString());
 
