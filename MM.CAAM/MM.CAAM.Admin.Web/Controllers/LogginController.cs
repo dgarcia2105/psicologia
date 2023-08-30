@@ -58,11 +58,11 @@ namespace MM.CAAM.Admin.Web.Controllers
 
             var cookie1 = _httpContextAccessor.HttpContext.Request.Cookies["1"];
             var cookie2 = _httpContextAccessor.HttpContext.Request.Cookies["2"];
-            var cookie3 = Com.Decryptor(_httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"]);
+            //var cookie3 = Com.Decryptor(_httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"]);
 
-            var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
-            var cookieDesencriptada = Com.Decryptor(authCookie);
-            var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
+            //var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
+            //var cookieDesencriptada = Com.Decryptor(authCookie);
+            //var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
 
             //CustomIdentity userIdentity = new CustomIdentity(usuarioCokie.Usuario.Id.ToString());
 

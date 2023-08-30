@@ -10,6 +10,15 @@ public partial class App : Application
 
         //MainPage = new AppShell();  //Pagina de inicio
         //MainPage = new Views.Pages.FlyoutSample.FlyoutSamplePage();	//Pagina de inicio
-        MainPage = new Views.Pages.TabbedPageSample.TabbedPageSample();
+        //MainPage = new Views.Pages.TabbedPageSample.TabbedPageSample();
+        //MainPage = new Views.Pages.TabbedPageSample.TabbedPageSample();
+
+        //var navPage = new NavigationPage(new MainPage());         //NAVIGATION
+        //navPage.BarBackground = Colors.Chocolate;
+        //navPage.BarTextColor = Colors.White;
+
+        MainPage = new MainPage();                   //PAGINA PRINCIPAL
+
+        //MainPage = new NavigationPage(new MainPage()); //DEFAULT APARECE NAVIGATION PAGE
     }
 }
