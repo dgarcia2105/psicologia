@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-            x:Class="MM.CAAM.MAUI.Movil.Views.Pages.TabbedPageSample.TabbedPageSample"
+            xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui" 
             xmlns:Views="clr-namespace:MM.CAAM.MAUI.Movil.Views.Pages.TabbedPageSample" 
-            Title="TabbedPageSample">
+            xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+            android:TabbedPage.ToolbarPlacement="Bottom" 
+            android:TabbedPage.IsSwipePagingEnabled="False"
+            android:TabbedPage.IsSmoothScrollEnabled="False"
+            x:Class="MM.CAAM.MAUI.Movil.Views.Pages.TabbedPageSample.TabbedPageSample"
+            Title="TabbedPageSample"
+            BackgroundColor="#121212"
+            BarBackgroundColor="#09090a"
+            BarTextColor="White"
+            SelectedTabColor="White"
+            UnselectedTabColor="#AAAAAA">
 
     <Page.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="Transparent"/>
+        <mct:StatusBarBehavior StatusBarColor="#121212"/>
     </Page.Behaviors>
     
     <Views:TabbedPage1/>
