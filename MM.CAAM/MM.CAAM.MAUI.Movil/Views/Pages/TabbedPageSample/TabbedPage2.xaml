@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MM.CAAM.MAUI.Movil.Views.Pages.TabbedPageSample.TabbedPage2"
              Title="TabbedPage2"
-             BackgroundColor="LightBlue">
+             ><!--BackgroundColor="LightBlue"-->
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            TextColor="White"
+            Text="Welcome to .NET MAUI!2"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Entry/>

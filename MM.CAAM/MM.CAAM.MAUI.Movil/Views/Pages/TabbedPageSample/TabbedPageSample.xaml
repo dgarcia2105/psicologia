@@ -19,8 +19,10 @@
         <mct:StatusBarBehavior StatusBarColor="#121212"/>
     </Page.Behaviors>
     
-    <Views:TabbedPage1/>
-    <Views:TabbedPage2/>
-    <Views:TabbedPage3/>
+    <!--<ContentPage Title="Inicio" IconImageSource="dotnet_bot.svg">-->
+
+    <Views:TabbedPage1 Title="Inicio" IconImageSource="dotnet_bot.svg" BackgroundColor="Transparent"/>
+    <Views:TabbedPage2 Title="Buscar" IconImageSource="dotnet_bot.svg" BackgroundColor="Transparent"/>
+    <Views:TabbedPage3 Title="Tu biblioteca" IconImageSource="dotnet_bot.svg" BackgroundColor="Transparent"/>
 
 </TabbedPage>
