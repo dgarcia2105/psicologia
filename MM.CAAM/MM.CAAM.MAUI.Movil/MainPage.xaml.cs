@@ -45,5 +45,23 @@ public partial class MainPage : ContentPage
 
 
     }
+
+
+    public bool check_network_is_up()
+    {
+        bool is_up;
+
+        NetworkAccess accessType = Connectivity.Current.NetworkAccess;
+
+        if (accessType == NetworkAccess.Internet)
+        {
+            is_up = true;
+        }
+        else
+        {
+            is_up = false;
+        }
+        return is_up;
+    }
 }
 

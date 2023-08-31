@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="magnifying-glass-regular.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     showgrid="false"
+     inkscape:zoom="1.6230469"
+     inkscape:cx="212.25511"
+     inkscape:cy="271.71119"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <g
+     id="g835"
+     style="fill:#000000"
+     transform="matrix(1.457093,0,0,1.457093,-233.22834,-235.51096)">
+    <path
+       d="m 394.61701,316.42124 c 0,43.02217 -35.42809,77.909 -79.10634,77.909 -43.69464,0 -79.12273,-34.88683 -79.12273,-77.909 0,-43.02217 35.42809,-77.90899 79.12273,-77.90899 43.69465,0 79.10634,34.88682 79.10634,77.90899 z"
+       id="path2-6"
+       style="fill:#000000;stroke-width:16.4019" />
+    <path
+       d="m 161.21806,316.42124 c 0,-84.30573 69.3144,-152.20958 154.29261,-152.20958 84.96182,0 154.29262,67.90385 154.29262,152.20958 a 150.19215,150.19215 0 0 1 -34.06673,95.39342 l 71.24983,71.24983 a 16.401894,16.401894 0 0 1 -23.19228,23.19228 l -71.39745,-71.39745 a 155.06351,155.06351 0 0 1 -96.88599,33.7551 c -84.96181,0 -154.29261,-67.90384 -154.29261,-152.20958 z M 315.51067,197.01545 c -67.32977,0 -121.48883,53.6998 -121.48883,119.40579 0,65.70599 54.15906,119.38939 121.48883,119.38939 67.32978,0 121.48883,-53.6834 121.48883,-119.40579 0,-65.68959 -54.15905,-119.37298 -121.48883,-119.37298 z"
+       id="path4"
+       style="fill:#000000;stroke-width:16.4019" />
+  </g>
+  <!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+</svg>
