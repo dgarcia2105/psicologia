@@ -50,12 +50,12 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\fa-brands-400.ttf" />
-	  <None Remove="Resources\Images\spoti-biblioteca-regular.svg" />
-	  <None Remove="Resources\Images\spoti-biblioteca-solid.svg" />
-	  <None Remove="Resources\Images\spoti-house-regular.svg" />
-	  <None Remove="Resources\Images\spoti-house-solid.svg" />
-	  <None Remove="Resources\Images\spoti-search-regular.svg" />
-	  <None Remove="Resources\Images\spoti-search-solid.svg" />
+	  <None Remove="Resources\Images\spoti_biblioteca_regular.svg" />
+	  <None Remove="Resources\Images\spoti_biblioteca_solid.svg" />
+	  <None Remove="Resources\Images\spoti_house_regular.svg" />
+	  <None Remove="Resources\Images\spoti_house_solid.svg" />
+	  <None Remove="Resources\Images\spoti_search_regular.svg" />
+	  <None Remove="Resources\Images\spoti_search_solid.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
