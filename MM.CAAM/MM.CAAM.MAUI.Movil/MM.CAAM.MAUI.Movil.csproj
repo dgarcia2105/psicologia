@@ -49,6 +49,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\fa-brands-400.ttf" />
+	  <None Remove="Resources\Images\spoti_biblioteca_regular.svg" />
+	  <None Remove="Resources\Images\spoti_biblioteca_solid.svg" />
+	  <None Remove="Resources\Images\spoti_house_regular.svg" />
+	  <None Remove="Resources\Images\spoti_house_solid.svg" />
+	  <None Remove="Resources\Images\spoti_search_regular.svg" />
+	  <None Remove="Resources\Images\spoti_search_solid.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
 	</ItemGroup>
 
