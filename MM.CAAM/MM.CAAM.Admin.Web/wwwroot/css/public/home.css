@@ -120,7 +120,6 @@
 .Hero-content-input button svg path {
     fill: #dde0e5;
 }
-
 .svg-inline--fa {
     display: inline-block;
     font-size: inherit;
@@ -129,12 +128,15 @@
     vertical-align: -0.125em;
 }
 
-.Bg-animation {
-    /*background-image: url(https://static.platzi.com/media/uploads/P_Day_Hero_v5_UI_sola_2_d8f42f6939.png),url(https://static.platzi.com/media/uploads/P_Day_Hero_v5_UI_sola_2_d8f42f6939.png);*/
-    background-image: url(../../images/medico/caam_4_servicios_maestra_sombra_transparente.png),url(../../images/medico/caam_4_servicios_maestra_sombra_transparente.png) !important;
-    background-position: calc(-500px - var(--scrollY)),calc(100% + 500px + var(--scrollY)) !important;
-    background-repeat: no-repeat !important;
+@media only screen and (min-width : 1224px) {
+    .Bg-animation {
+        /*background-image: url(https://static.platzi.com/media/uploads/P_Day_Hero_v5_UI_sola_2_d8f42f6939.png),url(https://static.platzi.com/media/uploads/P_Day_Hero_v5_UI_sola_2_d8f42f6939.png);*/
+        background-image: url(../../images/medico/caam_4_servicios_maestra_sombra_transparente.png),url(../../images/medico/caam_4_servicios_maestra_sombra_transparente.png) !important;
+        background-position: calc(-500px - var(--scrollY)),calc(100% + 500px + var(--scrollY)) !important;
+        background-repeat: no-repeat !important;
+    }
 }
+
 /*endregion --section 1*/
 
 /*#region section 2*/
@@ -190,4 +192,149 @@
 
 /*#region --section 2*/
 
+/*#region section 3*/
+.BulletExplainer {
+    background: white;
+    padding: 3rem 0;
+    position: relative;
+    margin-bottom: 8rem;
+}
+.BulletExplainer-content {
+    padding: 0;
+}
+@media only screen and (min-width: 64rem) {
+    .BulletExplainer-content {
+        border-radius: 12px 12px 0 0;
+    }
+}
+.BulletExplainer-content {
+    diplay: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    background: #fff;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 2rem;
+    position: relative;
+}
+@media only screen and (min-width: 48rem) {
+    .BulletExplainer-heading {
+    font-size: 1.5rem;
+}}
+@media only screen and (min-width: 48rem) {
+    .BulletExplainer-title {
+    font-size: 2.5rem;
+    margin-bottom: 3.125rem;
+}}
+.BulletExplainer-title {
+    font-size: 2rem;
+    font-weight: 1000;
+    letter-spacing: -.01rem;
+    line-height: 2.125rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+.BulletExplainer-bullets {
+    grid-gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15.62rem,1fr));
+    list-style: none;
+    padding: 0;
+}
+.BulletExplainer-bulletTitle {
+    font-weight: bold;
+}
+@media only screen and (min-width: 48rem){ .BulletExplainer-bulletTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}}
+.BulletExplainer-bulletTitle {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+}
+.BulletExplainer-bulletDescription {
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+wrapper {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto !important;
+    max-width: 1200px;
+    padding: 0 0.5rem;
+    position: relative;
+}
+.BulletExplainer-heading {
+    color: #07c373;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+.u-wrapper {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto !important;
+    max-width: 1200px;
+    padding: 0 0.5rem;
+    position: relative;
+}
+/*#region --section 3*/
+
 /*--PAGINA PRINCIPAL PUBLIC*/
+
+
+/*MEDIAS*/
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+    /* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+    /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+    /* Styles */
+}
+/*--MEDIAS*/
