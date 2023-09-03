@@ -1,6 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Home Page."; 
     Layout = "~/Views/Shared/_Layout_Public.cshtml";
+    ViewData["Title"] = ViewBag.Title;
+    ViewData["MetaDescripcion"] = ViewBag.MetaDescripcion;
+    ViewData["MetaKeywords"] = ViewBag.MetaKeywords;
+    ViewData["MetaAuthor"] = ViewBag.MetaAuthor;
+    //ViewBag.Title = "Caam: Centro psicológico de aprendizaje profesional";
+    //ViewBag.MetaDescripcion = "Únete hoy a Caam, el centro psicológico profesional de educación en línea y presencial. Prepárate con las habilidades más nuevas y demandadas a un menor precio de lo que gastarías regularmente.";
+    //ViewBag.MetaKeywords = "psicología, clinica, menor precio, tecnologías, servicios, consulta, online, presencial, psicoterapia, familiar, pareja, infantil, adolescentes, terapia, adultos, asesoramiento, educación, profesional, capacitación, docente, evaluación, duelo, orientacion vocacional, orientación, pruebas, anciedad, ansiedad, rehabilitación, terapia, breve, cognitivo conductual, pareja, test machover, consulta subsecuente, en línea, presencial";
+    //ViewBag.MetaAuthor = "caam, dgarcia2105, didade";
 }
 
 @*<div class="text-center">
@@ -13,7 +20,7 @@
         <h1 class="Hero-content-title">
             <span>Para todos tus retos,</span> <!-- -->prepárate en CAAM
         </h1>
-        <p class="Hero-content-subtitle">La comunidad de aprendizaje en línea y presencial donde desarrollas tus habilidades y potencias tu crecimiento.</p>
+        <p class="Hero-content-subtitle">La comunidad psicológica de aprendizaje en línea y presencial donde desarrollas tus habilidades y potencias tu crecimiento.</p>
         <p class="Hero-content-message">¿Qué quieres lograr?</p>
         <form class="Hero-content-input">
             <input value="" placeholder="Cuéntanos aquí">
@@ -28,210 +35,84 @@
 </section>
 
 <section class="MarqueesCarousel">
-    <h6 class="MarqueesCarousel-title">Inspírate en preguntas de la comunidad:</h6>
+    
     <div class="MarqueesCarousel-container">
         <section class="MarqueesCarousel-container-marquee MarqueesCarousel-container-marquee--left">
             <div>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20programar%20con%20Python">
-                    "<!-- -->Quiero aprender a programar con Python<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20cambiar%20de%20empleo">
-                    "<!-- -->como cambiar de empleo<!-- -->"
-                </a>
-                <a href="/buscar/?search=Crear%20una%20página%20web">
-                    "<!-- -->Crear una página web<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20perder%20el%20miedo%20a%20hablar%20en%20público">
-                    "<!-- -->quiero perder el miedo a hablar en público<!-- -->"
-                </a>
-                <a href="/buscar/?search=Crear%20un%20juego%20para%20teléfonos">
-                    "<!-- -->Crear un juego para teléfonos<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20programar">
-                    "<!-- -->Quiero aprender a programar<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20hacer%20análisis%20de%20datos">
-                    "<!-- -->Como hacer análisis de datos<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20abordar%20una%20negociación">
-                    "<!-- -->como abordar una negociación<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20crear%20un%20proyecto%20en%20blockchain">
-                    "<!-- -->Quiero crear un proyecto en blockchain<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20usar%20git%20y%20github">
-                    "<!-- -->Como usar git y github<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20usar%20servidores">
-                    "<!-- -->Quiero aprender a usar servidores<!-- -->"
-                </a>
+                <a href="/buscar/?search=consulta_psicologica_online">"<!-- -->Consulta psicológica online<!-- -->"</a>
+                <a href="/buscar/?search=evaluaciones_clinicas">"<!-- -->Evaluaciones clínicas<!-- -->"</a>
+                <a href="/buscar/?search=evaluaciones_psicometricas">"<!-- -->Evaluaciones psicométricas<!-- -->"</a>
+                <a href="/buscar/?search=intervencion_en_crisis">"<!-- -->Intervención en crisis<!-- -->"</a>
+                <a href="/buscar/?search=orientacion_para_padres">"<!-- -->Orientación para padres<!-- -->"</a>
+                <a href="/buscar/?search=primera_visita_psicologia">"<!-- -->Primera visita Psicología<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_familiar">"<!-- -->Psicoterapia familiar<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_infantil">"<!-- -->Psicoterapia infantil<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_para_adolescentes">"<!-- -->Psicoterapia para adolescentes<!-- -->"</a>
             </div>
             <div>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20programar%20con%20Python">
-                    "<!-- -->Quiero aprender a programar con Python<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20cambiar%20de%20empleo">
-                    "<!-- -->como cambiar de empleo<!-- -->"
-                </a>
-                <a href="/buscar/?search=Crear%20una%20página%20web">
-                    "<!-- -->Crear una página web<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20perder%20el%20miedo%20a%20hablar%20en%20público">
-                    "<!-- -->quiero perder el miedo a hablar en público<!-- -->"
-                </a>
-                <a href="/buscar/?search=Crear%20un%20juego%20para%20teléfonos">
-                    "<!-- -->Crear un juego para teléfonos<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20programar">
-                    "<!-- -->Quiero aprender a programar<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20hacer%20análisis%20de%20datos">
-                    "<!-- -->Como hacer análisis de datos<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20abordar%20una%20negociación">
-                    "<!-- -->como abordar una negociación<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20crear%20un%20proyecto%20en%20blockchain">
-                    "<!-- -->Quiero crear un proyecto en blockchain<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20usar%20git%20y%20github">
-                    "<!-- -->Como usar git y github<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20usar%20servidores">
-                    "<!-- -->Quiero aprender a usar servidores<!-- -->"
-                </a>
+                <a href="/buscar/?search=consulta_psicologica_online">"<!-- -->Consulta psicológica online<!-- -->"</a>
+                <a href="/buscar/?search=evaluaciones_clinicas">"<!-- -->Evaluaciones clínicas<!-- -->"</a>
+                <a href="/buscar/?search=evaluaciones_psicometricas">"<!-- -->Evaluaciones psicométricas<!-- -->"</a>
+                <a href="/buscar/?search=intervencion_en_crisis">"<!-- -->Intervención en crisis<!-- -->"</a>
+                <a href="/buscar/?search=orientacion_para_padres">"<!-- -->Orientación para padres<!-- -->"</a>
+                <a href="/buscar/?search=primera_visita_psicologia">"<!-- -->Primera visita Psicología<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_familiar">"<!-- -->Psicoterapia familiar<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_infantil">"<!-- -->Psicoterapia infantil<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_para_adolescentes">"<!-- -->Psicoterapia para adolescentes<!-- -->"</a>
             </div>
         </section>
         <section class="MarqueesCarousel-container-marquee MarqueesCarousel-container-marquee--right">
             <div>
-                <a href="/buscar/?search=Quiero%20ser%20creativa">
-                    "<!-- -->Quiero ser creativa<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20inglés">
-                    "<!-- -->Quiero aprender inglés<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20puedo%20emprender%20y%20tener%20mi%20empresa">
-                    "<!-- -->como puedo emprender y tener mi empresa<!-- -->"
-                </a>
-                <a href="/buscar/?search=crear%20una%20comunidad">
-                    "<!-- -->crear una comunidad<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20aplicaciones%20sin%20código">
-                    "<!-- -->quiero crear aplicaciones sin código<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20a%20diseñar">
-                    "<!-- -->quiero aprender a diseñar<!-- -->"
-                </a>
-                <a href="/buscar/?search=aprender%20a%20hacer%20seo">
-                    "<!-- -->aprender a hacer seo<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20un%20documental">
-                    "<!-- -->quiero crear un documental<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20un%20podcast">
-                    "<!-- -->quiero crear un podcast<!-- -->"
-                </a>
-                <a href="/buscar/?search=crear%20contenido%20y%20ser%20influencer">
-                    "<!-- -->crear contenido y ser influencer<!-- -->"
-                </a>
+                <a href="/buscar/?search=terapia_familiar">"<!-- -->Terapia familiar<!-- -->"</a>
+                <a href="/buscar/?search=terapia_individual">"<!-- -->Terapia individual<!-- -->"</a>
+                <a href="/buscar/?search=terapia_para_adultos">"<!-- -->Terapia para adultos<!-- -->"</a>
+                <a href="/buscar/?search=visitas_sucesivas_psicologia">"<!-- -->Visitas sucesivas Psicología<!-- -->"</a>
+                <a href="/buscar/?search=asesoramiento_educativo_familiar">"<!-- -->Asesoramiento Educativo Familiar<!-- -->"</a>
+                <a href="/buscar/?search=capacitacion_docente">"<!-- -->Capacitación docente<!-- -->"</a>
+                <a href="/buscar/?search=evaluacion_psicologica">"<!-- -->Evaluación psicológica<!-- -->"</a>
+                <a href="/buscar/?search=manejo_de_duelo">"<!-- -->Manejo de duelo<!-- -->"</a>
+                <a href="/buscar/?search=orientacion_vocacional">"<!-- -->Orientación vocacional<!-- -->"</a>
+                <a href="/buscar/?search=visita_domiciliaria_psicologia">"<!-- -->Visita domiciliaria Psicología<!-- -->"</a>
             </div>
             <div>
-                <a href="/buscar/?search=Quiero%20ser%20creativa">
-                    "<!-- -->Quiero ser creativa<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20inglés">
-                    "<!-- -->Quiero aprender inglés<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20puedo%20emprender%20y%20tener%20mi%20empresa">
-                    "<!-- -->como puedo emprender y tener mi empresa<!-- -->"
-                </a>
-                <a href="/buscar/?search=crear%20una%20comunidad">
-                    "<!-- -->crear una comunidad<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20aplicaciones%20sin%20código">
-                    "<!-- -->quiero crear aplicaciones sin código<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20a%20diseñar">
-                    "<!-- -->quiero aprender a diseñar<!-- -->"
-                </a>
-                <a href="/buscar/?search=aprender%20a%20hacer%20seo">
-                    "<!-- -->aprender a hacer seo<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20un%20documental">
-                    "<!-- -->quiero crear un documental<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20un%20podcast">
-                    "<!-- -->quiero crear un podcast<!-- -->"
-                </a>
-                <a href="/buscar/?search=crear%20contenido%20y%20ser%20influencer">
-                    "<!-- -->crear contenido y ser influencer<!-- -->"
-                </a>
+                <a href="/buscar/?search=terapia_familiar">"<!-- -->Terapia familiar<!-- -->"</a>
+                <a href="/buscar/?search=terapia_individual">"<!-- -->Terapia individual<!-- -->"</a>
+                <a href="/buscar/?search=terapia_para_adultos">"<!-- -->Terapia para adultos<!-- -->"</a>
+                <a href="/buscar/?search=visitas_sucesivas_psicologia">"<!-- -->Visitas sucesivas Psicología<!-- -->"</a>
+                <a href="/buscar/?search=asesoramiento_educativo_familiar">"<!-- -->Asesoramiento Educativo Familiar<!-- -->"</a>
+                <a href="/buscar/?search=capacitacion_docente">"<!-- -->Capacitación docente<!-- -->"</a>
+                <a href="/buscar/?search=evaluacion_psicologica">"<!-- -->Evaluación psicológica<!-- -->"</a>
+                <a href="/buscar/?search=manejo_de_duelo">"<!-- -->Manejo de duelo<!-- -->"</a>
+                <a href="/buscar/?search=orientacion_vocacional">"<!-- -->Orientación vocacional<!-- -->"</a>
+                <a href="/buscar/?search=visita_domiciliaria_psicologia">"<!-- -->Visita domiciliaria Psicología<!-- -->"</a>
             </div>
         </section>
         <section class="MarqueesCarousel-container-marquee MarqueesCarousel-container-marquee--left">
             <div>
-                <a href="/buscar/?search=como%20liderar%20equipos">
-                    "<!-- -->como liderar equipos<!-- -->"
-                </a>
-                <a href="/buscar/?search=aprender%20de%20marketing">
-                    "<!-- -->aprender de marketing<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20ser%20periodista">
-                    "<!-- -->como ser periodista<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20mejorar%20mis%20ventas">
-                    "<!-- -->como mejorar mis ventas<!-- -->"
-                </a>
-                <a href="/buscar/?search=manejar%20mi%20dinero%20y%20deudas">
-                    "<!-- -->manejar mi dinero y deudas<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20doy%20mejor%20el%20feedback">
-                    "<!-- -->Como doy mejor el feedback<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20crear%20mi%20modelo%20de%20negocio">
-                    "<!-- -->Como crear mi modelo de negocio<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20a%20usar%20excel">
-                    "<!-- -->quiero aprender a usar excel<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20mejorar%20mis%20redes%20sociales">
-                    "<!-- -->quiero mejorar mis redes sociales<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20de%20fotografía">
-                    "<!-- -->quiero aprender de fotografía<!-- -->"
-                </a>
+                <a href="/buscar/?search=pruebas_de_ansiedad">"<!-- -->Pruebas de ansiedad<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia">"<!-- -->Psicoterapia<!-- -->"</a>
+                <a href="/buscar/?search=terapia_breve">"<!-- -->Terapia breve<!-- -->"</a>
+                <a href="/buscar/?search=terapia_cognitivo-conductual_(tcc)">"<!-- -->Terapia cognitivo-conductual (TCC)<!-- -->"</a>
+                <a href="/buscar/?search=terapia_de_pareja">"<!-- -->Terapia de pareja<!-- -->"</a>
+                <a href="/buscar/?search=test_de_machover">"<!-- -->Test de Machover<!-- -->"</a>
+                <a href="/buscar/?search=visita_psicologia">"<!-- -->Visita Psicología<!-- -->"</a>
+                <a href="/buscar/?search=consulta_subsecuente">"<!-- -->Consulta subsecuente<!-- -->"</a>
+                <a href="/buscar/?search=consulta_de_primera_vez">"<!-- -->Consulta de primera vez<!-- -->"</a>
+                <a href="/buscar/?search=consulta_en_linea">"<!-- -->Consulta en línea<!-- -->"</a>
+                <a href="/buscar/?search=rehabilitacion_domiciliaria">"<!-- -->Rehabilitación domiciliaria<!-- -->"</a>
             </div>
             <div>
-                <a href="/buscar/?search=como%20liderar%20equipos">
-                    "<!-- -->como liderar equipos<!-- -->"
-                </a>
-                <a href="/buscar/?search=aprender%20de%20marketing">
-                    "<!-- -->aprender de marketing<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20ser%20periodista">
-                    "<!-- -->como ser periodista<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20mejorar%20mis%20ventas">
-                    "<!-- -->como mejorar mis ventas<!-- -->"
-                </a>
-                <a href="/buscar/?search=manejar%20mi%20dinero%20y%20deudas">
-                    "<!-- -->manejar mi dinero y deudas<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20doy%20mejor%20el%20feedback">
-                    "<!-- -->Como doy mejor el feedback<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20crear%20mi%20modelo%20de%20negocio">
-                    "<!-- -->Como crear mi modelo de negocio<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20a%20usar%20excel">
-                    "<!-- -->quiero aprender a usar excel<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20mejorar%20mis%20redes%20sociales">
-                    "<!-- -->quiero mejorar mis redes sociales<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20de%20fotografía">
-                    "<!-- -->quiero aprender de fotografía<!-- -->"
-                </a>
+                <a href="/buscar/?search=pruebas_de_ansiedad">"<!-- -->Pruebas de ansiedad<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia">"<!-- -->Psicoterapia<!-- -->"</a>
+                <a href="/buscar/?search=terapia_breve">"<!-- -->Terapia breve<!-- -->"</a>
+                <a href="/buscar/?search=terapia_cognitivo-conductual_(tcc)">"<!-- -->Terapia cognitivo-conductual (TCC)<!-- -->"</a>
+                <a href="/buscar/?search=terapia_de_pareja">"<!-- -->Terapia de pareja<!-- -->"</a>
+                <a href="/buscar/?search=test_de_machover">"<!-- -->Test de Machover<!-- -->"</a>
+                <a href="/buscar/?search=visita_psicologia">"<!-- -->Visita Psicología<!-- -->"</a>
+                <a href="/buscar/?search=consulta_subsecuente">"<!-- -->Consulta subsecuente<!-- -->"</a>
+                <a href="/buscar/?search=consulta_de_primera_vez">"<!-- -->Consulta de primera vez<!-- -->"</a>
+                <a href="/buscar/?search=consulta_en_linea">"<!-- -->Consulta en línea<!-- -->"</a>
+                <a href="/buscar/?search=rehabilitacion_domiciliaria">"<!-- -->Rehabilitación domiciliaria<!-- -->"</a>
             </div>
         </section>
     </div>

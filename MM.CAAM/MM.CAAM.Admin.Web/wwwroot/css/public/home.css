@@ -128,22 +128,65 @@
     overflow: visible;
     vertical-align: -0.125em;
 }
+
+.Bg-animation {
+    /*background-image: url(https://static.platzi.com/media/uploads/P_Day_Hero_v5_UI_sola_2_d8f42f6939.png),url(https://static.platzi.com/media/uploads/P_Day_Hero_v5_UI_sola_2_d8f42f6939.png);*/
+    background-image: url(../../images/medico/caam_4_servicios_maestra_sombra_transparente.png),url(../../images/medico/caam_4_servicios_maestra_sombra_transparente.png) !important;
+    background-position: calc(-500px - var(--scrollY)),calc(100% + 500px + var(--scrollY)) !important;
+    background-repeat: no-repeat !important;
+}
 /*endregion --section 1*/
 
 /*#region section 2*/
-.MarqueesCarousel-title {
-    display: none;
-    color: #8da2c0;
-    font-size: .9rem;
-    font-weight: 400;
-    line-height: 2rem;
-    text-align: center;
-}
-
 .MarqueesCarousel-container {
     margin-top: 1rem;
     overflow: hidden;
 }
+.MarqueesCarousel-container-marquee--left {
+    -webkit-animation: marqueeLeft 10s linear infinite;
+    -moz-animation: marqueeLeft 10s linear infinite;
+    -o-animation: marqueeLeft 10s linear infinite;
+    -ms-animation: marqueeLeft 10s linear infinite;
+    animation: marqueeLeft 10s linear infinite;
+}
+.MarqueesCarousel-container-marquee {
+    display: block;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    width: max-content;
+}
+    .MarqueesCarousel-container-marquee div {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: box;
+        display: flex;
+        float: left;
+        gap: 1rem;
+        overflow: hidden;
+        width: 50%;
+    }
+        .MarqueesCarousel-container-marquee div a {
+            background-color: rgba(0,0,0,.3);
+            border-radius: 1rem;
+            color: #dde0e5;
+            color: $palette-neutra-050;
+            -ms-filter: "alpha(opacity=80)";
+            filter: alpha(opacity=80);
+            float: left;
+            font-size: 1rem;
+            min-width: fit-content;
+            opacity: .8;
+            padding: 0.75rem 1.5rem;
+            -webkit-transition: color .5s;
+            -moz-transition: color .5s;
+            -o-transition: color .5s;
+            -ms-transition: color .5s;
+            transition: color .5s;
+            width: 50%;
+        }
 
 /*#region --section 2*/
 
