@@ -8,7 +8,34 @@
 .nav-link {
     color: white !important;
 }
+
+* {
+    margin: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.15;
+}
+
+section {
+    display: block;
+}
+
 /*#region section 1*/
+
+/*static
+relative
+fixed
+absolute
+sticky*/
+
+.Hero {
+    margin-top: 0;
+    display: grid;
+    place-items: center;
+    /*height: 75vh;*/
+}
 .home {
     margin-top: 0;
     display: grid;
@@ -27,9 +54,14 @@
     position: relative;
 }
 
+@media only screen and (min-width: 64rem) {
+    .Hero-content {
+        max-width: 800px !important;
+    }
+}
+
 .Hero-content {
-    max-width: 800px !important;
-    padding-bottom: 1.25rem !important;
+    padding-bottom: 1.25rem!important;
     padding-top: 4rem;
     text-align: center;
     width: 100%;
@@ -41,12 +73,32 @@
     font-weight: 700;
     margin-bottom: 2.5rem;
 }
-
     .Hero-content-title span {
-        display: block;
-        color: var(--platzi_green_public);
+        color: #0ae98a;
         font-weight: 300;
     }
+@media only screen and (min-width: 64rem) {
+    .Hero-content-title span {
+        display: block;
+    }
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0.67em 0;
+}
+
+.Hero-content-subtitle, .LearningRoutes-subtitle, .NewAccount-subtitle {
+    color: #DDE0E5;
+}
+
+@media only screen and (min-width: 64rem) {
+    .Hero-content-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 340px;
+    }
+}
 
 .Hero-content-subtitle {
     color: #becde3;
@@ -55,12 +107,21 @@
     margin-bottom: 5rem;
 }
 
+@media only screen and (min-width: 64rem) {
+    .Hero-content-input {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 480px;
+    }
+}
+
 .Hero-content-message {
     color: #fff;
     font-size: 1.1rem;
     font-weight: 400;
     margin-bottom: 0.75rem;
 }
+
 
 .Hero-content-input {
     -webkit-box-align: center;
@@ -109,6 +170,35 @@
         cursor: pointer;
     }
 
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}  
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+button, select {
+    text-transform: none;
+}
+
+button, input {
+    overflow: visible;
+} 
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
 .svg-inline--fa {
     display: inline-block;
     font-size: inherit;
@@ -130,7 +220,6 @@
 
 @media only screen and (min-width : 1224px) {
     .Bg-animation {
-        /*background-image: url(https://static.platzi.com/media/uploads/P_Day_Hero_v5_UI_sola_2_d8f42f6939.png),url(https://static.platzi.com/media/uploads/P_Day_Hero_v5_UI_sola_2_d8f42f6939.png);*/
         background-image: url(../../images/medico/caam_4_servicios_maestra_sombra_transparente.png),url(../../images/medico/caam_4_servicios_maestra_sombra_transparente.png) !important;
         background-position: calc(-500px - var(--scrollY)),calc(100% + 500px + var(--scrollY)) !important;
         background-repeat: no-repeat !important;
@@ -140,10 +229,42 @@
 /*endregion --section 1*/
 
 /*#region section 2*/
+
+section {
+    display: block;
+}
+
+.MarqueesCarousel-title {
+    display: none;
+}
+
+.MarqueesCarousel-title {
+    color: #8da2c0;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 2rem;
+    text-align: center;
+}
+
 .MarqueesCarousel-container {
     margin-top: 1rem;
     overflow: hidden;
 }
+
+div {
+    display: block;
+}
+
+@media only screen and (min-width: 64rem) {
+    .MarqueesCarousel-container-marquee--left {
+        -webkit-animation: marqueeLeftDesktop 240s linear infinite;
+        -moz-animation: marqueeLeftDesktop 240s linear infinite;
+        -o-animation: marqueeLeftDesktop 240s linear infinite;
+        -ms-animation: marqueeLeftDesktop 240s linear infinite;
+        animation: marqueeLeftDesktop 240s linear infinite;
+    } 
+} 
+
 .MarqueesCarousel-container-marquee--left {
     -webkit-animation: marqueeLeft 10s linear infinite;
     -moz-animation: marqueeLeft 10s linear infinite;
@@ -151,6 +272,42 @@
     -ms-animation: marqueeLeft 10s linear infinite;
     animation: marqueeLeft 10s linear infinite;
 }
+
+@media only screen and (min-width: 64rem) {
+    .MarqueesCarousel-container-marquee--right {
+        -webkit-animation: marqueeRightDesktop 240s linear infinite;
+        -moz-animation: marqueeRightDesktop 240s linear infinite;
+        -o-animation: marqueeRightDesktop 240s linear infinite;
+        -ms-animation: marqueeRightDesktop 240s linear infinite;
+        animation: marqueeRightDesktop 240s linear infinite;
+    }
+}
+.MarqueesCarousel-container-marquee--right {
+    -webkit-animation: marqueeRight 15s linear infinite;
+    -moz-animation: marqueeRight 15s linear infinite;
+    -o-animation: marqueeRight 15s linear infinite;
+    -ms-animation: marqueeRight 15s linear infinite;
+    animation: marqueeRight 15s linear infinite;
+}
+
+@media only screen and (min-width: 64rem) {
+    .MarqueesCarousel-container-marquee--left {
+        -webkit-animation: marqueeLeftDesktop 240s linear infinite;
+        -moz-animation: marqueeLeftDesktop 240s linear infinite;
+        -o-animation: marqueeLeftDesktop 240s linear infinite;
+        -ms-animation: marqueeLeftDesktop 240s linear infinite;
+        animation: marqueeLeftDesktop 240s linear infinite;
+    }
+}
+
+.MarqueesCarousel-container-marquee--left {
+    -webkit-animation: marqueeLeft 10s linear infinite;
+    -moz-animation: marqueeLeft 10s linear infinite;
+    -o-animation: marqueeLeft 10s linear infinite;
+    -ms-animation: marqueeLeft 10s linear infinite;
+    animation: marqueeLeft 10s linear infinite;
+}
+
 .MarqueesCarousel-container-marquee {
     display: block;
     height: 50px;
@@ -193,20 +350,65 @@
 /*#region --section 2*/
 
 /*#region section 3*/
+
+.BulletExplainer:before {
+    -webkit-backface-visibility: visible;
+    -moz-backface-visibility: visible;
+    -ms-backface-visibility: visible;
+    backface-visibility: visible;
+    background: -webkit-linear-gradient(bottom,#fff 30%,transparent 0 70%);
+    background: -moz-linear-gradient(bottom,#fff 30%,transparent 0 70%);
+    background: -o-linear-gradient(bottom,#fff 30%,transparent 0 70%);
+    background: -ms-linear-gradient(bottom,#fff 30%,transparent 0 70%);
+    background: linear-gradient(0deg,#fff 30%,transparent 0 70%);
+    bottom: -50px;
+    clip-path: polygon(0 0,100% 0,100% 75%,100% 77%,50% 100%,0 75%,0 75%);
+    content: "";
+    height: 180px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
 .BulletExplainer {
     background: white;
     padding: 3rem 0;
     position: relative;
     margin-bottom: 8rem;
 }
+
+@media only screen and (min-width: 48rem) {
+    .BulletExplainer {
+        padding: 3rem 0;
+    }
+}
+
+.BulletExplainer {
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+.u-wrapper {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto !important;
+    max-width: 1200px;
+    padding: 0 0.5rem;
+    position: relative;
+}
+
 .BulletExplainer-content {
     padding: 0;
 }
+
 @media only screen and (min-width: 64rem) {
     .BulletExplainer-content {
         border-radius: 12px 12px 0 0;
     }
 }
+
 .BulletExplainer-content {
     diplay: flex;
     -webkit-box-orient: vertical;
@@ -218,16 +420,40 @@
     flex-direction: column;
     padding: 2rem;
     position: relative;
-}
+} 
+
 @media only screen and (min-width: 48rem) {
     .BulletExplainer-heading {
-    font-size: 1.5rem;
-}}
+        font-size: 1.5rem;
+    }
+}
+
+.BulletExplainer-heading {
+    color: #07c373;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+} 
+
 @media only screen and (min-width: 48rem) {
     .BulletExplainer-title {
-    font-size: 2.5rem;
-    margin-bottom: 3.125rem;
-}}
+        font-size: 2.5rem;
+        margin-bottom: 3.125rem;
+    }
+}
+
 .BulletExplainer-title {
     font-size: 2rem;
     font-weight: 1000;
@@ -236,6 +462,17 @@
     margin-bottom: 1.5rem;
     text-transform: uppercase;
 }
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
 .BulletExplainer-bullets {
     grid-gap: 1.5rem;
     display: grid;
@@ -243,24 +480,47 @@
     list-style: none;
     padding: 0;
 }
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+
 .BulletExplainer-bulletTitle {
     font-weight: bold;
 }
-@media only screen and (min-width: 48rem){ .BulletExplainer-bulletTitle {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-}}
+
+@media only screen and (min-width: 48rem) {
+    .BulletExplainer-bulletTitle {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
 .BulletExplainer-bulletTitle {
     font-size: 1rem;
     font-weight: 400;
     line-height: 2rem;
     margin-bottom: 0.5rem;
 }
+
 .BulletExplainer-bulletDescription {
     font-size: .875rem;
     font-weight: 400;
     line-height: 1.6;
 }
+
 wrapper {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -270,23 +530,8 @@ wrapper {
     padding: 0 0.5rem;
     position: relative;
 }
-.BulletExplainer-heading {
-    color: #07c373;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 2rem;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-}
-.u-wrapper {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0 auto !important;
-    max-width: 1200px;
-    padding: 0 0.5rem;
-    position: relative;
-}
+ 
+
 /*#region --section 3*/
 
 /*--PAGINA PRINCIPAL PUBLIC*/
