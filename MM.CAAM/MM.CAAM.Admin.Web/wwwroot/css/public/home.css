@@ -45,13 +45,13 @@ sticky*/
 }
 
 .u-wrapper {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
     margin: 0 auto !important;
-    max-width: 1200px;
-    padding: 0 0.5rem;
-    position: relative;
+    max-width: 1200px !important;
+    padding: 0 0.5rem !important;
+    position: relative !important;
 }
 
 @media only screen and (min-width: 64rem) {
@@ -389,15 +389,6 @@ div {
     padding: 2rem 0;
 }
 
-.u-wrapper {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0 auto !important;
-    max-width: 1200px;
-    padding: 0 0.5rem;
-    position: relative;
-}
 
 .BulletExplainer-content {
     padding: 0;
@@ -464,13 +455,13 @@ h2 {
 }
 
 h3 {
-    display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+    display: block !important;
+    font-size: 1.17em !important;
+    margin-block-start: 1em !important;
+    margin-block-end: 1em !important;
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
+    font-weight: bold !important;
 }
 
 .BulletExplainer-bullets {
@@ -533,6 +524,285 @@ wrapper {
  
 
 /*#region --section 3*/
+
+
+/*#region section 4*/
+a {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-thickness: initial !important;
+    text-decoration-style: initial !important;
+    text-decoration-color: initial !important;
+}
+.LearningRoutes {
+    -webkit-box-orient: vertical !important;
+    -moz-box-orient: vertical !important;
+    -o-box-orient: vertical !important;
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: box !important;
+    display: flex !important;
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    padding: 1rem !important;
+    padding-bottom: 3.5rem !important;
+}
+
+.LearningRoutes-title {
+    line-weight: 500;
+    color: #eff3f8;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+}
+
+.Hero-content-subtitle, .LearningRoutes-subtitle, .NewAccount-subtitle {
+    color: #DDE0E5;
+}
+
+.LearningRoutes-subtitle {
+    color: #C7CCD4;
+}
+
+.LearningRoutes-subtitle {
+    line-weight: 400;
+    color: #8da2c0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.LearningRoutes-slider {
+    -ms-overflow-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    gap: 1rem;
+    max-width: 100%;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+}
+    .LearningRoutes-slider > * {
+        position: relative !important;
+        scroll-snap-align: center;
+    }
+    .LearningRoutes-slider a:nth-of-type(1) .LearningCard, .LearningRoutes-slider a:nth-of-type(2) .LearningCard, .LearningRoutes-slider a:nth-of-type(7) .LearningCard {
+        background-color: #CEE5CD;
+    }
+.LearningCard {
+    background-image: none !important;
+    border-radius: 1rem !important;
+    padding: 1.2rem !important;
+    justify-content: flex-start !important;
+    position: relative !important;
+}
+
+.LearningCard {
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -o-box-align: start;
+    -ms-flex-align: start;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -o-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    background-color: #1d263d;
+    background-image: url(https://static.platzi.com/media/uploads/thumbnail_bg_learning_card_4b8448bbf9.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    background-size: 100%;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    max-height: 300px;
+    max-width: 240px;
+    min-height: 300px;
+    min-width: 240px;
+    padding: 0.75rem;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.LearningCard-header {
+    margin-bottom: 1.5rem !important;
+}
+
+.LearningCard-header {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    gap: 1rem;
+}
+
+.LearningCard-badge {
+    background-color: transparent !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(0, 0, 0, 0.5) !important;
+    color: #13161C !important;
+}
+.LearningCard-badge {
+    background-color: #0c1633;
+    border-radius: 100px;
+    color: #e08382;
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 1.12rem;
+    padding: 0.25rem 0.75rem;
+}
+.LearningCard-courses, .LearningCard-link, .LearningCard-subtitle {
+    color: #1C2028;
+}
+.LearningCard-courses {
+    color: #e0e6ee;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+}
+.LearningCard-content {
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -o-box-align: start;
+    -ms-flex-align: start;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.LearningCard-title {
+    color: #13161C !important;
+}
+.LearningCard-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.LearningCard-title {
+    color: #eff3f8;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+}
+.LearningCard-courses, .LearningCard-link, .LearningCard-subtitle {
+    color: #1C2028;
+}
+.LearningCard-link, .LearningCard-subtitle {
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+}
+.LearningCard-subtitle {
+    color: #e0e6ee;
+}
+.LearningCard-courses, .LearningCard-link, .LearningCard-subtitle {
+    color: #1C2028;
+}
+.LearningCard-link {
+    position: absolute !important;
+    bottom: 1.2rem;
+}
+.LearningCard-link {
+    color: #eff3f8;
+    text-decoration: underline;
+    width: 100%;
+}
+.LearningCard-link, .LearningCard-subtitle {
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+}
+svg:not(:root).svg-inline--fa {
+    overflow: visible;
+}
+.LearningCard-link-icon {
+    margin-left: 0.5rem;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.svg-inline--fa {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+}
+    /*-changing color-*/
+.LearningRoutes-slider a:nth-of-type(1) .LearningCard, .LearningRoutes-slider a:nth-of-type(2) .LearningCard, .LearningRoutes-slider a:nth-of-type(7) .LearningCard {
+    background-color: #CEE5CD;
+}
+.LearningRoutes-slider a:nth-of-type(3) .LearningCard, .LearningRoutes-slider a:nth-of-type(4) .LearningCard {
+    background-color: #FAD8D5;
+}
+.LearningRoutes-slider a:nth-of-type(3) .LearningCard, .LearningRoutes-slider a:nth-of-type(4) .LearningCard {
+    background-color: #FAD8D5;
+}
+.LearningRoutes-slider a:nth-of-type(5) .LearningCard {
+    background-color: #FFE1C2;
+}
+.LearningRoutes-slider a:nth-of-type(6) .LearningCard {
+    background-color: #C7E3F3;
+}
+.LearningRoutes-slider a:nth-of-type(1) .LearningCard, .LearningRoutes-slider a:nth-of-type(2) .LearningCard, .LearningRoutes-slider a:nth-of-type(7) .LearningCard {
+    background-color: #CEE5CD;
+}
+.LearningRoutes-slider a:nth-of-type(8) .LearningCard {
+    background-color: #FAE4AF;
+}
+.LearningRoutes-slider a:nth-of-type(9) .LearningCard {
+    background-color: #F3D7E5;
+}
+.LearningRoutes-slider a:nth-of-type(10) .LearningCard {
+    background-color: #CEE4DF;
+}
+
+/*#region --section 4*/
 
 /*--PAGINA PRINCIPAL PUBLIC*/
 
