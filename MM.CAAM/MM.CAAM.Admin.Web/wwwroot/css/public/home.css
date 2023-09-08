@@ -861,6 +861,130 @@ svg:not(:root).svg-inline--fa {
 
 /*#region --section 4*/
 
+/* #region section 5 */
+
+.VideoDiscover {
+    height: 400px;
+    margin: 4rem 0;
+}
+@media only screen and (min-width: 64rem) {
+    .VideoDiscover {
+        height: 800px;
+    }
+}
+.VideoDiscover {
+    /*height: 950px;
+    margin-top: 1rem;*/
+    position: relative;
+}
+.VideoDiscover-video, .VideoDiscover-video video {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+    .VideoDiscover-video video {
+        object-fit: cover;
+    }
+    .VideoDiscover-video, .VideoDiscover-video video {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+.VideoDiscover-overlay {
+    background: linear-gradient(rgba(0,0,0, 0.6),rgba(0,0,0, 0.6));
+}
+.VideoDiscover-overlay {
+    background: -webkit-linear-gradient(#13161c,rgba(19,22,28,.2),#13161c);
+    background: -moz-linear-gradient(#13161c,rgba(19,22,28,.2),#13161c);
+    background: -o-linear-gradient(#13161c,rgba(19,22,28,.2),#13161c);
+    background: -ms-linear-gradient(#13161c,rgba(19,22,28,.2),#13161c);
+    background: linear-gradient(#13161c,rgba(19,22,28,.2),#13161c);
+    height: 101%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: -1px;
+}
+.VideoDiscover-container {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 20%;
+}
+@media only screen and (min-width: 64rem) {
+    .VideoDiscover-content {
+        max-width: auto !important;
+    }
+}
+
+.VideoDiscover-content {
+    color: #eff3f8;
+    max-width: 80% !important;
+    text-align: center;
+}
+    .VideoDiscover-content h2 {
+        margin-top: 1rem;
+    }
+@media only screen and (min-width: 64rem) {
+    .VideoDiscover-content h2 {
+        font-size: 3.5rem;
+    }
+}
+.VideoDiscover-content h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    margin-top: 12.5rem;
+}
+@media only screen and (min-width: 64rem) {
+    .VideoDiscover-content p {
+        font-size: 1.4rem;
+    }
+}
+.VideoDiscover-content p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 28px;
+    margin-bottom: 2.5rem;
+}
+.Button--primary.Button--sky {
+    background-color: #33b1ff;
+}
+.primary-btn {
+    background-color: #fff !important;
+    border-color: #fff !important;
+    color: #0c1633 !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 2.5rem !important;
+    text-transform: lowercase;
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    -ms-transition: background-color .2s;
+    transition: background-color .2s;
+}
+.Button--medium {
+    font-size: .875rem;
+    padding: 0.5rem 1rem;
+}
+.Button {
+    border: 0;
+    border-radius: 0.5rem;
+    color: #03091e;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    line-height: 1.6;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+/* #endregion --section5 */
+
 /*--PAGINA PRINCIPAL PUBLIC*/
 
 
