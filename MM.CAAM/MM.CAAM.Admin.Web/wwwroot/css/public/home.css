@@ -1,4 +1,9 @@
 /*PAGINA PRINCIPAL PUBLIC*/
+
+*, ::after, ::before {
+    box-sizing: content-box;
+}
+
 .navbar {
     box-shadow: none !important;
     background-color: transparent !important;
@@ -248,7 +253,7 @@ section {
 
 .MarqueesCarousel-container {
     margin-top: 1rem;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 div {
@@ -574,6 +579,57 @@ a {
     line-height: 1.5rem;
 }
 
+/*STYLE SCROLL*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*background: #f1f1f1;*/
+    background-color: #ffffff00;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 25px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+@media only screen and (min-width: 75rem) {
+    .LearningRoutes-slider {
+        display: grid !important;
+        gap: 1rem;
+        grid-template-columns: repeat(5,1fr);
+        max-width: auto;
+        overflow-x: hidden;
+        overscroll-behavior-x: unset;
+        scroll-snap-type: unset;
+    }
+}
+
+.LearningRoutes-slider {
+    -ms-overflow-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex !important;
+    gap: 1rem;
+    max-width: 100%;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+}
+
 .LearningRoutes-slider {
     -ms-overflow-style: none;
     display: -webkit-box;
@@ -582,15 +638,16 @@ a {
     display: -ms-flexbox;
     display: box;
     display: flex;
+    /*  Grilla o cuadrado  display: flex;*/
     gap: 1rem;
     max-width: 100%;
-    overflow-x: scroll;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
+    overflow-x: scroll !important;
+    overscroll-behavior-x: contain !important;
+    scroll-snap-type: x proximity !important;
+    scrollbar-width: none !important;
 }
     .LearningRoutes-slider > * {
-        position: relative !important;
+        position: relative ;
         scroll-snap-align: center;
     }
     .LearningRoutes-slider a:nth-of-type(1) .LearningCard, .LearningRoutes-slider a:nth-of-type(2) .LearningCard, .LearningRoutes-slider a:nth-of-type(7) .LearningCard {
@@ -685,7 +742,7 @@ a {
     padding: 0.25rem 0.75rem;
 }
 .LearningCard-courses, .LearningCard-link, .LearningCard-subtitle {
-    color: #1C2028;
+    color: #1C2028 !important;
 }
 .LearningCard-courses {
     color: #e0e6ee;
