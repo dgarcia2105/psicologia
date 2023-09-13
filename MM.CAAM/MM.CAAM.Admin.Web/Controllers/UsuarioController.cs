@@ -32,24 +32,29 @@ namespace MM.CAAM.Admin.Web.Controllers
         {
             List<GeneroRequest> Generos = new List<GeneroRequest>()
             {
-                new GeneroRequest() { Id = 1, Genero = "M" },
-                new GeneroRequest() { Id = 2, Genero = "F" }
+                new GeneroRequest() { Id = 1, Genero = "Mujer" },
+                new GeneroRequest() { Id = 2, Genero = "Hombre" },
+                new GeneroRequest() { Id = 3, Genero = "No binario" },
+                new GeneroRequest() { Id = 4, Genero = "Prefiero no decirlo" },
+                new GeneroRequest() { Id = 5, Genero = "Otro" }
             };
             var GenerosSelect = new SelectList(
                                         items: Generos,
-                                        dataValueField: nameof(GeneroRequest.Genero),
+                                        dataValueField: nameof(GeneroRequest.Id),
                                         dataTextField: nameof(GeneroRequest.Genero));
             ViewBag.Generos = GenerosSelect;
 
             List<RolDTO> Roles = new List<RolDTO>()
             {
-                new RolDTO() { Id = 1, Rol = "1" },
-                new RolDTO() { Id = 2, Rol = "2" }
+                new RolDTO() { Id = 4, Rol = "Paciente" },
+                new RolDTO() { Id = 3, Rol = "Operador" },
+                new RolDTO() { Id = 2, Rol = "Jefe" },
+                new RolDTO() { Id = 1, Rol = "Administrador" }
             };
 
             var RolesSelect = new SelectList(
                                         items: Roles,
-                                        dataValueField: nameof(RolDTO.Rol),
+                                        dataValueField: nameof(RolDTO.Id),
                                         dataTextField: nameof(RolDTO.Rol));
 
 
@@ -62,6 +67,13 @@ namespace MM.CAAM.Admin.Web.Controllers
         {
             try
             {
+                if(!string.IsNullOrEmpty(usuarioCreacionDto.Password))
+                {
+                    if (!usuarioCreacionDto.Password.Equals(usuarioCreacionDto.ConfirmarPassword))
+                    {
+                        throw new Exception("Las contraseñas no coinciden");
+                    }
+                }
 
                 //if (PerfilNombreArchivo != null && PerfilNombreArchivo.ContentLength > 0)
                 //{

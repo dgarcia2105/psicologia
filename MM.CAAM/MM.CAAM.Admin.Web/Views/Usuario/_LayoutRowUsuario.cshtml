@@ -4,12 +4,45 @@
 @model MM.CAAM.Gestion.DTO.DTOs.UsuarioDTO
 
 <div class="row">
-    <div class="col-2"><span>@Model.Position </span>@Model.NombreCompleto</div>
-    <a  href="~/Consulta/NuevaConsulta/?UsuarioId=@Model.Id">
-        <span>Agregar consulta</span> @*@Model.Id*@
-    </a>
-    <a href="~/Consulta/ConsultaDeUsuario/?UsuarioId=@Model.Id">
-        <span>Ver historial</span> @*@Model.Id*@
-    </a>
+    <div class="col-2"><span>@Model.Position) </span>@Model.NombreCompleto</div>
+    <div class="col-2">@Model.Correo</div>
+    <div class="col-1">
+        @switch (@Model.GeneroId)
+        {
+            case 1:
+                @Html.Raw("Administrador");
+                break;
+            case 2:
+                @Html.Raw("Jefe")
+                ;
+                break;
+            case 3:
+                @Html.Raw("Operador")
+                ;
+                break;
+            case 4:
+                @Html.Raw("Paciente")
+                ;
+                break;
+        }
+        
+        </div>
+    <div class="col-1" title="Fecha de nacimiento: @Model.FechaNacimiento.ToString("yyyy-MM-dd")"> 
+        @if (Model.FechaNacimiento != DateTime.MinValue)
+            @Model.TiempoNacimiento
+    </div>
+    <div class="col-2">@Model.Nacionalidad</div>
+    <div class="col-1">@Model.Telefono</div>
+    <div class="col-2">@Model.Ocupacion</div>
+    <div class="col-1">@Model.FechaCreacion</div>
 </div>
-
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-link" href="~/Consulta/NuevaConsulta/?UsuarioId=@Model.Id">
+            <span>Agregar consulta</span>
+        </a>
+        <a class="btn btn-link" href="~/Consulta/ConsultaDeUsuario/?UsuarioId=@Model.Id">
+            <span>Ver historial</span>
+        </a>
+    </div>
+</div>

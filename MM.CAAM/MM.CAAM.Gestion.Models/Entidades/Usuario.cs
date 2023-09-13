@@ -49,6 +49,15 @@ namespace MM.CAAM.Gestion.Models.Entidades
         public string? Profesion { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
+        public string? Nacionalidad { get; set; }
+        
+        [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
+        public string? Ocupacion { get; set; }
+
+        [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
+        public string? Direccion { get; set; }
+
+        [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? Calle { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]

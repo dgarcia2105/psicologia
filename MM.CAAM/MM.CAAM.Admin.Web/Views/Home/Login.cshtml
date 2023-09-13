@@ -37,14 +37,14 @@
                 </div>
             </div>
             <br />
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h3 class="blue-text">Iniciar sesión</h3>
-                </div>
-            </div>
             <br />
             <div class="card">
-                <div class="row align-items-center text-center">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h3 class="blue-text">Iniciar sesión</h3>
+                    </div>
+                </div>
+                <div class="align-items-center text-center">
                     <div class="col-md-12">
                         <div class="card-body">
                             <form method="post" onsubmit="return sendAjax();">
@@ -54,16 +54,16 @@
                                 @*<h4 class="mb-3 f-w-400">Iniciar Sesión</h4>*@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text"><i data-feather="user"></i></span>
-                                    @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @placeholder = "Correo", @class = "form-control", @required = "required" } })
+                                    @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @placeholder = "Tu email", @class = "form-control", @required = "required" } })
                                 </div>
                                 <div class="input-group mb-4">
                                     <span class="input-group-text"><i data-feather="lock"></i></span>
-                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Contraseña", @class = "form-control lock-input", @required = "required", @Type = "password" } })
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Tu contraseña", @class = "form-control lock-input", @required = "required", @Type = "password" } })
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12 text-right">
+                                <div class="">
+                                    <div class="col-xs-12 input-group">
                                         @*<button type="button" class="shadow btn btn-primary mx-1" onclick="sendAjax()"><i class="fas fa-save"></i> Enviar </button>*@
-                                        <button id="btnEnviar" type="submit" class="btn btn-block btn-primary mb-4">Enviar</button>
+                                        <button id="btnEnviar" type="submit" class="btn btn-success form-control mb-4">Iniciar sesión</button>
                                     </div>
                                 </div>
                                 @*<p class="mb-0 text-muted text-right">
