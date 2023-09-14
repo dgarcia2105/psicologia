@@ -4,7 +4,21 @@
 @model MM.CAAM.Gestion.DTO.DTOs.UsuarioDTO
 
 <div class="row">
-    <div class="col-2"><span>@Model.Position) </span>@Model.NombreCompleto</div>
+    <div class="col-2">
+        <div><span>@Model.Position) </span>
+            @Model.NombreCompleto
+        </div>
+        <div class="float-end">
+@*            <div class="col-6">*@
+                <a class="pe-3" title="Historial" href="~/Consulta/ConsultaDeUsuario/?UsuarioId=@Model.Id"><i class="fa-solid fa-magnifying-glass"></i></a>
+                
+                @*</div>
+                
+            <div class="col-6">*@
+                <a class="" title="Agregar consulta" href="~/Consulta/NuevaConsulta/?UsuarioId=@Model.Id"><i class="fa-solid fa-plus"></i></a>
+            @*</div>*@
+        </div>
+    </div>
     <div class="col-2">@Model.Correo</div>
     <div class="col-1">
         @switch (@Model.GeneroId)
@@ -27,7 +41,7 @@
         }
         
         </div>
-    <div class="col-1" title="Fecha de nacimiento: @Model.FechaNacimiento.ToString("yyyy-MM-dd")"> 
+    <div class="col-1" title="Fecha de nacimiento: @Model.FechaNacimiento.ToString("MM-dd-yyyy")">
         @if (Model.FechaNacimiento != DateTime.MinValue)
             @Model.TiempoNacimiento
     </div>
@@ -36,13 +50,9 @@
     <div class="col-2">@Model.Ocupacion</div>
     <div class="col-1">@Model.FechaCreacion</div>
 </div>
-<div class="row">
+@*<div class="row">
     <div class="col-12">
-        <a class="btn btn-link" href="~/Consulta/NuevaConsulta/?UsuarioId=@Model.Id">
-            <span>Agregar consulta</span>
-        </a>
-        <a class="btn btn-link" href="~/Consulta/ConsultaDeUsuario/?UsuarioId=@Model.Id">
-            <span>Ver historial</span>
-        </a>
+        <a class="" href="~/Consulta/ConsultaDeUsuario/?UsuarioId=@Model.Id"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a class="btn btn-link" title="Agregar consulta" href="~/Consulta/NuevaConsulta/?UsuarioId=@Model.Id"><i class="fa-solid fa-plus"></i></a>
     </div>
-</div>
+</div>*@
