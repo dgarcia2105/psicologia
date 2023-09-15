@@ -16,6 +16,7 @@
         public string? EstudiosSolicitadosLaboratorioGabinete { get; set; }
         public string? CartaBajoConsentimientoInformado { get; set; }
         public string? NotasEvolucion { get; set; }
+        public string? SaturacionOxigeno { get; set; }
         public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
     }

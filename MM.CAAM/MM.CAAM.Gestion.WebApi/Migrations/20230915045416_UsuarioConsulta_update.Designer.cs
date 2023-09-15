@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230915045416_UsuarioConsulta_update")]
+    partial class UsuarioConsultaupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -444,7 +447,7 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Property<string>("RecomendadoPor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Religion")
+                    b.Property<string>("Religión")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("RolId")

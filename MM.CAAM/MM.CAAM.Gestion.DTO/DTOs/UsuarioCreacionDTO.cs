@@ -78,5 +78,26 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         public DateTime? FechaActualizacion { get; set; }
         public DateTime? FechaAcceso { get; set; }
         public string? BearerToken { get; set; }
+
+        [Display(Name = "Antecedentes Heredofamiliares")]
+        public string? AntecedentesHeredofamiliares { get; set; }
+
+        [Display(Name = "Antecedentes Patologicos Personales")]
+        public string? AntecedentesPatologicosPersonales { get; set; }
+
+        [Display(Name = "Antecedentes No Patológicos")]
+        public string? AntecedentesNoPatologicos { get; set; }
+
+        [Display(Name = "Religión")]
+        public string? Religion { get; set; }
+
+        [Display(Name = "Grupo Sanguineo")]
+        public string? GrupoSanguineo { get; set; }
+
+        [Display(Name = "Recomendado Por")]
+        public string? RecomendadoPor { get; set; }
+
+        [Display(Name = "Seguro Médico")]
+        public string? SeguroMedico { get; set; }
     }
 }

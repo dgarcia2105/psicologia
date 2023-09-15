@@ -42,5 +42,8 @@ namespace MM.CAAM.Gestion.DTO.DTOs
 
         [Display(Name = "Notas de Evolución")]
         public string? NotasEvolucion { get; set; }
+
+        [Display(Name = "Saturación de oxígeno")]
+        public string? SaturacionOxigeno { get; set; }
     }
 }

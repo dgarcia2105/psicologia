@@ -76,6 +76,10 @@ namespace MM.CAAM.Gestion.Models.Entidades
         public string? AntecedentesHeredofamiliares { get; set; }
         public string? AntecedentesPatologicosPersonales { get; set; }
         public string? AntecedentesNoPatologicos { get; set; }
+        public string? Religion { get; set; }
+        public string? GrupoSanguineo { get; set; }
+        public string? RecomendadoPor { get; set; }
+        public string? SeguroMedico { get; set; }
         public DateTime? FechaCreacion { get; set; }
         public DateTime? FechaActualizacion { get; set; }
         public DateTime? FechaAcceso { get; set; }

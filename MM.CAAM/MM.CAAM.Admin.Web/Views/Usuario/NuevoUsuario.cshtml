@@ -122,10 +122,43 @@
                                 <label class="form-control-label px-6"><i class="fa-solid fa-globe form-control-label"></i> Nacionalidad</label>
                                 @Html.EditorFor(model => model.Nacionalidad, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
-                            @*<div class="form-group col-sm-12">
-                                @Html.LabelFor(model => model.PerfilNombreArchivo)
-                                @Html.EditorFor(model => model.PerfilNombreArchivo, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
-                            </div>*@
+
+
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.AntecedentesHeredofamiliares)
+                                @Html.EditorFor(model => model.AntecedentesHeredofamiliares, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.AntecedentesHeredofamiliares, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.AntecedentesPatologicosPersonales)
+                                @Html.EditorFor(model => model.AntecedentesPatologicosPersonales, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.AntecedentesPatologicosPersonales, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.AntecedentesNoPatologicos)
+                                @Html.EditorFor(model => model.AntecedentesNoPatologicos, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.AntecedentesNoPatologicos, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.Religion)
+                                @Html.EditorFor(model => model.Religion, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.Religion, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.GrupoSanguineo)
+                                @Html.EditorFor(model => model.GrupoSanguineo, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.GrupoSanguineo, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.RecomendadoPor)
+                                @Html.EditorFor(model => model.RecomendadoPor, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.RecomendadoPor, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.SeguroMedico)
+                                @Html.EditorFor(model => model.SeguroMedico, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.SeguroMedico, "", new { @class = "text-danger" })
+                            </div> 
                         </div>
                         <br />
                         <div class="row ">

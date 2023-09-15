@@ -77,38 +77,46 @@
                 <div class="card-body"> 
                     <form method="post" onsubmit="return sendAjax();">
                         <div class="row">
+
                             <div class="col-sm-12 flex-column d-flex">
                                 <div class="form-group">
                                     <br />
                                     <label class="form-control-label px-6"><b>Signos vitales</b></label>
                                 </div>
                             </div>
-                            <div class="col-sm-3 flex-column d-flex">
+                            <div class="col-sm-4 flex-column d-flex">
                                 <div class="form-group"> 
                                     @Html.LabelFor(model => model.PresionArterial)
                                     @Html.EditorFor(model => model.PresionArterial, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
                                     @Html.ValidationMessageFor(model => model.PresionArterial, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="col-sm-3 flex-column d-flex">
+                            <div class="col-sm-4 flex-column d-flex">
                                 <div class="form-group"> 
                                     @Html.LabelFor(model => model.Temperatura)
                                     @Html.EditorFor(model => model.Temperatura, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
                                     @Html.ValidationMessageFor(model => model.Temperatura, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="col-sm-3 flex-column d-flex">
+                            <div class="col-sm-4 flex-column d-flex">
                                 <div class="form-group"> 
                                     @Html.LabelFor(model => model.FrecuenciaCardiaca)
                                     @Html.EditorFor(model => model.FrecuenciaCardiaca, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
                                     @Html.ValidationMessageFor(model => model.FrecuenciaCardiaca, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="col-sm-3 flex-column d-flex">
+                            <div class="col-sm-4 flex-column d-flex">
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.FrecuenciaRespiratoria)
                                     @Html.EditorFor(model => model.FrecuenciaRespiratoria, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
                                     @Html.ValidationMessageFor(model => model.FrecuenciaRespiratoria, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4 flex-column d-flex">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SaturacionOxigeno)
+                                    @Html.EditorFor(model => model.SaturacionOxigeno, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.SaturacionOxigeno, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-sm-12 flex-column d-flex">
