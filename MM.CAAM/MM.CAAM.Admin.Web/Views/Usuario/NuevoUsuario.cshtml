@@ -13,11 +13,11 @@
 <div class="container-fluid px-1 py-2 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11"> 
-            <div class="row">
+            @*<div class="row">
                 <div class="col-sm-12 text-center">
                     <img src="~/images/medico/esculapio.png" width="50px" alt="Alternate Text" style="opacity:0.8" />
                 </div>
-            </div>
+            </div>*@
             <br />
             <div class="row">
                 <div class="col-sm-12 text-center">
@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group col-sm-6 col-xs-6">
                                 <label><span class="text-danger">* </span></label>
-                                @Html.LabelFor(model => model.ApellidoPaterno)
+                                @Html.LabelFor(model => model.ApellidoMaterno)
                                 @Html.EditorFor(model => model.ApellidoMaterno, new { htmlAttributes = new { @class = "form-control", @required = "required" } }) @*, @required = "required"*@
                                 @Html.ValidationMessageFor(model => model.ApellidoMaterno, "", new { @class = "text-danger" })
                             </div>
@@ -68,7 +68,7 @@
                             </div>
                             <div class="form-group col-6">
                                 <label>Genero</label>
-                                @*@Html.DropDownListFor(model => model.Genero, (SelectList)ViewBag.Generos, "[SELECCIONE.. ]", new { @class = "form-control" })*@
+                                @Html.DropDownListFor(model => model.GeneroId, (SelectList)ViewBag.Generos, "[SELECCIONE.. ]", new { @class = "form-control" })
                             </div>
                             <div class="form-group col-6">
                                 <label>Rol</label>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="form-group col-6 flex-column d-flex">
                                 <label class="form-control-label px-6"><i class="fa-solid fa-address-book form-control-label"></i> Dirección</label>
-                                @*@Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                             <div class="form-group col-6 flex-column d-flex">
                                 <label class="form-control-label px-6"><i class="fa-solid fa-phone form-control-label"></i> Teléfono</label>
@@ -84,27 +84,9 @@
                                 @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                             <div class="form-group col-6 flex-column d-flex">
-                                <label class="form-control-label px-6"><i class="fa-solid fa-envelope form-control-label"></i> Correo</label>
-
-                                @*@Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control" } })*@
-                            </div>
-                            <div class="form-group col-6 flex-column d-flex">
                                 <label class="form-control-label px-6"><i class="fa-solid fa-briefcase form-control-label"></i> Ocupación</label>
 
-                                @*@Html.EditorFor(model => model.Ocupacion, new { htmlAttributes = new { @class = "form-control" } })*@
-                            </div>
-
-                            <div class="form-group col-sm-6">
-                                <label> Contraseña</label>
-                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label> Comfirmar Contraseña</label>
-                                @*@Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })*@
-                            </div>
-                            <div class="form-group col-sm-12">
-                                @Html.LabelFor(model => model.PerfilNombreArchivo)
-                                @Html.EditorFor(model => model.PerfilNombreArchivo, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                                @Html.EditorFor(model => model.Ocupacion, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                             <div class="form-group col-sm-6">
                                 <label class="form-label">¿Esta Activo?</label>
@@ -122,7 +104,63 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="form-group col-6 flex-column d-flex">
+                                <label class="form-control-label px-6"><i class="fa-solid fa-envelope form-control-label"></i> Correo</label>
+
+                                @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                <label><i class="fa-solid fa-key form-control-label"></i> Contraseña</label>
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label> Comfirmar Contraseña</label>
+                                @Html.EditorFor(model => model.ConfirmarPassword, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                            </div>
+                            <div class="form-group col-6 flex-column d-flex">
+                                <label class="form-control-label px-6"><i class="fa-solid fa-globe form-control-label"></i> Nacionalidad</label>
+                                @Html.EditorFor(model => model.Nacionalidad, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.AntecedentesHeredofamiliares)
+                                @Html.EditorFor(model => model.AntecedentesHeredofamiliares, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.AntecedentesHeredofamiliares, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.AntecedentesPatologicosPersonales)
+                                @Html.EditorFor(model => model.AntecedentesPatologicosPersonales, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.AntecedentesPatologicosPersonales, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.AntecedentesNoPatologicos)
+                                @Html.EditorFor(model => model.AntecedentesNoPatologicos, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.AntecedentesNoPatologicos, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.Religion)
+                                @Html.EditorFor(model => model.Religion, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.Religion, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.GrupoSanguineo)
+                                @Html.EditorFor(model => model.GrupoSanguineo, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.GrupoSanguineo, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.RecomendadoPor)
+                                @Html.EditorFor(model => model.RecomendadoPor, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.RecomendadoPor, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 flex-column d-flex">
+                                @Html.LabelFor(model => model.SeguroMedico)
+                                @Html.EditorFor(model => model.SeguroMedico, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                @Html.ValidationMessageFor(model => model.SeguroMedico, "", new { @class = "text-danger" })
+                            </div> 
                         </div>
+                        <br />
                         <div class="row ">
                             <div class="col-12 ">
                                 <button id="btnEnviar" type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">Agregar</button>  @*ml-auto*@
@@ -142,17 +180,15 @@
         $(document).ready(function () {
             $('#Form1').submit(function (event) {
                 if (!event.result) {
-                    //alert("false");
-                    //return false;
                 }
                 else {
                     event.preventDefault();
                 }
-
             });
         });
         function sendAjax() {
             event.preventDefault();
+            console.log($("form").serialize());
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("CrearUsuario", "Usuario", null)',

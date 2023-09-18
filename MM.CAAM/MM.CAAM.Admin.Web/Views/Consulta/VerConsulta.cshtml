@@ -16,9 +16,101 @@
 <hr />
 <br />
 
-<h1>@Model.MotivoConsulta</h1>
+Datos generales
+<div class="row">
+    <div class="col-6">
+        <div class="card p-2">
+            <h6>Nombre:</h6>
+            <p>@ViewBag.Usuario.NombreCompleto</p>
+            <h6>Fecha de nacimiento:</h6>
+            <p>@ViewBag.Usuario.FechaNacimiento.ToString("dd-MM-yyyy")</p>
+            <h6>Nacionalidad:</h6>
+            <p>@ViewBag.Usuario.Nacionalidad</p>
+            <h6>Correo:</h6>
+            <p>@ViewBag.Usuario.Correo</p>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card p-2">
+            <h6>Sexo:</h6>
+            <p>
+                @switch (@ViewBag.Usuario.GeneroId)
+                {
+                    case 1:
+                        @Html.Raw("Mujer")
+                        ;
+                        break;
+                    case 2:
+                        @Html.Raw("Hombre")
+                        ;
+                        break;
+                    case 3:
+                        @Html.Raw("No binario")
+                        ;
+                        break;
+                    case 4:
+                        @Html.Raw("Prefiero no decirlo")
+                        ;
+                        break;
+                    case 5:
+                        @Html.Raw("Otro")
+                        ;
+                        break;
+                }
+            </p>
+            <h6>Teléfono:</h6>
+            <p>@ViewBag.Usuario.Telefono</p>
+            <h6>Ocupación:</h6>
+            <p>@ViewBag.Usuario.Ocupacion</p>
+            <h6>Fecha de registro:</h6>
+            <p>@ViewBag.Usuario.FechaCreacion</p>
+        </div>
+    </div>
+</div>
+<br/>
+<h5>Signos vitales</h5>
+<div class="card p-3">
+    <div class="row">
+    
+        <div class="col-3">
+            <h6>@Html.LabelFor(model => model.PresionArterial)</h6>
+            <p>@Model.PresionArterial</p>
+        </div>
+        <div class="col-3">
+            <h6>@Html.LabelFor(model => model.Temperatura)</h6>
+            <p>@Model.Temperatura</p>
+        </div>
+        <div class="col-3">
+            <h6>@Html.LabelFor(model => model.FrecuenciaCardiaca)</h6>
+            <p>@Model.FrecuenciaCardiaca</p>
+        </div>
+        <div class="col-3">
+            <h6>@Html.LabelFor(model => model.FrecuenciaRespiratoria)</h6>
+            <p>@Model.FrecuenciaRespiratoria</p>
+        </div>
+    </div>
+</div>
 
-<div class="container-fluid px-1 py-2 mx-auto">
+<br />
+<div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.ComentarioSignosVitales)</h6><p>@Model.ComentarioSignosVitales</p></div></div></div>
+<br /> 
+<div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.MotivoConsulta)</h6><p>@Model.MotivoConsulta</p></div></div></div>
+<br />
+<div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.PadecimientoActual)</h6><p>@Model.PadecimientoActual</p></div></div></div>
+<br />
+<div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.ExploracionFisica)</h6><p>@Model.ExploracionFisica</p></div></div></div>
+<br />
+<div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.Diagnostico)</h6><p>@Model.Diagnostico</p></div></div></div>
+<br />
+<div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.TratamientoMedico)</h6><p>@Model.TratamientoMedico</p></div></div></div>
+<br />
+<div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.EstudiosSolicitadosLaboratorioGabinete)</h6><p>@Model.EstudiosSolicitadosLaboratorioGabinete</p></div></div></div>
+<br />
+<div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.CartaBajoConsentimientoInformado)</h6><p>@Model.CartaBajoConsentimientoInformado</p></div></div></div>
+<br />
+<div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.NotasEvolucion)</h6><p>@Model.NotasEvolucion</p></div></div></div>
+
+<div class="container-fluid px-1 py-2 mx-auto hidden" hidden>
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11">   
             <br />

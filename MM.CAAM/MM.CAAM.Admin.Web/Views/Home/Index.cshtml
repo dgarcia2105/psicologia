@@ -1,238 +1,361 @@
 ﻿@{
-    ViewData["Title"] = "Home Page."; 
     Layout = "~/Views/Shared/_Layout_Public.cshtml";
+    ViewData["Title"] = ViewBag.Title;
+    ViewData["MetaDescripcion"] = ViewBag.MetaDescripcion;
+    ViewData["MetaKeywords"] = ViewBag.MetaKeywords;
+    ViewData["MetaAuthor"] = ViewBag.MetaAuthor;
+    //ViewBag.Title = "Caam: Centro psicológico de aprendizaje profesional";
+    //ViewBag.MetaDescripcion = "Únete hoy a Caam, el centro psicológico profesional de educación en línea y presencial. Prepárate con las habilidades más nuevas y demandadas a un menor precio de lo que gastarías regularmente.";
+    //ViewBag.MetaKeywords = "psicología, clinica, menor precio, tecnologías, servicios, consulta, online, presencial, psicoterapia, familiar, pareja, infantil, adolescentes, terapia, adultos, asesoramiento, educación, profesional, capacitación, docente, evaluación, duelo, orientacion vocacional, orientación, pruebas, anciedad, ansiedad, rehabilitación, terapia, breve, cognitivo conductual, pareja, test machover, consulta subsecuente, en línea, presencial";
+    //ViewBag.MetaAuthor = "caam, dgarcia2105, didade";
 }
 
-@*<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>*@
-
-<section class="Hero Bg-animation" style="--scrollY: 0px;">
+<section class="Hero Bg-animation " style="--scrollY: 0px; ">
     <div class="Hero-content u-wrapper">
         <h1 class="Hero-content-title">
-            <span>Para todos tus retos,</span> <!-- -->prepárate en CAAM
+            <span>Para todos tus retos,</span> prepárate en CAAM
         </h1>
-        <p class="Hero-content-subtitle">La comunidad de aprendizaje en línea y presencial donde desarrollas tus habilidades y potencias tu crecimiento.</p>
+        <p class="Hero-content-subtitle">La comunidad psicológica de aprendizaje en línea y presencial donde desarrollas tus habilidades y potencias tu crecimiento.</p>
         <p class="Hero-content-message">¿Qué quieres lograr?</p>
         <form class="Hero-content-input">
             <input value="" placeholder="Cuéntanos aquí">
             <button type="submit" data-testid="search">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paper-plane-top" class="svg-inline--fa fa-paper-plane-top " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <path fill="currentColor" d="M81.9 27.8C47.1 12.7 12.8 50.1 30.8 83.5l69.3 128.8c4.4 8.3 12.6 13.8 21.9 15c0 0 0 0 0 0l176 22c3.4 .4 6 3.3 6 6.7s-2.6 6.3-6 6.7l-176 22s0 0 0 0c-9.3 1.2-17.5 6.8-21.9 15L30.8 428.5c-18 33.4 16.3 70.8 51.1 55.7L523.8 292.7c32.1-13.9 32.1-59.5 0-73.4L81.9 27.8z"></path>
-                </svg>
-                @*<i class="fa-solid fa-paper-plane-top"></i>*@
+                </svg> 
             </button>
         </form>
     </div>
-</section>
+</section> 
 
-<section class="MarqueesCarousel">
-    <h6 class="MarqueesCarousel-title">Inspírate en preguntas de la comunidad:</h6>
+<section class="MarqueesCarousel ">
+    
     <div class="MarqueesCarousel-container">
         <section class="MarqueesCarousel-container-marquee MarqueesCarousel-container-marquee--left">
             <div>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20programar%20con%20Python">
-                    "<!-- -->Quiero aprender a programar con Python<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20cambiar%20de%20empleo">
-                    "<!-- -->como cambiar de empleo<!-- -->"
-                </a>
-                <a href="/buscar/?search=Crear%20una%20página%20web">
-                    "<!-- -->Crear una página web<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20perder%20el%20miedo%20a%20hablar%20en%20público">
-                    "<!-- -->quiero perder el miedo a hablar en público<!-- -->"
-                </a>
-                <a href="/buscar/?search=Crear%20un%20juego%20para%20teléfonos">
-                    "<!-- -->Crear un juego para teléfonos<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20programar">
-                    "<!-- -->Quiero aprender a programar<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20hacer%20análisis%20de%20datos">
-                    "<!-- -->Como hacer análisis de datos<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20abordar%20una%20negociación">
-                    "<!-- -->como abordar una negociación<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20crear%20un%20proyecto%20en%20blockchain">
-                    "<!-- -->Quiero crear un proyecto en blockchain<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20usar%20git%20y%20github">
-                    "<!-- -->Como usar git y github<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20usar%20servidores">
-                    "<!-- -->Quiero aprender a usar servidores<!-- -->"
-                </a>
+                <a href="/buscar/?search=consulta_psicologica_online">"Consulta psicológica online<!-- -->"</a>
+                <a href="/buscar/?search=evaluaciones_clinicas">"<!-- -->Evaluaciones clínicas<!-- -->"</a>
+                <a href="/buscar/?search=evaluaciones_psicometricas">"<!-- -->Evaluaciones psicométricas<!-- -->"</a>
+                <a href="/buscar/?search=intervencion_en_crisis">"<!-- -->Intervención en crisis<!-- -->"</a>
+                <a href="/buscar/?search=orientacion_para_padres">"<!-- -->Orientación para padres<!-- -->"</a>
+                <a href="/buscar/?search=primera_visita_psicologia">"<!-- -->Primera visita Psicología<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_familiar">"<!-- -->Psicoterapia familiar<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_infantil">"<!-- -->Psicoterapia infantil<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_para_adolescentes">"<!-- -->Psicoterapia para adolescentes<!-- -->"</a>
             </div>
             <div>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20programar%20con%20Python">
-                    "<!-- -->Quiero aprender a programar con Python<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20cambiar%20de%20empleo">
-                    "<!-- -->como cambiar de empleo<!-- -->"
-                </a>
-                <a href="/buscar/?search=Crear%20una%20página%20web">
-                    "<!-- -->Crear una página web<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20perder%20el%20miedo%20a%20hablar%20en%20público">
-                    "<!-- -->quiero perder el miedo a hablar en público<!-- -->"
-                </a>
-                <a href="/buscar/?search=Crear%20un%20juego%20para%20teléfonos">
-                    "<!-- -->Crear un juego para teléfonos<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20programar">
-                    "<!-- -->Quiero aprender a programar<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20hacer%20análisis%20de%20datos">
-                    "<!-- -->Como hacer análisis de datos<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20abordar%20una%20negociación">
-                    "<!-- -->como abordar una negociación<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20crear%20un%20proyecto%20en%20blockchain">
-                    "<!-- -->Quiero crear un proyecto en blockchain<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20usar%20git%20y%20github">
-                    "<!-- -->Como usar git y github<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20a%20usar%20servidores">
-                    "<!-- -->Quiero aprender a usar servidores<!-- -->"
-                </a>
+                <a href="/buscar/?search=consulta_psicologica_online">"<!-- -->Consulta psicológica online<!-- -->"</a>
+                <a href="/buscar/?search=evaluaciones_clinicas">"<!-- -->Evaluaciones clínicas<!-- -->"</a>
+                <a href="/buscar/?search=evaluaciones_psicometricas">"<!-- -->Evaluaciones psicométricas<!-- -->"</a>
+                <a href="/buscar/?search=intervencion_en_crisis">"<!-- -->Intervención en crisis<!-- -->"</a>
+                <a href="/buscar/?search=orientacion_para_padres">"<!-- -->Orientación para padres<!-- -->"</a>
+                <a href="/buscar/?search=primera_visita_psicologia">"<!-- -->Primera visita Psicología<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_familiar">"<!-- -->Psicoterapia familiar<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_infantil">"<!-- -->Psicoterapia infantil<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia_para_adolescentes">"<!-- -->Psicoterapia para adolescentes<!-- -->"</a>
             </div>
         </section>
         <section class="MarqueesCarousel-container-marquee MarqueesCarousel-container-marquee--right">
             <div>
-                <a href="/buscar/?search=Quiero%20ser%20creativa">
-                    "<!-- -->Quiero ser creativa<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20inglés">
-                    "<!-- -->Quiero aprender inglés<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20puedo%20emprender%20y%20tener%20mi%20empresa">
-                    "<!-- -->como puedo emprender y tener mi empresa<!-- -->"
-                </a>
-                <a href="/buscar/?search=crear%20una%20comunidad">
-                    "<!-- -->crear una comunidad<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20aplicaciones%20sin%20código">
-                    "<!-- -->quiero crear aplicaciones sin código<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20a%20diseñar">
-                    "<!-- -->quiero aprender a diseñar<!-- -->"
-                </a>
-                <a href="/buscar/?search=aprender%20a%20hacer%20seo">
-                    "<!-- -->aprender a hacer seo<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20un%20documental">
-                    "<!-- -->quiero crear un documental<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20un%20podcast">
-                    "<!-- -->quiero crear un podcast<!-- -->"
-                </a>
-                <a href="/buscar/?search=crear%20contenido%20y%20ser%20influencer">
-                    "<!-- -->crear contenido y ser influencer<!-- -->"
-                </a>
+                <a href="/buscar/?search=terapia_familiar">"<!-- -->Terapia familiar<!-- -->"</a>
+                <a href="/buscar/?search=terapia_individual">"<!-- -->Terapia individual<!-- -->"</a>
+                <a href="/buscar/?search=terapia_para_adultos">"<!-- -->Terapia para adultos<!-- -->"</a>
+                <a href="/buscar/?search=visitas_sucesivas_psicologia">"<!-- -->Visitas sucesivas Psicología<!-- -->"</a>
+                <a href="/buscar/?search=asesoramiento_educativo_familiar">"<!-- -->Asesoramiento Educativo Familiar<!-- -->"</a>
+                <a href="/buscar/?search=capacitacion_docente">"<!-- -->Capacitación docente<!-- -->"</a>
+                <a href="/buscar/?search=evaluacion_psicologica">"<!-- -->Evaluación psicológica<!-- -->"</a>
+                <a href="/buscar/?search=manejo_de_duelo">"<!-- -->Manejo de duelo<!-- -->"</a>
+                <a href="/buscar/?search=orientacion_vocacional">"<!-- -->Orientación vocacional<!-- -->"</a>
+                <a href="/buscar/?search=visita_domiciliaria_psicologia">"<!-- -->Visita domiciliaria Psicología<!-- -->"</a>
             </div>
             <div>
-                <a href="/buscar/?search=Quiero%20ser%20creativa">
-                    "<!-- -->Quiero ser creativa<!-- -->"
-                </a>
-                <a href="/buscar/?search=Quiero%20aprender%20inglés">
-                    "<!-- -->Quiero aprender inglés<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20puedo%20emprender%20y%20tener%20mi%20empresa">
-                    "<!-- -->como puedo emprender y tener mi empresa<!-- -->"
-                </a>
-                <a href="/buscar/?search=crear%20una%20comunidad">
-                    "<!-- -->crear una comunidad<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20aplicaciones%20sin%20código">
-                    "<!-- -->quiero crear aplicaciones sin código<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20a%20diseñar">
-                    "<!-- -->quiero aprender a diseñar<!-- -->"
-                </a>
-                <a href="/buscar/?search=aprender%20a%20hacer%20seo">
-                    "<!-- -->aprender a hacer seo<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20un%20documental">
-                    "<!-- -->quiero crear un documental<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20crear%20un%20podcast">
-                    "<!-- -->quiero crear un podcast<!-- -->"
-                </a>
-                <a href="/buscar/?search=crear%20contenido%20y%20ser%20influencer">
-                    "<!-- -->crear contenido y ser influencer<!-- -->"
-                </a>
+                <a href="/buscar/?search=terapia_familiar">"<!-- -->Terapia familiar<!-- -->"</a>
+                <a href="/buscar/?search=terapia_individual">"<!-- -->Terapia individual<!-- -->"</a>
+                <a href="/buscar/?search=terapia_para_adultos">"<!-- -->Terapia para adultos<!-- -->"</a>
+                <a href="/buscar/?search=visitas_sucesivas_psicologia">"<!-- -->Visitas sucesivas Psicología<!-- -->"</a>
+                <a href="/buscar/?search=asesoramiento_educativo_familiar">"<!-- -->Asesoramiento Educativo Familiar<!-- -->"</a>
+                <a href="/buscar/?search=capacitacion_docente">"<!-- -->Capacitación docente<!-- -->"</a>
+                <a href="/buscar/?search=evaluacion_psicologica">"<!-- -->Evaluación psicológica<!-- -->"</a>
+                <a href="/buscar/?search=manejo_de_duelo">"<!-- -->Manejo de duelo<!-- -->"</a>
+                <a href="/buscar/?search=orientacion_vocacional">"<!-- -->Orientación vocacional<!-- -->"</a>
+                <a href="/buscar/?search=visita_domiciliaria_psicologia">"<!-- -->Visita domiciliaria Psicología<!-- -->"</a>
             </div>
         </section>
         <section class="MarqueesCarousel-container-marquee MarqueesCarousel-container-marquee--left">
             <div>
-                <a href="/buscar/?search=como%20liderar%20equipos">
-                    "<!-- -->como liderar equipos<!-- -->"
-                </a>
-                <a href="/buscar/?search=aprender%20de%20marketing">
-                    "<!-- -->aprender de marketing<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20ser%20periodista">
-                    "<!-- -->como ser periodista<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20mejorar%20mis%20ventas">
-                    "<!-- -->como mejorar mis ventas<!-- -->"
-                </a>
-                <a href="/buscar/?search=manejar%20mi%20dinero%20y%20deudas">
-                    "<!-- -->manejar mi dinero y deudas<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20doy%20mejor%20el%20feedback">
-                    "<!-- -->Como doy mejor el feedback<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20crear%20mi%20modelo%20de%20negocio">
-                    "<!-- -->Como crear mi modelo de negocio<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20a%20usar%20excel">
-                    "<!-- -->quiero aprender a usar excel<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20mejorar%20mis%20redes%20sociales">
-                    "<!-- -->quiero mejorar mis redes sociales<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20de%20fotografía">
-                    "<!-- -->quiero aprender de fotografía<!-- -->"
-                </a>
+                <a href="/buscar/?search=pruebas_de_ansiedad">"<!-- -->Pruebas de ansiedad<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia">"<!-- -->Psicoterapia<!-- -->"</a>
+                <a href="/buscar/?search=terapia_breve">"<!-- -->Terapia breve<!-- -->"</a>
+                <a href="/buscar/?search=terapia_cognitivo-conductual_(tcc)">"<!-- -->Terapia cognitivo-conductual (TCC)<!-- -->"</a>
+                <a href="/buscar/?search=terapia_de_pareja">"<!-- -->Terapia de pareja<!-- -->"</a>
+                <a href="/buscar/?search=test_de_machover">"<!-- -->Test de Machover<!-- -->"</a>
+                <a href="/buscar/?search=visita_psicologia">"<!-- -->Visita Psicología<!-- -->"</a>
+                <a href="/buscar/?search=consulta_subsecuente">"<!-- -->Consulta subsecuente<!-- -->"</a>
+                <a href="/buscar/?search=consulta_de_primera_vez">"<!-- -->Consulta de primera vez<!-- -->"</a>
+                <a href="/buscar/?search=consulta_en_linea">"<!-- -->Consulta en línea<!-- -->"</a>
+                <a href="/buscar/?search=rehabilitacion_domiciliaria">"<!-- -->Rehabilitación domiciliaria<!-- -->"</a>
             </div>
             <div>
-                <a href="/buscar/?search=como%20liderar%20equipos">
-                    "<!-- -->como liderar equipos<!-- -->"
-                </a>
-                <a href="/buscar/?search=aprender%20de%20marketing">
-                    "<!-- -->aprender de marketing<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20ser%20periodista">
-                    "<!-- -->como ser periodista<!-- -->"
-                </a>
-                <a href="/buscar/?search=como%20mejorar%20mis%20ventas">
-                    "<!-- -->como mejorar mis ventas<!-- -->"
-                </a>
-                <a href="/buscar/?search=manejar%20mi%20dinero%20y%20deudas">
-                    "<!-- -->manejar mi dinero y deudas<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20doy%20mejor%20el%20feedback">
-                    "<!-- -->Como doy mejor el feedback<!-- -->"
-                </a>
-                <a href="/buscar/?search=Como%20crear%20mi%20modelo%20de%20negocio">
-                    "<!-- -->Como crear mi modelo de negocio<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20a%20usar%20excel">
-                    "<!-- -->quiero aprender a usar excel<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20mejorar%20mis%20redes%20sociales">
-                    "<!-- -->quiero mejorar mis redes sociales<!-- -->"
-                </a>
-                <a href="/buscar/?search=quiero%20aprender%20de%20fotografía">
-                    "<!-- -->quiero aprender de fotografía<!-- -->"
-                </a>
+                <a href="/buscar/?search=pruebas_de_ansiedad">"<!-- -->Pruebas de ansiedad<!-- -->"</a>
+                <a href="/buscar/?search=psicoterapia">"<!-- -->Psicoterapia<!-- -->"</a>
+                <a href="/buscar/?search=terapia_breve">"<!-- -->Terapia breve<!-- -->"</a>
+                <a href="/buscar/?search=terapia_cognitivo-conductual_(tcc)">"<!-- -->Terapia cognitivo-conductual (TCC)<!-- -->"</a>
+                <a href="/buscar/?search=terapia_de_pareja">"<!-- -->Terapia de pareja<!-- -->"</a>
+                <a href="/buscar/?search=test_de_machover">"<!-- -->Test de Machover<!-- -->"</a>
+                <a href="/buscar/?search=visita_psicologia">"<!-- -->Visita Psicología<!-- -->"</a>
+                <a href="/buscar/?search=consulta_subsecuente">"<!-- -->Consulta subsecuente<!-- -->"</a>
+                <a href="/buscar/?search=consulta_de_primera_vez">"<!-- -->Consulta de primera vez<!-- -->"</a>
+                <a href="/buscar/?search=consulta_en_linea">"<!-- -->Consulta en línea<!-- -->"</a>
+                <a href="/buscar/?search=rehabilitacion_domiciliaria">"<!-- -->Rehabilitación domiciliaria<!-- -->"</a>
             </div>
         </section>
     </div>
+</section>
+
+<section class="BulletExplainer ">
+    <div class="u-wrapper">
+        <div class="BulletExplainer-content">
+            <h2 class="BulletExplainer-heading" data-trans="">¿CÓMO APRENDES CON CAAM?</h2>
+            <h3 class="BulletExplainer-title" data-trans="">Te damos las herramientas para crecer</h3>
+            <ul class="BulletExplainer-bullets">
+                <li class="BulletExplainer-bullet">
+                    <h4 class="BulletExplainer-bulletTitle">Crea</h4>
+                    <p class="BulletExplainer-bulletDescription">Adquiere el conocimiento necesario para convertir tus ideas en nuevos proyectos.</p>
+                </li>
+                <li class="BulletExplainer-bullet">
+                    <h4 class="BulletExplainer-bulletTitle">Comparte</h4>
+                    <p class="BulletExplainer-bulletDescription">Conecta con la comunidad con un mejor estilo de vida, plena y profesional.</p>
+                </li>
+                <li class="BulletExplainer-bullet">
+                    <h4 class="BulletExplainer-bulletTitle">Transforma</h4>
+                    <p class="BulletExplainer-bulletDescription">Aprende y cambia tus hábitos, cambia y ve por la vida que tu quieres.</p>
+                </li>
+            </ul>
+            <div class="BulletExplainer-triangle"></div>
+        </div>
+    </div>
+</section>
+
+<section class="LearningRoutes u-wrapper" style="display: flex; justify-content: center; width: 100%;">
+   <h2 class="LearningRoutes-title">Mejora tus habilidades</h2>
+   <p class="LearningRoutes-subtitle">
+       Elige una ruta de aprendizaje y sigue un orden de cursos sobre temas o áreas específicas, de forma ágil y guiada.
+        @*<br /><br />
+        <span>1) Consulta de primera vez. 2) Historia clínica. 3) Consulta de seguimiento. 4) Consulta en línea. 5)
+            Terapia de pareja. 6) Evaluación psicológica / psicométrica. 7) Orientación a padres. 8) Capacitación docente. 9) 
+            También se proporcionan cursos
+        </span>*@
+   </p>
+   
+   <div>
+      <div class="LearningRoutes-slider" aria-label="carousel">
+         <a href="">@*https://platzi.com/ruta/fundamentos-programacion/*@
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_computerscience_2x_efd708987d.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses">@*13 Cursos*@</span></div>
+               <div class="LearningCard-content">
+                  @*<h3 class="LearningCard-title">Fundamentos de programación</h3>
+                  <p class="LearningCard-subtitle">Da tus primeros pasos en el mundo de la programación aprendiendo sus estructuras fundamentales y la lógica funcional detrás de cada línea de código.</p>
+                  *@
+                        <h3 class="LearningCard-title">Consulta de primera vez </h3>
+                  <p class="LearningCard-subtitle">
+                            Da tus primeros pasos en el mundo de la psicología, entérate de las mejores herramientas para lograr a mejorar tu vida.
+                      </p>
+                      @*<span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>*@
+               </div>
+            </div>
+         </a>
+            @*https://platzi.com/ruta/javascript-full-stack/*@
+         <a href="">
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_computerscience_2x_efd708987d.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses">@*23 Cursos*@</span></div>
+               <div class="LearningCard-content">
+                  @*<h3 class="LearningCard-title">Full Stack Developer con JavaScript</h3>
+                  <p class="LearningCard-subtitle">Aprende a construir aplicaciones y sitios web tanto backend como frontend, usando JavaScript, Node y React.</p>
+                  *@
+                        <h3 class="LearningCard-title">Historia clínica </h3>
+                        <p class="LearningCard-subtitle">
+                            Aprende sobre tus datos a mayor profundidad y específicos referentes a tu desarrollo e infancia, antecedentes médicos y muchos más.
+                        </p>
+                  @*<span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>*@
+               </div>
+            </div>
+         </a>
+            @*https://platzi.com/ruta/liderazgo-basico/*@
+         <a href="">
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_softskills_2x_fa7eb1d857.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses">@*21 Cursos*@</span></div>
+               <div class="LearningCard-content">
+                  @*<h3 class="LearningCard-title">Liderazgo</h3>
+                  <p class="LearningCard-subtitle">Aprende a dirigir equipos influyendo positivamente en las personas y aprovechando sus talentos para alcanzar objetivos ambiciosos.</p>
+                  *@
+                  <h3 class="LearningCard-title">Consulta de seguimiento</h3>
+                  <p class="LearningCard-subtitle">
+                            Aprende de tus avances y haz una intervención terapéutica con la finalidad de trabajar tus siguientes metas y mejorar lo aprendido.
+                        </p>
+                  @*<span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>*@
+               </div>
+            </div>
+         </a>
+            @*https://platzi.com/ruta/tiempo/*@
+         <a href="">
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_softskills_2x_fa7eb1d857.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses">@*8 Cursos*@</span></div>
+               <div class="LearningCard-content">
+                        <h3 class="LearningCard-title">Consulta en línea </h3>
+                        <p class="LearningCard-subtitle">Aprende desde la comodidad de tu casa o lugar de preferencia accediendo al link proporcionado por tu terapeuta.</p>
+                  
+                  @*<h3 class="LearningCard-title">Gestión del tiempo</h3>
+                  <p class="LearningCard-subtitle">Aprende a manejar tu tiempo de manera óptima para mejorar tu productividad y cumplir tus metas.</p>
+                  *@
+                  @*<span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>*@
+               </div>
+            </div>
+         </a>
+            @*https://platzi.com/ruta/periodista/*@
+         <a href="">
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_digitalcontent_2x_200b13abd4.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses">@*19 Cursos*@</span></div>
+               <div class="LearningCard-content">
+                        <h3 class="LearningCard-title">Terapia de pareja</h3>
+                  <p class="LearningCard-subtitle">
+                            Aprende junto con tu pareja, controla los impulsos, regula tus emociones, resuelve los conflictos y mejora tu relación.
+                  </p>
+                  @*<span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>*@
+               </div>
+            </div>
+         </a>
+            @*https://platzi.com/ruta/data-marketer/*@
+         <a href="">
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_marketing_2x_a501fe11b8.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses">@*13 Cursos*@</span></div>
+               <div class="LearningCard-content">
+                        <h3 class="LearningCard-title">Evaluación psicológica/ psicométrica</h3>
+                        <p class="LearningCard-subtitle">Aprende con la recopilación de tus evaluaciones mediante test, entrevistas, aplicación de instrumentos, pruebas, baterías e inventarios.</p>
+                  @*<span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>*@
+               </div>
+            </div>
+         </a>
+            @*https://platzi.com/ruta/fundamentos-data/*@
+         <a href="">
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_computerscience_2x_efd708987d.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses">@*8 Cursos*@</span></div>
+               <div class="LearningCard-content">
+                        <h3 class="LearningCard-title">Orientación a padres</h3>
+                        <p class="LearningCard-subtitle">
+                            Aprende con un espacio para padres donde serás escuchado, comprendido y apoyado. Expresa tus emociones, temores, dudas y sentimientos acerca de tus hijos en un clima profesional de confianza.
+                        </p>
+                  @*<span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>*@
+               </div>
+            </div>
+         </a>
+            @*https://platzi.com/ruta/domina-excel/*@
+         <a href="">
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_business_2x_cd61dfd710.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses">@*6 Cursos*@</span></div>
+               <div class="LearningCard-content">
+                        <h3 class="LearningCard-title">Capacitación docente</h3>
+                  <p class="LearningCard-subtitle">
+                      Aprende con una intervención con tu terapeuta, dentro de los diferentes niveles educativos mediante asesoramiento para el trato y trabajo hacia el niño que requiera terapia.
+                      </p>
+                  @*<span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>*@
+               </div>
+            </div>
+         </a>
+            @*https://platzi.com/ruta/beginner-core/*@
+         <a href="">
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_english_2x_b9628900b5.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses">@*9 Cursos*@</span></div>
+               <div class="LearningCard-content">
+                        <h3 class="LearningCard-title">Diversidad de cursos</h3>
+                  <p class="LearningCard-subtitle">
+                            - Estrategias docentes en el aula. 
+                            <br />
+                            - Intervención con niños que presentan trastornos del neurodesarrollo.
+                            <br />
+                            - Entrenamiento y Formación de maestra sombra.
+                      </p>
+                  @*<span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>*@
+               </div>
+            </div>
+         </a>
+         @*<a href=""> 
+            <div class="LearningCard" style="background-image: url(&quot;https://static.platzi.com/cdn-cgi/image/width=1024,quality=85,format=auto/media/uploads/school_bg_startups_2x_9008b78e5d.png&quot;);">
+               <div class="LearningCard-header"><span class="LearningCard-badge">Ruta</span><span class="LearningCard-courses"></span></div>
+               <div class="LearningCard-content">
+                  <h3 class="LearningCard-title">Emprende desde cero hasta tus primeros usuarios</h3>
+                  <p class="LearningCard-subtitle">Esta ruta te llevará desde cómo buscar ideas para emprender hasta tus primeros usuarios.</p>
+                  <span class="LearningCard-link">
+                     Ir a la ruta
+                     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right LearningCard-link-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"></path>
+                     </svg>
+                  </span>
+               </div>
+            </div>
+         </a>*@
+      </div>
+   </div>
+</section>
+
+<section class="VideoDiscover">
+    <div class="VideoDiscover-video">
+        <video data-testid="video" preload="none" muted="" autoplay="" loop="" playsinline="">
+            <source type="video/mp4" src="~/images/videos/video_desktop_2_de542cd596.mp4">
+        </video>
+        <div class="VideoDiscover-overlay"></div>
+    </div>
+    <section class="VideoDiscover-container">
+        <section class="VideoDiscover-content u-wrapper">
+            <h2>Descubre por dónde comenzar</h2>
+            <p role="paragraph">Envía un WhatsApp y descubre la ruta ideal para ti</p>
+            <a href="https://wa.me/526861756268" color="sky" hierarchy="primary" class="Button Button--medium Button--sky Button--primary primary-btn">
+                <i class="fa-brands fa-whatsapp" ></i> Ir al chat
+                </a>
+        </section>
+    </section>
 </section>

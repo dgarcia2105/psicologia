@@ -10,7 +10,7 @@
 <nav class="navbar navbar-expand-sm bg-transparent justify-content-right">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <h3>Nueva Consulta</h3>
+            <h3>Nueva Consulta de: @ViewBag.Usuario.NombreCompleto</h3>
         </li>
     </ul> 
 </nav>
@@ -19,27 +19,185 @@
 
 <div class="container-fluid px-1 py-2 mx-auto">
     <div class="row d-flex justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-9 col-11">   
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11"> 
+            Datos generales
+            <div class="row">
+                <div class="col-6">
+                    <div class="card p-2">
+                        <h6>Nombre:</h6>
+                        <p>@ViewBag.Usuario.NombreCompleto</p>
+                        <h6>Fecha de nacimiento:</h6>
+                        <p>@ViewBag.Usuario.FechaNacimiento.ToString("dd-MM-yyyy")</p>
+                        <h6>Nacionalidad:</h6>
+                        <p>@ViewBag.Usuario.Nacionalidad</p>
+                        <h6>Correo:</h6>
+                        <p>@ViewBag.Usuario.Correo</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card p-2">
+                        <h6>Sexo:</h6>
+                        <p>
+                            @switch (@ViewBag.Usuario.GeneroId)
+                            {
+                                case 1:
+                                    @Html.Raw("Mujer")
+                                    ;
+                                    break;
+                                case 2:
+                                    @Html.Raw("Hombre")
+                                    ;
+                                    break;
+                                case 3:
+                                    @Html.Raw("No binario")
+                                    ;
+                                    break;
+                                case 4:
+                                    @Html.Raw("Prefiero no decirlo")
+                                    ;
+                                    break;
+                                case 5:
+                                    @Html.Raw("Otro")
+                                    ;
+                                    break;
+                            } 
+                        </p>
+                        <h6>Teléfono:</h6>
+                        <p>@ViewBag.Usuario.Telefono</p>
+                        <h6>Ocupación:</h6>
+                        <p>@ViewBag.Usuario.Ocupacion</p>
+                        <h6>Fecha de registro:</h6>
+                        <p>@ViewBag.Usuario.FechaCreacion</p>
+                    </div>
+                </div>
+            </div>
+
             <br />
             <div class="card">
                 <div class="card-body"> 
                     <form method="post" onsubmit="return sendAjax();">
-                        <div class="row  text-left">
-                            <div class="col-sm-6 flex-column d-flex">
+                        <div class="row">
+
+                            <div class="col-sm-12 flex-column d-flex">
                                 <div class="form-group">
+                                    <br />
+                                    <label class="form-control-label px-6"><b>Signos vitales</b></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 flex-column d-flex">
+                                <div class="form-group"> 
+                                    @Html.LabelFor(model => model.PresionArterial)
+                                    @Html.EditorFor(model => model.PresionArterial, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.PresionArterial, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4 flex-column d-flex">
+                                <div class="form-group"> 
+                                    @Html.LabelFor(model => model.Temperatura)
+                                    @Html.EditorFor(model => model.Temperatura, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.Temperatura, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4 flex-column d-flex">
+                                <div class="form-group"> 
+                                    @Html.LabelFor(model => model.FrecuenciaCardiaca)
+                                    @Html.EditorFor(model => model.FrecuenciaCardiaca, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.FrecuenciaCardiaca, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4 flex-column d-flex">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.FrecuenciaRespiratoria)
+                                    @Html.EditorFor(model => model.FrecuenciaRespiratoria, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.FrecuenciaRespiratoria, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4 flex-column d-flex">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SaturacionOxigeno)
+                                    @Html.EditorFor(model => model.SaturacionOxigeno, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.SaturacionOxigeno, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group"> 
+                                    @Html.LabelFor(model => model.ComentarioSignosVitales)
+                                    @Html.EditorFor(model => model.ComentarioSignosVitales, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.ComentarioSignosVitales, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group">
+                                    <br />
                                     <label class="form-control-label px-6"><span class="text-danger">* </span></label>
                                     @Html.LabelFor(model => model.MotivoConsulta)
                                     @Html.EditorFor(model => model.MotivoConsulta, new { htmlAttributes = new { @class = "form-control", @required = "required" } }) @*@placeholder = Model.Nombres, @required = "required"*@
                                     @Html.ValidationMessageFor(model => model.MotivoConsulta, "", new { @class = "text-danger" })
                                 </div>
-                            </div> 
+                            </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group">
+                                    <br /> 
+                                    @Html.LabelFor(model => model.PadecimientoActual)
+                                    @Html.EditorFor(model => model.PadecimientoActual, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.PadecimientoActual, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group">
+                                    <br />
+                                    @Html.LabelFor(model => model.ExploracionFisica)
+                                    @Html.EditorFor(model => model.ExploracionFisica, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.ExploracionFisica, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group">
+                                    <br />
+                                    @Html.LabelFor(model => model.Diagnostico)
+                                    @Html.EditorFor(model => model.Diagnostico, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.Diagnostico, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group">
+                                    <br />
+                                    @Html.LabelFor(model => model.TratamientoMedico)
+                                    @Html.EditorFor(model => model.TratamientoMedico, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.TratamientoMedico, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group">
+                                    <br />
+                                    @Html.LabelFor(model => model.EstudiosSolicitadosLaboratorioGabinete)
+                                    @Html.EditorFor(model => model.EstudiosSolicitadosLaboratorioGabinete, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.EstudiosSolicitadosLaboratorioGabinete, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group">
+                                    <br />
+                                    @Html.LabelFor(model => model.CartaBajoConsentimientoInformado)
+                                    @Html.EditorFor(model => model.CartaBajoConsentimientoInformado, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.CartaBajoConsentimientoInformado, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group">
+                                    <br />
+                                    @Html.LabelFor(model => model.NotasEvolucion)
+                                    @Html.EditorFor(model => model.NotasEvolucion, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.NotasEvolucion, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
                         </div>
 
                         <br />
 
                         <div class="row ">
                             <div class="col-12 ">
-                                <button id="btnEnviar" type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">Agregar</button>  @*ml-auto*@
+                                <button id="btnEnviar" type="submit" class="btn btn-primary float-right form-control" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">Agregar</button>  @*ml-auto*@
                             </div>
                         </div>
                     </form> 

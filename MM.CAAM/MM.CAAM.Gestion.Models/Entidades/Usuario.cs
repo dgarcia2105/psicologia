@@ -49,6 +49,15 @@ namespace MM.CAAM.Gestion.Models.Entidades
         public string? Profesion { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
+        public string? Nacionalidad { get; set; }
+        
+        [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
+        public string? Ocupacion { get; set; }
+
+        [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
+        public string? Direccion { get; set; }
+
+        [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? Calle { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
@@ -64,6 +73,13 @@ namespace MM.CAAM.Gestion.Models.Entidades
         public string? Municipio { get; set; }
         public string? Latitud { get; set; }
         public string? Longitud { get; set; }
+        public string? AntecedentesHeredofamiliares { get; set; }
+        public string? AntecedentesPatologicosPersonales { get; set; }
+        public string? AntecedentesNoPatologicos { get; set; }
+        public string? Religion { get; set; }
+        public string? GrupoSanguineo { get; set; }
+        public string? RecomendadoPor { get; set; }
+        public string? SeguroMedico { get; set; }
         public DateTime? FechaCreacion { get; set; }
         public DateTime? FechaActualizacion { get; set; }
         public DateTime? FechaAcceso { get; set; }

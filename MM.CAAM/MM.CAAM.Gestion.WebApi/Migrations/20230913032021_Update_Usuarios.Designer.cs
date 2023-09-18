@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230913032021_Update_Usuarios")]
+    partial class UpdateUsuarios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,47 +176,8 @@ namespace MM.CAAM.Gestion.Models.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CartaBajoConsentimientoInformado")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ComentarioSignosVitales")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Diagnostico")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EstudiosSolicitadosLaboratorioGabinete")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ExploracionFisica")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FrecuenciaCardiaca")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FrecuenciaRespiratoria")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("MotivoConsulta")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NotasEvolucion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PadecimientoActual")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PresionArterial")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SaturacionOxigeno")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Temperatura")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TratamientoMedico")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UsuarioId")
@@ -339,15 +303,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Property<bool?>("Activo")
                         .HasColumnType("bit");
 
-                    b.Property<string>("AntecedentesHeredofamiliares")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AntecedentesNoPatologicos")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AntecedentesPatologicosPersonales")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ApellidoMaterno")
                         .IsRequired()
                         .HasMaxLength(120)
@@ -396,9 +351,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Property<int?>("GeneroId")
                         .HasColumnType("int");
 
-                    b.Property<string>("GrupoSanguineo")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Latitud")
                         .HasColumnType("nvarchar(max)");
 
@@ -441,17 +393,8 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<string>("RecomendadoPor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Religion")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("RolId")
                         .HasColumnType("int");
-
-                    b.Property<string>("SeguroMedico")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
                         .HasMaxLength(120)

@@ -112,13 +112,14 @@ namespace MM.CAAM.Gestion.Models.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UsuarioCreacionDTO usuarioCreacionDTO)  //DTOs y AUTOMAPPER
+        public async Task<ActionResult> Post([FromBody] UsuarioCreacionDTO usuarioCreacionDTO)
         {
             try
             {
-                if (!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) || !string.IsNullOrEmpty(usuarioCreacionDTO.Correo)) { 
-                var userRepetido = await context.Usuarios.Where(x => (!string.IsNullOrEmpty(usuarioCreacionDTO.Correo) && x.Correo.Equals(usuarioCreacionDTO.Correo))
-                                                                                 || (!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) && x.NombrePerfil.Equals(usuarioCreacionDTO.NombrePerfil))).FirstOrDefaultAsync();
+                if (!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) || !string.IsNullOrEmpty(usuarioCreacionDTO.Correo))
+                {
+                    var userRepetido = await context.Usuarios.Where(x => (!string.IsNullOrEmpty(usuarioCreacionDTO.Correo) && x.Correo.Equals(usuarioCreacionDTO.Correo))
+                                                                                     || (!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) && x.NombrePerfil.Equals(usuarioCreacionDTO.NombrePerfil))).FirstOrDefaultAsync();
 
                     if (userRepetido != null && (!string.IsNullOrEmpty(usuarioCreacionDTO.NombrePerfil) || !string.IsNullOrEmpty(usuarioCreacionDTO.Correo)))
                     {
@@ -139,15 +140,13 @@ namespace MM.CAAM.Gestion.Models.Controllers
 
                 #endregion
 
-                var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);                              
+                var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);
 
-                context.Add(usuario);                                                               
+                context.Add(usuario);
                 await context.SaveChangesAsync();
 
                 var usuarioDTO = mapper.Map<UsuarioDTO>(usuario);
 
-                //return CreatedAtRoute("ObtenerUsuario", new { id = usuario.Id }, usuarioDTO);
-                
                 return Ok(new Result { Code = StatusCodes.Status200OK });
             }
             catch (ValidationException ex)

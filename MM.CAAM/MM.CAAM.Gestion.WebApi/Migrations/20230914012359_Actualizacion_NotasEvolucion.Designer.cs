@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230914012359_Actualizacion_NotasEvolucion")]
+    partial class ActualizacionNotasEvolucion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,9 +210,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Property<string>("PresionArterial")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SaturacionOxigeno")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Temperatura")
                         .HasColumnType("nvarchar(max)");
 
@@ -396,9 +396,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Property<int?>("GeneroId")
                         .HasColumnType("int");
 
-                    b.Property<string>("GrupoSanguineo")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Latitud")
                         .HasColumnType("nvarchar(max)");
 
@@ -441,17 +438,8 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<string>("RecomendadoPor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Religion")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("RolId")
                         .HasColumnType("int");
-
-                    b.Property<string>("SeguroMedico")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
                         .HasMaxLength(120)

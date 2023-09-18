@@ -26,6 +26,13 @@ namespace MM.CAAM.Admin.Web.Controllers
 
         public IActionResult Index()
         {
+            #region Meta
+            ViewBag.Title = "Caam: Centro psicológico de aprendizaje profesional";
+            ViewBag.MetaDescripcion = "Únete hoy a Caam, el centro psicológico profesional de educación en línea y presencial. Prepárate con las habilidades más nuevas y demandadas a un menor precio de lo que gastarías regularmente.";
+            ViewBag.MetaKeywords = "psicología, clinica, menor precio, tecnologías, servicios, consulta, online, presencial, psicoterapia, familiar, pareja, infantil, adolescentes, terapia, adultos, asesoramiento, educación, profesional, capacitación, docente, evaluación, duelo, orientacion vocacional, orientación, pruebas, anciedad, ansiedad, rehabilitación, terapia, breve, cognitivo conductual, pareja, test machover, consulta subsecuente, en línea, presencial";
+            ViewBag.MetaAuthor = "caam, dgarcia2105, didade";
+            #endregion
+
             return View();
         }
 

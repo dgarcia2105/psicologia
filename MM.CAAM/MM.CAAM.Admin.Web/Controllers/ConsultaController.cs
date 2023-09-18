@@ -36,6 +36,10 @@ namespace MM.CAAM.Admin.Web.Controllers
         {
             var Consultas = await consultaService.ObtenerConsultasPorUsuario(usuarioId);
 
+            var usuario = await usuarioService.ObtenerUsuario(usuarioId);
+
+            ViewBag.Usuario = usuario;
+
             return View(Consultas);
         }
 
@@ -50,12 +54,16 @@ namespace MM.CAAM.Admin.Web.Controllers
 
         public async Task<IActionResult> VerConsulta(int usuarioId, int consultaId)
         {
-            var Consulta = await consultaService.ObtenerConsultasPorUsuarioYConsultaId(usuarioId, consultaId);
+            var consulta = await consultaService.ObtenerConsultasPorUsuarioYConsultaId(usuarioId, consultaId);
+
+            var usuario = await usuarioService.ObtenerUsuario(usuarioId);
+
+            ViewBag.Usuario = usuario;
             //var usuario = await usuarioService.ObtenerUsuario(usuarioId);
 
             //ViewBag.Usuario = usuario;
 
-            return View(Consulta);
+            return View(consulta);
         }
 
         [HttpPost] //attribute to get posted values from HTML Form

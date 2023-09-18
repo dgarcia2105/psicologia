@@ -19,7 +19,7 @@
     </ul>
     <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-            <a class="btn btn-primary" href="~/Usuario/NuevoUsuario"><i class="fa-solid fa-plus"></i> Agregar paciente</a>
+            <a class="btn btn-primary" href="~/Usuario/NuevoUsuario"><i class="fa-solid fa-plus"></i> Agregar usuario</a>
         </li>
     </ul>
 </nav>
@@ -34,12 +34,15 @@
 
 <div class="row">
     <div class="col-2"><b>NOMBRE Y APELLIDOS</b></div> 
+    <div class="col-2"><b>EMAIL</b></div>
+    <div class="col-1"><b>SEXO</b></div>
+    <div class="col-1"><b>EDAD</b></div>
+    <div class="col-2"><b>NACIONALIDAD</b></div>
+    <div class="col-1"><b>TELÉFONO</b></div>
+    <div class="col-2"><b>OCUPACIÓN</b></div>
+    <div class="col-1"><b>FECHA REGISTRO</b></div>
 </div>
-
 <hr />
-
-
-
     @if (Model != null && Model.Count() > 0)
     {
         int i = Model.Count();
