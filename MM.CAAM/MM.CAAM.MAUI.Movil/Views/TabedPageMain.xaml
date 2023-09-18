@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MM.CAAM.MAUI.Movil.Views.TabedPageMain"
+             Title="TabedPageMain"
+            
+            xmlns:Views="clr-namespace:MM.CAAM.MAUI.Movil.Views.Home"
+            xmlns:famodels="clr-namespace:MM.CAAM.MAUI.Movil.FaModels"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             android:TabbedPage.ToolbarPlacement="Bottom" 
+             android:TabbedPage.IsSwipePagingEnabled="False"
+             android:TabbedPage.IsSmoothScrollEnabled="False"
+            
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
+            
+             BarBackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
+             BarTextColor="{AppThemeBinding Light=Black, Dark=White}"
+             SelectedTabColor="{AppThemeBinding Light=Black, Dark=White}"
+             UnselectedTabColor="{AppThemeBinding Light=DarkGray, Dark=#888}"
+            >
+    <!--xmlns:famodels="clr-namespace:GJ.TRIBUNALELECTRONICO.MAUI.Movil.FaModels"-->
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#121212"/>
+        <!--166ba2-->
+    </Page.Behaviors>
+
+    <Views:Inicio IconImageSource="spoti_house_regular.svg" BackgroundColor="Transparent"/>
+    <Views:Buscar IconImageSource="spoti_search_regular.svg" BackgroundColor="Transparent"/>
+    <Views:TuBiblioteca IconImageSource="spoti_biblioteca_regular.svg" BackgroundColor="Transparent"/>
+
+
+</TabbedPage>

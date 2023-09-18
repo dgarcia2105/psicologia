@@ -18,7 +18,7 @@ public partial class App : Application
         //navPage.BarTextColor = Colors.White;
 
         //MainPage = new MainPage();                   //PAGINA PRINCIPAL
-        MainPage = new Views.Pages.TabbedPageSample.TabbedPageSample();                  
+        MainPage = new Views.TabedPageMain();                  
 
         //MainPage = new NavigationPage(new MainPage()); //DEFAULT APARECE NAVIGATION PAGE
     }

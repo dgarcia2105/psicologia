@@ -47,7 +47,7 @@ public partial class MainPage : ContentPage
     }
 
 
-    public bool check_network_is_up()
+    public bool checkNetworkIsUp()
     {
         bool is_up;
 

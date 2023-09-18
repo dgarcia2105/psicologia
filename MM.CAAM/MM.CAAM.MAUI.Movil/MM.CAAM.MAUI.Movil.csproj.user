@@ -6,8 +6,18 @@
     <ActiveDebugProfile>Pixel 2 - API 30 (Android 11.0 - API 30)</ActiveDebugProfile>
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
     <DefaultDevice>pixel_2_-_api_30</DefaultDevice>
+    <SelectedDevice>Xiaomi Redmi Note 9S</SelectedDevice>
   </PropertyGroup>
   <ItemGroup>
+    <MauiXaml Update="Views\Home\Buscar.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Home\Inicio.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Home\TuBiblioteca.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\Pages\FlyoutSample\FlyoutSamplePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -21,6 +31,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\Pages\TabbedPageSample\TabbedPageSample.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\TabedPageMain.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>
