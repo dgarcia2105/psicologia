@@ -3,10 +3,82 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MM.CAAM.MAUI.Movil.Views.Home.Inicio"
              Title="Inicio">
-    <VerticalStackLayout>
-        <Label 
-            Text="Inicio"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Buscar" IconImageSource="spoti_search_regular_white.svg" Order="Primary" Priority="2" />
+    </ContentPage.ToolbarItems>
+    <!--<Grid Margin="0,0,0,0"> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions> -->
+    <!--<RefreshView   
+            Command="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing}"
+            Margin="15,10,15,0"  
+            Padding="0,0,0,0" >-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <CollectionView 
+                            x:Name="collectionView"
+                            ItemsSource="{Binding ListaNotificacionTribunal}"  
+                            EmptyView="No hay resultados para mostrar"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedItem}"
+                            SelectionChangedCommand="{Binding NotificacionTribunalChangedCommand}"
+                            Scrolled="CollectionView_Scrolled"
+                            >
+
+            <CollectionView.Header >
+                <StackLayout>
+                    <Label Text="Header"  Margin="0,100,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" IsVisible="{Binding IsBusy}" />
+                </StackLayout>
+            </CollectionView.Header>
+            <CollectionView.Footer>
+                <StackLayout>
+                    <Label Text="Cargando..." Margin="0,20,0,100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" IsVisible="{Binding IsBusy}"/>
+                </StackLayout>
+            </CollectionView.Footer>
+
+            <CollectionView.ItemTemplate >
+                <DataTemplate >
+                    <!--<controls:LayoutNotificacionTribunalRow/>-->
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </Grid>
+    <!--</RefreshView>-->
+    <!--</ScrollView>-->
+    <!--IMPORTANT-->
+    <!--<Frame  
+          Grid.Row="0" 
+          CornerRadius="10"
+          x:Name="frameAviso"
+          IsVisible="false" 
+          BackgroundColor="Yellow" 
+          Padding="0"
+            Margin="20"
+          BorderColor="Transparent" 
+          MaximumHeightRequest="500"
+          VerticalOptions="End" > 
+            <StackLayout 
+                BackgroundColor="Black">
+                <Label 
+                    x:Name="lblAviso"
+                    LineBreakMode="CharacterWrap" 
+                    MaximumHeightRequest="500"
+                    FontSize="Small" 
+                    Margin="0"
+                        TextColor="White"
+                    Padding="20,5,20,5"
+                    Text="Sin conexión a Internet"
+                    VerticalOptions="End" 
+                    HorizontalOptions="CenterAndExpand" />
+            </StackLayout> 
+        </Frame>-->
+    <!--</Grid>-->
 </ContentPage>
