@@ -76,6 +76,8 @@ namespace MM.CAAM.MAUI.Movil.ViewModels.Home
         {
             try
             {
+
+
                 //ListaNotificacionTribunalCompleto = await NotificacionTribunalService.ObtenerNotificacionesPorProfesionista(5);
 
                 ////var listTmp = ListaNotificacionTribunalCompleto.Take(PageSize).ToList();  //LIMITADA a PageSize
