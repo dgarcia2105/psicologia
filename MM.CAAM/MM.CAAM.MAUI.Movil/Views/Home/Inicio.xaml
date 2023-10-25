@@ -29,8 +29,8 @@
                             SelectionMode="Single"
                             SelectedItem="{Binding SelectedItem}"
                             SelectionChangedCommand="{Binding NotificacionTribunalChangedCommand}"
-                            Scrolled="CollectionView_Scrolled"
                             >
+                            <!--Scrolled="CollectionView_Scrolled"-->
 
             <CollectionView.Header >
                 <StackLayout>
