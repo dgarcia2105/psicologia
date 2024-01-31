@@ -1,8 +1,9 @@
 ﻿//README:
 //Enviar E-Mail: https://www.udemy.com/course/aprende-aspnet-core-mvc-haciendo-proyectos-desde-cero/learn/lecture/29473652#overview
 //RESTService   https://www.youtube.com/watch?v=Q12rpPdPcD8
-                //https://jsonplaceholder.typicode.com/
-                //https://www.youtube.com/watch?v=Tj3qsKSNvMk       Add restservice to .net 6
+//https://jsonplaceholder.typicode.com/
+//https://www.youtube.com/watch?v=Tj3qsKSNvMk       Add restservice to .net 6
+using Microsoft.Extensions.Configuration;
 using MM.CAAM.Admin.Services.Exceptions;
 using MM.CAAM.Gestion.DTO.Objects;
 using Newtonsoft.Json;
@@ -24,24 +25,28 @@ namespace MM.CAAM.Admin.Services
     {
         private string apiKey;
         public string ApiKey { get => apiKey; private set => apiKey = value; }
-
         private string baseUrlAPI;
         public string BaseUrlAPI { get => baseUrlAPI; private set => baseUrlAPI = value; }
-
+        IConfiguration Iconfiguration;
 
         public RESTService(string _apiKey, string _baseUrlAPI)
         {
             ApiKey = _apiKey;
             BaseUrlAPI = _baseUrlAPI;
         }
-        public RESTService()
+        public RESTService(IConfiguration iconfiguration)
         {
+            Iconfiguration = iconfiguration;
+
             ApiKey = "ApiKeyCaam";
 #if DEBUG
-            BaseUrlAPI = "https://localhost:7056";
+            BaseUrlAPI = Iconfiguration.GetSection("BaseUrlWebApiCaam").Value;
+            //BaseUrlAPI = "https://localhost:7056";
             //BaseUrlAPI = "https://webapi.psicologia-caam.com";
 #else
-            BaseUrlAPI = "https://webapi.psicologia-caam.com";
+            
+            BaseUrlAPI = Iconfiguration.GetSection("BaseUrlWebApiCaam").Value;
+            //BaseUrlAPI = "https://webapi.psicologia-caam.com";
             
 #endif
         }

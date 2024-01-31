@@ -53,6 +53,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 //.Include(usuarioDB => usuarioDB.UsuariosNegocios)
                 //.ThenInclude(usuariosNegociosDB => usuariosNegociosDB.Negocio)
                 var usuarios = await context.Usuarios
+                    .Where(x => x.Activo == true)
                     .OrderByDescending(u => u.Id).ToListAsync();
 
                 var data = mapper.Map<List<UsuarioDTO>>(usuarios);
@@ -78,6 +79,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
             {
                 
                 var usuario = await context.Usuarios
+                    .Where(x => x.Activo == true)
                     .Include(usuarioDB => usuarioDB.UsuariosNegocios)
                     .ThenInclude(usuariosNegociosDB => usuariosNegociosDB.Negocio)
                     .FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id); //usuarioBD.Negocios || Consultas
@@ -106,7 +108,9 @@ namespace MM.CAAM.Gestion.Models.Controllers
         [HttpGet("{nombre}")]
         public async Task<ActionResult<List<UsuarioDTO>>> Get([FromRoute] string nombre)
         {
-            var usuarios = await context.Usuarios.Where(UsuarioBd => UsuarioBd.Nombre.Contains(nombre)).ToListAsync();
+            var usuarios = await context.Usuarios
+                .Where(UsuarioBd => UsuarioBd.Nombre.Contains(nombre) && UsuarioBd.Activo == true)
+                .ToListAsync();
 
             return mapper.Map<List<UsuarioDTO>>(usuarios);
         }
@@ -225,7 +229,9 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 if (string.IsNullOrWhiteSpace(userLoginRequest.Email)) throw new ArgumentNullException(nameof(userLoginRequest.Email));
                 if (string.IsNullOrWhiteSpace(userLoginRequest.Password)) throw new ArgumentNullException(nameof(userLoginRequest.Password));
 
-                var usuario = await context.Usuarios.FirstOrDefaultAsync(usuarioBD => usuarioBD.Correo.ToUpper() == userLoginRequest.Email.ToUpper() );
+                var usuario = await context.Usuarios
+                                    .Where(x => x.Activo == true)
+                                    .FirstOrDefaultAsync(usuarioBD => usuarioBD.Correo.ToUpper() == userLoginRequest.Email.ToUpper() );
 
                 if (usuario == null)
                 {
