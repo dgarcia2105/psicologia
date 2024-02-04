@@ -24,6 +24,29 @@
         @switch (@Model.GeneroId)
         {
             case 1:
+                @Html.Raw("Mujer")
+                ;
+                break;
+            case 2:
+                @Html.Raw("Hombre")
+                ;
+                break;
+            case 3:
+                @Html.Raw("No binario")
+                ;
+                break;
+            case 4:
+                @Html.Raw("Prefiero no decirlo")
+                ;
+                break;
+            case 5:
+                @Html.Raw("Otro")
+                ;
+                break;
+        }
+        @*@switch (@Model.GeneroId)
+        {
+            case 1:
                 @Html.Raw("Administrador");
                 break;
             case 2:
@@ -38,7 +61,8 @@
                 @Html.Raw("Paciente")
                 ;
                 break;
-        }
+        }*@
+
         
         </div>
     <div class="col-1" title="Fecha de nacimiento: @Model.FechaNacimiento.ToString("MM-dd-yyyy")">

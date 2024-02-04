@@ -144,6 +144,12 @@ namespace MM.CAAM.Gestion.Models.Controllers
 
                 #endregion
 
+                #region NOMBRE MAYUSCULAS
+                usuarioCreacionDTO.Nombre = usuarioCreacionDTO.Nombre.ToUpper();
+                usuarioCreacionDTO.ApellidoPaterno = usuarioCreacionDTO.ApellidoPaterno.ToUpper();
+                usuarioCreacionDTO.ApellidoMaterno = usuarioCreacionDTO.ApellidoMaterno.ToUpper();
+                #endregion
+
                 var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);
 
                 context.Add(usuario);

@@ -57,9 +57,9 @@ namespace MM.CAAM.Admin.Web.Controllers
             //_httpContextAccessor.HttpContext.Response.Cookies.Append(".AUTHCENTRAL", encTicket, options);
             #endregion
 
-            var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
-            var cookieDesencriptada = Com.Decryptor(authCookie);
-            var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
+            //var authCookie = _httpContextAccessor.HttpContext.Request.Cookies[".AUTHCENTRAL"];
+            //var cookieDesencriptada = Com.Decryptor(authCookie);
+            //var usuarioCokie = JsonConvert.DeserializeObject<UsuarioProfile>(cookieDesencriptada);
 
             //CustomIdentity userIdentity = new CustomIdentity(usuarioCokie.Usuario.Id.ToString());
 

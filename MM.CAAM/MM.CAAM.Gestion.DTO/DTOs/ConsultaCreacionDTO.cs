@@ -45,5 +45,8 @@ namespace MM.CAAM.Gestion.DTO.DTOs
 
         [Display(Name = "Saturación de oxígeno")]
         public string? SaturacionOxigeno { get; set; }
+
+        [Display(Name = "Glucosa")]
+        public string? Glucosa { get; set; }
     }
 }

@@ -118,6 +118,12 @@
                                     @Html.EditorFor(model => model.SaturacionOxigeno, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
                                     @Html.ValidationMessageFor(model => model.SaturacionOxigeno, "", new { @class = "text-danger" })
                                 </div>
+                            </div><div class="col-sm-4 flex-column d-flex">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Glucosa)
+                                    @Html.EditorFor(model => model.Glucosa, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.Glucosa, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                             <div class="col-sm-12 flex-column d-flex">
                                 <div class="form-group"> 

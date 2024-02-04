@@ -8,6 +8,7 @@
         public string? FrecuenciaCardiaca { get; set; }
         public string? FrecuenciaRespiratoria { get; set; }
         public string? ComentarioSignosVitales { get; set; }
+        public string? Glucosa { get; set; }
         public string MotivoConsulta { get; set; }
         public string? PadecimientoActual { get; set; }
         public string? ExploracionFisica { get; set; }

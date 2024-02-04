@@ -9,7 +9,7 @@ using MM.CAAM.Gestion.DTO.Objects;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class UsuarioController : Controller
     {
         private readonly ILogger<HomeController> _logger;

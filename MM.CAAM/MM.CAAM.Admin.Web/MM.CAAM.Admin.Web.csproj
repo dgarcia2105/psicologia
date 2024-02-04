@@ -8,11 +8,13 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\images\loader.gif" />
+    <Content Remove="wwwroot\images\medico\loader.gif" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\images\loader.gif" />
     <None Include="wwwroot\images\medico\esculapio.png" />
+    <None Include="wwwroot\images\medico\loader.gif" />
   </ItemGroup>
 
   <ItemGroup>
