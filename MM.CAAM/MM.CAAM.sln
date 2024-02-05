@@ -12,7 +12,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Admin.Models", "MM.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Gestion.DTO", "MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj", "{A712194C-E1F2-4035-9F81-769F69756A2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.CAAM.Admin.Web", "MM.CAAM.Admin.Web\MM.CAAM.Admin.Web.csproj", "{BB8FD904-4306-40AA-9C14-FC5C3BD81136}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.CAAM.Admin.Web", "MM.CAAM.Admin.Web\MM.CAAM.Admin.Web.csproj", "{BB8FD904-4306-40AA-9C14-FC5C3BD81136}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevExtreme NuGet.config", "DevExtreme NuGet.config", "{B1D3F68D-9097-4F32-98D6-424376CC22A2}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.config = NuGet.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

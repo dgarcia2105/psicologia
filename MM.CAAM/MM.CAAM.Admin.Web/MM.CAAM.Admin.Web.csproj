@@ -1,34 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Remove="wwwroot\images\loader.gif" />
     <Content Remove="wwwroot\images\medico\loader.gif" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="wwwroot\images\loader.gif" />
     <None Include="wwwroot\images\medico\esculapio.png" />
     <None Include="wwwroot\images\medico\loader.gif" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Unity" Version="5.11.10" />
     <PackageReference Include="Unity.Mvc" Version="5.11.1" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\MM.CAAM.Admin.Services\MM.CAAM.Admin.Services.csproj" />
     <ProjectReference Include="..\MM.CAAM.Gestion.DTO\MM.CAAM.Gestion.DTO.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="imagesBak\" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="22.1.8" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.6" />
   </ItemGroup>
-
 </Project>

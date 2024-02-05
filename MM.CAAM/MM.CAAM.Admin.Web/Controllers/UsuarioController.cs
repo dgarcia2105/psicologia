@@ -28,6 +28,13 @@ namespace MM.CAAM.Admin.Web.Controllers
             return View(Usuarios);
         }
 
+        public async Task<List<UsuarioDTO>> ObtenerUsuarios()
+        {
+            var Usuarios = await usuarioService.ObtenerListaUsuarios();
+
+            return Usuarios;
+        }
+
         public IActionResult NuevoUsuario()
         {
             List<GeneroRequest> Generos = new List<GeneroRequest>()
