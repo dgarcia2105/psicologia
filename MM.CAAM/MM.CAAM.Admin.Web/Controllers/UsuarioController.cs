@@ -37,7 +37,7 @@ namespace MM.CAAM.Admin.Web.Controllers
 
         public IActionResult NuevoUsuario()
         {
-            List<GeneroRequest> Generos = new List<GeneroRequest>()
+            List<GeneroRequest> listGenero = new List<GeneroRequest>()
             {
                 new GeneroRequest() { Id = 1, Genero = "Mujer" },
                 new GeneroRequest() { Id = 2, Genero = "Hombre" },
@@ -46,12 +46,60 @@ namespace MM.CAAM.Admin.Web.Controllers
                 new GeneroRequest() { Id = 5, Genero = "Otro" }
             };
             var GenerosSelect = new SelectList(
-                                        items: Generos,
+                                        items: listGenero,
                                         dataValueField: nameof(GeneroRequest.Id),
                                         dataTextField: nameof(GeneroRequest.Genero));
             ViewBag.Generos = GenerosSelect;
 
-            List<RolDTO> Roles = new List<RolDTO>()
+            List<EstadoCivilRequest> listEstadoCivil = new List<EstadoCivilRequest>()
+            {
+                new EstadoCivilRequest() { Id = 1, EstadoCivil = "Soltero/a" },
+                new EstadoCivilRequest() { Id = 2, EstadoCivil = "Casado/a" },
+                new EstadoCivilRequest() { Id = 3, EstadoCivil = "Unión libre o unión de hecho" },
+                new EstadoCivilRequest() { Id = 4, EstadoCivil = "Separado/a" },
+                new EstadoCivilRequest() { Id = 5, EstadoCivil = "Divorciado/a" },
+                new EstadoCivilRequest() { Id = 5, EstadoCivil = "Viodo/a" }
+            };
+            ViewBag.ListEstadoCivil = new SelectList(
+                                        items: listEstadoCivil,
+                                        dataValueField: nameof(EstadoCivilRequest.Id),
+                                        dataTextField: nameof(EstadoCivilRequest.EstadoCivil));
+             
+            List<TipoRequest> listTipoUsuario = new List<TipoRequest>()
+            {
+                new TipoRequest() { Id = 1, Descripcion = "Privado" },
+                new TipoRequest() { Id = 2, Descripcion = "Empresa" }
+            };
+            ViewBag.ListTipoUsuario = new SelectList(
+                                        items: listTipoUsuario,
+                                        dataValueField: nameof(TipoRequest.Id),
+                                        dataTextField: nameof(TipoRequest.Descripcion));
+            
+            List<TipoRequest> listGradoEducacion = new List<TipoRequest>()
+            {
+                new TipoRequest() { Id = 1, Descripcion = "Doctorado" },
+                new TipoRequest() { Id = 2, Descripcion = "Maestria" },
+                new TipoRequest() { Id = 3, Descripcion = "Licenciatura" },
+                new TipoRequest() { Id = 4, Descripcion = "Bachillerato" },
+                new TipoRequest() { Id = 5, Descripcion = "Secundaria" },
+                new TipoRequest() { Id = 6, Descripcion = "Primaria" }
+            };
+            ViewBag.ListGradoEducacion = new SelectList(
+                                        items: listGradoEducacion,
+                                        dataValueField: nameof(TipoRequest.Id),
+                                        dataTextField: nameof(TipoRequest.Descripcion));
+             
+            List<TipoRequest> listEstadoVida = new List<TipoRequest>()
+            {
+                new TipoRequest() { Id = 1, Descripcion = "Activo" },
+                new TipoRequest() { Id = 2, Descripcion = "Inactivo" }
+            };
+            ViewBag.ListEstadoVida = new SelectList(
+                                        items: listEstadoVida,
+                                        dataValueField: nameof(TipoRequest.Id),
+                                        dataTextField: nameof(TipoRequest.Descripcion));
+             
+            List<RolDTO> listRoles = new List<RolDTO>()
             {
                 new RolDTO() { Id = 4, Rol = "Paciente" },
                 new RolDTO() { Id = 3, Rol = "Operador" },
@@ -59,13 +107,11 @@ namespace MM.CAAM.Admin.Web.Controllers
                 new RolDTO() { Id = 1, Rol = "Administrador" }
             };
 
-            var RolesSelect = new SelectList(
-                                        items: Roles,
+            ViewBag.Roles = new SelectList(
+                                        items: listRoles,
                                         dataValueField: nameof(RolDTO.Id),
                                         dataTextField: nameof(RolDTO.Rol));
-
-
-            ViewBag.Roles = RolesSelect;
+ 
             return View();
         }
 

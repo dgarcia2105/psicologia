@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 namespace MM.CAAM.Gestion.DTO.DTOs
 {
     public class UsuarioCreacionDTO                                                          
-    {
+    { 
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string Nombre { get; set; }
@@ -17,7 +17,9 @@ namespace MM.CAAM.Gestion.DTO.DTOs
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
-        public string ApellidoMaterno { get; set; }
+        public string ApellidoMaterno { get; set; } 
+        [StringLength(maximumLength: 240, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
+        public string? Notas { get; set; }
 
         public int? RolId { get; set; }
 
@@ -42,6 +44,10 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         [DataType(DataType.DateTime)]
         public DateTime? FechaNacimiento { get; set; }
         public int? GeneroId { get; set; }
+        public int? GradoEducacionId { get; set; }
+        public int? EstadoVidaId { get; set; }
+        public int? EstadoCivilId { get; set; }
+        public int? TipoUsiarioId { get; set; }
         public bool? Activo { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
