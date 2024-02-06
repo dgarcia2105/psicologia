@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\MM.CAAM.Gestion.WebApi.props" />
+</Project>

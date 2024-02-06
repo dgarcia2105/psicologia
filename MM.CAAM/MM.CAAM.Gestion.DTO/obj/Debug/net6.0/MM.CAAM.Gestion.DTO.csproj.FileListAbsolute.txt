@@ -1,0 +1,17 @@
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\bin\Debug\net6.0\MM.CAAM.Gestion.DTO.deps.json
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\bin\Debug\net6.0\MM.CAAM.Gestion.DTO.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\bin\Debug\net6.0\MM.CAAM.Gestion.DTO.pdb
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\bin\Debug\net6.0\MM.CAAM.Gestion.Models.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\bin\Debug\net6.0\MM.CAAM.Gestion.Services.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\bin\Debug\net6.0\MM.CAAM.Gestion.Models.pdb
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\bin\Debug\net6.0\MM.CAAM.Gestion.Services.pdb
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\MM.CAAM.Gestion.DTO.csproj.AssemblyReference.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\MM.CAAM.Gestion.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\MM.CAAM.Gestion.DTO.AssemblyInfoInputs.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\MM.CAAM.Gestion.DTO.AssemblyInfo.cs
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\MM.CAAM.Gestion.DTO.csproj.CoreCompileInputs.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\MM.CAAM.Gestion.DTO.csproj.CopyComplete
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\MM.CAAM.Gestion.DTO.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\refint\MM.CAAM.Gestion.DTO.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\MM.CAAM.Gestion.DTO.pdb
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Gestion.DTO\obj\Debug\net6.0\ref\MM.CAAM.Gestion.DTO.dll

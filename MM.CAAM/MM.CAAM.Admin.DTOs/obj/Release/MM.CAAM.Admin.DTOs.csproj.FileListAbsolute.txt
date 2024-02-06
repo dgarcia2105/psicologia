@@ -1,0 +1,6 @@
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.DTOs\bin\Release\MM.CAAM.Admin.DTOs.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.DTOs\bin\Release\MM.CAAM.Admin.DTOs.pdb
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.DTOs\obj\Release\MM.CAAM.Admin.DTOs.csproj.AssemblyReference.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.DTOs\obj\Release\MM.CAAM.Admin.DTOs.csproj.CoreCompileInputs.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.DTOs\obj\Release\MM.CAAM.Admin.DTOs.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.DTOs\obj\Release\MM.CAAM.Admin.DTOs.pdb

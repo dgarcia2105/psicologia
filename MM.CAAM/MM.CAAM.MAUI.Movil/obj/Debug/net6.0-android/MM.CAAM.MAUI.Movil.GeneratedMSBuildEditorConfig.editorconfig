@@ -1,0 +1,101 @@
+is_global = true
+build_property.TargetFramework = net6.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MM.CAAM.MAUI.Movil
+build_property.ProjectDir = C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.MAUI.Movil\
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/Home/Buscar.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.Home.Buscar.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Home\Buscar.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Home\Buscar.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/Home/Inicio.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.Home.Inicio.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Home\Inicio.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Home\Inicio.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/Home/TuBiblioteca.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.Home.TuBiblioteca.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Home\TuBiblioteca.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Home\TuBiblioteca.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/Pages/FlyoutSample/FlyoutMenuPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.Pages.FlyoutSample.FlyoutMenuPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Pages\FlyoutSample\FlyoutMenuPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Pages\FlyoutSample\FlyoutMenuPage.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/Pages/FlyoutSample/FlyoutSamplePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.Pages.FlyoutSample.FlyoutSamplePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Pages\FlyoutSample\FlyoutSamplePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Pages\FlyoutSample\FlyoutSamplePage.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/Pages/TabbedPageSample/TabbedPage1.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.Pages.TabbedPageSample.TabbedPage1.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Pages\TabbedPageSample\TabbedPage1.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Pages\TabbedPageSample\TabbedPage1.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/Pages/TabbedPageSample/TabbedPage2.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.Pages.TabbedPageSample.TabbedPage2.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Pages\TabbedPageSample\TabbedPage2.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Pages\TabbedPageSample\TabbedPage2.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/Pages/TabbedPageSample/TabbedPage3.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.Pages.TabbedPageSample.TabbedPage3.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Pages\TabbedPageSample\TabbedPage3.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Pages\TabbedPageSample\TabbedPage3.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/Pages/TabbedPageSample/TabbedPageSample.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.Pages.TabbedPageSample.TabbedPageSample.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Pages\TabbedPageSample\TabbedPageSample.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Pages\TabbedPageSample\TabbedPageSample.xaml
+
+[C:/Proyectos/psicologia/MM.CAAM/MM.CAAM.MAUI.Movil/Views/TabedPageMain.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MM.CAAM.MAUI.Movil.Views.TabedPageMain.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\TabedPageMain.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\TabedPageMain.xaml

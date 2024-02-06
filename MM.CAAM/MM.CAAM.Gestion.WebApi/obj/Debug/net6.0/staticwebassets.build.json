@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "RN+3oq/YUZhuabZqNOF7PRTHr/0GLygTwRdtydGMxZs=",
+  "Source": "MM.CAAM.Gestion.WebApi",
+  "BasePath": "_content/MM.CAAM.Gestion.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MM.CAAM.Gestion.WebApi\\wwwroot",
+      "Source": "MM.CAAM.Gestion.WebApi",
+      "ContentRoot": "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.WebApi\\wwwroot\\",
+      "BasePath": "_content/MM.CAAM.Gestion.WebApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.WebApi\\wwwroot\\Archivo 1.txt",
+      "SourceId": "MM.CAAM.Gestion.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.WebApi\\wwwroot\\",
+      "BasePath": "_content/MM.CAAM.Gestion.WebApi",
+      "RelativePath": "Archivo 1.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Archivo 1.txt"
+    },
+    {
+      "Identity": "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.WebApi\\wwwroot\\Archivo1.txt",
+      "SourceId": "MM.CAAM.Gestion.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.WebApi\\wwwroot\\",
+      "BasePath": "_content/MM.CAAM.Gestion.WebApi",
+      "RelativePath": "Archivo1.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Archivo1.txt"
+    }
+  ]
+}

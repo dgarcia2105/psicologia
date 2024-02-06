@@ -1,0 +1,6 @@
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Web\obj\Debug\net6.0\MM.CAAM.Web.csproj.AssemblyReference.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Web\obj\Debug\net6.0\MM.CAAM.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Web\obj\Debug\net6.0\MM.CAAM.Web.csproj.CoreCompileInputs.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Web\obj\Debug\net6.0\MM.CAAM.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Web\obj\Debug\net6.0\MM.CAAM.Web.RazorAssemblyInfo.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Web\obj\Debug\net6.0\MM.CAAM.Web.RazorAssemblyInfo.cs

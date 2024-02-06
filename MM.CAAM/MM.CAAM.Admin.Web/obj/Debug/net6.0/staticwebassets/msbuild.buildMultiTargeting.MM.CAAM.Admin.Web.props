@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MM.CAAM.Admin.Web.props" />
+</Project>

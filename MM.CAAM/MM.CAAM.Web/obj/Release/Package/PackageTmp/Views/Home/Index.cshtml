@@ -1,0 +1,34 @@
+﻿@model MM.CAAM.Admin.DTOs.HomeDto
+@{
+    ViewBag.Marca = Model.Marca;
+    ViewBag.Title = Model.Title;
+    ViewBag.MetaDescripcion = Model.MetaHtml.Description;
+    ViewBag.MetaAuthor = Model.MetaHtml.Author;
+    ViewBag.MetaKeywords = Model.MetaHtml.Keywords;
+    ViewBag.Descripcion = Model.Descripcion;
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>@Model.Marca</h1>
+    <p class="lead">
+        @Model.Eslogan
+    </p>
+    <p><a href="@Model.UrlRedSocialPrincipal" class="btn btn-primary btn-lg">Leer más &raquo;</a></p>
+</div>
+
+<div class="row">
+    @foreach(var infoHome in Model.ListInfoHome)
+    {
+    <div class="col-md-3">
+        <h2>@infoHome.Titulo</h2>
+        @foreach (var contenido in infoHome.Contenidos)
+        {
+            <p>
+                @contenido
+            </p>
+        }
+        <p><a class="btn btn-default" href="@Model.UrlRedSocialPrincipal">Leer más &raquo;</a></p>
+    </div>
+    }
+</div>
