@@ -14,21 +14,56 @@ namespace MM.CAAM.Gestion.Services
     {
         public static readonly string KeyEncript = "d/pThAB45Fp#:S:3";
         private static readonly byte[] IV = { 10, 20, 30, 40, 50, 60, 70, 80 };
-        
-        public enum Ciudades
+
+        public enum Roles
         {
-            MEXICALI = 1,
-            TIJUANA = 2,
-            ENSENADA = 3,
-            GPE_VICTORIA = 4,
-            SAN_FELIPE = 5,
-            TECATE = 6,
-            SAN_QUINTIN = 7,
-            CD_MORELOS = 8,
-            PLAYAS_ROSARITO = 9,
-            DESARROLLO = 9999
+            ADMINISTRADOR = 1,
+            JEFE = 2,
+            OPERADOR = 3,
+            PACIENTE = 4
         }
-        
+
+        public enum GradoEducacion
+        {
+            DOCTORADO = 1,
+            MAESTRIA = 2,
+            LICENCIATURA = 3,
+            BACHILLERATO = 4,
+            SECUNDARIA = 5,
+            PRIMARIA = 6
+        }
+
+        public enum EstadoVida
+        {
+            ACTIVO = 1,
+            INACTIVO = 2
+        }
+
+        public enum TipoUsuario
+        {
+            PRIVADO = 1,
+            EMPRESA = 2
+        }
+
+        public enum EstadoCivil
+        {
+            SOLTERO = 1,
+            CASADO = 2,
+            UNIONLIBRE = 3,
+            SEPARADO = 4,
+            DIVORCIADO = 5,
+            VIUDO = 6
+        }
+
+        public enum Genero
+        {
+            MUJER = 1,
+            HOMBRE = 2,
+            NOBINARIO = 3,
+            PREFIERONODECIRLO = 4,
+            OTRO = 5
+        }
+
         public static string Base64UrlEncode(byte[] arg)
         {
             string s = Convert.ToBase64String(arg); // Regular base64 encoder
