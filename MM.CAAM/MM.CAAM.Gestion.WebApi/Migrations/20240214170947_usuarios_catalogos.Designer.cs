@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240214170947_usuarios_catalogos")]
+    partial class usuarioscatalogos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -150,6 +153,26 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.ToTable("UnidadesMedida");
                 });
 
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.CivilEstados", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CivilEstados");
+                });
+
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Consulta", b =>
                 {
                     b.Property<int>("Id")
@@ -214,7 +237,7 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.ToTable("Consultas");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.EstadoCivil", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.EducacionGrados", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -231,10 +254,10 @@ namespace MM.CAAM.Gestion.Models.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EstadoCivil");
+                    b.ToTable("EducacionGrados");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.EstadoVida", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Generos", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -251,47 +274,7 @@ namespace MM.CAAM.Gestion.Models.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EstadoVida");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Genero", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Orden")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genero");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.GradoEducacion", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Orden")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("GradoEducacion");
+                    b.ToTable("Generos");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Negocio", b =>
@@ -311,7 +294,7 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.ToTable("Negocios");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Rol", b =>
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Roles", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -328,27 +311,7 @@ namespace MM.CAAM.Gestion.Models.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Rol");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.TipoUsuario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Orden")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TipoUsuario");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Udemy.Autor", b =>
@@ -602,6 +565,46 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.HasIndex("NegocioId");
 
                     b.ToTable("UsuariosNegocios");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.UsuarioTipos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UsuarioTipos");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.VidaEstados", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VidaEstados");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

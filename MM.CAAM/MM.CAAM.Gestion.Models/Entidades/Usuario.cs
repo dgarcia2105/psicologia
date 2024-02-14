@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using MM.CAAM.Gestion.Models.Entidades.Udemy;
 using MM.CAAM.Gestion.Models.Validaciones;
 
 namespace MM.CAAM.Gestion.Models.Entidades
@@ -22,7 +23,6 @@ namespace MM.CAAM.Gestion.Models.Entidades
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string ApellidoMaterno { get; set; }
-        public int? RolId { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         [DataType(DataType.EmailAddress)]
@@ -41,12 +41,6 @@ namespace MM.CAAM.Gestion.Models.Entidades
 
         [DataType(DataType.DateTime)]
         public DateTime? FechaNacimiento { get; set; }
-        public int? GeneroId { get; set; }
-        public int? GradoEducacionId { get; set; }
-        public int? EstadoVidaId { get; set; }
-        public int? EstadoCivilId { get; set; }
-        public int? TipoUsiarioId { get; set; }
-        public bool? Activo { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? PerfilNombreArchivo { get; set; }
@@ -74,6 +68,7 @@ namespace MM.CAAM.Gestion.Models.Entidades
 
         [StringLength(maximumLength: 50, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? CP { get; set; }
+        public bool? Activo { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? Municipio { get; set; }
@@ -90,11 +85,24 @@ namespace MM.CAAM.Gestion.Models.Entidades
         public DateTime? FechaActualizacion { get; set; }
         public DateTime? FechaAcceso { get; set; }
         public string? BearerToken { get; set; }
-        //public List<AutorLibro> AutoresLibros { get; set; }
-        //public List<Negocio> Negocios { get; set; } //= new List<Negocio>();
+
+        #region CATALOGOS
+        public int? RolId { get; set; }
+        public int? GeneroId { get; set; }
+        public int? GradoEducacionId { get; set; }
+        public int? EstadoVidaId { get; set; }
+        public int? EstadoCivilId { get; set; }
+        public int? TipoUsiarioId { get; set; }
+
+        public Rol Rol { get; set; }
+        public Genero Genero { get; set; }
+        public GradoEducacion GradoEducacion { get; set; }
+        public EstadoVida EstadoVida { get; set; }
+        public EstadoCivil EstadoCivil { get; set; }
+        public TipoUsuario? TipoUsuario { get; set; }
+        #endregion
+
         public List<UsuarioNegocio> UsuariosNegocios { get; set; }
-        public List<Consulta> Consultas { get; set; }                                   //UNO A MUCHOS [Usuario muchas Consultas][Libro muchos Comentarios]
-    
-        
+        public List<Consulta> Consultas { get; set; }
     }
 }

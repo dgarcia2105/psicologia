@@ -28,6 +28,12 @@ namespace MM.CAAM.Gestion.Models
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Rol> Rol { get; set; }
+        public DbSet<GradoEducacion> GradoEducacion { get; set; }
+        public DbSet<EstadoVida> EstadoVida { get; set; }
+        public DbSet<TipoUsuario> TipoUsuario { get; set; }
+        public DbSet<EstadoCivil> EstadoCivil { get; set; }
+        public DbSet<Genero> Genero { get; set; }
         public DbSet<Negocio> Negocios { get; set; }
         public DbSet<Consulta> Consultas { get; set; }                      //UNO A MUCHOS [Usuario muchas Consultas][Libro muchos Comentarios]
         public DbSet<UsuarioNegocio> UsuariosNegocios { get; set; }
