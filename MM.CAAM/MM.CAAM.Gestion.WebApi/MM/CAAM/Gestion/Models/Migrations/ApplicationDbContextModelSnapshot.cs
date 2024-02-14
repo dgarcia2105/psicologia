@@ -4,7 +4,6 @@ using MM.CAAM.Gestion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,11 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240214201652_add_tipo_usuario_id")]
-    partial class addtipousuarioid
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,27 +127,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TiposGrupo");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Catalogos.UnidadMedida", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Orden")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UnidadesMedida");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Consulta", b =>

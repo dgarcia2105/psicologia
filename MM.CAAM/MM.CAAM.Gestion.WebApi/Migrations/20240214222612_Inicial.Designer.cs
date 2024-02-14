@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace MM.CAAM.Gestion.Models.Migrations
+namespace MM.CAAM.Gestion.WebApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230914012359_Actualizacion_NotasEvolucion")]
-    partial class ActualizacionNotasEvolucion
+    [Migration("20240214222612_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,29 +96,14 @@ namespace MM.CAAM.Gestion.Models.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<float>("Costo")
-                        .HasColumnType("real");
-
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GrupoAlimenticioId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Orden")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProveedorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SeccionSupermercado")
-                        .HasColumnType("int");
-
                     b.Property<int>("TipoGrupoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UnidadMedidaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -145,27 +130,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TiposGrupo");
-                });
-
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Catalogos.UnidadMedida", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Orden")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UnidadesMedida");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Consulta", b =>
@@ -197,6 +161,9 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Property<string>("FrecuenciaRespiratoria")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Glucosa")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MotivoConsulta")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -208,6 +175,9 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PresionArterial")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SaturacionOxigeno")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Temperatura")
@@ -226,6 +196,86 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.ToTable("Consultas");
                 });
 
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.EstadoCivil", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EstadoCivil");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.EstadoVida", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EstadoVida");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Genero", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genero");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.GradoEducacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GradoEducacion");
+                });
+
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Negocio", b =>
                 {
                     b.Property<int>("Id")
@@ -241,6 +291,46 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Negocios");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Rol", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Rol");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.TipoUsuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoUsuario");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Udemy.Autor", b =>
@@ -381,6 +471,12 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
+                    b.Property<int?>("EstadoCivilId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EstadoVidaId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("FechaAcceso")
                         .HasColumnType("datetime2");
 
@@ -395,6 +491,12 @@ namespace MM.CAAM.Gestion.Models.Migrations
 
                     b.Property<int?>("GeneroId")
                         .HasColumnType("int");
+
+                    b.Property<int?>("GradoEducacionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("GrupoSanguineo")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Latitud")
                         .HasColumnType("nvarchar(max)");
@@ -419,6 +521,10 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
+                    b.Property<string>("Notas")
+                        .HasMaxLength(240)
+                        .HasColumnType("nvarchar(240)");
+
                     b.Property<string>("Numero")
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
@@ -438,14 +544,38 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
+                    b.Property<string>("RecomendadoPor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Religion")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("RolId")
                         .HasColumnType("int");
+
+                    b.Property<string>("SeguroMedico")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
+                    b.Property<int?>("TipoUsuarioId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("EstadoCivilId");
+
+                    b.HasIndex("EstadoVidaId");
+
+                    b.HasIndex("GeneroId");
+
+                    b.HasIndex("GradoEducacionId");
+
+                    b.HasIndex("RolId");
+
+                    b.HasIndex("TipoUsuarioId");
 
                     b.ToTable("Usuarios");
                 });
@@ -713,6 +843,45 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Navigation("Usuario");
 
                     b.Navigation("libro");
+                });
+
+            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Usuario", b =>
+                {
+                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.EstadoCivil", "EstadoCivil")
+                        .WithMany()
+                        .HasForeignKey("EstadoCivilId");
+
+                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.EstadoVida", "EstadoVida")
+                        .WithMany()
+                        .HasForeignKey("EstadoVidaId");
+
+                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.Genero", "Genero")
+                        .WithMany()
+                        .HasForeignKey("GeneroId");
+
+                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.GradoEducacion", "GradoEducacion")
+                        .WithMany()
+                        .HasForeignKey("GradoEducacionId");
+
+                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.Rol", "Rol")
+                        .WithMany()
+                        .HasForeignKey("RolId");
+
+                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.TipoUsuario", "TipoUsuario")
+                        .WithMany()
+                        .HasForeignKey("TipoUsuarioId");
+
+                    b.Navigation("EstadoCivil");
+
+                    b.Navigation("EstadoVida");
+
+                    b.Navigation("Genero");
+
+                    b.Navigation("GradoEducacion");
+
+                    b.Navigation("Rol");
+
+                    b.Navigation("TipoUsuario");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.UsuarioNegocio", b =>

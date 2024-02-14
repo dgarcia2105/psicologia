@@ -35,7 +35,7 @@ namespace MM.CAAM.Gestion.Models
         public DbSet<EstadoCivil> EstadoCivil { get; set; }
         public DbSet<Genero> Genero { get; set; }
         public DbSet<Negocio> Negocios { get; set; }
-        public DbSet<Consulta> Consultas { get; set; }                      //UNO A MUCHOS [Usuario muchas Consultas][Libro muchos Comentarios]
+        public DbSet<Consulta> Consultas { get; set; }
         public DbSet<UsuarioNegocio> UsuariosNegocios { get; set; }
 
         #region TIPOS-CATALOGOS
@@ -45,7 +45,6 @@ namespace MM.CAAM.Gestion.Models
         public DbSet<SeccionSupermercado> SeccionesSupermercado { get; set; }
         public DbSet<Tipo> Tipos { get; set; }
         public DbSet<TipoGrupo> TiposGrupo { get; set; }
-        public DbSet<UnidadMedida> UnidadesMedida { get; set; }
 
         #endregion
 

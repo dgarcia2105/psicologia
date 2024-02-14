@@ -49,7 +49,7 @@ namespace MM.CAAM.Gestion.Models.Utilidades
             CreateMap<CatalogoCreacionDTO, Proveedor>();
             CreateMap<CatalogoCreacionDTO, SeccionSupermercado>();
             CreateMap<CatalogoCreacionDTO, TipoGrupo>();
-            CreateMap<CatalogoCreacionDTO, UnidadMedida>();
+            //CreateMap<CatalogoCreacionDTO, UnidadMedida>();
             #endregion
         }
 

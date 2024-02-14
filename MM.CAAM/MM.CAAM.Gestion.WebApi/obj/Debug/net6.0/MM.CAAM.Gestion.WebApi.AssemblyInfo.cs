@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MM.CAAM.Gestion.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32c29bc3819ccad68c396a01f1883c6a4627b173")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14f74c6839cb9885ef7a0cc91367a2925208ead9")]
 [assembly: System.Reflection.AssemblyProductAttribute("MM.CAAM.Gestion.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MM.CAAM.Gestion.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

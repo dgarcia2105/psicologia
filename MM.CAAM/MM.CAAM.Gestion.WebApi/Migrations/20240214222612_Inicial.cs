@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace MM.CAAM.Gestion.Models.Migrations
+namespace MM.CAAM.Gestion.WebApi.Migrations
 {
     /// <inheritdoc />
-    public partial class quitarinecesariotipos3 : Migration
+    public partial class Inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

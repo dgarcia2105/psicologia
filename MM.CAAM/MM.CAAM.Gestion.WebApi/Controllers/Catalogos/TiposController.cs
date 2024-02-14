@@ -132,17 +132,17 @@ namespace MM.CAAM.Gestion.Models.Controllers.Catalogos
         [HttpPost("unidad_medidas")]
         public async Task<ActionResult> GuardarUnidadMedidas([FromBody] List<CatalogoCreacionDTO> listaCatalogoCreacionDTO)
         {
-            var list = (await context.UnidadesMedida.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
+            //var list = (await context.UnidadesMedida.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
 
-            if (list.Count > 0)
-            {
-                return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
-            }
+            //if (list.Count > 0)
+            //{
+            //    return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
+            //}
 
-            var entidad = mapper.Map<List<UnidadMedida>>(listaCatalogoCreacionDTO);
+            //var entidad = mapper.Map<List<UnidadMedida>>(listaCatalogoCreacionDTO);
 
-            context.AddRange(entidad);
-            await context.SaveChangesAsync();
+            //context.AddRange(entidad);
+            //await context.SaveChangesAsync();
             return Ok();
         }
         #endregion
