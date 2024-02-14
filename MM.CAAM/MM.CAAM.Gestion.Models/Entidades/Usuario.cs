@@ -92,14 +92,14 @@ namespace MM.CAAM.Gestion.Models.Entidades
         public int? GradoEducacionId { get; set; }
         public int? EstadoVidaId { get; set; }
         public int? EstadoCivilId { get; set; }
-        public int? TipoUsiarioId { get; set; }
+        public int? TipoUsuarioId { get; set; }
 
         public Rol Rol { get; set; }
-        public Genero Genero { get; set; }
+        public Genero Genero { get; set; } 
         public GradoEducacion GradoEducacion { get; set; }
         public EstadoVida EstadoVida { get; set; }
         public EstadoCivil EstadoCivil { get; set; }
-        public TipoUsuario? TipoUsuario { get; set; }
+        public TipoUsuario TipoUsuario { get; set; }
         #endregion
 
         public List<UsuarioNegocio> UsuariosNegocios { get; set; }

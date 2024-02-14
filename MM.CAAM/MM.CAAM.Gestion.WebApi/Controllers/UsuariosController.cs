@@ -50,6 +50,14 @@ namespace MM.CAAM.Gestion.Models.Controllers
         {
             try
             {
+                //.Include(x => x.Rol)
+                //    .Include(x => x.GradoEducacion)
+                //    .Include(x => x.EstadoVida)
+                //    .Include(x => x.TipoUsuario)
+                //    .Include(x => x.EstadoCivil)
+                //    .Include(x => x.Genero)
+
+
                 //.Include(usuarioDB => usuarioDB.UsuariosNegocios)
                 //.ThenInclude(usuariosNegociosDB => usuariosNegociosDB.Negocio)
                 var usuarios = await context.Usuarios

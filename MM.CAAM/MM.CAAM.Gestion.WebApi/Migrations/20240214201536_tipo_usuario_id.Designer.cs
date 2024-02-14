@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240214201536_tipo_usuario_id")]
+    partial class tipousuarioid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -578,9 +581,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<int?>("TipoUsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("EstadoCivilId");
@@ -592,8 +592,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.HasIndex("GradoEducacionId");
 
                     b.HasIndex("RolId");
-
-                    b.HasIndex("TipoUsuarioId");
 
                     b.ToTable("Usuarios");
                 });
@@ -885,10 +883,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .WithMany()
                         .HasForeignKey("RolId");
 
-                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.TipoUsuario", "TipoUsuario")
-                        .WithMany()
-                        .HasForeignKey("TipoUsuarioId");
-
                     b.Navigation("EstadoCivil");
 
                     b.Navigation("EstadoVida");
@@ -898,8 +892,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Navigation("GradoEducacion");
 
                     b.Navigation("Rol");
-
-                    b.Navigation("TipoUsuario");
                 });
 
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.UsuarioNegocio", b =>

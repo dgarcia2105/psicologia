@@ -4,6 +4,7 @@ using MM.CAAM.Gestion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MM.CAAM.Gestion.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240214202704_remove_genero3")]
+    partial class removegenero3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -254,26 +257,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.ToTable("EstadoVida");
                 });
 
-            modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.Genero", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Orden")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genero");
-                });
-
             modelBuilder.Entity("MM.CAAM.Gestion.Models.Entidades.GradoEducacion", b =>
                 {
                     b.Property<int>("Id")
@@ -507,9 +490,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Property<DateTime?>("FechaNacimiento")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GeneroId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("GradoEducacionId")
                         .HasColumnType("int");
 
@@ -586,8 +566,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.HasIndex("EstadoCivilId");
 
                     b.HasIndex("EstadoVidaId");
-
-                    b.HasIndex("GeneroId");
 
                     b.HasIndex("GradoEducacionId");
 
@@ -873,10 +851,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                         .WithMany()
                         .HasForeignKey("EstadoVidaId");
 
-                    b.HasOne("MM.CAAM.Gestion.Models.Entidades.Genero", "Genero")
-                        .WithMany()
-                        .HasForeignKey("GeneroId");
-
                     b.HasOne("MM.CAAM.Gestion.Models.Entidades.GradoEducacion", "GradoEducacion")
                         .WithMany()
                         .HasForeignKey("GradoEducacionId");
@@ -892,8 +866,6 @@ namespace MM.CAAM.Gestion.Models.Migrations
                     b.Navigation("EstadoCivil");
 
                     b.Navigation("EstadoVida");
-
-                    b.Navigation("Genero");
 
                     b.Navigation("GradoEducacion");
 

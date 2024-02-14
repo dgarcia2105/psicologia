@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MM.CAAM.Gestion.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee8b54bfd1834f6a1ac414fa88cd981e97c3e2e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32c29bc3819ccad68c396a01f1883c6a4627b173")]
 [assembly: System.Reflection.AssemblyProductAttribute("MM.CAAM.Gestion.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MM.CAAM.Gestion.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
