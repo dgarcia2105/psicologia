@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using Microsoft.AspNetCore.DataProtection;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation; 
+using System; 
+using System.IO; 
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text; 
 
 namespace MM.CAAM.Gestion.Services 
 {
@@ -18,9 +14,10 @@ namespace MM.CAAM.Gestion.Services
         public enum Roles
         {
             ADMINISTRADOR = 1,
-            JEFE = 2,
-            OPERADOR = 3,
-            PACIENTE = 4
+            CEO = 2,
+            JEFE = 3,
+            OPERADOR = 4,
+            PACIENTE = 5
         }
 
         public enum GradoEducacion

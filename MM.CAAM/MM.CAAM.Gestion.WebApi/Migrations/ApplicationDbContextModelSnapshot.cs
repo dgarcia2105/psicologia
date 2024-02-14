@@ -93,29 +93,14 @@ namespace MM.CAAM.Gestion.Models.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<float>("Costo")
-                        .HasColumnType("real");
-
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GrupoAlimenticioId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Orden")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProveedorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SeccionSupermercado")
-                        .HasColumnType("int");
-
                     b.Property<int>("TipoGrupoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UnidadMedidaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
