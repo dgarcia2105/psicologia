@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\MM.CAAM.Gestion.Models.csproj": {}
+    "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\MM.CAAM.Gestion.Models.csproj": {}
   },
   "projects": {
-    "D:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\MM.CAAM.Gestion.Models.csproj": {
+    "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\MM.CAAM.Gestion.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\MM.CAAM.Gestion.Models.csproj",
+        "projectUniqueName": "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\MM.CAAM.Gestion.Models.csproj",
         "projectName": "MM.CAAM.Gestion.Models",
-        "projectPath": "D:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\MM.CAAM.Gestion.Models.csproj",
-        "packagesPath": "C:\\Users\\daniel.garcia\\.nuget\\packages\\",
-        "outputPath": "D:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\obj\\",
+        "projectPath": "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\MM.CAAM.Gestion.Models.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyectos\\psicologia\\MM.CAAM\\MM.CAAM.Gestion.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\Proyectos\\psicologia\\MM.CAAM\\NuGet.Config",
-          "C:\\Users\\daniel.garcia\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
+          "C:\\Proyectos\\psicologia\\MM.CAAM\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,8 +28,8 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\DevExpress 22.1\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
@@ -70,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
