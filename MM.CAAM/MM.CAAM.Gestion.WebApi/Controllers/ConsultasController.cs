@@ -28,118 +28,125 @@ namespace MM.CAAM.Gestion.Models.Controllers
         [HttpGet("ObtenerConsultas")]
         public async Task<ActionResult<List<ConsultaDTO>>> Get()
         {
-            try
-            {
-                #region
-                var consultas = await context.Consultas 
-                    .OrderByDescending(x => x.Id)
-                    .ToListAsync();
-                var data = mapper.Map<List<ConsultaDTO>>(consultas);
-                #endregion
+            //try
+            //{
+            //    #region
+            //    var consultas = await context.Consultas 
+            //        .OrderByDescending(x => x.Id)
+            //        .ToListAsync();
+            //    var data = mapper.Map<List<ConsultaDTO>>(consultas);
+            //    #endregion
 
-                return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
-            }
-            catch (ValidationException ex)
-            {
-                var error = new ExceptionMessage(ex);
-                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
-            }
-            catch (Exception ex)
-            {
-                var error = new ExceptionMessage(ex);
-                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
-            }
+            //    return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
+            //}
+            //catch (ValidationException ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            //}
+            //catch (Exception ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            //}
 
+            return null;
         }
         [HttpGet]
         public async Task<ActionResult<List<ConsultaDTO>>> Get(int usuarioId)
         {
-            try
-            {
-                #region
-                var existeUsuario = await context.Usuarios.AnyAsync(usuarioDB => usuarioDB.Id == usuarioId);
+            //try
+            //{
+            //    #region
+            //    var existeUsuario = await context.Usuarios.AnyAsync(usuarioDB => usuarioDB.Id == usuarioId);
 
-                if (!existeUsuario)
-                {
-                    throw new ArgumentException($"No existe el usuarioId: {usuarioId}");
-                }
+            //    if (!existeUsuario)
+            //    {
+            //        throw new ArgumentException($"No existe el usuarioId: {usuarioId}");
+            //    }
 
-                var consultas = await context.Consultas
-                    .Where(consultasDB => consultasDB.UsuarioId == usuarioId)
-                    .OrderByDescending(x => x.Id)
-                    .ToListAsync();
-                var data = mapper.Map<List<ConsultaDTO>>(consultas);
-                #endregion
+            //    var consultas = await context.Consultas
+            //        .Where(consultasDB => consultasDB.UsuarioId == usuarioId)
+            //        .OrderByDescending(x => x.Id)
+            //        .ToListAsync();
+            //    var data = mapper.Map<List<ConsultaDTO>>(consultas);
+            //    #endregion
 
-                return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
-            }
-            catch (ValidationException ex)
-            {
-                var error = new ExceptionMessage(ex);
-                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
-            }
-            catch (Exception ex)
-            {
-                var error = new ExceptionMessage(ex);
-                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
-            }
+            //    return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
+            //}
+            //catch (ValidationException ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            //}
+            //catch (Exception ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            //}
+
+            return null;
 
         }
 
         [HttpGet("{id:int}", Name = "ObtenerConsulta")]
         public async Task<ActionResult<ConsultaDTO>> GetPorId(int id)
         {
-            try { 
-                var consulta = await context.Consultas.Include(u => u.Usuario).FirstOrDefaultAsync(consultaDB => consultaDB.Id == id);
+            //try { 
+            //    var consulta = await context.Consultas.Include(u => u.Usuario).FirstOrDefaultAsync(consultaDB => consultaDB.Id == id);
 
-                if (consulta == null)
-                {
-                    throw new ArgumentException($"No existe la consultaId: {id}");
-                }
+            //    if (consulta == null)
+            //    {
+            //        throw new ArgumentException($"No existe la consultaId: {id}");
+            //    }
 
-                var data =  mapper.Map<ConsultaDTO>(consulta);
-                return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
-            }
-            catch (ValidationException ex)
-            {
-                var error = new ExceptionMessage(ex);
-                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
-            }
-            catch (Exception ex)
-            {
-                var error = new ExceptionMessage(ex);
-                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
-            }
+            //    var data =  mapper.Map<ConsultaDTO>(consulta);
+            //    return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
+            //}
+            //catch (ValidationException ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            //}
+            //catch (Exception ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            //}
+
+            return null;
         }
 
         [HttpPost]
         public async Task<ActionResult> Post(int usuarioId, ConsultaCreacionDTO consultaCreacionDTO)
         {
-            try
-            {
-                var existeUsuario = await context.Usuarios.AnyAsync(usuarioDB => usuarioDB.Id == usuarioId);
+            //try
+            //{
+            //    var existeUsuario = await context.Usuarios.AnyAsync(usuarioDB => usuarioDB.Id == usuarioId);
 
-                if (!existeUsuario)
-                {
-                    throw new ArgumentException($"No existe el usuarioId: {usuarioId}");
-                }
+            //    if (!existeUsuario)
+            //    {
+            //        throw new ArgumentException($"No existe el usuarioId: {usuarioId}");
+            //    }
 
-                var consulta = mapper.Map<Consulta>(consultaCreacionDTO);
-                consulta.UsuarioId = usuarioId;
-                context.Add(consulta);
-                await context.SaveChangesAsync();
-                return Ok(new Result { Code = StatusCodes.Status200OK });
-            }
-            catch (ValidationException ex)
-            {
-                var error = new ExceptionMessage(ex);
-                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
-            }
-            catch (Exception ex)
-            {
-                var error = new ExceptionMessage(ex);
-                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
-            }
+            //    var consulta = mapper.Map<Consulta>(consultaCreacionDTO);
+            //    consulta.UsuarioId = usuarioId;
+            //    context.Add(consulta);
+            //    await context.SaveChangesAsync();
+            //    return Ok(new Result { Code = StatusCodes.Status200OK });
+            //}
+            //catch (ValidationException ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            //}
+            //catch (Exception ex)
+            //{
+            //    var error = new ExceptionMessage(ex);
+            //    return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            //}
+
+            return null;
         }
     }
 }

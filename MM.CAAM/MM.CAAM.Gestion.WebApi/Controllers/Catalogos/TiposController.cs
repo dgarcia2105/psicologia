@@ -64,69 +64,77 @@ namespace MM.CAAM.Gestion.Models.Controllers.Catalogos
         [HttpPost("grupos_alimenticios")]
         public async Task<ActionResult> GuardarGruposAlimenticios([FromBody] List<CatalogoCreacionDTO> listaCatalogoCreacionDTO)
         {
-            var list = (await context.GrupoAlimenticios.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
+            //var list = (await context.GrupoAlimenticios.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
 
-            if (list.Count > 0)
-            {
-                return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
-            }
+            //if (list.Count > 0)
+            //{
+            //    return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
+            //}
 
-            var entidad = mapper.Map<List<GrupoAlimenticio>>(listaCatalogoCreacionDTO);                              
+            //var entidad = mapper.Map<List<GrupoAlimenticio>>(listaCatalogoCreacionDTO);                              
 
-            context.AddRange(entidad);                                                               
-            await context.SaveChangesAsync();                                                   
-            return Ok();
+            //context.AddRange(entidad);                                                               
+            //await context.SaveChangesAsync();                                                   
+            //return Ok();
+
+            return null;
         }
 
         [HttpPost("proveedores")]
         public async Task<ActionResult> GuardarProveedores([FromBody] List<CatalogoCreacionDTO> listaCatalogoCreacionDTO)
         {
-            var list = (await context.Proveedores.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
+            //var list = (await context.Proveedores.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
 
-            if (list.Count > 0)
-            {
-                return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
-            }
+            //if (list.Count > 0)
+            //{
+            //    return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
+            //}
 
-            var entidad = mapper.Map<List<Proveedor>>(listaCatalogoCreacionDTO);
+            //var entidad = mapper.Map<List<Proveedor>>(listaCatalogoCreacionDTO);
 
-            context.AddRange(entidad);
-            await context.SaveChangesAsync();
-            return Ok();
+            //context.AddRange(entidad);
+            //await context.SaveChangesAsync();
+            //return Ok();
+
+            return null;
         }
 
         [HttpPost("secciones_supermercado")]
         public async Task<ActionResult> GuardarSeccionesSupermercado([FromBody] List<CatalogoCreacionDTO> listaCatalogoCreacionDTO)
         {
-            var list = (await context.SeccionesSupermercado.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
+            //var list = (await context.SeccionesSupermercado.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
 
-            if (list.Count > 0)
-            {
-                return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
-            }
+            //if (list.Count > 0)
+            //{
+            //    return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
+            //}
 
-            var entidad = mapper.Map<List<SeccionSupermercado>>(listaCatalogoCreacionDTO);
+            //var entidad = mapper.Map<List<SeccionSupermercado>>(listaCatalogoCreacionDTO);
 
-            context.AddRange(entidad);
-            await context.SaveChangesAsync();
-            return Ok();
+            //context.AddRange(entidad);
+            //await context.SaveChangesAsync();
+            //return Ok();
+
+            return null;
         }
 
         [HttpPost("tipo_grupos")]
         public async Task<ActionResult> GuardarTipoGrupos([FromBody] List<CatalogoCreacionDTO> listaCatalogoCreacionDTO)
         {
-            var list = (await context.TiposGrupo.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
+            //var list = (await context.TiposGrupo.ToListAsync()).Where(x => listaCatalogoCreacionDTO.Any(y => y.Descripcion.Equals(x.Descripcion, StringComparison.InvariantCultureIgnoreCase))).ToList();   //TODO: es TOListAsync a comparacion de AnyAsync Ver que tan pesado 
 
-            if (list.Count > 0)
-            {
-                return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
-            }
+            //if (list.Count > 0)
+            //{
+            //    return BadRequest($"Ya existe la descripcion {String.Join(", ", list.Select(x => x.Descripcion).ToArray())}"); ///*{String.Join(", ", list.Select(x => x.Descripcion).ToArray())}*/
+            //}
 
-            var entidad = mapper.Map<List<TipoGrupo>>(listaCatalogoCreacionDTO);
+            //var entidad = mapper.Map<List<TipoGrupo>>(listaCatalogoCreacionDTO);
 
-            context.AddRange(entidad);
-            await context.SaveChangesAsync();
-            return Ok();
+            //context.AddRange(entidad);
+            //await context.SaveChangesAsync();
+            //return Ok();
+
+            return null;
         }
 
         [HttpPost("unidad_medidas")]

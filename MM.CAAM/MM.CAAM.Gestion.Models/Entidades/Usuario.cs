@@ -102,7 +102,7 @@ namespace MM.CAAM.Gestion.Models.Entidades
         public TipoUsuario TipoUsuario { get; set; }
         #endregion
 
-        public List<UsuarioNegocio> UsuariosNegocios { get; set; }
+        //public List<UsuarioNegocio> UsuariosNegocios { get; set; }
         public List<Consulta> Consultas { get; set; }
     }
 }

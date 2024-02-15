@@ -32,8 +32,8 @@ namespace MM.CAAM.Gestion.Models.Utilidades
 
             //Fuente y el destino
             CreateMap<UsuarioCreacionDTO, Usuario>();
-            CreateMap<Usuario, UsuarioDTO>()
-                .ForMember(usuarioDTO => usuarioDTO.Negocios, opciones => opciones.MapFrom(MapUsuarioDTONegocios));
+            //CreateMap<Usuario, UsuarioDTO>()
+            //    .ForMember(usuarioDTO => usuarioDTO.Negocios, opciones => opciones.MapFrom(MapUsuarioDTONegocios));
             
             CreateMap<NegocioCreacionDTO, Negocio>()
                 //CREAMOS UNA RECLA ESPECIFICA
@@ -55,23 +55,23 @@ namespace MM.CAAM.Gestion.Models.Utilidades
 
         #region CAAM
 
-        private List<NegocioDTO> MapUsuarioDTONegocios(Usuario usuario, UsuarioDTO usuarioDTO)
-        {
-            var resultado = new List<NegocioDTO>();
+        //private List<NegocioDTO> MapUsuarioDTONegocios(Usuario usuario, UsuarioDTO usuarioDTO)
+        //{
+        //    var resultado = new List<NegocioDTO>();
 
-            if(usuario.UsuariosNegocios == null) { return resultado; }
+        //    if(usuario.UsuariosNegocios == null) { return resultado; }
 
-            foreach(var usuarioNegocio in usuario.UsuariosNegocios)
-            {
-                resultado.Add(new NegocioDTO()
-                {
-                    Id = usuarioNegocio.NegocioId,
-                    Nombre = usuarioNegocio.Negocio.Nombre
-                });
-            }
+        //    foreach(var usuarioNegocio in usuario.UsuariosNegocios)
+        //    {
+        //        resultado.Add(new NegocioDTO()
+        //        {
+        //            Id = usuarioNegocio.NegocioId,
+        //            Nombre = usuarioNegocio.Negocio.Nombre
+        //        });
+        //    }
 
-            return resultado;
-        }
+        //    return resultado;
+        //}
 
         private List<UsuarioDTO> MapNegocioDTOUsuarios(Negocio negocio, NegocioDTO negocioDto)
         {

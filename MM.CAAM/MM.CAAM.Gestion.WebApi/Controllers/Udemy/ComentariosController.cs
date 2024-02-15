@@ -33,83 +33,91 @@ namespace MM.CAAM.Gestion.Models.Controllers.Udemy
         [HttpGet]
         public async Task<ActionResult<List<ComentarioDTO>>> Get(int libroId)
         {
-            var existeLibro = await context.Libros.AnyAsync(libroDB => libroDB.Id == libroId);
+            //var existeLibro = await context.Libros.AnyAsync(libroDB => libroDB.Id == libroId);
 
-            if (!existeLibro)
-            {
-                return NotFound();
-            }
+            //if (!existeLibro)
+            //{
+            //    return NotFound();
+            //}
 
-            var comentarios = await context.Comentarios
-                .Where(comentarioDB => comentarioDB.LibroId == libroId).ToListAsync();
+            //var comentarios = await context.Comentarios
+            //    .Where(comentarioDB => comentarioDB.LibroId == libroId).ToListAsync();
 
-            return mapper.Map<List<ComentarioDTO>>(comentarios);
+            //return mapper.Map<List<ComentarioDTO>>(comentarios);
+
+            return null;
         }
 
         [HttpGet("{id:int}", Name = "ObtenerComentario")]
         public async Task<ActionResult<ComentarioDTO>> GetPorId(int id)
         {
-            var comentario = await context.Comentarios.FirstOrDefaultAsync(comentarioDB => comentarioDB.Id == id);
+            //var comentario = await context.Comentarios.FirstOrDefaultAsync(comentarioDB => comentarioDB.Id == id);
 
-            if (comentario == null)
-            {
-                return NotFound();
-            }
+            //if (comentario == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return mapper.Map<ComentarioDTO>(comentario);
+            //return mapper.Map<ComentarioDTO>(comentario);
+
+            return null;
         }
 
         [HttpPost]
         [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> Post(int libroId, ComentarioCreacionDTO comentarioCreacionDTO)
         {
-            var emailClaim = HttpContext.User.Claims.Where(claim => claim.Type == "email").FirstOrDefault();
-            var email = emailClaim.Value;
+            //var emailClaim = HttpContext.User.Claims.Where(claim => claim.Type == "email").FirstOrDefault();
+            //var email = emailClaim.Value;
 
-            var usuario = await userManager.FindByEmailAsync(email);
-            var usuarioId = usuario.Id;
+            //var usuario = await userManager.FindByEmailAsync(email);
+            //var usuarioId = usuario.Id;
 
-            var existeLibro = await context.Libros.AnyAsync(libroDB => libroDB.Id == libroId);
+            //var existeLibro = await context.Libros.AnyAsync(libroDB => libroDB.Id == libroId);
 
-            if (!existeLibro)
-            {
-                return NotFound();
-            }
+            //if (!existeLibro)
+            //{
+            //    return NotFound();
+            //}
 
-            var comentario = mapper.Map<Comentario>(comentarioCreacionDTO);
-            comentario.LibroId = libroId;
-            comentario.UsuarioId = usuarioId;
-            context.Add(comentario);
-            await context.SaveChangesAsync();
+            //var comentario = mapper.Map<Comentario>(comentarioCreacionDTO);
+            //comentario.LibroId = libroId;
+            //comentario.UsuarioId = usuarioId;
+            //context.Add(comentario);
+            //await context.SaveChangesAsync();
 
-            var comentarioDTO = mapper.Map<ComentarioDTO>(comentario);
+            //var comentarioDTO = mapper.Map<ComentarioDTO>(comentario);
 
-            return CreatedAtRoute("ObtenerComentario", new { id = comentario.Id, libroId }, comentarioDTO);
+            //return CreatedAtRoute("ObtenerComentario", new { id = comentario.Id, libroId }, comentarioDTO);
+
+            return null;
         }
 
         [HttpPut("{id:int}")]
         public async Task<ActionResult> Put(int libroId, int id, ComentarioCreacionDTO comentarioCreacionDTO)
         {
-            var existeLibro = await context.Libros.AnyAsync(libroDB => libroDB.Id == libroId);
+            //var existeLibro = await context.Libros.AnyAsync(libroDB => libroDB.Id == libroId);
 
-            if (!existeLibro)
-            {
-                return NotFound();
-            }
+            //if (!existeLibro)
+            //{
+            //    return NotFound();
+            //}
 
-            var existeComentario = await context.Comentarios.AnyAsync(comentarioDB => comentarioDB.Id == id);
+            //var existeComentario = await context.Comentarios.AnyAsync(comentarioDB => comentarioDB.Id == id);
 
-            if (!existeComentario)
-            {
-                return NotFound();
-            }
+            //if (!existeComentario)
+            //{
+            //    return NotFound();
+            //}
 
-            var comentario = mapper.Map<Comentario>(comentarioCreacionDTO);
-            comentario.Id = id;
-            comentario.LibroId = libroId;
-            context.Update(comentario);
-            await context.SaveChangesAsync();
-            return NoContent();
+            //var comentario = mapper.Map<Comentario>(comentarioCreacionDTO);
+            //comentario.Id = id;
+            //comentario.LibroId = libroId;
+            //context.Update(comentario);
+            //await context.SaveChangesAsync();
+            //return NoContent();
+
+            return null;
         }
     }
 }

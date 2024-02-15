@@ -14,18 +14,18 @@ namespace MM.CAAM.Gestion.Models
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+        //protected override void onmodelcreating(modelbuilder modelbuilder)
+        //{
+        //    base.onmodelcreating(modelbuilder);
 
-            #region LLaves_Primarias_Compuestas
-            modelBuilder.Entity<AutorLibro>()
-                .HasKey(al => new { al.AutorId, al.LibroId });
+        //    #region llaves_primarias_compuestas
+        //    modelbuilder.entity<autorlibro>()
+        //        .haskey(al => new { al.autorid, al.libroid });
 
-            modelBuilder.Entity<UsuarioNegocio>()
-                .HasKey(al => new { al.UsuarioId, al.NegocioId });
-            #endregion
-        }
+        //    modelbuilder.entity<usuarionegocio>()
+        //        .haskey(al => new { al.usuarioid, al.negocioid });
+        //    #endregion
+        //}
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Rol> Rol { get; set; }
@@ -34,9 +34,9 @@ namespace MM.CAAM.Gestion.Models
         public DbSet<TipoUsuario> TipoUsuario { get; set; }
         public DbSet<EstadoCivil> EstadoCivil { get; set; }
         public DbSet<Genero> Genero { get; set; }
-        public DbSet<Negocio> Negocios { get; set; }
+        //public DbSet<Negocio> Negocios { get; set; }
         public DbSet<Consulta> Consultas { get; set; }
-        public DbSet<UsuarioNegocio> UsuariosNegocios { get; set; }
+        //public DbSet<UsuarioNegocio> UsuariosNegocios { get; set; }
 
         #region TIPOS-CATALOGOS
 
@@ -49,10 +49,10 @@ namespace MM.CAAM.Gestion.Models
         #endregion
 
         #region UDEMY
-        public DbSet<Autor> Autores { get; set; }
-        public DbSet<Libro> Libros { get; set; }
-        public DbSet<Comentario> Comentarios { get; set; }
-        public DbSet<AutorLibro> AutoresLibros { get; set; }
+        //public DbSet<Autor> Autores { get; set; }
+        //public DbSet<Libro> Libros { get; set; }
+        //public DbSet<Comentario> Comentarios { get; set; }
+        //public DbSet<AutorLibro> AutoresLibros { get; set; }
         #endregion
 
         /*
