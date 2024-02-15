@@ -52,27 +52,14 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         public int GradoEducacionId { get; set; }
         public int EstadoVidaId { get; set; }
         public int EstadoCivilId { get; set; }
-        public int TipoUsiarioId { get; set; }
+        public int TipoUsuarioId { get; set; }
         public bool Activo { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string PerfilNombreArchivo { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
-        public string Profesion { get; set; }
-
-        //[StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
-        //public string Calle { get; set; }
-
-        //[StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
-        //public string Numero { get; set; }
-
-        //[StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
-        //public string Colonia { get; set; }
-
-        //[StringLength(maximumLength: 50, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
-        //public string CP { get; set; }
-
+        public string Profesion { get; set; } 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string Municipio { get; set; }
         public string Latitud { get; set; }
@@ -80,8 +67,7 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaActualizacion { get; set; }
         public DateTime FechaAcceso { get; set; }
-        public string BearerToken { get; set; }
-        public List<NegocioDTO> Negocios { get; set; }
+        public string BearerToken { get; set; } 
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string Nacionalidad { get; set; }
@@ -89,8 +75,7 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         public string Ocupacion { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
-        public string Direccion { get; set; }
-        public string Usuario { get; set; }
+        public string Direccion { get; set; } 
 
         [Display(Name = "Antecedentes Heredofamiliares")]
         public string? AntecedentesHeredofamiliares { get; set; }
@@ -155,18 +140,7 @@ namespace MM.CAAM.Gestion.DTO.DTOs
                 textoMeses = months > 1 ? $"{months} meses" : $"{months} mes";
             }
 
-            return $"{textoAnios} {textoMeses}";
-
-            //    if (tiempoTranscurrido.TotalDays > 1)
-            //    tiempoEspera = $"{tiempoTranscurrido:dd' días'}";
-            //else if (tiempoTranscurrido.TotalDays == 1)
-            //    tiempoEspera = $"{tiempoTranscurrido:dd' día'}";
-            //else if (tiempoTranscurrido.TotalHours >= 1)
-            //    tiempoEspera = $"{tiempoTranscurrido:hh\\:mm' Hrs.'}";
-            //else
-            //    tiempoEspera = $"{tiempoTranscurrido:mm' Min.'}";
-
-            //return tiempoEspera;
+            return $"{textoAnios} {textoMeses}"; 
         }
     }
 }

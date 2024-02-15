@@ -47,7 +47,7 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         public int? GradoEducacionId { get; set; }
         public int? EstadoVidaId { get; set; }
         public int? EstadoCivilId { get; set; }
-        public int? TipoUsiarioId { get; set; }
+        public int? TipoUsuarioId { get; set; }
         public bool? Activo { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
