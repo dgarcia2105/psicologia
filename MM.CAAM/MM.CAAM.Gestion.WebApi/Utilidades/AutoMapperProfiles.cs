@@ -32,9 +32,10 @@ namespace MM.CAAM.Gestion.Models.Utilidades
 
             //Fuente y el destino
             CreateMap<UsuarioCreacionDTO, Usuario>();
+            CreateMap<Usuario, UsuarioDTO>();
             //CreateMap<Usuario, UsuarioDTO>()
             //    .ForMember(usuarioDTO => usuarioDTO.Negocios, opciones => opciones.MapFrom(MapUsuarioDTONegocios));
-            
+
             CreateMap<NegocioCreacionDTO, Negocio>()
                 //CREAMOS UNA RECLA ESPECIFICA
                 .ForMember(negocio => negocio.UsuariosNegocios, opciones => opciones.MapFrom(MapUsuariosNegocios));

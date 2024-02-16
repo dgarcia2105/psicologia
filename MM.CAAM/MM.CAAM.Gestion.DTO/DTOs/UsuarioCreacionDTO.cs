@@ -21,7 +21,6 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         [StringLength(maximumLength: 240, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? Notas { get; set; }
 
-        public int? RolId { get; set; }
 
         [DataType(DataType.EmailAddress)]
         [StringLength(60, ErrorMessage = "Máximo {1} caracteres.")]
@@ -43,12 +42,6 @@ namespace MM.CAAM.Gestion.DTO.DTOs
 
         [DataType(DataType.DateTime)]
         public DateTime? FechaNacimiento { get; set; }
-        public int? GeneroId { get; set; }
-        public int? GradoEducacionId { get; set; }
-        public int? EstadoVidaId { get; set; }
-        public int? EstadoCivilId { get; set; }
-        public int? TipoUsuarioId { get; set; }
-        public bool? Activo { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? PerfilNombreArchivo { get; set; }
@@ -75,15 +68,12 @@ namespace MM.CAAM.Gestion.DTO.DTOs
 
         [StringLength(maximumLength: 50, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? CP { get; set; }
+        public bool? Activo { get; set; }
 
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? Municipio { get; set; }
         public string? Latitud { get; set; }
         public string? Longitud { get; set; }
-        public DateTime? FechaCreacion { get; set; }
-        public DateTime? FechaActualizacion { get; set; }
-        public DateTime? FechaAcceso { get; set; }
-        public string? BearerToken { get; set; }
 
         [Display(Name = "Antecedentes Heredofamiliares")]
         public string? AntecedentesHeredofamiliares { get; set; }
@@ -105,5 +95,18 @@ namespace MM.CAAM.Gestion.DTO.DTOs
 
         [Display(Name = "Seguro Médico")]
         public string? SeguroMedico { get; set; }
+        public DateTime? FechaCreacion { get; set; }
+        public DateTime? FechaActualizacion { get; set; }
+        public DateTime? FechaAcceso { get; set; }
+        public string? BearerToken { get; set; }
+
+        #region CATALOGOS
+        public int? RolId { get; set; }
+        public int? GeneroId { get; set; }
+        public int? GradoEducacionId { get; set; }
+        public int? EstadoVidaId { get; set; }
+        public int? EstadoCivilId { get; set; }
+        public int? TipoUsuarioId { get; set; }
+        #endregion
     }
 }

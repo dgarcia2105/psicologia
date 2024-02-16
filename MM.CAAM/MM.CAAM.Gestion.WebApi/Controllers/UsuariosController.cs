@@ -158,7 +158,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 context.Add(usuario);
                 await context.SaveChangesAsync();
 
-                var usuarioDTO = mapper.Map<UsuarioDTO>(usuario);
+                //var usuarioDTO = mapper.Map<UsuarioDTO>(usuario);
 
                 return Ok(new Result { Code = StatusCodes.Status200OK });
             }
