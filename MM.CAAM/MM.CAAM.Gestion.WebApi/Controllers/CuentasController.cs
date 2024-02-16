@@ -11,6 +11,7 @@ using System.Text;
 
 namespace MM.CAAM.Gestion.Models.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [ApiController]
     [Route("api/cuentas")]
     public class CuentasController : ControllerBase

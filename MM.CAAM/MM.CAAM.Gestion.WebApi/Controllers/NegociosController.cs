@@ -15,6 +15,7 @@ using MM.CAAM.Gestion.Models.Migrations;
 
 namespace MM.CAAM.Gestion.Models.Controllers    
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [ApiController]                                                             //si algo sale mal retorna un bad request
     [Route("api/negocios")]
     //[Authorize]

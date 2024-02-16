@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication;
 
 namespace MM.CAAM.Gestion.Models.Controllers.Udemy
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [ApiController]                                                             //si algo sale mal retorna un bad request
     [Route("api/autores")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]

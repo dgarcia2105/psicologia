@@ -8,6 +8,7 @@ using MM.CAAM.Gestion.Models.Entidades.Udemy;
 
 namespace MM.CAAM.Gestion.Models.Controllers.Udemy
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [ApiController]
     [Route("api/libros")]
     public class LibrosController : ControllerBase

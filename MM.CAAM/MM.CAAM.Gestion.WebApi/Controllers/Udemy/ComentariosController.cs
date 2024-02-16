@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace MM.CAAM.Gestion.Models.Controllers.Udemy
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [ApiController]
     [Route("api/libros/{libroId:int}/comentarios")]
     public class ComentariosController : ControllerBase
