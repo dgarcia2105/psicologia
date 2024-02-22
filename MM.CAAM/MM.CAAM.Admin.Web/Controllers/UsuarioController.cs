@@ -38,6 +38,10 @@ namespace MM.CAAM.Admin.Web.Controllers
 
         public async Task<IActionResult> NuevoUsuario()
         {
+            #region OBTENER USUARIO
+
+            #endregion
+
             #region CATALOGOS
             var catalogos = await usuarioService.ObtenerCatalogos();
             ViewBag.Generos = new SelectList( items: catalogos.ListGenero, dataValueField: nameof(Genero.Id), dataTextField: nameof(Genero.Descripcion));
