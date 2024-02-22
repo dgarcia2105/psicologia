@@ -14,6 +14,7 @@ namespace MM.CAAM.Admin.Services.Servicios
     {
         Task<UsuarioDTO> LoginApi(UsuarioDTO dto);
         Task<List<UsuarioDTO>> ObtenerListaUsuarios();
+        Task<CatalogoDTO> ObtenerCatalogos();
         Task<UsuarioDTO> ObtenerUsuario(int usuarioId);
         Task<UsuarioDTO> InsertUsuario(UsuarioCreacionDTO dto);
     }
@@ -80,6 +81,17 @@ namespace MM.CAAM.Admin.Services.Servicios
             var endPoint = $"/api/usuarios";
 
             var result = await RESTService.Get<List<UsuarioDTO>>(endPoint, "");
+
+            if (result.Code != (int)HttpStatusCode.OK)
+                throw new ValidationException(result.Message);
+
+            return result.Data;
+        }
+        public async Task<CatalogoDTO> ObtenerCatalogos()
+        {
+            var endPoint = $"/api/usuarios/obtener_catalogos";
+
+            var result = await RESTService.Get<CatalogoDTO>(endPoint, "");
 
             if (result.Code != (int)HttpStatusCode.OK)
                 throw new ValidationException(result.Message);

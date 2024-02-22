@@ -313,7 +313,45 @@ namespace MM.CAAM.Gestion.Models.Controllers
             return authResponse;
         }
 
-        
+        [HttpGet("obtener_catalogos")]
+        public async Task<ActionResult<CatalogoDTO>> ObtenerCatalogos()
+        {
+            try
+            {
+                var listRoles =          await context.Rol
+                                                .Where(x => x.Activo == true).OrderBy(u => u.Orden).ToListAsync();
+                var listEstadoVida =     await context.EstadoVida
+                                                .Where(x => x.Activo == true).OrderBy(u => u.Orden).ToListAsync();
+                var listGradoEducacion = await context.GradoEducacion
+                                                .Where(x => x.Activo == true).OrderBy(u => u.Orden).ToListAsync();
+                var listTipoUsuario =    await context.TipoUsuario
+                                                .Where(x => x.Activo == true).OrderBy(u => u.Orden).ToListAsync();
+                var listGenero =         await context.Genero
+                                                .Where(x => x.Activo == true).OrderBy(u => u.Orden).ToListAsync();
+                var listEstadoCivil =    await context.EstadoCivil
+                                                .Where(x => x.Activo == true).OrderBy(u => u.Orden).ToListAsync();
+
+                CatalogoDTO catalogoDto = new CatalogoDTO();
+                catalogoDto.ListRol = listRoles;
+                catalogoDto.ListEstadoVida = listEstadoVida;
+                catalogoDto.ListGradoEducacion = listGradoEducacion;
+                catalogoDto.ListTipoUsuario = listTipoUsuario;
+                catalogoDto.ListGenero = listGenero;
+                catalogoDto.ListEstadoCivil = listEstadoCivil;
+
+                return Ok(new Result { Code = StatusCodes.Status200OK, Data = catalogoDto });
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            }
+        }
     }
 }
 

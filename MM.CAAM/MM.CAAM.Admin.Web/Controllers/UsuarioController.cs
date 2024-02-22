@@ -6,6 +6,7 @@ using MM.CAAM.Admin.Services.Servicios;
 using MM.CAAM.Gestion.DTO.DTOs;
 using MM.CAAM.Gestion.DTO.DTOs.Request;
 using MM.CAAM.Gestion.DTO.Objects;
+using MM.CAAM.Gestion.Models.Entidades;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
@@ -35,83 +36,18 @@ namespace MM.CAAM.Admin.Web.Controllers
             return Usuarios;
         }
 
-        public IActionResult NuevoUsuario()
+        public async Task<IActionResult> NuevoUsuario()
         {
-            List<TipoRequest> listGenero = new List<TipoRequest>()
-            {
-                new TipoRequest() { Id = 1, Descripcion = "Mujer" },
-                new TipoRequest() { Id = 2, Descripcion = "Hombre" },
-                new TipoRequest() { Id = 3, Descripcion = "No binario" },
-                new TipoRequest() { Id = 4, Descripcion = "Prefiero no decirlo" },
-                new TipoRequest() { Id = 5, Descripcion = "Otro" }
-            };
-            var GenerosSelect = new SelectList(
-                                        items: listGenero,
-                                        dataValueField: nameof(TipoRequest.Id),
-                                        dataTextField: nameof(TipoRequest.Descripcion));
-            ViewBag.Generos = GenerosSelect;
+            #region CATALOGOS
+            var catalogos = await usuarioService.ObtenerCatalogos();
+            ViewBag.Generos = new SelectList( items: catalogos.ListGenero, dataValueField: nameof(Genero.Id), dataTextField: nameof(Genero.Descripcion));
+            ViewBag.ListEstadoCivil = new SelectList( items: catalogos.ListEstadoCivil, dataValueField: nameof(EstadoCivil.Id), dataTextField: nameof(EstadoCivil.Descripcion));
+            ViewBag.ListTipoUsuario = new SelectList( items: catalogos.ListTipoUsuario, dataValueField: nameof(TipoUsuario.Id), dataTextField: nameof(TipoUsuario.Descripcion));
+            ViewBag.ListGradoEducacion = new SelectList( items: catalogos.ListGradoEducacion, dataValueField: nameof(GradoEducacion.Id), dataTextField: nameof(GradoEducacion.Descripcion));
+            ViewBag.ListEstadoVida = new SelectList( items: catalogos.ListEstadoVida, dataValueField: nameof(EstadoVida.Id), dataTextField: nameof(EstadoVida.Descripcion));
+            ViewBag.Roles = new SelectList( items: catalogos.ListRol, dataValueField: nameof(Rol.Id), dataTextField: nameof(Rol.Descripcion));
+            #endregion
 
-            List<TipoRequest> listEstadoCivil = new List<TipoRequest>()
-            {
-                new TipoRequest() { Id = 1, Descripcion = "Soltero/a" },
-                new TipoRequest() { Id = 2, Descripcion = "Casado/a" },
-                new TipoRequest() { Id = 3, Descripcion = "Unión libre o unión de hecho" },
-                new TipoRequest() { Id = 4, Descripcion = "Separado/a" },
-                new TipoRequest() { Id = 5, Descripcion = "Divorciado/a" },
-                new TipoRequest() { Id = 5, Descripcion = "Viudo/a" }
-            };
-            ViewBag.ListEstadoCivil = new SelectList(
-                                        items: listEstadoCivil,
-                                        dataValueField: nameof(TipoRequest.Id),
-                                        dataTextField: nameof(TipoRequest.Descripcion));
-             
-            List<TipoRequest> listTipoUsuario = new List<TipoRequest>()
-            {
-                new TipoRequest() { Id = 1, Descripcion = "Privado" },
-                new TipoRequest() { Id = 2, Descripcion = "Empresa" }
-            };
-            ViewBag.ListTipoUsuario = new SelectList(
-                                        items: listTipoUsuario,
-                                        dataValueField: nameof(TipoRequest.Id),
-                                        dataTextField: nameof(TipoRequest.Descripcion));
-            
-            List<TipoRequest> listGradoEducacion = new List<TipoRequest>()
-            {
-                new TipoRequest() { Id = 1, Descripcion = "Doctorado" },
-                new TipoRequest() { Id = 2, Descripcion = "Maestria" },
-                new TipoRequest() { Id = 3, Descripcion = "Licenciatura" },
-                new TipoRequest() { Id = 4, Descripcion = "Bachillerato" },
-                new TipoRequest() { Id = 5, Descripcion = "Secundaria" },
-                new TipoRequest() { Id = 6, Descripcion = "Primaria" }
-            };
-            ViewBag.ListGradoEducacion = new SelectList(
-                                        items: listGradoEducacion,
-                                        dataValueField: nameof(TipoRequest.Id),
-                                        dataTextField: nameof(TipoRequest.Descripcion));
-             
-            List<TipoRequest> listEstadoVida = new List<TipoRequest>()
-            {
-                new TipoRequest() { Id = 1, Descripcion = "Activo" },
-                new TipoRequest() { Id = 2, Descripcion = "Inactivo" }
-            };
-            ViewBag.ListEstadoVida = new SelectList(
-                                        items: listEstadoVida,
-                                        dataValueField: nameof(TipoRequest.Id),
-                                        dataTextField: nameof(TipoRequest.Descripcion));
-             
-            List<TipoRequest> listRoles = new List<TipoRequest>()
-            {
-                new TipoRequest() { Id = 1, Descripcion = "Administrador" },
-                new TipoRequest() { Id = 2, Descripcion = "Jefe" },
-                new TipoRequest() { Id = 3, Descripcion = "Operador" },
-                new TipoRequest() { Id = 4, Descripcion = "Paciente" }
-            };
-
-            ViewBag.Roles = new SelectList(
-                                        items: listRoles,
-                                        dataValueField: nameof(TipoRequest.Id),
-                                        dataTextField: nameof(TipoRequest.Descripcion));
- 
             return View();
         }
 
