@@ -158,9 +158,9 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 context.Add(usuario);
                 await context.SaveChangesAsync();
 
-                //var usuarioDTO = mapper.Map<UsuarioDTO>(usuario);
-
-                return Ok(new Result { Code = StatusCodes.Status200OK });
+                var usuarioDTO = mapper.Map<UsuarioDTO>(usuario);
+                //return CreatedAtRoute("obtenerUsuario", new { id = usuario.Id }, usuarioDTO);
+                return Ok(new Result { Code = StatusCodes.Status200OK, Data = usuarioDTO});
             }
             catch (ValidationException ex)
             {
@@ -174,24 +174,38 @@ namespace MM.CAAM.Gestion.Models.Controllers
             } 
         }
 
-        [HttpPut("{id:int}")]
-        public async Task<ActionResult> Put(Usuario usuario, int id)
+        [HttpPost("actualizar_usuario/{id:int}")]
+        public async Task<ActionResult> ActualizarUsuario(UsuarioCreacionDTO usuarioCreacionDTO, int id)
         {
-            if (usuario.Id != id)
-            {
-                return BadRequest("El id del usuario no coincide con el id de la URL");
+            
+            try {
+                var existe = await context.Usuarios.AnyAsync(us => us.Id == id);
+
+                if (!existe)
+                {
+                    throw new ArgumentException("No existe el usuario");
+                }
+
+                var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);
+                usuario.Id = id;
+
+                context.Update(usuario);
+                await context.SaveChangesAsync();
+
+                var usuarioDTO = mapper.Map<UsuarioDTO>(usuario);
+
+                return Ok(new Result { Code = StatusCodes.Status200OK, Data = usuarioDTO });
             }
-
-            var existe = await context.Usuarios.AnyAsync(us => us.Id == id);
-
-            if (!existe)
+            catch (ValidationException ex)
             {
-                return NotFound();
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
             }
-
-            context.Update(usuario);
-            await context.SaveChangesAsync();
-            return Ok();
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            }
         }
 
         [HttpDelete("{id:int}")]

@@ -52,5 +52,5 @@ Thumbs.db
 
 # PJBC
 # compiled output
-bin/
-obj/
+*/bin/
+*/obj/
