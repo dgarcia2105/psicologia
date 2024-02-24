@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\MM.CAAM.Admin.Web.props" />
-</Project>
