@@ -70,26 +70,27 @@
 <br>
 
 <div class="row">
-    <div class="col-2"><b>NOMBRE Y APELLIDOS</b></div> 
-    <div class="col-2"><b>EMAIL</b></div>
-    <div class="col-1"><b>SEXO</b></div>
-    <div class="col-1"><b>EDAD</b></div>
-    <div class="col-2"><b>NACIONALIDAD</b></div>
-    <div class="col-1"><b>TELÉFONO</b></div>
-    <div class="col-2"><b>OCUPACIÓN</b></div>
-    <div class="col-1"><b>FECHA REGISTRO</b></div>
+    <div class="col-2"><b>Nombre</b></div> 
+    <div class="col-2"><b>Correo</b></div>
+    <div class="col-1"><b>Sexo</b></div>
+    <div class="col-1"><b>Edad</b></div>
+    <div class="col-2"><b>Nacionalidad</b></div>
+    <div class="col-1"><b>Teléfono</b></div>
+    <div class="col-1"><b>Ocupación</b></div>
+    <div class="col-1"><b>Fecha de registro</b></div>
+    <div class="col-1"><b>Opciones</b></div>
 </div>
 <hr />
     @if (Model != null && Model.Count() > 0)
     {
-        int i = Model.Count();
+        int i = 1;
         foreach (var item in Model)
         {
             {
                 item.Position = i;
             }
             @Html.Partial("_LayoutRowUsuario", item)
-            i--;
+            i++;
             if(i > 0)
             {
                 <hr />

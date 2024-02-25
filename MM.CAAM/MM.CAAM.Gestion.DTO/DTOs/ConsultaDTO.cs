@@ -49,7 +49,6 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         public string? NotasEvolucion { get; set; }
         [Display(Name = "Saturación de oxígeno")]
         public string? SaturacionOxigeno { get; set; }
-        public int UsuarioId { get; set; }
 
         [Display(Name = "Glucosa")]
         public string? Glucosa { get; set; }
@@ -58,6 +57,7 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaRegistro { get; set; }
 
+        public int UsuarioId { get; set; }
         public Usuario Usuario { get; set;}
     }
 }

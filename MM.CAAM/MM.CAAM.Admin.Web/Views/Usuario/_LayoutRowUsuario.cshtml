@@ -10,8 +10,7 @@
                 @*<i class="fa-solid fa-magnifying-glass"></i>*@
                 @Model.NombreCompleto
             </a>
-            <a class="" href="~/Usuario/NuevoUsuario/?usuarioId=@Com.Encryptor(Model.Id.ToString())">Editar</a>
-
+            
         </div>
         <div class="float-end">
                 @*<a class="pe-3" title="Historial" href="~/Consulta/ConsultaDeUsuario/?UsuarioId=@Model.Id"><i class="fa-solid fa-magnifying-glass"></i></a>*@
@@ -32,6 +31,11 @@
     </div>
     <div class="col-2">@Model.Nacionalidad</div>
     <div class="col-1">@Model.Telefono</div>
-    <div class="col-2">@Model.Ocupacion</div>
+    <div class="col-1">@Model.Ocupacion</div>
     <div class="col-1">@Model.FechaCreacion</div>
+    <div class="col-1">
+        <a class="" href="~/Usuario/NuevoUsuario/?usuarioId=@Com.Encryptor(Model.Id.ToString())">Editar</a>
+    </div>
+        
+
 </div>

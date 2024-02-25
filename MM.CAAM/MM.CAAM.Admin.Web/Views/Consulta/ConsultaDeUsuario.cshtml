@@ -20,7 +20,7 @@
     </ul>
     <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-            <a class="btn btn-primary" href="~/Consulta/NuevaConsulta/?UsuarioId=@ViewBag.Usuario.Id"><i class="fa-solid fa-plus"></i> Agregar consulta</a>
+            <a class="btn btn-primary" href="~/Consulta/NuevaConsulta/?UsuarioId=@Com.Encryptor(ViewBag.Usuario.Id.ToString())"><i class="fa-solid fa-plus"></i> Agregar consulta</a>
         </li>
     </ul> 
 </nav>

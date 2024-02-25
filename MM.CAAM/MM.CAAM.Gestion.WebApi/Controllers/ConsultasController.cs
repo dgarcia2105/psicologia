@@ -32,6 +32,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
             {
                 #region
                 var consultas = await context.Consultas
+                    .Include(x => x.Usuario)
                     .OrderByDescending(x => x.Id)
                     .ToListAsync();
                 var data = mapper.Map<List<ConsultaDTO>>(consultas);
@@ -64,6 +65,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 }
 
                 var consultas = await context.Consultas
+                    .Include(x => x.Usuario)
                     .Where(consultasDB => consultasDB.UsuarioId == usuarioId)
                     .OrderByDescending(x => x.Id)
                     .ToListAsync();
@@ -89,7 +91,9 @@ namespace MM.CAAM.Gestion.Models.Controllers
         {
             try
             {
-                var consulta = await context.Consultas.Include(u => u.Usuario).FirstOrDefaultAsync(consultaDB => consultaDB.Id == id);
+                var consulta = await context.Consultas
+                    .Include(u => u.Usuario)
+                    .FirstOrDefaultAsync(consultaDB => consultaDB.Id == id);
 
                 if (consulta == null)
                 {

@@ -64,10 +64,6 @@ namespace MM.CAAM.Admin.Web.Controllers
                 int.TryParse(Com.Decryptor(consultaId), out int ConsultaId);
                 consultaDto = await consultaService.ObtenerConsulta(UsuarioId, ConsultaId);
             }
-            else
-            {
-                throw new ValidationException("IdConsulta vacío.");
-            }
 
             var usuario = await usuarioService.ObtenerUsuario(UsuarioId);
 

@@ -263,7 +263,7 @@
                     console.log(data);
                     if (code => 200 && code < 299) {
 
-                        window.location.replace("/Consulta/ConsultaDeUsuario/?UsuarioId=@Com.Encryptor(Model.Id.ToString())");
+                        window.location.replace("/Consulta/ConsultaDeUsuario/?usuarioId=@Com.Encryptor(ViewBag.Usuario.Id.ToString())");
                     }
                     else {
                         Swal.fire({ icon: 'error', title: 'Oops...', text: data.responseJSON.message });

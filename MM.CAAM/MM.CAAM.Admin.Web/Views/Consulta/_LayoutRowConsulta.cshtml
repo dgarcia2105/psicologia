@@ -4,9 +4,22 @@
 @model MM.CAAM.Gestion.DTO.DTOs.ConsultaDTO
 
 <div class="row">
-    <div class="col-2"><span>@Model.Position </span>@Model.MotivoConsulta</div>
-    <a href="~/Consulta/VerConsulta/?UsuarioId=@Model.UsuarioId&ConsultaId=@Model.Id">
-        Ver consulta completa
-    </a>
+    <div class="col-2">
+        <span>@Model.Position </span>
+    </div>
+    <div class="col-2"> 
+        @Model.MotivoConsulta <span>
+            
+        </span>
+    </div>
+    <div class="col-2">
+        @Model.Usuario.Nombre
+    </div>
+    <div class="col-6">
+        <a href="~/Consulta/VerConsulta/?UsuarioId=@Model.UsuarioId&ConsultaId=@Model.Id">
+            Ver consulta completa
+        </a>
+    </div>
+    
 </div>
 
