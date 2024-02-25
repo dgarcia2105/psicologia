@@ -54,6 +54,10 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         [Display(Name = "Glucosa")]
         public string? Glucosa { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime FechaRegistro { get; set; }
+
         public Usuario Usuario { get; set;}
     }
 }

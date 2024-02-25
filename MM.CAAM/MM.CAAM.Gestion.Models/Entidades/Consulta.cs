@@ -1,4 +1,6 @@
-﻿namespace MM.CAAM.Gestion.Models.Entidades
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MM.CAAM.Gestion.Models.Entidades
 {
     public class Consulta                               //UNO A MUCHOS [Usuario muchas Consultas][Libro muchos Comentarios]
     {
@@ -18,6 +20,9 @@
         public string? CartaBajoConsentimientoInformado { get; set; }
         public string? NotasEvolucion { get; set; }
         public string? SaturacionOxigeno { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime? FechaRegistro { get; set; }
         public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
     }

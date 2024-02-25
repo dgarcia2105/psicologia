@@ -125,6 +125,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
 
                 var consulta = mapper.Map<Consulta>(consultaCreacionDTO);
                 consulta.UsuarioId = usuarioId;
+                consulta.FechaRegistro = DateTime.Now;
                 context.Add(consulta);
                 await context.SaveChangesAsync();
                 return Ok(new Result { Code = StatusCodes.Status200OK });
@@ -154,9 +155,9 @@ namespace MM.CAAM.Gestion.Models.Controllers
                     throw new ArgumentException($"No existe el usuarioId: {usuarioId}");
                 }
 
-                var existeConsulta = await context.Consultas.AnyAsync(usuarioDB => usuarioDB.Id == consultaId);
+                var consultaTmp = await context.Consultas.FirstOrDefaultAsync(usuarioDB => usuarioDB.Id == consultaId);
 
-                if (!existeConsulta)
+                if (consultaTmp == null)
                 {
                     throw new ArgumentException($"No existe el consultaId: {consultaId}");
                 }
@@ -164,6 +165,7 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 var consulta = mapper.Map<Consulta>(consultaCreacionDTO);
                 consulta.UsuarioId = usuarioId;
                 consulta.Id = consultaId;
+                consulta.FechaRegistro = consultaTmp.FechaRegistro;
                 context.Update(consulta);
                 await context.SaveChangesAsync();
                 return Ok(new Result { Code = StatusCodes.Status200OK });
