@@ -47,13 +47,33 @@ namespace MM.CAAM.Admin.Web.Controllers
             return View(Consultas);
         }
 
-        public async Task<IActionResult> NuevaConsulta(int usuarioId)
+        public async Task<IActionResult> NuevaConsulta(string usuarioId = "", string consultaId = "")
         {
-            var usuario = await usuarioService.ObtenerUsuario(usuarioId);
+            ConsultaDTO consultaDto = new ConsultaDTO();
+            int UsuarioId = 0;
+            if (!string.IsNullOrEmpty(usuarioId))
+            {
+                int.TryParse(Com.Decryptor(usuarioId), out UsuarioId);
+            }
+            else
+            {
+                throw new ValidationException("IdUsuario vacío.");
+            }
+            if (!string.IsNullOrEmpty(consultaId))
+            {
+                int.TryParse(Com.Decryptor(consultaId), out int ConsultaId);
+                consultaDto = await consultaService.ObtenerConsulta(UsuarioId, ConsultaId);
+            }
+            else
+            {
+                throw new ValidationException("IdConsulta vacío.");
+            }
+
+            var usuario = await usuarioService.ObtenerUsuario(UsuarioId);
 
             ViewBag.Usuario = usuario;
 
-            return View();
+            return View(consultaDto);
         }
 
         public async Task<IActionResult> VerConsulta(string usuarioId, string consultaId)
@@ -79,11 +99,18 @@ namespace MM.CAAM.Admin.Web.Controllers
         }
 
         [HttpPost] //attribute to get posted values from HTML Form
-        public async Task<ActionResult> CrearConsulta(int usuarioId, ConsultaCreacionDTO consultaCreacionDTO) //, HttpPostedFileBase PerfilNombreArchivo
+        public async Task<ActionResult> CrearConsulta(ConsultaCreacionDTO consultaCreacionDTO, int usuarioId, int consultaId) //, HttpPostedFileBase PerfilNombreArchivo
         {
             try
             {
-                await consultaService.CrearConsulta(usuarioId, consultaCreacionDTO);
+                if (consultaId > 0)
+                {
+                    await consultaService.ModificarConsulta(usuarioId, consultaId, consultaCreacionDTO);
+                }
+                else
+                {
+                    await consultaService.CrearConsulta(usuarioId, consultaCreacionDTO);
+                }
                 return Ok(new Result { Code = StatusCodes.Status200OK });
             }
             catch (ValidationException ex)

@@ -15,8 +15,10 @@ namespace MM.CAAM.Admin.Services.Servicios
     { 
         Task<List<ConsultaDTO>> ObtenerConsultas();
         Task<List<ConsultaDTO>> ObtenerConsultasPorUsuario(int usuarioId);
+        Task<ConsultaDTO> ObtenerConsulta(int usuarioId, int consultaId);
         Task<ConsultaDTO> ObtenerConsultasPorUsuarioYConsultaId(int usuarioId, int consultaId);
         Task<UsuarioDTO> CrearConsulta(int UsuarioId, ConsultaCreacionDTO payload);
+        Task<UsuarioDTO> ModificarConsulta(int UsuarioId, int ConsultaId, ConsultaCreacionDTO payload);
     }
 
     public class ConsultaService : IConsultaService
@@ -26,11 +28,23 @@ namespace MM.CAAM.Admin.Services.Servicios
         {
             RESTService = restService;
         }
-          
+
         public async Task<UsuarioDTO> CrearConsulta(int UsuarioId, ConsultaCreacionDTO payload)
         {
 
             var endPoint = $"/api/usuarios/{UsuarioId}/consultas";
+
+            var result = await RESTService.Post<UsuarioDTO>(endPoint, payload, "");
+
+            if (result.Code != (int)HttpStatusCode.OK)
+                throw new ValidationException(result.Message);
+
+            return result.Data;
+        }
+        public async Task<UsuarioDTO> ModificarConsulta(int UsuarioId, int ConsultaId, ConsultaCreacionDTO payload)
+        {
+
+            var endPoint = $"/api/usuarios/{UsuarioId}/consultas/actualizar_consulta/{ConsultaId}";
 
             var result = await RESTService.Post<UsuarioDTO>(endPoint, payload, "");
 
@@ -57,6 +71,17 @@ namespace MM.CAAM.Admin.Services.Servicios
             var endPoint = $"/api/usuarios/{usuarioId}/consultas";
 
             var result = await RESTService.Get<List<ConsultaDTO>>(endPoint, "");
+
+            if (result.Code != (int)HttpStatusCode.OK)
+                throw new ValidationException(result.Message);
+
+            return result.Data;
+        }
+        public async Task<ConsultaDTO> ObtenerConsulta(int usuarioId, int consultaId)
+        {
+            var endPoint = $"/api/usuarios/{usuarioId}/consultas/{consultaId}";
+
+            var result = await RESTService.Get<ConsultaDTO>(endPoint, "");
 
             if (result.Code != (int)HttpStatusCode.OK)
                 throw new ValidationException(result.Message);

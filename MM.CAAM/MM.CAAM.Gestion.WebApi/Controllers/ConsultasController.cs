@@ -140,5 +140,45 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
             }
         }
+
+
+        [HttpPost("actualizar_consulta/{consultaId:int}")]
+        public async Task<ActionResult> ActualizarConsulta(int usuarioId, int consultaId, ConsultaCreacionDTO consultaCreacionDTO)
+        {
+            try
+            {
+                var existeUsuario = await context.Usuarios.AnyAsync(usuarioDB => usuarioDB.Id == usuarioId);
+
+                if (!existeUsuario)
+                {
+                    throw new ArgumentException($"No existe el usuarioId: {usuarioId}");
+                }
+
+                var existeConsulta = await context.Consultas.AnyAsync(usuarioDB => usuarioDB.Id == consultaId);
+
+                if (!existeConsulta)
+                {
+                    throw new ArgumentException($"No existe el consultaId: {consultaId}");
+                }
+
+                var consulta = mapper.Map<Consulta>(consultaCreacionDTO);
+                consulta.UsuarioId = usuarioId;
+                consulta.Id = consultaId;
+                context.Update(consulta);
+                await context.SaveChangesAsync();
+                return Ok(new Result { Code = StatusCodes.Status200OK });
+            }
+            catch (ValidationException ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status400BadRequest, new Result { Code = StatusCodes.Status400BadRequest, Message = error.MessageException });
+            }
+            catch (Exception ex)
+            {
+                var error = new ExceptionMessage(ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
+            }
+        }
+
     }
 }
