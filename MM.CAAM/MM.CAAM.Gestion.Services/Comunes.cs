@@ -150,7 +150,7 @@ namespace MM.CAAM.Gestion.Services
         
 
         #region OLD
-        public static string DecryptorOld(string stringToDecrypt)
+        public static string Decryptor(string stringToDecrypt)
         {
             try
             {
@@ -194,7 +194,7 @@ namespace MM.CAAM.Gestion.Services
             }
         }
 
-        public static string EncryptorOld(string stringToEncrypt)
+        public static string Encryptor(string stringToEncrypt)
         {
             try
             {

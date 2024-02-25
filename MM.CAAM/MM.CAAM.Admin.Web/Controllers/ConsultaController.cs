@@ -32,11 +32,15 @@ namespace MM.CAAM.Admin.Web.Controllers
 
             return View(Consultas);
         }
-        public async Task<IActionResult> ConsultaDeUsuario(int usuarioId)
+        public async Task<IActionResult> ConsultaDeUsuario(string usuarioId)
         {
-            var Consultas = await consultaService.ObtenerConsultasPorUsuario(usuarioId);
+            if (string.IsNullOrEmpty(usuarioId))
+                throw new ValidationException("Id vacío.");
+            int.TryParse(Com.Decryptor(usuarioId), out int id);
 
-            var usuario = await usuarioService.ObtenerUsuario(usuarioId);
+            var Consultas = await consultaService.ObtenerConsultasPorUsuario(id);
+
+            var usuario = await usuarioService.ObtenerUsuario(id);
 
             ViewBag.Usuario = usuario;
 

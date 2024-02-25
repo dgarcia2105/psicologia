@@ -36,23 +36,25 @@ namespace MM.CAAM.Admin.Web.Controllers
             return Usuarios;
         }
 
-        public async Task<IActionResult> NuevoUsuario()
+        public async Task<IActionResult> NuevoUsuario(string usuarioId)
         {
-            #region OBTENER USUARIO
+            if (string.IsNullOrEmpty(usuarioId))
+                throw new ValidationException("Id vacío.");
 
-            #endregion
+            int.TryParse(Com.Decryptor(usuarioId), out int id);
+            var usuarioDto = await usuarioService.ObtenerUsuario(id); //, UsuarioProfile.Usuario.BearerToken
 
             #region CATALOGOS
             var catalogos = await usuarioService.ObtenerCatalogos();
-            ViewBag.Generos = new SelectList( items: catalogos.ListGenero, dataValueField: nameof(Genero.Id), dataTextField: nameof(Genero.Descripcion));
-            ViewBag.ListEstadoCivil = new SelectList( items: catalogos.ListEstadoCivil, dataValueField: nameof(EstadoCivil.Id), dataTextField: nameof(EstadoCivil.Descripcion));
-            ViewBag.ListTipoUsuario = new SelectList( items: catalogos.ListTipoUsuario, dataValueField: nameof(TipoUsuario.Id), dataTextField: nameof(TipoUsuario.Descripcion));
-            ViewBag.ListGradoEducacion = new SelectList( items: catalogos.ListGradoEducacion, dataValueField: nameof(GradoEducacion.Id), dataTextField: nameof(GradoEducacion.Descripcion));
-            ViewBag.ListEstadoVida = new SelectList( items: catalogos.ListEstadoVida, dataValueField: nameof(EstadoVida.Id), dataTextField: nameof(EstadoVida.Descripcion));
-            ViewBag.Roles = new SelectList( items: catalogos.ListRol, dataValueField: nameof(Rol.Id), dataTextField: nameof(Rol.Descripcion));
+            ViewBag.Generos = new SelectList( items: catalogos.ListGenero, dataValueField: nameof(Genero.Id), dataTextField: nameof(Genero.Descripcion), usuarioDto.GeneroId);
+            ViewBag.ListEstadoCivil = new SelectList( items: catalogos.ListEstadoCivil, dataValueField: nameof(EstadoCivil.Id), dataTextField: nameof(EstadoCivil.Descripcion), usuarioDto.EstadoCivilId);
+            ViewBag.ListTipoUsuario = new SelectList( items: catalogos.ListTipoUsuario, dataValueField: nameof(TipoUsuario.Id), dataTextField: nameof(TipoUsuario.Descripcion), usuarioDto.TipoUsuarioId);
+            ViewBag.ListGradoEducacion = new SelectList( items: catalogos.ListGradoEducacion, dataValueField: nameof(GradoEducacion.Id), dataTextField: nameof(GradoEducacion.Descripcion), usuarioDto.GradoEducacionId);
+            ViewBag.ListEstadoVida = new SelectList( items: catalogos.ListEstadoVida, dataValueField: nameof(EstadoVida.Id), dataTextField: nameof(EstadoVida.Descripcion), usuarioDto.EstadoVidaId);
+            ViewBag.Roles = new SelectList( items: catalogos.ListRol, dataValueField: nameof(Rol.Id), dataTextField: nameof(Rol.Descripcion), usuarioDto.RolId);
             #endregion
 
-            return View();
+            return View(usuarioDto);
         }
 
         [HttpPost] //attribute to get posted values from HTML Form
