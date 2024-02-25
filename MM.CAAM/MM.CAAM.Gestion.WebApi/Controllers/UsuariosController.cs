@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Newtonsoft.Json.Linq;
 
 namespace MM.CAAM.Gestion.Models.Controllers    
 {
@@ -179,20 +180,24 @@ namespace MM.CAAM.Gestion.Models.Controllers
         {
             
             try {
-                var existe = await context.Usuarios.AnyAsync(us => us.Id == id);
+                var usuario = await context.Usuarios
+                    .FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id);
+                context.ChangeTracker.Clear();
+                //var existe = await context.Usuarios.AnyAsync(us => us.Id == id);
 
-                if (!existe)
+                if (usuario == null) //usuario == null
                 {
                     throw new ArgumentException("No existe el usuario");
                 }
 
-                var usuario = mapper.Map<Usuario>(usuarioCreacionDTO);
-                usuario.Id = id;
+                var Usuario = mapper.Map<Usuario>(usuarioCreacionDTO);
+                Usuario.Id = id; 
+                Usuario.Password = string.IsNullOrEmpty(Usuario.Password) ? usuario.Password: Usuario.Password;
 
-                context.Update(usuario);
+                context.Update(Usuario);
                 await context.SaveChangesAsync();
 
-                var usuarioDTO = mapper.Map<UsuarioDTO>(usuario);
+                var usuarioDTO = mapper.Map<UsuarioDTO>(Usuario);
 
                 return Ok(new Result { Code = StatusCodes.Status200OK, Data = usuarioDTO });
             }

@@ -8,6 +8,7 @@
 }
 <br /> 
 <br />
+@Html.HiddenFor(model => model.Id)
 
 <div class="container-fluid px-1 py-2 mx-auto">
     <div class="row d-flex justify-content-center">
@@ -15,7 +16,16 @@
             <br />
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <h3 class="blue-text">Crea un Nuevo Usuario</h3>
+                    <h3 class="blue-text">
+                        @if(Model.Id > 0)
+                        {
+                            <span>Modificar Usuario</span>
+                        }
+                        else
+                        {
+                            <span>Agrega un Nuevo Usuario</span>
+                        }
+                    </h3>
                 </div>
             </div>
             <br />
@@ -103,11 +113,11 @@
 
                             <div class="form-group col-sm-6">
                                 <label><i class="fa-solid fa-key form-control-label"></i> Contraseña</label>
-                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password"}, autocomplete = "off" })
                             </div>
                             <div class="form-group col-sm-6">
                                 <label> Comfirmar Contraseña</label>
-                                @Html.EditorFor(model => model.ConfirmarPassword, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                                @Html.EditorFor(model => model.ConfirmarPassword, new { htmlAttributes = new { @class = "form-control", type = "password" }, autocomplete = "off" })
                             </div>
                             <div class="form-group col-6 flex-column d-flex">
                                 <label class="form-control-label px-6"><i class="fa-solid fa-globe form-control-label"></i> Nacionalidad</label>
@@ -170,7 +180,16 @@
                         <br />
                         <div class="row ">
                             <div class="col-12 ">
-                                <button id="btnEnviar" type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">Agregar</button>  @*ml-auto*@
+                                <button id="btnEnviar" type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">
+                                    @if (Model.Id > 0)
+                                    {
+                                        <span>Modificar</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Agregar</span>
+                                    }
+                                </button>  @*ml-auto*@
                             </div>
                         </div>
                     </form>
@@ -197,7 +216,7 @@
             console.log($("form").serialize());
             $.ajax({
                 type: 'POST',
-                url: '@Url.Action("CrearUsuario", "Usuario", null)',
+                url: '@Url.Action("CrearUsuario", "Usuario", new{id=@Model.Id})',
                 data: $("form").serialize(),
                 dataType: 'json',
                 beforeSend: function () {

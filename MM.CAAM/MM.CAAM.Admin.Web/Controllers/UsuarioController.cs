@@ -36,13 +36,14 @@ namespace MM.CAAM.Admin.Web.Controllers
             return Usuarios;
         }
 
-        public async Task<IActionResult> NuevoUsuario(string usuarioId)
+        public async Task<IActionResult> NuevoUsuario(string usuarioId = "")
         {
-            if (string.IsNullOrEmpty(usuarioId))
-                throw new ValidationException("Id vacío.");
-
-            int.TryParse(Com.Decryptor(usuarioId), out int id);
-            var usuarioDto = await usuarioService.ObtenerUsuario(id); //, UsuarioProfile.Usuario.BearerToken
+            UsuarioDTO usuarioDto = new UsuarioDTO();
+            if (!string.IsNullOrEmpty(usuarioId))
+            {
+                int.TryParse(Com.Decryptor(usuarioId), out int id);
+                usuarioDto = await usuarioService.ObtenerUsuario(id);
+            }
 
             #region CATALOGOS
             var catalogos = await usuarioService.ObtenerCatalogos();
@@ -58,7 +59,7 @@ namespace MM.CAAM.Admin.Web.Controllers
         }
 
         [HttpPost] //attribute to get posted values from HTML Form
-        public async Task<ActionResult> CrearUsuario(UsuarioCreacionDTO usuarioCreacionDto) //, HttpPostedFileBase PerfilNombreArchivo
+        public async Task<ActionResult> CrearUsuario(UsuarioCreacionDTO usuarioCreacionDto, int id) //, HttpPostedFileBase PerfilNombreArchivo
         {
             try
             {
@@ -80,8 +81,14 @@ namespace MM.CAAM.Admin.Web.Controllers
                 //}
                 //else
                 //    usuarioDto.PerfilNombreArchivo = null;
-
-                await usuarioService.InsertUsuario(usuarioCreacionDto);
+                if(id > 0)
+                {
+                    await usuarioService.ActualizarUsuario(usuarioCreacionDto, id);
+                }
+                else
+                {
+                    await usuarioService.InsertUsuario(usuarioCreacionDto);
+                }
                 return Ok(new Result { Code = StatusCodes.Status200OK});
             }
             catch (ValidationException ex)
