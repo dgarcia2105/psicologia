@@ -56,11 +56,19 @@ namespace MM.CAAM.Admin.Web.Controllers
             return View();
         }
 
-        public async Task<IActionResult> VerConsulta(int usuarioId, int consultaId)
+        public async Task<IActionResult> VerConsulta(string usuarioId, string consultaId)
         {
-            var consulta = await consultaService.ObtenerConsultasPorUsuarioYConsultaId(usuarioId, consultaId);
+            if (string.IsNullOrEmpty(usuarioId))
+                throw new ValidationException("Id vacío.");
+            if (string.IsNullOrEmpty(consultaId))
+                throw new ValidationException("Id vacío.");
 
-            var usuario = await usuarioService.ObtenerUsuario(usuarioId);
+            int.TryParse(Com.Decryptor(usuarioId), out int UsuarioId);
+            int.TryParse(Com.Decryptor(consultaId), out int ConsultaId);
+
+            var consulta = await consultaService.ObtenerConsultasPorUsuarioYConsultaId(UsuarioId, ConsultaId);
+
+            var usuario = await usuarioService.ObtenerUsuario(UsuarioId);
 
             ViewBag.Usuario = usuario;
             //var usuario = await usuarioService.ObtenerUsuario(usuarioId);
