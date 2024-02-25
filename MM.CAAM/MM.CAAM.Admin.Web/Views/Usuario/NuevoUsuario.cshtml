@@ -65,10 +65,8 @@
                         <div id="opciones_avanzadas" class="row text-left" style="display:none;">
                             <div class="form-group col-sm-6 flex-column d-flex">
                                 <label class="form-control-label px-6"><i class="fa-solid fa-calendar-days form-control-label"></i> Fecha de Nacimiento</label>
-                                @*@class = "datepicker"*@
-                                @*@value = Model.FechaNacimiento.ToString("yyyy-MM-dd")*@ 
                                 @*@Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new {@class = "form-control", @type = "date" } })*@
-                                @Html.EditorFor(model => model.FechaNacimiento, "{0:dd/MM/yyyy}", new { htmlAttributes = new {@class = "form-control", @type = "date" } })
+                                @Html.EditorFor(model => model.FechaNacimiento, new {htmlAttributes = new {@class = "form-control", @type = "date"} })
 @*
                                 @Html.TextBoxFor(x => x.FechaNacimiento, new { @class = "dateInput", @placeholder = "plz input date", @type = "datetime-local" })*@
                             </div>

@@ -93,6 +93,8 @@ namespace MM.CAAM.Gestion.Models.Controllers
                     throw new ArgumentNullException(nameof(usuario));
                 }
 
+                //usuario.Password = string.Empty;
+
                 var data = mapper.Map<UsuarioDTO>(usuario);
 
                 return Ok(new Result { Code = StatusCodes.Status200OK, Data = data });
