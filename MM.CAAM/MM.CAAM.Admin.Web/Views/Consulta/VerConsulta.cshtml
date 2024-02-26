@@ -117,38 +117,7 @@ Datos generales
 <div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.NotasEvolucion)</h6><p>@Model.NotasEvolucion</p></div></div>
 <br />
 <div class="card p-3"><div class="row"><div class="col-12"></div><h6>@Html.LabelFor(model => model.Plan)</h6><p>@Model.Plan</p></div></div>
-
-<div class="container-fluid px-1 py-2 mx-auto hidden" hidden>
-    <div class="row d-flex justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-9 col-11">   
-            <br />
-            <div class="card">
-                <div class="card-body"> 
-                    @*<form method="post" onsubmit="return sendAjax();">
-                        <div class="row  text-left">
-                            <div class="col-sm-6 flex-column d-flex">
-                                <div class="form-group">
-                                    <label class="form-control-label px-6"><span class="text-danger">* </span></label>
-                                    @Html.LabelFor(model => model.MotivoConsulta)
-                                    @Html.EditorFor(model => model.MotivoConsulta, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
-                                    @Html.ValidationMessageFor(model => model.MotivoConsulta, "", new { @class = "text-danger" })
-                                </div>
-                            </div> 
-                        </div>
-
-                        <br />
-
-                        <div class="row ">
-                            <div class="col-12 ">
-                                <button id="btnEnviar" type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">Agregar</button>
-                            </div>
-                        </div>
-                    </form> *@
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+ 
 @section Scripts
 {
     <script>
