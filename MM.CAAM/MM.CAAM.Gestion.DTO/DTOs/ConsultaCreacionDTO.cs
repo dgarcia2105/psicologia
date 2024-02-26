@@ -49,6 +49,9 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         [Display(Name = "Glucosa")]
         public string? Glucosa { get; set; }
 
+        [Display(Name = "Plan")]
+        public string? Plan { get; set; }
+
         //[DataType(DataType.DateTime)]
         //public DateTime? FechaRegistro { get; set; }
     }

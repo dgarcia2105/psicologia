@@ -207,6 +207,14 @@
                                     @Html.ValidationMessageFor(model => model.NotasEvolucion, "", new { @class = "text-danger" })
                                 </div>
                             </div>
+                            <div class="col-sm-12 flex-column d-flex">
+                                <div class="form-group">
+                                    <br />
+                                    @Html.LabelFor(model => model.Plan)
+                                    @Html.EditorFor(model => model.Plan, new { htmlAttributes = new { @class = "form-control" } }) @*@placeholder = Model.Nombres, @required = "required"*@
+                                    @Html.ValidationMessageFor(model => model.Plan, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
                         </div>
 
                         <br />

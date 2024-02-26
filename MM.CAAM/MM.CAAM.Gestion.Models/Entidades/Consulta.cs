@@ -20,6 +20,7 @@ namespace MM.CAAM.Gestion.Models.Entidades
         public string? CartaBajoConsentimientoInformado { get; set; }
         public string? NotasEvolucion { get; set; }
         public string? SaturacionOxigeno { get; set; }
+        public string? Plan { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime? FechaRegistro { get; set; }

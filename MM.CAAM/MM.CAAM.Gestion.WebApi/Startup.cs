@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MM.CAAM.Gestion.Models;
@@ -77,8 +78,9 @@ namespace MM.CAAM.Gestion.Models
             //services.AddMvc().AddNewtonsoftJson(options =>
             //    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("defaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => {
+                options.UseSqlServer(configuration.GetConnectionString("defaultConnection"));
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); });
             /*
              * dotnet ef migrations add inicial
              * dotnet ef database update
