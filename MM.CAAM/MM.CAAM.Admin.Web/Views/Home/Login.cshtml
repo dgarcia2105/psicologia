@@ -1,18 +1,4 @@
-﻿@*@{
-    ViewData["Title"] = "Home Page.";
-    Layout = "~/Views/Shared/_Layout_Public.cshtml";
-}
-<h1>
-    Log
-</h1>
-
-<form method="post">
-    <input type="text" name="username" placeholder="Typer Username" />
-    <input type="password" name="password" placeholder="Typer Password" />
-    <button class="btn btn-primary"></button>
-</form>*@
-
-@*README
+﻿@*README
     https://www.bootdey.com/snippets/tagged/contacts*@
 @inject IHttpContextAccessor contxt
 @model MM.CAAM.Gestion.DTO.DTOs.UsuarioDTO
@@ -31,11 +17,6 @@
 <div class=" px-1 py-2 mx-auto">
     <div class="d-flex justify-content-center" >
         <div class="col-xl-7 col-lg-8 col-md-9 col-11" >
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    @*<img src="~/assets/imgages/medico/esculapio.png" width="50px" alt="Alternate Text" style="opacity:0.8" />*@
-                </div>
-            </div>
             <br />
             <br />
             <div class="">
@@ -47,11 +28,7 @@
                 <div class="align-items-center text-center">
                     <div class="col-md-12">
                         <div class="card-body">
-                            <form method="post" onsubmit="return sendAjax();">
-                                @*id="formCustom" method="post"*@
-                                @*onsubmit="sendAjax();"*@
-                                @*method="post" enctype="multipart/form-data"*@
-                                @*<h4 class="mb-3 f-w-400">Iniciar Sesión</h4>*@
+                            <form method="post" onsubmit="return sendAjax();"> 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text"><i data-feather="user"></i></span>
                                     @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @placeholder = "Tu email", @class = "form-control", @required = "required" } })
@@ -62,27 +39,13 @@
                                 </div>
                                 <div class="">
                                     <div class="col-xs-12 input-group">
-                                        @*<button type="button" class="shadow btn btn-primary mx-1" onclick="sendAjax()"><i class="fas fa-save"></i> Enviar </button>*@
                                         <button id="btnEnviar" type="submit" class="btn btn-success form-control mb-4">Iniciar sesión</button>
                                     </div>
                                 </div>
-                                @*<p class="mb-0 text-muted text-right">
-                                <a href="~/Usuario/RecuperarContrasenia/" class="f-w-400">Olvidaste tu contraseña?</a>
-                                </p>*@
                             </form>
                         </div>
                     </div>
                 </div>
-                @*<div class="card-body">
-                @using (Html.BeginForm("IniciarSesion", "Loggin", FormMethod.Post, new { id = "Form1" }))
-                {
-                <div class="row ">
-                <div class="col-12 ">
-                <button type="submit" class="btn btn-primary float-right" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;">WebApi</button>
-                </div>
-                </div>
-                }
-                </div>*@
             </div>
         </div>
     </div>
@@ -93,24 +56,11 @@
     <script>
         function sendAjax() {
             event.preventDefault();
-            //swal('Error', 'Falló al enviar la solicitud: ' , 'error');
-            //if (!event.result){
-            //    console.log("if");
-            //    return false;
-            //}
-            //else{
-            //    console.log("else");
-            //    event.preventDefault();
-            //}
 
             $.ajax({
                 type: 'POST',
-                //url: '/Loggin/IniciarSesion/',
                 url: '@Url.Action("Login", "Home", null)',
                 data: $("form").serialize(),
-                //cache: false,
-                //contentType: false,
-                //processData: false,
                 dataType: 'json',
                 beforeSend: function () {
                     showProgress();
@@ -140,7 +90,6 @@
                     else if (code => 500 && code < 599) {
                         Swal.fire({ icon: 'error', title: 'Oops...', text: data.responseJSON.message });
                     }
-
 
                     $('#btnEnviar').prop('disabled', false);
 
