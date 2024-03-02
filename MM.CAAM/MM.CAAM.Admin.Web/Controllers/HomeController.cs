@@ -92,8 +92,9 @@ namespace MM.CAAM.Admin.Web.Controllers
                 {
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Role, resultDto.RolId.ToString()),
+                        new Claim(ClaimTypes.Role, resultDto.Rol.Descripcion.ToString()),
                         new Claim(ClaimTypes.Name, resultDto.NombreCompleto),
+                        new Claim("NombreCompleto", resultDto.NombreCompleto),
                         new Claim("correo", !string.IsNullOrEmpty(resultDto.Correo) ? resultDto.Correo : ""),
                         new Claim("Id", resultDto.Id.ToString()),
                         new Claim("BearerToken", resultDto.BearerToken.ToString()),

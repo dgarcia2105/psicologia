@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class UsuarioController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
@@ -41,6 +41,7 @@ namespace MM.CAAM.Admin.Web.Controllers
             return Usuarios;
         }
 
+        [Authorize(Roles = "ADMINISTRADOR, CEO, JEFE")]
         public async Task<IActionResult> NuevoUsuario(string usuarioId = "")
         {
             UsuarioDTO usuarioDto = new UsuarioDTO();
