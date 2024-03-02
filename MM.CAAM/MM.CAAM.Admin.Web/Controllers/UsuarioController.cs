@@ -7,11 +7,12 @@ using MM.CAAM.Gestion.DTO.DTOs;
 using MM.CAAM.Gestion.DTO.DTOs.Request;
 using MM.CAAM.Gestion.DTO.Objects;
 using MM.CAAM.Gestion.Models.Entidades;
+using Newtonsoft.Json;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
-    //[Authorize]
-    public class UsuarioController : Controller
+    [Authorize]
+    public class UsuarioController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUsuarioService usuarioService;
@@ -24,7 +25,11 @@ namespace MM.CAAM.Admin.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var Usuarios = await usuarioService.ObtenerListaUsuarios();
+            var Usuarios = await usuarioService.ObtenerListaUsuarios(); 
+            var responseCookie = HttpContext.Request.Cookies[".AUTHCAAM"];
+            var a = Com.Decryptor(responseCookie);
+            var result = JsonConvert.DeserializeObject<UsuarioProfile>(a);
+            //ViewBag.Usuario = Response.Cookies["Usuario"];
 
             return View(Usuarios);
         }

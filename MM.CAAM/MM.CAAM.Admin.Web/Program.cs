@@ -32,10 +32,11 @@ builder.Services.AddTransient<CheckSessionOut>();
 #endregion
 
 //README: https://www.youtube.com/watch?v=Y-JMOHKCkCk
-builder.Services.AddDistributedMemoryCache();
+builder.Services.AddDistributedMemoryCache(); 
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(120);
+    //options.IdleTimeout = TimeSpan.FromSeconds(10);
 });
 
 //README: Asignando una session cookie al registrar un usuario. https://www.udemy.com/course/aprende-aspnet-core-mvc-haciendo-proyectos-desde-cero/learn/lecture/29610340#questions
@@ -52,9 +53,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(o =>
     {
         o.LoginPath= "/Home/Login";
-        //o.ExpireTimeSpan = TimeSpan.FromDays(1);
+        o.ExpireTimeSpan = TimeSpan.FromDays(1);
+        o.AccessDeniedPath = "/Home/Index";
         //o.SlidingExpiration = false;
-        //o.AccessDeniedPath = "/Forbidden/";
     });
 
 #endregion
@@ -93,7 +94,8 @@ app.UseResponseCaching();
 #endregion 
 
 #region cookies
-app.UseAuthentication(); 
+//app.UseAuthentication();
+app.UseAuthentication();
 #endregion
 
 app.UseAuthorization();

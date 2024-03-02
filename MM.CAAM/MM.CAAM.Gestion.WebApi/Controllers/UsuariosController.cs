@@ -52,12 +52,6 @@ namespace MM.CAAM.Gestion.Models.Controllers
             try
             {
                 var usuarios = await context.Usuarios
-                    .Include(x => x.Rol)
-                    .Include(x => x.GradoEducacion)
-                    .Include(x => x.EstadoVida)
-                    .Include(x => x.TipoUsuario)
-                    .Include(x => x.EstadoCivil)
-                    .Include(x => x.Genero)
                     .Where(x => x.Activo == true)
                     .OrderByDescending(u => u.Id).ToListAsync();
 
@@ -84,6 +78,12 @@ namespace MM.CAAM.Gestion.Models.Controllers
             {
 
                 var usuario = await context.Usuarios
+                    .Include(x => x.Rol)
+                    .Include(x => x.GradoEducacion)
+                    .Include(x => x.EstadoVida)
+                    .Include(x => x.TipoUsuario)
+                    .Include(x => x.EstadoCivil)
+                    .Include(x => x.Genero)
                     .Where(x => x.Activo == true)
                     .Include(usuarioDB => usuarioDB.TipoUsuario) 
                     .FirstOrDefaultAsync(usuarioBD => usuarioBD.Id == id); //usuarioBD.Negocios || Consultas

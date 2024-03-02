@@ -10,6 +10,7 @@ using MM.CAAM.Admin.Web.Controllers;
 using System.Diagnostics;
 using System.Net;
 using System.Security.Claims;
+using Newtonsoft.Json;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
@@ -51,7 +52,7 @@ namespace MM.CAAM.Admin.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            await HttpContext.SignOutAsync();
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             return RedirectToAction("Index");
         }
@@ -66,20 +67,38 @@ namespace MM.CAAM.Admin.Web.Controllers
         {
             try
             {
-                
-            var resultDto = await usuarioService.LoginApi(usuarioDto);
+                //Guardar información en una sesión
+                //HttpContext.Session.SetString("Usuario", "Dany");
+                //HttpContext.Session.SetString("Usuario", "Dany"); 
 
+                var resultDto = await usuarioService.LoginApi(usuarioDto);
+
+                UsuarioProfile usuarioLogeado = new UsuarioProfile()
+                {
+                    Usuario = resultDto
+                };
+                //-----------------
+                // Encrypt the ticket.
+                string encTicket = JsonConvert.SerializeObject(usuarioLogeado);
+                string encriptado = Com.Encryptor(encTicket);
+                //var HttpCookie = new HttpResponse.Cookie(".AUTHCENTRAL", encriptado)
+                //{
+                //    Expires = DateTime.Now.AddSeconds(FormsAuthentication.Timeout.TotalSeconds),
+                //    Secure = true
+                //};
+                HttpContext.Response.Cookies.Append(".AUTHCAAM", encriptado);
+                //---------------------
                 if (resultDto != null)
                 {
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, resultDto.Id.ToString()),
+                        new Claim(ClaimTypes.Role, resultDto.RolId.ToString()),
+                        new Claim(ClaimTypes.Name, resultDto.NombreCompleto),
                         new Claim("correo", !string.IsNullOrEmpty(resultDto.Correo) ? resultDto.Correo : ""),
                         new Claim("Id", resultDto.Id.ToString()),
                         new Claim("BearerToken", resultDto.BearerToken.ToString()),
                     };
 
-                    //var claimsIdentity = new ClaimsIdentity(claims, "Login");
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity)); //, isPersistent:false, lockoutOnFailure: false

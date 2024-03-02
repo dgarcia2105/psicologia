@@ -10,9 +10,12 @@ using MM.CAAM.Admin.Web.Controllers;
 using System.Diagnostics;
 using System.Net;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+//using System.Web.Mvc;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
+    [Authorize]
     public class ConsultaController : BaseController
     { 
         private readonly ILogger<HomeController> _logger;
