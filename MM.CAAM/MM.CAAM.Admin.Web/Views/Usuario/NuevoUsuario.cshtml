@@ -228,23 +228,21 @@
         });
         function sendAjax() {
             event.preventDefault();
-            console.log($("form").serialize());
+            //console.log($("form").serialize()); 
+            var url = "@Html.Raw(Url.Action("CrearUsuario", "Usuario", new{ id=@Model.Id}))";
             var perfilNombreArchivo = $('#PerfilNombreArchivo')[0].files[0];
-            //console.log(perfilNombreArchivo);
-            //console.log(@Model.PerfilNombreArchivo);
-            var url = "@Html.Raw(Url.Action("CrearUsuario", "Usuario", new{ id=@Model.Id}))"; //, file=Model.PerfilNombreArchivo
+            var formData = new FormData($("form")[1]);
+            formData.append('PerfilNombreArchivo', document.getElementById('PerfilNombreArchivo').files[0]);
+            //console.log(formData);
 
-            //var data = new FormData("file",$('#PerfilNombreArchivo')[0].files[0]);
-            //var formData = $("form").serialize();
-            //formData.append(new FormData("file", perfilNombreArchivo))
-            //if(1==0){
             $.ajax({
                 type: 'POST',
                 url: url,
-                //processData: false,
-                //contentType: false,
-                data: $("form").serialize(),
-                dataType: 'json',
+                data: formData, //$("form").serialize()
+                processData: false,
+                contentType: false,
+                enctype: 'multipart/form-data',
+                //dataType: 'json',
                 beforeSend: function () {
                     showProgress();
                     $('#btnEnviar').prop('disabled', true);
@@ -255,26 +253,26 @@
                     if (code => 200 && code < 299) {
 
 
-                        var formData = new FormData();                        
-                        var file = $('#PerfilNombreArchivo')[0].files[0];
-                        formData.append("file", file);
-                        formData.append("id", @Model.Id);
+                        //var formData = new FormData();                        
+                        //var file = $('#PerfilNombreArchivo')[0].files[0];
+                        //formData.append("file", file);
+                        //formData.append("id", @Model.Id);
 
-                        var url = "@Html.Raw(Url.Action("SubirImagenPerfil", "Usuario"))";
-                        $.ajax({
-                            type: "POST",
-                            url: url,
-                            data: formData,
-                            dataType: 'json',
-                            contentType: false,
-                            processData: false
-                        }).done(function () 
-                        { 
-                            //alert('success'); 
-                        }).
-                        fail(function (xhr, status, errorThrown) { 
-                            //alert('fail'); 
-                        });
+                        //var url = "@Html.Raw(Url.Action("SubirImagenPerfil", "Usuario"))";
+                        //$.ajax({
+                        //    type: "POST",
+                        //    url: url,
+                        //    data: formData,
+                        //    dataType: 'json',
+                        //    contentType: false,
+                        //    processData: false
+                        //}).done(function () 
+                        //{ 
+
+                        //}).
+                        //fail(function (xhr, status, errorThrown) { 
+
+                        //});
 
 
                         window.location.replace("/Usuario/Index/");

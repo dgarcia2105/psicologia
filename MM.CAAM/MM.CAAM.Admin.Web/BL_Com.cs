@@ -43,10 +43,10 @@ namespace MM.CAAM.Admin.Web
             string tmp_filename = fileName;
             int contador = 1;
 
-            if (!Directory.Exists(fileDirectoryName))
-            {
-                Directory.CreateDirectory(fileDirectoryName);
-            }
+            //if (!Directory.Exists(fileDirectoryName))
+            //{
+            //    Directory.CreateDirectory(fileDirectoryName);
+            //}
 
             while (File.Exists(Path.Combine(fileDirectoryName, tmp_filename)))
             {

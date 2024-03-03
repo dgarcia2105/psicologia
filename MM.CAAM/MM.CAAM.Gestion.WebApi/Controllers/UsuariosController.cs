@@ -195,7 +195,8 @@ namespace MM.CAAM.Gestion.Models.Controllers
                 var Usuario = mapper.Map<Usuario>(usuarioCreacionDTO);
                 Usuario.Id = id;
                 Usuario.FechaCreacion = usuario.FechaCreacion;
-                Usuario.Password = string.IsNullOrEmpty(Usuario.Password) ? usuario.Password: Usuario.Password;
+                Usuario.Password = string.IsNullOrEmpty(Usuario.Password) ? usuario.Password : Usuario.Password;
+                Usuario.PathImagenPerfil = string.IsNullOrEmpty(Usuario.PathImagenPerfil) ? usuario.PathImagenPerfil : Usuario.PathImagenPerfil;
 
                 context.Update(Usuario);
                 await context.SaveChangesAsync();

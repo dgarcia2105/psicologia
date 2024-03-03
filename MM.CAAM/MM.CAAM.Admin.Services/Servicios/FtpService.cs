@@ -13,7 +13,7 @@ namespace MM.CAAM.Admin.Services.Servicios
 {
     public interface IFtpService
     {
-        Task<bool> UploadFile(string PathFile, string UsuarioFtp, string PasswordFtp, string UrlServidorFtp, string Directory, int TimeOut = 60000);
+        Task<string> UploadFile(string PathFile, string UsuarioFtp, string PasswordFtp, string UrlServidorFtp, string Directory, string FileName, int TimeOut = 60000);
         
     }
 
@@ -23,9 +23,27 @@ namespace MM.CAAM.Admin.Services.Servicios
         {
         }
 
-        public async Task<bool> UploadFile(string PathFile, string UrlServidorFtp, string Directory, string UsuarioFtp, string PasswordFtp, int TimeOut = 60000)
+        public async Task<string> UploadFile(string PathFile, string UrlServidorFtp, string Directory, string UsuarioFtp, string PasswordFtp, string FileName, int TimeOut = 60000)
         {
-            var ruta_archivo_ftp = string.Empty;
+            #region ReemplazaNombreSiExiste
+            int contador = 0;
+            string fileExtension = Path.GetExtension(FileName);
+            while (!string.IsNullOrEmpty(await ExisteArchivoFtp(UrlServidorFtp, Directory, UsuarioFtp, PasswordFtp, PathFile, FileName)))
+            {
+                contador++;
+                var copyCount = $"_Copy({contador})";
+                var copyCountAnterior = $"_Copy({(contador - 1)})";
+
+                if (FileName.Contains(copyCountAnterior))
+                {
+                    FileName = FileName.Replace(copyCountAnterior, copyCount);
+                }
+                else
+                {
+                    FileName = FileName.Split('.')[0] + copyCount + fileExtension;
+                }
+            }
+            #endregion
 
             if (!System.IO.File.Exists(PathFile))
             {
@@ -36,22 +54,23 @@ namespace MM.CAAM.Admin.Services.Servicios
             var directoryTmp = string.Empty;
             foreach(var folder in folders)
             {
-                if (!string.IsNullOrEmpty(folder))
+                if (!string.IsNullOrEmpty(folder)) 
                 {
                     directoryTmp = directoryTmp+ "/" + folder;
                     await ValidarCrearDirectorioFtp(UrlServidorFtp, directoryTmp, UsuarioFtp, PasswordFtp);
                 }
             }
 
-            await Upload(UrlServidorFtp, Directory, UsuarioFtp, PasswordFtp, PathFile, TimeOut);
+            await Upload(UrlServidorFtp, Directory, UsuarioFtp, PasswordFtp, PathFile, TimeOut, FileName);
 
-            return await ExisteArchivoFtp(UrlServidorFtp, directoryTmp, UsuarioFtp, PasswordFtp, PathFile);
+            var pathServer = await ExisteArchivoFtp(UrlServidorFtp, Directory, UsuarioFtp, PasswordFtp, PathFile, FileName);
+            return pathServer.Replace("ftp://", "");
 
         }
 
-        public async Task Upload(string UrlServidorFtp, string Directory, string UsuarioFtp, string PasswordFtp, string PathFile, int TimeOut)
+        public async Task Upload(string UrlServidorFtp, string Directory, string UsuarioFtp, string PasswordFtp, string PathFile, int TimeOut, string FileName)
         {
-            var FileName = "/" + Path.GetFileName(PathFile);
+            //var FileName = "/" + Path.GetFileName(PathFile);
 
             var request = (FtpWebRequest)WebRequest.Create(Path.Combine(UrlServidorFtp + Directory + FileName));
             request.Credentials = new NetworkCredential(UsuarioFtp, PasswordFtp);
@@ -107,11 +126,12 @@ namespace MM.CAAM.Admin.Services.Servicios
             return existe;
         }
 
-        public async Task<bool> ExisteArchivoFtp(string UrlServidorFtp, string Directory, string UsuarioFtp, string PasswordFtp, string PathFile)
+        public async Task<string> ExisteArchivoFtp(string UrlServidorFtp, string Directory, string UsuarioFtp, string PasswordFtp, string PathFile, string FileName)
         {
             bool existe = false;
+            string pathFileServer = string.Empty;
 
-            var FileName = "/" + Path.GetFileName(PathFile);
+            //var FileName = "/" + Path.GetFileName(PathFile);
 
             FtpWebRequest request;
             request = (FtpWebRequest)WebRequest.Create(Path.Combine(UrlServidorFtp + Directory + FileName));
@@ -136,6 +156,7 @@ namespace MM.CAAM.Admin.Services.Servicios
                 if(directories.Count > 0)
                 {
                     existe = true;
+                    pathFileServer = Path.Combine(UrlServidorFtp + Directory + FileName);
                 }
             }
             catch (Exception ex)
@@ -143,7 +164,7 @@ namespace MM.CAAM.Admin.Services.Servicios
                 
             }
 
-            return existe;
+            return pathFileServer;
         }
 
         public void DownloadToPc()
