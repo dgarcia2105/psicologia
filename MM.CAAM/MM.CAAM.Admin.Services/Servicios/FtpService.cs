@@ -159,6 +159,23 @@ namespace MM.CAAM.Admin.Services.Servicios
             //return File(bytes, contentType, Path.GetFileName(localFile));
             #endregion
         }
+
+        /*HOW TO USE:
+         * 
+            private readonly string UsuarioFtp, PasswordFtp, UrlServidorFtp;
+         * 
+            UsuarioFtp = IConfiguration.GetSection("UsuarioFtp").Value;
+            PasswordFtp = IConfiguration.GetSection("PasswordFtp").Value;
+            UrlServidorFtp = IConfiguration.GetSection("FtpUrl").Value;
+         * 
+            #region Variables
+            var pathFile = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), @"wwwroot", @"images", @"user_default.png");
+            var fileName = "/"+Path.GetFileName(pathFile);
+            var directory = "/machuca/imagenes_perfil"; 
+            #endregion
+
+            var uploadSuccess = await IFtpService.UploadFile(pathFile, UrlServidorFtp, directory, UsuarioFtp, PasswordFtp);
+        */
     }
 
 }
