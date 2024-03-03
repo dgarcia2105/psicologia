@@ -13,6 +13,9 @@
     <Folder Include="Validaciones\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\MM.CAAM.Gestion.Models\MM.CAAM.Gestion.Models.csproj" />
     <ProjectReference Include="..\MM.CAAM.Gestion.Services\MM.CAAM.Gestion.Services.csproj" />
   </ItemGroup>

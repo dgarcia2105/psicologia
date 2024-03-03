@@ -45,6 +45,8 @@ namespace MM.CAAM.Gestion.Models.Entidades
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? PerfilNombreArchivo { get; set; }
 
+        public string? PathImagenPerfil { get; set; }
+
         [StringLength(maximumLength: 120, ErrorMessage = "El campo {0} no debe de tener más de {1} carácteres")]
         public string? Profesion { get; set; }
 
