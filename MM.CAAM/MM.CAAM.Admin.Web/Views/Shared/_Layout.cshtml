@@ -67,11 +67,32 @@
                     </li>
                 </ul>
                 <div class="dropdown"> 
+                   
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        @{
+                            var PathImagenPerfil = ((ClaimsIdentity)User.Identity).FindFirst("PathImagenPerfil").Value;
+                            var pathImagenPerfil = string.Empty;
+                            if (!string.IsNullOrEmpty(PathImagenPerfil))
+                            {
+                                pathImagenPerfil = PathImagenPerfil;
+                                //<img src="@pathImagenPerfil" />
+                            }
+                            else
+                            {
+                                pathImagenPerfil = "/images/user_default.png";
+                                //<img src="~/images/user_default.png" />
+                            }
+                            //<img src="@pathImagenPerfil" />
+                            <img src="@pathImagenPerfil" style="width: 40px; margin-right: 10px; border-radius: 50%;" />
+                        }
                         @{
                             var nombrecompleto = ((ClaimsIdentity)User.Identity).FindFirst("NombreCompleto").Value;
                         }
-                        <span>@nombrecompleto</span>
+                        <span>
+                            <span>
+                                @nombrecompleto
+                            </span>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>

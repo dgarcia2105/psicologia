@@ -104,6 +104,7 @@ namespace MM.CAAM.Admin.Web.Controllers
                         new Claim(ClaimTypes.Role, resultDto.Rol.Descripcion.ToString()),
                         new Claim(ClaimTypes.Name, resultDto.NombreCompleto),
                         new Claim("NombreCompleto", resultDto.NombreCompleto),
+                        new Claim("PathImagenPerfil", !string.IsNullOrEmpty(resultDto.PathImagenPerfil) ? resultDto.PathImagenPerfil: ""),
                         new Claim("correo", !string.IsNullOrEmpty(resultDto.Correo) ? resultDto.Correo : ""),
                         new Claim("Id", resultDto.Id.ToString()),
                         new Claim("BearerToken", resultDto.BearerToken.ToString()),

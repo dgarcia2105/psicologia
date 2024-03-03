@@ -79,8 +79,8 @@ namespace MM.CAAM.Admin.Web.Controllers
         {
             try
             {
-                var pathServer = string.Empty;
-
+                #region Upload imagen perfil
+                //TODO: detectar tipo de documento y si es imagen hacerla mas chica
                 if (PerfilNombreArchivo != null && PerfilNombreArchivo.Length > 0)
                 {
                     #region Variables
@@ -94,19 +94,12 @@ namespace MM.CAAM.Admin.Web.Controllers
                         await PerfilNombreArchivo.CopyToAsync(stream);
                     }
                     #endregion
-                    pathServer = await ftpService.UploadFile(pathFile, UrlServidorFtp, directory, UsuarioFtp, PasswordFtp, fileName);
+                    var pathServer = "https://"+await ftpService.UploadFile(pathFile, UrlServidorFtp, directory, UsuarioFtp, PasswordFtp, fileName);
                     usuarioCreacionDto.PathImagenPerfil = pathServer;
                 }
-                //if (PerfilNombreArchivo != null && PerfilNombreArchivo.ContentLength > 0)
-                //{
-                //    var fullPath = Path.Combine(usuarioDto.PathFotosActuarios, PerfilNombreArchivo.FileName);
-                //    var fileName = Com.RenombrarSiExisteArchivo(fullPath);
-                //    PerfilNombreArchivo.SaveAs(Path.Combine(usuarioDto.PathFotosActuarios, fileName));
+                #endregion
 
-                //    usuarioDto.PerfilNombreArchivo = fileName;
-                //}
-                //else
-                //    usuarioDto.PerfilNombreArchivo = null;
+                #region Validaciones
 
                 if (!string.IsNullOrEmpty(usuarioCreacionDto.Password))
                 {
@@ -115,8 +108,9 @@ namespace MM.CAAM.Admin.Web.Controllers
                         throw new Exception("Las contraseñas no coinciden");
                     }
                 }
+                #endregion
 
-                
+                #region WebApi
                 if (id > 0)
                 {
                     await usuarioService.ActualizarUsuario(usuarioCreacionDto, id);
@@ -125,6 +119,8 @@ namespace MM.CAAM.Admin.Web.Controllers
                 {
                     await usuarioService.InsertUsuario(usuarioCreacionDto);
                 }
+                #endregion
+
                 return Ok(new Result { Code = StatusCodes.Status200OK });
             }
             catch (ValidationException ex)
