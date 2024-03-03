@@ -11,6 +11,10 @@ using System.Diagnostics;
 using System.Net;
 using System.Security.Claims;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.StaticFiles;
+using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace MM.CAAM.Admin.Web.Controllers
 {
@@ -18,15 +22,31 @@ namespace MM.CAAM.Admin.Web.Controllers
     { 
         private readonly ILogger<HomeController> _logger;
         private readonly IUsuarioService usuarioService;
+        private readonly IConfiguration IConfiguration;
+        private readonly IFtpService IFtpService;
+        private readonly string UsuarioFtp, PasswordFtp, UrlServidorFtp;
 
-        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService)
+        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService, IConfiguration iConfiguration, IFtpService iFtpService)
         {
             _logger = logger;
             this.usuarioService = usuarioService;
+            IConfiguration = iConfiguration;
+            IFtpService = iFtpService;
+            UsuarioFtp = IConfiguration.GetSection("UsuarioFtp").Value;
+            PasswordFtp = IConfiguration.GetSection("PasswordFtp").Value;
+            UrlServidorFtp = IConfiguration.GetSection("FtpUrl").Value;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            #region Variables
+            var pathFile = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), @"wwwroot", @"images", @"user_default.png");
+            var fileName = "/"+Path.GetFileName(pathFile);
+            var directory = "/machuca/imagenes_perfil"; 
+            #endregion
+
+            var uploadSuccess = await IFtpService.UploadFile(pathFile, UrlServidorFtp, directory, UsuarioFtp, PasswordFtp);
+
             #region Meta
             ViewBag.Title = "Caam: Centro psicológico de aprendizaje profesional";
             ViewBag.MetaDescripcion = "Únete hoy a Caam, el centro psicológico profesional de educación en línea y presencial. Prepárate con las habilidades más nuevas y demandadas a un menor precio de lo que gastarías regularmente.";

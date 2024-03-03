@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using MM.CAAM.Admin.Services;
 using MM.CAAM.Admin.Services.Servicios;
@@ -60,6 +61,11 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 #endregion
 
+//https://stackoverflow.com/questions/76651106/wwwroot-static-files-can-be-routed-but-cant-be-accessed-inside-cshtml-file
+#region wwwroot
+builder.Services.AddRazorPages();
+#endregion
+
 #region SERVICES
 // Add services to the container.
 
@@ -67,6 +73,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IRESTService, RESTService>(); /*new InjectionConstructor(ApiKeyCentralActuarios, BaseUrlApiCentralActuarios)*/
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IConsultaService, ConsultaService>();
+builder.Services.AddScoped<IFtpService, FtpService>();
 
 var app = builder.Build();
 #endregion 
@@ -81,7 +88,17 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+//app.UseStaticFiles();
+//app.UseStaticFiles(new StaticFileOptions()
+//{
+//    FileProvider = new PhysicalFileProvider("\\\\192.168.1.234\\Arc\\Uploaded\\"),
+
+//});
 app.UseStaticFiles();
+
+#region wwwroot
+app.MapRazorPages();
+#endregion
 
 #region cookies/session
 app.UseSession();
