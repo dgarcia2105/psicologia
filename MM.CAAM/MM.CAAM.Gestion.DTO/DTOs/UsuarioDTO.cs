@@ -1,4 +1,5 @@
-﻿using MM.CAAM.Gestion.Models.Entidades;
+﻿using Microsoft.AspNetCore.Http;
+using MM.CAAM.Gestion.Models.Entidades;
 using MM.CAAM.Gestion.Services;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -51,9 +52,9 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaNacimiento { get; set; }
 
-        [DataType(DataType.Upload)]
+        //[DataType(DataType.Upload)]
         [Display(Name = "Imagén Perfil")]
-        public string PerfilNombreArchivo { get; set; }
+        public string? PerfilNombreArchivo { get; set; }
 
         public string PathImagenPerfil { get; set; }
 

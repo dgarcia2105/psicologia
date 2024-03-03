@@ -31,7 +31,7 @@
             <br />
             <div class="card">
                 <div class="card-body"> 
-                    <form method="post" onsubmit="return sendAjax();">
+                    <form method="post" onsubmit="return sendAjax();" enctype="multipart/form-data">
                         <div class="row  text-left">
                             <div class="col-sm-6 flex-column d-flex">
                                 <div class="form-group">
@@ -180,17 +180,17 @@
                                 <label>Estado</label>
                                 @Html.DropDownListFor(model => model.EstadoVidaId, (SelectList)ViewBag.ListEstadoVida, "[SELECCIONE.. ]", new { @class = "form-control" })
                             </div>
-                            @*<div class="form-group col-12">
+                            <div class="form-group col-12">
                                 @Html.LabelFor(model => model.PerfilNombreArchivo)
                                 @Html.EditorFor(model => model.PerfilNombreArchivo, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
                                 @Html.ValidationMessageFor(model => model.PerfilNombreArchivo, "", new { @class = "text-danger" })
-                                @if (!string.IsNullOrEmpty(Model.PerfilNombreArchivo))
+                                @*@if (!string.IsNullOrEmpty(Model.PerfilNombreArchivo))
                                 {
                                     <a href="@Html.Encode(Model.PathImagenPerfil)" target="_blank">
                                         <i class="fa fa-paperclip"></i> @Html.Encode(Model.PerfilNombreArchivo)
                                     </a>
-                                }
-                            </div>*@
+                                }*@
+                            </div>
                         </div>
                         <br />
                         <div class="row ">
@@ -229,9 +229,20 @@
         function sendAjax() {
             event.preventDefault();
             console.log($("form").serialize());
+            var perfilNombreArchivo = $('#PerfilNombreArchivo')[0].files[0];
+            //console.log(perfilNombreArchivo);
+            //console.log(@Model.PerfilNombreArchivo);
+            var url = "@Html.Raw(Url.Action("CrearUsuario", "Usuario", new{ id=@Model.Id}))"; //, file=Model.PerfilNombreArchivo
+
+            //var data = new FormData("file",$('#PerfilNombreArchivo')[0].files[0]);
+            //var formData = $("form").serialize();
+            //formData.append(new FormData("file", perfilNombreArchivo))
+            //if(1==0){
             $.ajax({
                 type: 'POST',
-                url: '@Url.Action("CrearUsuario", "Usuario", new{id=@Model.Id})',
+                url: url,
+                //processData: false,
+                //contentType: false,
                 data: $("form").serialize(),
                 dataType: 'json',
                 beforeSend: function () {
@@ -242,6 +253,29 @@
                     console.log("1");
                     console.log(data);
                     if (code => 200 && code < 299) {
+
+
+                        var formData = new FormData();                        
+                        var file = $('#PerfilNombreArchivo')[0].files[0];
+                        formData.append("file", file);
+                        formData.append("id", @Model.Id);
+
+                        var url = "@Html.Raw(Url.Action("SubirImagenPerfil", "Usuario"))";
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: formData,
+                            dataType: 'json',
+                            contentType: false,
+                            processData: false
+                        }).done(function () 
+                        { 
+                            //alert('success'); 
+                        }).
+                        fail(function (xhr, status, errorThrown) { 
+                            //alert('fail'); 
+                        });
+
 
                         window.location.replace("/Usuario/Index/");
                     }
@@ -262,14 +296,11 @@
                     else if (code => 500 && code < 599) {
                         Swal.fire({ icon: 'error', title: 'Oops...', text: data.responseJSON.message });
                     }
-
-
                     $('#btnEnviar').prop('disabled', false);
-
                     hideProgress();
                 }
             });
-
+            //}
         };
     </script>
 }

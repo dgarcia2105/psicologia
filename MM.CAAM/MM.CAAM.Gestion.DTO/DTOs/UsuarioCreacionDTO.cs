@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
@@ -43,7 +44,7 @@ namespace MM.CAAM.Gestion.DTO.DTOs
         [DataType(DataType.DateTime)]
         public DateTime? FechaNacimiento { get; set; }
 
-        [DataType(DataType.Upload)]
+        //[DataType(DataType.Upload)]
         public string? PerfilNombreArchivo { get; set; }
 
         public string? PathImagenPerfil { get; set; }

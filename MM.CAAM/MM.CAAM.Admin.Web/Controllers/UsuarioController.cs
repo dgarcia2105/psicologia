@@ -25,7 +25,7 @@ namespace MM.CAAM.Admin.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var Usuarios = await usuarioService.ObtenerListaUsuarios(); 
+            var Usuarios = await usuarioService.ObtenerListaUsuarios();
             var responseCookie = HttpContext.Request.Cookies[".AUTHCAAM"];
             var a = Com.Decryptor(responseCookie);
             var result = JsonConvert.DeserializeObject<UsuarioProfile>(a);
@@ -53,12 +53,12 @@ namespace MM.CAAM.Admin.Web.Controllers
 
             #region CATALOGOS
             var catalogos = await usuarioService.ObtenerCatalogos();
-            ViewBag.Generos = new SelectList( items: catalogos.ListGenero, dataValueField: nameof(Genero.Id), dataTextField: nameof(Genero.Descripcion), usuarioDto.GeneroId);
-            ViewBag.ListEstadoCivil = new SelectList( items: catalogos.ListEstadoCivil, dataValueField: nameof(EstadoCivil.Id), dataTextField: nameof(EstadoCivil.Descripcion), usuarioDto.EstadoCivilId);
-            ViewBag.ListTipoUsuario = new SelectList( items: catalogos.ListTipoUsuario, dataValueField: nameof(TipoUsuario.Id), dataTextField: nameof(TipoUsuario.Descripcion), usuarioDto.TipoUsuarioId);
-            ViewBag.ListGradoEducacion = new SelectList( items: catalogos.ListGradoEducacion, dataValueField: nameof(GradoEducacion.Id), dataTextField: nameof(GradoEducacion.Descripcion), usuarioDto.GradoEducacionId);
-            ViewBag.ListEstadoVida = new SelectList( items: catalogos.ListEstadoVida, dataValueField: nameof(EstadoVida.Id), dataTextField: nameof(EstadoVida.Descripcion), usuarioDto.EstadoVidaId);
-            ViewBag.Roles = new SelectList( items: catalogos.ListRol, dataValueField: nameof(Rol.Id), dataTextField: nameof(Rol.Descripcion), usuarioDto.RolId);
+            ViewBag.Generos = new SelectList(items: catalogos.ListGenero, dataValueField: nameof(Genero.Id), dataTextField: nameof(Genero.Descripcion), usuarioDto.GeneroId);
+            ViewBag.ListEstadoCivil = new SelectList(items: catalogos.ListEstadoCivil, dataValueField: nameof(EstadoCivil.Id), dataTextField: nameof(EstadoCivil.Descripcion), usuarioDto.EstadoCivilId);
+            ViewBag.ListTipoUsuario = new SelectList(items: catalogos.ListTipoUsuario, dataValueField: nameof(TipoUsuario.Id), dataTextField: nameof(TipoUsuario.Descripcion), usuarioDto.TipoUsuarioId);
+            ViewBag.ListGradoEducacion = new SelectList(items: catalogos.ListGradoEducacion, dataValueField: nameof(GradoEducacion.Id), dataTextField: nameof(GradoEducacion.Descripcion), usuarioDto.GradoEducacionId);
+            ViewBag.ListEstadoVida = new SelectList(items: catalogos.ListEstadoVida, dataValueField: nameof(EstadoVida.Id), dataTextField: nameof(EstadoVida.Descripcion), usuarioDto.EstadoVidaId);
+            ViewBag.Roles = new SelectList(items: catalogos.ListRol, dataValueField: nameof(Rol.Id), dataTextField: nameof(Rol.Descripcion), usuarioDto.RolId);
             #endregion
 
             return View(usuarioDto);
@@ -69,7 +69,7 @@ namespace MM.CAAM.Admin.Web.Controllers
         {
             try
             {
-                if(!string.IsNullOrEmpty(usuarioCreacionDto.Password))
+                if (!string.IsNullOrEmpty(usuarioCreacionDto.Password))
                 {
                     if (!usuarioCreacionDto.Password.Equals(usuarioCreacionDto.ConfirmarPassword))
                     {
@@ -87,7 +87,7 @@ namespace MM.CAAM.Admin.Web.Controllers
                 //}
                 //else
                 //    usuarioDto.PerfilNombreArchivo = null;
-                if(id > 0)
+                if (id > 0)
                 {
                     await usuarioService.ActualizarUsuario(usuarioCreacionDto, id);
                 }
@@ -95,7 +95,7 @@ namespace MM.CAAM.Admin.Web.Controllers
                 {
                     await usuarioService.InsertUsuario(usuarioCreacionDto);
                 }
-                return Ok(new Result { Code = StatusCodes.Status200OK});
+                return Ok(new Result { Code = StatusCodes.Status200OK });
             }
             catch (ValidationException ex)
             {
@@ -107,6 +107,12 @@ namespace MM.CAAM.Admin.Web.Controllers
                 var error = new ExceptionMessage(ex);
                 return StatusCode(StatusCodes.Status500InternalServerError, new Result { Code = StatusCodes.Status500InternalServerError, Message = error.MessageException });
             }
+        }
+
+        [HttpPost] //attribute to get posted values from HTML Form
+        public async Task<ActionResult> SubirImagenPerfil(IFormFile file, int id) //, HttpPostedFileBase PerfilNombreArchivo
+        {
+            return null;
         }
     }
 }
