@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Win.RichEdit" Version="22.1.8" />
+  </ItemGroup>
+
 </Project>
