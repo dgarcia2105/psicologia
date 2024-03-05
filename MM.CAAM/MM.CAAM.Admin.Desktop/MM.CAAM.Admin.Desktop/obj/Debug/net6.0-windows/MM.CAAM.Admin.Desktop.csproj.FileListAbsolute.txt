@@ -1,0 +1,17 @@
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\bin\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.exe
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\bin\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.deps.json
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\bin\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.runtimeconfig.json
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\bin\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\bin\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.pdb
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.csproj.AssemblyReference.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.Form1.resources
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.csproj.GenerateResource.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.AssemblyInfoInputs.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.AssemblyInfo.cs
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.csproj.CoreCompileInputs.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\refint\MM.CAAM.Admin.Desktop.dll
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.pdb
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\MM.CAAM.Admin.Desktop.genruntimeconfig.cache
+C:\Proyectos\psicologia\MM.CAAM\MM.CAAM.Admin.Desktop\MM.CAAM.Admin.Desktop\obj\Debug\net6.0-windows\ref\MM.CAAM.Admin.Desktop.dll
