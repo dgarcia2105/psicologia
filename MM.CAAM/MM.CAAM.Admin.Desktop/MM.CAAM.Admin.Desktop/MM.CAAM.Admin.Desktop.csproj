@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Win.RichEdit" Version="22.1.8" />
+    <PackageReference Include="DevExpress.Win.Design" Version="21.2.13" />
+    <PackageReference Include="DevExpress.Win.RichEdit" Version="21.2.13" />
   </ItemGroup>
 
 </Project>
